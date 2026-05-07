@@ -97,7 +97,7 @@
                         <div class="px-6 pt-5 pb-3 border-b border-bordercolor">
                             <span class="text-[10px] text-muted font-mono tracking-widest uppercase">Core Services</span>
                         </div>
-                        <ul class="grid grid-cols-2 gap-1 p-3">
+                        <ul class="grid grid-cols-2 gap-1 p-3 auto-rows-fr">
                             <li>
                                 <a href="services/operational-excellence.html" class="flex items-start gap-3 p-3 rounded-md hover:bg-base transition-colors">
                                     <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-md border border-bordercolor bg-base"><i class="ph ph-magnifying-glass text-accentdark text-lg"></i></div>
@@ -277,97 +277,79 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
                     <a href="services/operational-excellence.html" class="bg-surface border border-bordercolor rounded-md p-8 flex flex-col hover:border-accent transition-colors group">
-                        <div class="flex items-baseline justify-between mb-5">
-                            <span class="font-serif text-2xl md:text-3xl" style="color: #f19a51;">≥20%</span>
-                            <span class="text-[10px] uppercase tracking-widest text-muted">efficiency gain</span>
-                        </div>
-                        <h3 class="font-serif text-xl md:text-2xl text-text mb-2 group-hover:text-accentdark transition-colors">Operational Excellence aaS</h3>
-                        <p class="text-sm text-muted mb-5">Make your IT operations 20% more efficient.</p>
-                        <ul class="text-sm text-text space-y-2 mb-6 flex-1">
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Process &amp; landscape analysis</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Automation opportunity identification</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Operating model optimization</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Implementation roadmap</li>
+                        <h3 class="font-serif text-xl md:text-2xl text-text mb-3 group-hover:text-accentdark transition-colors">Operational Excellence aaS</h3>
+                        <p class="text-base text-text mb-5">Make your IT operations 20% more efficient.</p>
+                        <ul class="text-sm text-text space-y-2.5 mb-6 flex-1">
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Process &amp; landscape analysis</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Automation opportunity identification</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Operating model optimization</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Implementation roadmap</li>
+                            <li class="flex gap-2 pt-2 mt-2 border-t border-bordercolor"><i class="ph ph-target text-sm shrink-0 mt-1" style="color: #f19a51;"></i> <span class="font-bold" style="color: #f19a51;">≥20%</span> <span>efficiency gain</span></li>
                         </ul>
                         <span class="text-xs font-bold uppercase tracking-widest text-accentdark inline-flex items-center gap-2 mt-auto">Learn more <i class="ph ph-arrow-right"></i></span>
                     </a>
 
                     <a href="services/savings.html" class="bg-surface border border-bordercolor rounded-md p-8 flex flex-col hover:border-accent transition-colors group">
-                        <div class="flex items-baseline justify-between mb-5">
-                            <span class="font-serif text-2xl md:text-3xl" style="color: #f19a51;">10–40%</span>
-                            <span class="text-[10px] uppercase tracking-widest text-muted">vendor savings</span>
-                        </div>
-                        <h3 class="font-serif text-xl md:text-2xl text-text mb-2 group-hover:text-accentdark transition-colors">Savings aaS</h3>
-                        <p class="text-sm text-muted mb-5">Cut 10–40% from your IT vendor spend.</p>
-                        <ul class="text-sm text-text space-y-2 mb-6 flex-1">
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Contract &amp; spend analysis</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Vendor benchmarking</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Renegotiation strategy</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Savings realization tracking</li>
+                        <h3 class="font-serif text-xl md:text-2xl text-text mb-3 group-hover:text-accentdark transition-colors">Savings aaS</h3>
+                        <p class="text-base text-text mb-5">Cut 10–40% from your IT vendor spend.</p>
+                        <ul class="text-sm text-text space-y-2.5 mb-6 flex-1">
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Contract &amp; spend analysis</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Vendor benchmarking</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Renegotiation strategy</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Savings realization tracking</li>
+                            <li class="flex gap-2 pt-2 mt-2 border-t border-bordercolor"><i class="ph ph-target text-sm shrink-0 mt-1" style="color: #f19a51;"></i> <span class="font-bold" style="color: #f19a51;">10–40%</span> <span>vendor savings</span></li>
                         </ul>
                         <span class="text-xs font-bold uppercase tracking-widest text-accentdark inline-flex items-center gap-2 mt-auto">Learn more <i class="ph ph-arrow-right"></i></span>
                     </a>
 
                     <a href="services/vendor-consolidation.html" class="bg-surface border border-bordercolor rounded-md p-8 flex flex-col hover:border-accent transition-colors group">
-                        <div class="flex items-baseline justify-between mb-5">
-                            <span class="font-serif text-2xl md:text-3xl" style="color: #f19a51;">&gt;80%</span>
-                            <span class="text-[10px] uppercase tracking-widest text-muted">under top-5</span>
-                        </div>
-                        <h3 class="font-serif text-xl md:text-2xl text-text mb-2 group-hover:text-accentdark transition-colors">Service &amp; Vendor Consolidation aaS</h3>
-                        <p class="text-sm text-muted mb-5">Reduce vendor sprawl to a handful of strategic partners.</p>
-                        <ul class="text-sm text-text space-y-2 mb-6 flex-1">
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Vendor landscape mapping</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Make / buy / partner decisions</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Consolidation roadmap</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Target supplier architecture</li>
+                        <h3 class="font-serif text-xl md:text-2xl text-text mb-3 group-hover:text-accentdark transition-colors">Service &amp; Vendor Consolidation aaS</h3>
+                        <p class="text-base text-text mb-5">Reduce vendor sprawl to a handful of strategic partners.</p>
+                        <ul class="text-sm text-text space-y-2.5 mb-6 flex-1">
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Vendor landscape mapping</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Make / buy / partner decisions</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Consolidation roadmap</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Target supplier architecture</li>
+                            <li class="flex gap-2 pt-2 mt-2 border-t border-bordercolor"><i class="ph ph-target text-sm shrink-0 mt-1" style="color: #f19a51;"></i> <span class="font-bold" style="color: #f19a51;">&gt;80%</span> <span>under top-5 suppliers</span></li>
                         </ul>
                         <span class="text-xs font-bold uppercase tracking-widest text-accentdark inline-flex items-center gap-2 mt-auto">Learn more <i class="ph ph-arrow-right"></i></span>
                     </a>
 
                     <a href="services/complex-rfx.html" class="bg-surface border border-bordercolor rounded-md p-8 flex flex-col hover:border-accent transition-colors group">
-                        <div class="flex items-baseline justify-between mb-5">
-                            <span class="font-serif text-2xl md:text-3xl" style="color: #f19a51;">6–8 wks</span>
-                            <span class="text-[10px] uppercase tracking-widest text-muted">to RFP award</span>
-                        </div>
-                        <h3 class="font-serif text-xl md:text-2xl text-text mb-2 group-hover:text-accentdark transition-colors">Complex RFx aaS</h3>
-                        <p class="text-sm text-muted mb-5">Run structured IT tenders in 6–8 weeks, not 6 months.</p>
-                        <ul class="text-sm text-text space-y-2 mb-6 flex-1">
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Requirements engineering</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Market analysis &amp; RFI</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Structured tender process</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Negotiation &amp; award support</li>
+                        <h3 class="font-serif text-xl md:text-2xl text-text mb-3 group-hover:text-accentdark transition-colors">Complex RFx aaS</h3>
+                        <p class="text-base text-text mb-5">Run structured IT tenders in 6–8 weeks, not 6 months.</p>
+                        <ul class="text-sm text-text space-y-2.5 mb-6 flex-1">
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Requirements engineering</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Market analysis &amp; RFI</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Structured tender process</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Negotiation &amp; award support</li>
+                            <li class="flex gap-2 pt-2 mt-2 border-t border-bordercolor"><i class="ph ph-target text-sm shrink-0 mt-1" style="color: #f19a51;"></i> <span class="font-bold" style="color: #f19a51;">6–8 wks</span> <span>to RFP award</span></li>
                         </ul>
                         <span class="text-xs font-bold uppercase tracking-widest text-accentdark inline-flex items-center gap-2 mt-auto">Learn more <i class="ph ph-arrow-right"></i></span>
                     </a>
 
                     <a href="services/vendor-management.html" class="bg-surface border border-bordercolor rounded-md p-8 flex flex-col hover:border-accent transition-colors group">
-                        <div class="flex items-baseline justify-between mb-5">
-                            <span class="font-serif text-2xl md:text-3xl" style="color: #f19a51;">10–30%</span>
-                            <span class="text-[10px] uppercase tracking-widest text-muted">spend reduction</span>
-                        </div>
-                        <h3 class="font-serif text-xl md:text-2xl text-text mb-2 group-hover:text-accentdark transition-colors">Vendor Management aaS</h3>
-                        <p class="text-sm text-muted mb-5">Hold IT vendors accountable to what they signed.</p>
-                        <ul class="text-sm text-text space-y-2 mb-6 flex-1">
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Governance framework design</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> SLA &amp; performance management</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Contract lifecycle management</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Continuous optimization</li>
+                        <h3 class="font-serif text-xl md:text-2xl text-text mb-3 group-hover:text-accentdark transition-colors">Vendor Management aaS</h3>
+                        <p class="text-base text-text mb-5">Hold IT vendors accountable to what they signed.</p>
+                        <ul class="text-sm text-text space-y-2.5 mb-6 flex-1">
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Governance framework design</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> SLA &amp; performance management</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Contract lifecycle management</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Continuous optimization</li>
+                            <li class="flex gap-2 pt-2 mt-2 border-t border-bordercolor"><i class="ph ph-target text-sm shrink-0 mt-1" style="color: #f19a51;"></i> <span class="font-bold" style="color: #f19a51;">10–30%</span> <span>active spend reduction</span></li>
                         </ul>
                         <span class="text-xs font-bold uppercase tracking-widest text-accentdark inline-flex items-center gap-2 mt-auto">Learn more <i class="ph ph-arrow-right"></i></span>
                     </a>
 
                     <a href="https://managedsuppliers.com" target="_blank" rel="noopener" class="rounded-md p-8 flex flex-col hover:opacity-95 transition-opacity group" style="background-color: rgba(136, 201, 190, 0.18); border: 1px solid #88C9BE;">
-                        <div class="flex items-baseline justify-between mb-5">
-                            <span class="text-xs font-bold uppercase tracking-widest" style="color: #5FA99D;">SaaS</span>
-                            <span class="text-[10px] uppercase tracking-widest" style="color: #5FA99D;">platform</span>
-                        </div>
-                        <h3 class="font-serif text-xl md:text-2xl text-text mb-2 flex items-center gap-2 flex-wrap">managedsuppliers <i class="ph ph-arrow-up-right text-lg"></i></h3>
-                        <p class="text-sm text-muted mb-5">Manage every vendor relationship in one platform.</p>
-                        <ul class="text-sm text-text space-y-2 mb-6 flex-1">
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Real-time vendor dashboards</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> AI contract analysis</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Performance &amp; risk monitoring</li>
-                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-0.5"></i> Self-service governance</li>
+                        <h3 class="font-serif text-xl md:text-2xl text-text mb-3 flex items-center gap-2 flex-wrap">managedsuppliers <i class="ph ph-arrow-up-right text-lg"></i></h3>
+                        <p class="text-base text-text mb-5">Manage every vendor relationship in one platform.</p>
+                        <ul class="text-sm text-text space-y-2.5 mb-6 flex-1">
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Real-time vendor dashboards</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> AI contract analysis</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Performance &amp; risk monitoring</li>
+                            <li class="flex gap-2"><i class="ph ph-arrow-right text-accentdark text-sm shrink-0 mt-1"></i> Self-service governance</li>
+                            <li class="flex gap-2 pt-2 mt-2" style="border-top: 1px solid rgba(95, 169, 157, 0.3);"><i class="ph ph-cpu text-sm shrink-0 mt-1" style="color: #5FA99D;"></i> <span class="font-bold" style="color: #5FA99D;">SaaS platform</span></li>
                         </ul>
                         <span class="text-xs font-bold uppercase tracking-widest text-accentdark inline-flex items-center gap-2 mt-auto">managedsuppliers.com <i class="ph ph-arrow-up-right"></i></span>
                     </a>

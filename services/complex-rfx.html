@@ -34,7 +34,6 @@
         <a href="../contact.html" class="hidden md:inline-flex text-xs font-bold uppercase tracking-widest bg-text text-surface px-5 py-2.5 rounded-full">Contact Us</a>
         <button id="mobileMenuBtn" class="md:hidden w-9 h-9 flex items-center justify-center" aria-label="Toggle menu"><i class="ph ph-list text-2xl"></i></button>
     </nav>
-
     <div id="mobileMenu" class="hidden md:hidden border-b border-bordercolor bg-base px-6 py-4 space-y-2">
         <a href="../index.html#services" class="block py-2 text-sm font-bold uppercase tracking-widest">Services</a>
         <a href="../success-stories.html" class="block py-2 text-sm font-bold uppercase tracking-widest">Success Stories</a>
@@ -43,7 +42,7 @@
         <a href="../contact.html" class="block py-2 text-sm font-bold uppercase tracking-widest">Contact</a>
     </div>
 
-    <section class="bg-surface px-6 md:px-12 py-20 md:py-28 border-b border-bordercolor">
+    <section class="px-6 md:px-12 py-20 md:py-28 border-b border-bordercolor">
         <div class="max-w-6xl mx-auto">
             <a href="../index.html#services" class="text-xs uppercase tracking-widest text-text hover:text-accentdark inline-flex items-center gap-2 mb-12">
                 <i class="ph ph-arrow-left"></i> All services
@@ -56,7 +55,7 @@
                         <a href="../contact.html" class="inline-flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-widest text-surface px-6 py-3 rounded-full bg-text hover:bg-accentdark transition-colors">
                             Talk to us <i class="ph ph-arrow-right text-sm"></i>
                         </a>
-                        <a href="https://form.typeform.com/to/qmNOmu5v" target="_blank" rel="noopener" class="inline-flex items-center justify-center text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-full border border-bordercolor text-text hover:bg-base transition-colors">
+                        <a href="https://form.typeform.com/to/qmNOmu5v" target="_blank" rel="noopener" class="inline-flex items-center justify-center text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-full border border-bordercolor text-text hover:bg-surface transition-colors">
                             Take the assessment
                         </a>
                     </div>
@@ -69,7 +68,7 @@
         </div>
     </section>
 
-    <section class="bg-base px-6 md:px-12 py-20 md:py-24">
+    <section class="px-6 md:px-12 py-20 md:py-24 border-b border-bordercolor">
         <div class="max-w-6xl mx-auto">
             <h2 class="font-serif text-3xl md:text-5xl mb-14 max-w-3xl">What we do</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
@@ -105,7 +104,7 @@
         </div>
     </section>
 
-    <section class="bg-surface px-6 md:px-12 py-20 md:py-24 border-y border-bordercolor">
+    <section class="px-6 md:px-12 py-20 md:py-24 border-b border-bordercolor">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
             <div class="md:col-span-5">
                 <h2 class="font-serif text-3xl md:text-5xl">How we approach it</h2>
@@ -150,7 +149,7 @@
         </div>
     </section>
 
-    <section class="bg-base px-6 md:px-12 py-20 md:py-24">
+    <section class="px-6 md:px-12 py-20 md:py-24 border-b border-bordercolor">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center">
             <div class="md:col-span-7">
                 <p class="text-xs uppercase tracking-widest text-text font-bold mb-4">A recent result</p>
@@ -166,7 +165,7 @@
         </div>
     </section>
 
-    <section class="bg-surface px-6 md:px-12 py-20 md:py-24 border-t border-bordercolor">
+    <section class="px-6 md:px-12 py-20 md:py-24">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             <div class="md:col-span-7">
                 <h2 class="font-serif text-3xl md:text-4xl mb-4">Find out where you stand.</h2>
@@ -176,7 +175,7 @@
                 <a href="../contact.html" class="inline-flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-widest text-surface px-6 py-3 rounded-full bg-text hover:bg-accentdark transition-colors">
                     Contact Us <i class="ph ph-arrow-right text-sm"></i>
                 </a>
-                <a href="https://form.typeform.com/to/qmNOmu5v" target="_blank" rel="noopener" class="inline-flex items-center justify-center text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-full border border-bordercolor text-text hover:bg-base transition-colors">
+                <a href="https://form.typeform.com/to/qmNOmu5v" target="_blank" rel="noopener" class="inline-flex items-center justify-center text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-full border border-bordercolor text-text hover:bg-surface transition-colors">
                     Take the assessment
                 </a>
             </div>
@@ -227,9 +226,7 @@
     <script>
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
-        if (btn && menu) {
-            btn.addEventListener('click', () => menu.classList.toggle('hidden'));
-        }
+        if (btn && menu) { btn.addEventListener('click', () => menu.classList.toggle('hidden')); }
     </script>
 </body>
 </html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Complete Guide to IT Vendor Management (2026) — Aventario</title>
+    <meta name="description" content="A practical, field-tested guide to IT vendor management — what it is, why most organisations get it wrong, and the framework that actually works. Built from 500+ engagements and €3B in negotiated contract volume.">
+    <link rel="canonical" href="https://aventario.com/blog/it-vendor-management">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Complete Guide to IT Vendor Management (2026)">
+    <meta property="og:description" content="What IT vendor management really is, why it fails, and the framework that works — from 500+ engagements and €3B in contract volume.">
+    <meta property="og:url" content="https://aventario.com/blog/it-vendor-management">
+    <meta property="og:site_name" content="Aventario">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 55.42 55.2'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='11.43' y1='48.04' x2='37.22' y2='48.04' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23324a60'/%3E%3Cstop offset='.45' stop-color='%236a9a9b'/%3E%3Cstop offset='1' stop-color='%238dccc0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M37.22,40.94l-5.14-8.91c-.11-.19-.38-.19-.49,0l-5.14,8.91h10.78Z' fill='%238dccc0'/%3E%3Cpolygon points='11.43 55.15 37.22 40.94 26.44 40.94 16.64 46.19 15.81 47.62 11.51 55.06 11.43 55.15' fill='url(%23g)'/%3E%3Cpath d='M55.38,40.51l-7.53-13.05L32.08,.14c-.11-.19-.38-.19-.49,0L15.81,27.46.04,54.78c-.06,.1-.05,.21,0,.29,.05,.08,.13,.14,.24,.14H11.26c.1,0,.2-.05,.25-.14l4.3-7.45,.83-1.43,14.95-25.89c.11-.19,.38-.19,.49,0l11.83,20.49c.05,.09,.15,.14,.25,.14h10.98c.22,0,.36-.24,.25-.43Z' fill='%23324a60'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { base: '#FAFAF7', surface: '#FFFFFF', text: '#334b60', muted: '#5f768b', accent: '#88C9BE', accentdark: '#5FA99D', orange: '#f19a51', bordercolor: 'rgba(51, 75, 96, 0.12)' }, fontFamily: { serif: ['"Lato"', '-apple-system', 'sans-serif'], sans: ['"Lato"', '-apple-system', 'sans-serif'] } } } }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body { background-color: #FAFAF7; color: #334b60; font-family: 'Lato', -apple-system, sans-serif; font-weight: 400; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4, h5, .font-serif { font-family: 'Lato', -apple-system, sans-serif; font-weight: 900; letter-spacing: -0.015em; line-height: 1.1; }
+        .post-cover { background: linear-gradient(135deg, #334b60 0%, #50757f 50%, #88c9be 100%); }
+        .prose-aventario p { font-size: 1.125rem; line-height: 1.7; margin-bottom: 1.4rem; color: #334b60; }
+        .prose-aventario h2 { font-size: 1.875rem; margin-top: 3rem; margin-bottom: 1rem; }
+        .prose-aventario h3 { font-size: 1.375rem; margin-top: 2rem; margin-bottom: 0.75rem; }
+        .prose-aventario ul { margin-bottom: 1.4rem; padding-left: 1.5rem; }
+        .prose-aventario ul li { font-size: 1.125rem; line-height: 1.7; margin-bottom: 0.5rem; list-style: disc; color: #334b60; }
+        .prose-aventario ol { margin-bottom: 1.4rem; padding-left: 1.5rem; }
+        .prose-aventario ol li { font-size: 1.125rem; line-height: 1.7; margin-bottom: 0.6rem; list-style: decimal; color: #334b60; }
+        .prose-aventario a { color: #5FA99D; font-weight: 700; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+        .prose-aventario a:hover { color: #334b60; }
+        .prose-aventario blockquote { border-left: 3px solid #88C9BE; padding: 0.5rem 0 0.5rem 1.5rem; margin: 2rem 0; font-style: italic; color: #5f768b; }
+        .prose-aventario strong { font-weight: 900; color: #334b60; }
+        .pull-quote { background: #FFFFFF; border-top: 3px solid #88C9BE; border-bottom: 3px solid #88C9BE; padding: 1.75rem 1.5rem; margin: 2.5rem 0; }
+        .pull-quote p { font-size: 1.25rem; font-weight: 700; line-height: 1.4; color: #334b60; margin-bottom: 0.5rem; }
+        .pull-quote cite { font-size: 0.875rem; font-style: normal; color: #5f768b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Complete Guide to IT Vendor Management: Strategy, Frameworks & Best Practices (2026)",
+      "description": "A practical, field-tested guide to IT vendor management — what it is, why most organisations get it wrong, and the framework that actually works.",
+      "image": "https://aventario.com/blog/og-it-vendor-management.png",
+      "datePublished": "2026-05-07",
+      "dateModified": "2026-05-07",
+      "author": {
+        "@type": "Person",
+        "name": "Julian Robida",
+        "jobTitle": "Research Lead",
+        "worksFor": { "@type": "Organization", "name": "Aventario" }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Aventario",
+        "logo": { "@type": "ImageObject", "url": "https://aventario.com/logos/aventario-logo-CMYK.png" }
+      },
+      "mainEntityOfPage": "https://aventario.com/blog/it-vendor-management",
+      "mentions": [
+        { "@type": "Person", "name": "Markus Jaksch", "jobTitle": "COO", "worksFor": { "@type": "Organization", "name": "Aventario" } }
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-40 bg-base/95 backdrop-blur-sm border-b border-bordercolor px-6 md:px-12 py-4 flex justify-between items-center">
+        <a href="../index.html" class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 199.29 55.2" class="h-6"><g><path d="M37.22,40.94l-5.14-8.91c-.11-.19-.38-.19-.49,0l-5.14,8.91h10.78Z" fill="#8dccc0"/><polygon points="11.43 55.15 37.22 40.94 26.44 40.94 16.64 46.19 15.81 47.62 11.51 55.06 11.43 55.15" fill="#324a60"/><path d="M55.38,40.51l-7.53-13.05L32.08,.14c-.11-.19-.38-.19-.49,0L15.81,27.46.04,54.78c-.06,.1-.05,.21,0,.29,.05,.08,.13,.14,.24,.14H11.26c.1,0,.2-.05,.25-.14l4.3-7.45,.83-1.43,14.95-25.89c.11-.19,.38-.19,.49,0l11.83,20.49c.05,.09,.15,.14,.25,.14h10.98c.22,0,.36-.24,.25-.43Z" fill="#324a60"/></g></svg></a>
+        <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest font-bold items-center">
+            <a href="../index.html#services" class="hover:text-accentdark">Services</a>
+            <a href="../success-stories.html" class="hover:text-accentdark">Success Stories</a>
+            <a href="../blog.html" class="text-accentdark">Blog</a>
+            <a href="../about.html" class="hover:text-accentdark">About</a>
+            <a href="../contact.html" class="hover:text-accentdark">Contact</a>
+        </div>
+        <a href="../contact.html" class="hidden md:inline-flex text-xs font-bold uppercase tracking-widest bg-text text-surface px-5 py-2.5 rounded-full">Contact Us</a>
+    </nav>
+
+    <!-- ====== HERO ====== -->
+    <section class="bg-surface px-6 md:px-12 pt-16 md:pt-24 pb-12 border-b border-bordercolor">
+        <div class="max-w-3xl mx-auto">
+            <a href="../blog.html" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-text/60 hover:text-text mb-8"><i class="ph ph-arrow-left"></i> Back to blog</a>
+            <span class="inline-block text-xs uppercase tracking-widest font-bold px-3 py-1 rounded-full bg-text text-surface mb-6">Vendor management · Pillar</span>
+            <h1 class="font-serif text-4xl md:text-6xl mb-6">The complete guide to IT vendor management.</h1>
+            <p class="text-xl text-text/80 leading-relaxed mb-8">Strategy, frameworks, and what actually works — from 500+ engagements and €3B in negotiated contract volume.</p>
+            <div class="flex items-center gap-4 pt-4 border-t border-bordercolor">
+                <div class="w-12 h-12 rounded-full bg-text text-surface flex items-center justify-center text-sm font-bold">JR</div>
+                <div class="text-sm">
+                    <p class="font-bold text-text">Julian Robida</p>
+                    <p class="text-text/60">Research Lead · Aventario · 14 min read · 7 May 2026</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== COVER ====== -->
+    <section class="bg-base px-6 md:px-12 py-12">
+        <div class="max-w-4xl mx-auto post-cover aspect-[16/7] rounded-md"></div>
+    </section>
+
+    <!-- ====== ARTICLE ====== -->
+    <article class="bg-base px-6 md:px-12 pb-20">
+        <div class="max-w-3xl mx-auto prose-aventario">
+
+            <h2>What IT vendor management is, in one sentence.</h2>
+            <p>IT vendor management is the structured discipline by which an organisation selects, contracts, governs, and continuously optimises every relationship it has with external technology providers — from hyperscalers and ERP vendors down to the regional MSP nobody remembers signing.</p>
+            <p>It is not procurement. Procurement runs the tender; vendor management runs the marriage that follows. It is not service management either, though it borrows from both. The clue is in the lifecycle: vendor management starts the day a need is identified and ends the day the last invoice is paid on the last contract — sometimes a decade later.</p>
+
+            <h2>Why this is suddenly the conversation in every CIO's office.</h2>
+            <p>Three forces have collided. IT spend, in the average DACH mid-cap, has roughly doubled in seven years. Vendor counts have followed — most organisations we assess carry between 80 and 220 active IT suppliers. And the proportion of that spend going to "as-a-service" providers, where the lever to reduce cost is no longer a one-time negotiation but continuous governance, has crossed 60%.</p>
+            <p>The combination is brutal. More money, more vendors, more recurring commitments — managed, in most cases, by the same two or three people who managed twelve vendors in 2018. Something gives. Usually it is the governance: contracts auto-renew unread, SLAs go unmonitored, and the vendor who promised innovation becomes the vendor who shows up for the QBR with last year's slide deck.</p>
+
+            <div class="pull-quote">
+                <p>"Across our last 200 IT vendor management engagements, the single most reliable predictor of whether a contract delivers the savings on the term sheet is whether anyone was actually reading the SLA report twelve months later."</p>
+                <cite>— Markus Jaksch, COO, Aventario</cite>
+            </div>
+
+            <h2>The vendor management lifecycle, properly defined.</h2>
+            <p>Most published lifecycles have five stages. Ours has seven, because the two that get cut — onboarding and exit — are where the money actually moves.</p>
+            <ol>
+                <li><strong>Strategy & sourcing plan.</strong> What capability do we need, build vs buy, who are the credible providers, what's the budget envelope.</li>
+                <li><strong>Requirements & RFx.</strong> The structured tender. Done well in 6–8 weeks; done badly in 6 months.</li>
+                <li><strong>Contracting.</strong> SLA, OLA, exit clauses, change-request mechanics, benchmark rights.</li>
+                <li><strong>Onboarding & transition.</strong> The 90-day window where most of the value either lands or evaporates.</li>
+                <li><strong>Operational governance.</strong> Day-to-day ticket, SLA, and incident management.</li>
+                <li><strong>Strategic governance.</strong> QBRs, roadmap reviews, benchmark refreshes, renegotiation triggers.</li>
+                <li><strong>Renewal or exit.</strong> The decision point that determines whether you keep paying for legacy or move on.</li>
+            </ol>
+            <p>Each stage has its own owner, cadence, and artefact. Skip a stage — most commonly stage 5 or 6 — and the value of the contract decays predictably. We call the resulting curve the <strong>18-month governance decay</strong>: in the absence of active management, vendor performance drifts back toward the lowest-effort baseline within roughly eighteen months of go-live, regardless of contract terms.</p>
+
+            <h2>The Three-Tier Governance Model.</h2>
+            <p>Governance fails when it is run at one altitude. The model that works runs at three.</p>
+            <h3>Tier 1 — Operational.</h3>
+            <p>Weekly or fortnightly. Service desk leads on both sides. Tickets, incidents, SLA breaches, change requests. The agenda is concrete and small: what happened, what's blocked, what's next. This is where SLA reports get challenged before they harden into "agreed truth."</p>
+            <h3>Tier 2 — Managerial.</h3>
+            <p>Monthly. Service owners, account leads, finance representation. The agenda widens: scorecard, financial reconciliation, risk register, change-request pipeline. Tier 2 is where small problems either get solved or get escalated. If it doesn't exist, every issue eventually becomes a Tier 3 issue.</p>
+            <h3>Tier 3 — Strategic.</h3>
+            <p>Quarterly. CIO or sponsor on the client side, executive sponsor on the vendor side. Roadmap, innovation, contract evolution, relationship health. Most organisations only run Tier 3 — and then complain that vendors don't innovate.</p>
+            <p>The discipline is that nothing skips a tier. An operational issue that ends up on the CIO's desk is, by definition, a governance failure two tiers down.</p>
+
+            <h2>What goes wrong, in order of frequency.</h2>
+            <p>From the engagement archive, the same five failure modes account for the bulk of value leakage. They are mundane, which is exactly why they persist.</p>
+            <ul>
+                <li><strong>The auto-renewal trap.</strong> Notice periods missed, contracts roll forward at the original price, leverage gone for another two to five years. We routinely find 15–25% of a vendor portfolio in this state at first assessment.</li>
+                <li><strong>The unmonitored SLA.</strong> Vendor self-reports green; nobody compares the report to the underlying ticket data. Real availability is often a tier below contracted.</li>
+                <li><strong>The orphan contract.</strong> Original sponsor left two years ago. Nobody owns the vendor. Invoices clear because finance doesn't know what to challenge.</li>
+                <li><strong>The unused entitlement.</strong> Licences, support tiers, hours of professional services pre-paid and never consumed. Hidden in plain sight on every renewal proposal.</li>
+                <li><strong>The scope-creep migration.</strong> Original SOW for €X. Three change requests later, run rate is 1.6× the original price and nobody can quite trace why.</li>
+            </ul>
+
+            <h2>How to start: the 90-day vendor audit.</h2>
+            <p>Most CIOs we work with inherit the vendor landscape — they didn't build it, and they cannot fully see it. Before designing a target operating model, the first job is visibility.</p>
+            <ol>
+                <li><strong>Days 1–30 — Inventory.</strong> Pull every vendor with spend > €50k in the last twelve months from finance. Cross-reference with the contract repository (or assemble one if there isn't one). Expect to find 20–30% more vendors than anyone thought.</li>
+                <li><strong>Days 31–60 — Triage.</strong> For each vendor: contract end date, notice period, last benchmark, SLA report status, sponsor. Three columns: in control, at risk, opaque.</li>
+                <li><strong>Days 61–90 — Action plan.</strong> The "opaque" column gets a reading queue. The "at risk" column gets a renegotiation calendar. The "in control" column gets a governance cadence assigned. By day 90, you have a defensible map and a 12-month workplan.</li>
+            </ol>
+
+            <h2>What good looks like, measured.</h2>
+            <p>A mature IT vendor management capability shows up in five numbers, all of which can be tracked monthly:</p>
+            <ul>
+                <li><strong>Spend under management.</strong> Percentage of total IT spend covered by an active contract, an assigned owner, and a governance cadence. Best-in-class: > 90%. Typical first-assessment baseline: 55–70%.</li>
+                <li><strong>Benchmark currency.</strong> Percentage of strategic vendors benchmarked in the last 24 months. Best-in-class: 100%. Typical: under 30%.</li>
+                <li><strong>SLA verification rate.</strong> Percentage of monthly SLA reports independently verified against ticket data. Best-in-class: 100% for tier-1 vendors. Typical: 0%.</li>
+                <li><strong>Contract action lead time.</strong> Average days from "renewal trigger" to "decision documented." Best-in-class: 90+ days. Typical: missed window, rolled forward.</li>
+                <li><strong>Realised vs negotiated savings.</strong> What landed in the P&L vs what was promised at contract signature. Best-in-class: > 80%. Typical: 30–50%.</li>
+            </ul>
+
+            <h2>How Aventario approaches this.</h2>
+            <p>We are a boutique consultancy, not a managed-service factory. We bring the methodology — the seven-stage lifecycle, the three-tier governance model, the savings playbooks built on €3B of negotiated contract volume — and we run it shoulder-to-shoulder with your team. Many engagements end with the in-house team running the model independently; the ones that don't are the ones where the client deliberately keeps us in the seat as an outsourced vendor management office.</p>
+            <p>Either way, the output is the same: a vendor portfolio that is visible, governed, and producing the savings the contracts originally promised.</p>
+
+            <h2>FAQ.</h2>
+            <h3>What is IT vendor management?</h3>
+            <p>IT vendor management is the end-to-end discipline of selecting, contracting, governing, and optimising every external technology supplier across their full lifecycle — from initial qualification through renewal or exit.</p>
+            <h3>Is IT vendor management the same as procurement?</h3>
+            <p>No. Procurement typically owns the tender and the contract signature. Vendor management owns everything that happens before procurement is engaged (sourcing strategy) and after the contract is signed (onboarding, governance, renewal). In most organisations, the two functions need to be tightly coupled but they are not interchangeable.</p>
+            <h3>How many vendors should an IT organisation have?</h3>
+            <p>The right answer is "as few as can deliver the required capability without creating concentration risk." Across our engagements, top-5 strategic vendors typically deliver 70–85% of in-scope IT services in a healthy portfolio.</p>
+            <h3>What is the biggest mistake in IT vendor management?</h3>
+            <p>Treating contract signature as the end of the work. The contract is the starting line. Without active governance through the lifecycle, even an excellent contract under-delivers within 12–18 months.</p>
+
+            <hr class="my-12 border-bordercolor">
+            <p class="text-sm text-text/60">Julian Robida is Research Lead at Aventario. Markus Jaksch (COO) contributed expert input drawn from 25+ years of running IT vendor portfolios across pharma, automotive, and financial services. Aventario is a boutique consultancy in Vienna; we have negotiated over €3B in IT contract volume and run more than 500 engagements across DACH and beyond.</p>
+
+            <div class="mt-12 p-8 bg-surface border border-bordercolor rounded-md">
+                <p class="text-xs uppercase tracking-widest text-text font-bold mb-3">Related reading</p>
+                <ul class="space-y-2">
+                    <li><a href="it-vendor-spend-optimization">IT vendor spend optimization: how to recover 10–40% of your IT budget</a></li>
+                    <li><a href="it-vendor-governance">The framework that keeps vendors accountable after the contract is signed</a></li>
+                    <li><a href="it-vendor-consolidation">From 47 vendors to 5 strategic partners</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </article>
+
+    <!-- ====== CTA ====== -->
+    <section class="px-6 md:px-12 py-20" style="background-color: #334b60; color: #FFFFFF;">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="font-serif text-3xl md:text-4xl text-surface mb-4">Run a 90-day vendor audit with us.</h2>
+            <p class="text-lg leading-relaxed mb-8" style="color: rgba(255,255,255,0.75);">Visibility first, action second. We bring the methodology and the benchmark data; you keep the result.</p>
+            <a href="../contact.html" class="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-widest px-8 py-4 rounded-full" style="background-color: #f19a51; color: #FFFFFF;">Get in touch <i class="ph ph-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="bg-text text-surface px-6 md:px-12 py-16">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
+                <div class="md:col-span-5">
+                    <p class="font-serif text-2xl mb-3">Aventario</p>
+                    <p class="text-sm text-surface/60 max-w-sm">Cost &amp; value optimization for IT and supply chain. We own the outcome, not just the hours.</p>
+                </div>
+                <div class="md:col-span-3">
+                    <p class="text-xs uppercase tracking-widest text-surface/40 mb-4 font-bold">Contact</p>
+                    <ul class="space-y-2 text-sm text-surface/80">
+                        <li><a href="mailto:office@aventario.com" class="hover:text-accent">office@aventario.com</a></li>
+                        <li>Tuchlauben 7a, 1010 Vienna</li>
+                        <li>+43 134 3354012</li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <p class="text-xs uppercase tracking-widest text-surface/40 mb-4 font-bold">Services</p>
+                    <ul class="space-y-2 text-sm text-surface/80">
+                        <li><a href="../services/savings.html" class="hover:text-accent">Savings</a></li>
+                        <li><a href="../services/complex-rfx.html" class="hover:text-accent">Complex RFx</a></li>
+                        <li><a href="../services/vendor-management.html" class="hover:text-accent">Vendor Management</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <p class="text-xs uppercase tracking-widest text-surface/40 mb-4 font-bold">Company</p>
+                    <ul class="space-y-2 text-sm text-surface/80">
+                        <li><a href="../about.html" class="hover:text-accent">About</a></li>
+                        <li><a href="../success-stories.html" class="hover:text-accent">Success Stories</a></li>
+                        <li><a href="../blog.html" class="hover:text-accent">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-surface/10 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs text-surface/40 gap-2">
+                <p>&copy; 2026 Aventario Services GmbH</p>
+                <div class="flex gap-6">
+                    <a href="../impressum.html" class="hover:text-surface">Imprint</a>
+                    <a href="../datenschutz.html" class="hover:text-surface">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

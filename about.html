@@ -3,662 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us — Aventario</title>
-    <meta name="description" content="We transform strategies into results — with structure, pragmatism, and measurable impact. Meet the Aventario leadership team.">
-    <link rel="canonical" href="https://aventario.com/about">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="About Us — Aventario">
-    <meta property="og:description" content="We transform strategies into results — with structure, pragmatism, and measurable impact.">
-    <meta property="og:url" content="https://aventario.com/about">
-    <meta property="og:site_name" content="Aventario">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About Us — Aventario">
-    <meta name="twitter:description" content="We transform strategies into results — with structure, pragmatism, and measurable impact.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 55.42 55.2'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='11.43' y1='48.04' x2='37.22' y2='48.04' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23324a60'/%3E%3Cstop offset='.45' stop-color='%236a9a9b'/%3E%3Cstop offset='1' stop-color='%238dccc0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M37.22,40.94l-5.14-8.91c-.11-.19-.38-.19-.49,0l-5.14,8.91h10.78Z' fill='%238dccc0'/%3E%3Cpolygon points='11.43 55.15 37.22 40.94 26.44 40.94 16.64 46.19 15.81 47.62 11.51 55.06 11.43 55.15' fill='url(%23g)'/%3E%3Cpath d='M55.38,40.51l-7.53-13.05L32.08.14c-.11-.19-.38-.19-.49,0L15.81,27.46.04,54.78c-.06.1-.05.21,0,.29.05.08.13.14.24.14H11.26c.1,0,.2-.05.25-.14l4.3-7.45.83-1.43,14.95-25.89c.11-.19.38-.19.49,0l11.83,20.49c.05.09.15.14.25.14h10.98c.22,0,.36-.24.25-.43Z' fill='%23324a60'/%3E%3C/svg%3E">
-
-    <!-- Fonts: Lato (400 regular, 900 black) -->
+    <title>About — Aventario</title>
+    <meta name="description" content="Aventario is a Vienna-based consultancy. We sell the outcome, not the hours. 25+ years, 500+ projects, €3B+ in negotiated contracts.">
+    <link rel="canonical" href="https://aventario.com/about.html">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 55.42 55.2'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='11.43' y1='48.04' x2='37.22' y2='48.04' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23324a60'/%3E%3Cstop offset='.45' stop-color='%236a9a9b'/%3E%3Cstop offset='1' stop-color='%238dccc0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M37.22,40.94l-5.14-8.91c-.11-.19-.38-.19-.49,0l-5.14,8.91h10.78Z' fill='%238dccc0'/%3E%3Cpolygon points='11.43 55.15 37.22 40.94 26.44 40.94 16.64 46.19 15.81 47.62 11.51 55.06 11.43 55.15' fill='url(%23g)'/%3E%3Cpath d='M55.38,40.51l-7.53-13.05L32.08,.14c-.11-.19-.38-.19-.49,0L15.81,27.46.04,54.78c-.06,.1-.05,.21,0,.29,.05,.08,.13,.14,.24,.14H11.26c.1,0,.2-.05,.25-.14l4.3-7.45,.83-1.43,14.95-25.89c.11-.19,.38-.19,.49,0l11.83,20.49c.05,.09,.15,.14,.25,.14h10.98c.22,0,.36-.24,.25-.43Z' fill='%23324a60'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS (CDN for minimal setup) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        base: '#FAFAF7',
-                        surface: '#FFFFFF',
-                        text: '#334b60',
-                        muted: '#5f768b',
-                        accent: '#88C9BE',
-                        accentdark: '#5FA99D',
-                        bordercolor: 'rgba(51, 75, 96, 0.12)'
-                    },
-                    fontFamily: {
-                        serif: ['"Lato"', '-apple-system', 'sans-serif'],
-                        sans: ['"Lato"', '-apple-system', 'sans-serif'],
-                    }
-                }
-            }
-        }
+        tailwind.config = { theme: { extend: { colors: { base: '#FAFAF7', surface: '#FFFFFF', text: '#334b60', muted: '#5f768b', accent: '#88C9BE', accentdark: '#5FA99D', orange: '#f19a51', bordercolor: 'rgba(51, 75, 96, 0.12)' }, fontFamily: { serif: ['"Lato"', '-apple-system', 'sans-serif'], sans: ['"Lato"', '-apple-system', 'sans-serif'] } } } }
     </script>
-
-    <!-- GSAP for Animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
     <style>
-        /* 1. Strict Art Direction & Global Styling */
-        body {
-            background-color: #FAFAF7;
-            color: #334b60;
-            font-family: 'Lato', -apple-system, sans-serif;
-            font-weight: 400;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        h1, h2, h3, h4, h5, h6, .font-serif {
-            font-family: 'Lato', -apple-system, sans-serif;
-            font-weight: 900; /* Lato Black */
-            letter-spacing: -0.015em;
-            line-height: 1.05;
-            padding-bottom: 0.08em; /* guarantee descender clearance */
-        }
-
-        .overflow-hidden-wrapper {
-            overflow: visible !important; /* prevent descender clipping */
-        }
-
-        /* 2. Global Effects & Architecture */
-        .noise-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            opacity: 0.012;
-            pointer-events: none;
-            z-index: 100;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-
-        /* Baseline Grid Lines */
-        .grid-lines {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            display: flex;
-            justify-content: space-evenly;
-            pointer-events: none;
-            z-index: -1;
-        }
-        .grid-line {
-            width: 1px;
-            height: 100vh;
-            background-color: rgba(28, 27, 26, 0.04);
-            transform-origin: top;
-            transform: scaleY(0);
-        }
-
-        /* Giant Background Text */
-        .bg-text-giant {
-            position: absolute;
-            top: 15vh;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 25vw;
-            opacity: 0.02;
-            z-index: -2;
-            white-space: nowrap;
-            overflow: hidden;
-            pointer-events: none;
-        }
+        body { background-color: #FAFAF7; color: #334b60; font-family: 'Lato', -apple-system, sans-serif; font-weight: 400; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4, h5, .font-serif { font-family: 'Lato', -apple-system, sans-serif; font-weight: 900; letter-spacing: -0.015em; line-height: 1.05; }
     </style>
 </head>
-<body class="selection:bg-accent selection:text-white">
+<body>
 
-    <!-- Global Noise & Architecture -->
-    <div class="noise-overlay"></div>
-    <div class="grid-lines">
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-    </div>
-
-    <div class="bg-text-giant font-serif" id="bg-text-parallax">AVENTARIO</div>
-
-    <!-- Navbar -->
-    <nav id="mainNav" class="fixed top-0 w-full z-40 px-6 py-6 transition-all duration-300 text-text flex justify-between items-center interactable">
-        <div class="flex items-center">
-            <a href="index.html">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 199.29 55.2" class="h-6 md:h-7"><defs><linearGradient id="nav-grad" x1="11.43" y1="48.04" x2="37.22" y2="48.04" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#324a60"/><stop offset=".22" stop-color="#50757f"/><stop offset=".45" stop-color="#6a9a9b"/><stop offset=".67" stop-color="#7db5af"/><stop offset=".86" stop-color="#88c6bb"/><stop offset="1" stop-color="#8dccc0"/></linearGradient></defs><g><path d="M37.22,40.94l-5.14-8.91c-.11-.19-.38-.19-.49,0l-5.14,8.91h10.78Z" fill="#8dccc0"/><g><polygon points="11.43 55.15 37.22 40.94 26.44 40.94 16.64 46.19 15.81 47.62 11.51 55.06 11.43 55.15" fill="url(#nav-grad)"/><path d="M55.38,40.51l-7.53-13.05L32.08,.14c-.11-.19-.38-.19-.49,0L15.81,27.46.04,54.78c-.06,.1-.05,.21,0,.29,.05,.08,.13,.14,.24,.14H11.26c.1,0,.2-.05,.25-.14l4.3-7.45,.83-1.43,14.95-25.89c.11-.19,.38-.19,.49,0l11.83,20.49c.05,.09,.15,.14,.25,.14h10.98c.22,0,.36-.24,.25-.43Z" fill="#324a60"/></g><g><path d="M86.05,40.9h-5.18c-.14,0-.26-.09-.3-.22l-1.09-3.31c-.04-.11-.13-.18-.25-.18h-6.41c-.11,0-.21,.07-.25,.18l-1.1,3.35c-.04,.11-.13,.18-.25,.18h-5.22c-.18,0-.31-.18-.24-.35l7.7-20.43c.05-.13,.17-.21,.31-.21h4.54c.12,0,.23,.07,.27,.19l7.71,20.46c.06,.17-.06,.35-.24,.35Zm-8.16-8.34l-1.61-4.89c-.08-.24-.42-.24-.51,0l-1.61,4.9c-.06,.17,.07,.34,.24,.34h3.24c.18,0,.31-.18,.25-.35Z" fill="#324a60"/><path d="M99.59,25.15l-5.48,15.35c-.04,.1-.13,.17-.24,.17h-4.63c-.11,0-.2-.07-.24-.17l-5.48-15.35c-.06-.17,.06-.34,.24-.34h4.42c.11,0,.2,.07,.24,.17l3.14,8.8,3.14-8.8c.04-.1,.13-.17,.24-.17h4.42c.18,0,.3,.17,.24,.34Z" fill="#324a60"/><path d="M116.31,32.86c0,.46-.05,1-.14,1.47-.02,.12-.13,.21-.25,.21h-11.11c-.2,0-.32,.21-.22,.38,.68,1.16,1.9,1.88,3.25,1.88,1.15,0,2.22-.5,2.98-1.48,.06-.08,.15-.11,.25-.1l4.25,.76c.16,.03,.26,.21,.18,.36-.1,.2-.22,.45-.29,.57h0s-.07,.12-.07,.12c-.06,.11-.13,.22-.21,.34-.1,.15-.19,.28-.28,.4l-.05,.07h0s-.06,.08-.09,.12l-.05,.06c-.06,.07-.12,.14-.17,.21l-.05,.06c-.09,.11-.19,.21-.29,.31l-.06,.06c-.07,.07-.13,.13-.2,.2l-.02,.02c-.07,.07-.15,.14-.23,.21l-.08,.07-.1-.08,.08,.09c-.12,.1-.23,.19-.34,.27l-.1,.07c-.13,.1-.26,.19-.4,.28l-.04,.02c-.16,.1-.31,.19-.47,.28l-.05,.03s-.08,.04-.12,.06h-.03c-.07,.05-.14,.09-.21,.12l-.04,.02c-.15,.07-.29,.14-.43,.19h-.03c-.1,.05-.18,.08-.26,.11l-.1,.04c-.1,.04-.21,.07-.31,.11h-.02c-.11,.04-.23,.07-.37,.11l-.1,.02c-.24,.06-.48,.11-.72,.15h-.09c-.26,.05-.51,.08-.76,.09h-.09c-.15,.01-.27,.01-.39,.01s-.25,0-.39,0c-.03,0-.06,0-.09,0h-.03c-.1,0-.19-.01-.29-.02h-.03s-.06,0-.08-.01c-.14-.01-.26-.03-.37-.05h0s0,0,0,0h-.07c-.1-.03-.2-.04-.31-.07l-.11-.02c-.09-.02-.18-.04-.27-.06h-.03s-.05-.02-.08-.03c-.13-.03-.25-.07-.36-.1-.12-.04-.24-.08-.35-.12-.03,0-.05-.02-.08-.03h-.02c-.08-.04-.17-.07-.25-.11h-.02s-.05-.03-.08-.04c-.11-.05-.22-.1-.33-.15h-.01c-.1-.05-.21-.11-.32-.17-.02-.01-.05-.03-.08-.04h-.02c-.08-.05-.16-.1-.23-.14l-.09-.06c-.1-.06-.21-.13-.31-.19-1-.67-1.87-1.56-2.5-2.58-.05-.08-.1-.17-.15-.26l-.02-.04c-.05-.08-.09-.17-.14-.26l-.02-.05s-.03-.05-.04-.08c-.16-.32-.3-.67-.42-1.02-.07-.2-.12-.37-.16-.52-.03-.13-.07-.27-.09-.4-.08-.41-.14-.83-.16-1.25,0-.14-.01-.28-.01-.43s0-.29,.01-.43c.04-.74,.18-1.47,.41-2.17,.08-.23,.16-.44,.24-.63,.05-.11,.1-.22,.15-.33,.01-.03,.03-.05,.04-.08l.03-.06s.02-.05,.04-.08c.01-.03,.03-.05,.04-.08l.07-.13c.06-.11,.12-.21,.18-.31,.63-1.02,1.49-1.91,2.5-2.58,.1-.07,.2-.13,.31-.19l.09-.06c.08-.05,.16-.09,.23-.13h.02s.05-.04,.08-.05c.11-.06,.22-.11,.33-.16,.11-.05,.22-.1,.34-.15,.03-.01,.05-.02,.08-.03h.02c.08-.04,.17-.08,.25-.11h.02s.05-.03,.08-.04c.12-.04,.23-.08,.35-.12,.12-.04,.24-.07,.36-.1,.03,0,.05-.01,.08-.02h.03c.09-.03,.18-.05,.27-.07h.06c.11-.04,.29-.07,.4-.09h.02s0,0,0,0h0c.11-.02,.23-.03,.37-.05,.03,0,.06,0,.08,0h.03c.09-.01,.19-.02,.29-.02h.02s.06,0,.09,0c.15,0,.27,0,.39,0s.24,0,.38,0h.09c.26,.02,.51,.04,.76,.08l.1,.02c.24,.04,.48,.09,.72,.14l.1,.03c.13,.04,.25,.07,.36,.1h.02c.11,.04,.21,.08,.32,.11,.03,.01,.06,.02,.1,.03,.09,.04,.18,.07,.26,.1l.04,.02c.14,.06,.28,.12,.43,.19l.04,.02c.07,.04,.14,.07,.2,.1h.02s-.05,.12-.05,.12l.07-.11s.08,.04,.12,.06c.14,.08,.37,.22,.51,.3h.02c.15,.11,.29,.2,.42,.3l.02,.02s.05,.04,.08,.06c.12,.09,.23,.18,.34,.28l.07,.06c.09,.07,.17,.15,.26,.23l.02,.02c.07,.06,.13,.13,.2,.2l.05,.05c.11,.11,.2,.21,.29,.31l-.08,.1,.1-.08,.04,.05c.06,.07,.11,.13,.17,.2l.05,.07c.06,.08,.13,.16,.19,.25h0c.05,.08,.1,.15,.15,.22l.09,.14c.04,.06,.08,.12,.12,.18l.16,.26h0c.31,.55,.56,1.13,.74,1.72,.23,.76,.34,1.55,.34,2.34Zm-4.96-2.1c-.2-1.17-1.55-2.08-3.27-2.08-1.56,0-3.05,.9-3.27,2.08-.03,.16,.09,.3,.25,.3h6.04c.16,0,.28-.14,.25-.3Z" fill="#324a60"/><path d="M132.6,31.49v8.92c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-8.67c0-.59-.03-1.26-.28-1.81-.11-.23-.26-.42-.44-.56-.3-.23-.68-.35-1.17-.35-.91,0-1.62,.31-1.84,.82-.26,.55-.26,1.3-.26,1.9v8.67c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v.43c0,.1,.11,.16,.2,.1,3.57-2.46,7.05,.27,7.08,.3,.13,.1,.25,.21,.36,.31h0c1.62,1.63,1.89,2.94,1.89,5.28Z" fill="#324a60"/><path d="M143.71,36.84l-.57,3.75c-.02,.12-.12,.21-.24,.21-.54,.03-2,.11-2.44,.11-.04,0-.06,0-.09,0-2.69-.14-4.12-1.52-4.12-4v-7.61c0-.14-.11-.25-.25-.25h-1.65c-.14,0-.25-.11-.25-.25v-3.75c0-.14,.11-.25,.25-.25h1.65c.14,0,.25-.11,.25-.25v-4.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v4.35c0,.14,.11,.25,.25,.25h1.65c.14,0,.25,.11,.25,.25v3.75c0,.14-.11,.25-.25,.25h-1.65c-.14,0-.25,.11-.25,.25,0,1.32,0,5.21,0,5.25v.11c-.02,.48-.04,1.14,.34,1.54,.23,.23,.58,.35,1.05,.35h.86c.15,0,.27,.14,.25,.29Z" fill="#324a60"/><path d="M162.83,25.06v15.35c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-.23c0-.1-.11-.16-.19-.11-1.27,.72-2.71,1.1-4.18,1.1-4.64,0-8.42-3.73-8.42-8.3s3.78-8.3,8.42-8.3c1.47,0,2.91,.38,4.18,1.1,.08,.05,.19-.01,.19-.11v-.48c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Zm-4.94,7.8c0-2.1-1.48-3.81-3.61-3.81s-3.86,1.71-3.86,3.81,1.73,3.81,3.86,3.81,3.61-1.71,3.61-3.81Z" fill="#324a60"/><path d="M174.13,25.08l-.15,3.71c0,.15-.13,.26-.28,.24-.43-.04-1.3-.1-1.81,.03-.57,.14-.9,.58-1,.79-.26,.55-.26,1.03-.26,1.65v8.92c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v.44c0,.1,.11,.16,.19,.11,1.05-.65,2.29-.79,3.34-.8,.15,0,.26,.12,.26,.26Z" fill="#324a60"/><path d="M181.06,20.07v3.24c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-3.24c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Zm0,4.99v15.35c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Z" fill="#324a60"/><path d="M199.29,32.87c0,4.58-3.78,8.3-8.42,8.3s-8.42-3.73-8.42-8.3,3.78-8.3,8.42-8.3,8.42,3.73,8.42,8.3Zm-4.75,0c0-2-1.65-3.62-3.67-3.62s-3.67,1.62-3.67,3.62,1.65,3.62,3.67,3.62,3.67-1.62,3.67-3.62Z" fill="#324a60"/></g></g></svg>
-            </a>
+    <nav class="sticky top-0 z-40 bg-base/95 backdrop-blur-sm border-b border-bordercolor px-6 md:px-12 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 199.29 55.2" class="h-6"><g><path d="M37.22,40.94l-5.14-8.91c-.11-.19-.38-.19-.49,0l-5.14,8.91h10.78Z" fill="#8dccc0"/><polygon points="11.43 55.15 37.22 40.94 26.44 40.94 16.64 46.19 15.81 47.62 11.51 55.06 11.43 55.15" fill="#324a60"/><path d="M55.38,40.51l-7.53-13.05L32.08,.14c-.11-.19-.38-.19-.49,0L15.81,27.46.04,54.78c-.06,.1-.05,.21,0,.29,.05,.08,.13,.14,.24,.14H11.26c.1,0,.2-.05,.25-.14l4.3-7.45,.83-1.43,14.95-25.89c.11-.19,.38-.19,.49,0l11.83,20.49c.05,.09,.15,.14,.25,.14h10.98c.22,0,.36-.24,.25-.43Z" fill="#324a60"/></g></svg></a>
+        <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest font-bold items-center">
+            <a href="index.html#services" class="hover:text-accentdark">Services</a>
+            <a href="success-stories.html" class="hover:text-accentdark">Success Stories</a>
+            <a href="blog.html" class="hover:text-accentdark">Blog</a>
+            <a href="about.html" class="text-accentdark">About</a>
+            <a href="contact.html" class="hover:text-accentdark">Contact</a>
         </div>
-        <div class="hidden md:flex space-x-10 text-xs uppercase tracking-widest font-bold items-center">
-            <!-- Core Services Mega Menu -->
-            <div class="group relative py-4">
-                <a href="index.html#services" class="hover:text-accent transition-colors flex items-center gap-2 cursor-pointer">
-                    Services <i class="ph ph-caret-down text-[10px]"></i>
-                </a>
-                <div class="absolute top-full left-1/2 -translate-x-1/2 w-[980px] bg-surface border border-bordercolor shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 rounded-md overflow-hidden z-50 flex">
-                    <!-- Left: 6 core services -->
-                    <div class="flex-1">
-                        <div class="px-6 pt-5 pb-3 border-b border-bordercolor">
-                            <span class="text-[10px] text-muted font-mono tracking-widest uppercase">// Core Services</span>
-                        </div>
-                        <ul class="grid grid-cols-2 gap-1 p-3">
-                            <li>
-                                <a href="index.html#svc-op-excellence" class="flex items-start gap-3 p-3 rounded-md hover:bg-base transition-colors">
-                                    <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-md border border-bordercolor bg-base"><i class="ph ph-magnifying-glass text-accentdark text-lg"></i></div>
-                                    <div class="normal-case tracking-normal">
-                                        <div class="text-sm font-bold text-text">Operational Excellence aaS</div>
-                                        <div class="text-[11px] text-muted mt-0.5">Make your IT operations 20% more efficient.</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#svc-savings" class="flex items-start gap-3 p-3 rounded-md hover:bg-base transition-colors">
-                                    <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-md border border-bordercolor bg-base"><i class="ph ph-currency-eur text-accentdark text-lg"></i></div>
-                                    <div class="normal-case tracking-normal">
-                                        <div class="text-sm font-bold text-text">Savings aaS</div>
-                                        <div class="text-[11px] text-muted mt-0.5">Cut 10-40% from your IT vendor spend.</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#svc-consolidation" class="flex items-start gap-3 p-3 rounded-md hover:bg-base transition-colors">
-                                    <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-md border border-bordercolor bg-base"><i class="ph ph-squares-four text-accentdark text-lg"></i></div>
-                                    <div class="normal-case tracking-normal">
-                                        <div class="text-sm font-bold text-text">Service &amp; Vendor Consolidation aaS</div>
-                                        <div class="text-[11px] text-muted mt-0.5">Reduce vendor complexity to a few strategic partners.</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#svc-rfx" class="flex items-start gap-3 p-3 rounded-md hover:bg-base transition-colors">
-                                    <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-md border border-bordercolor bg-base"><i class="ph ph-scales text-accentdark text-lg"></i></div>
-                                    <div class="normal-case tracking-normal">
-                                        <div class="text-sm font-bold text-text">Complex RFx aaS</div>
-                                        <div class="text-[11px] text-muted mt-0.5">Run structured IT tenders in weeks, not months.</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#svc-vm" class="flex items-start gap-3 p-3 rounded-md hover:bg-base transition-colors">
-                                    <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-md border border-bordercolor bg-base"><i class="ph ph-shield-check text-accentdark text-lg"></i></div>
-                                    <div class="normal-case tracking-normal">
-                                        <div class="text-sm font-bold text-text">Vendor Management aaS</div>
-                                        <div class="text-[11px] text-muted mt-0.5">Make sure your vendors deliver what they promised.</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://managedsuppliers.com" target="_blank" rel="noopener" class="flex items-start gap-3 p-3 rounded-md hover:bg-base transition-colors">
-                                    <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-md border border-bordercolor bg-base"><i class="ph ph-cpu text-accentdark text-lg"></i></div>
-                                    <div class="normal-case tracking-normal">
-                                        <div class="text-sm font-bold text-text flex items-center gap-1">managedsuppliers <i class="ph ph-arrow-up-right text-muted text-xs"></i></div>
-                                        <div class="text-[11px] text-muted mt-0.5">Manage all your vendor relationships in one platform.</div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="px-6 py-3 bg-base/70 border-t border-bordercolor text-[11px] text-muted font-sans normal-case tracking-normal">
-                            Not sure where to start? <a href="https://form.typeform.com/to/qmNOmu5v" target="_blank" rel="noopener" class="text-accentdark font-bold hover:underline">Take the Vendor Maturity Assessment &rarr;</a>
-                        </div>
-                    </div>
-                    <!-- Right: Delivery Backbone sidebar (green accent) -->
-                    <aside class="w-[280px] shrink-0 border-l border-bordercolor p-5" style="background-color: rgba(136, 201, 190, 0.08);">
-                        <span class="text-[10px] font-mono tracking-widest uppercase block mb-1" style="color: #5FA99D;">// Support Services</span>
-                        <p class="text-[11px] normal-case tracking-normal mb-4" style="color: #5FA99D;">Embedded in every engagement.</p>
-                        <ul class="space-y-3">
-                            <li>
-                                <a href="index.html#sup-pm" class="block group/ds">
-                                    <div class="text-sm font-bold normal-case tracking-normal flex items-center gap-2" style="color: #5FA99D;"><i class="ph ph-kanban text-base"></i> Program &amp; Project Management</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#sup-change" class="block group/ds">
-                                    <div class="text-sm font-bold normal-case tracking-normal flex items-center gap-2" style="color: #5FA99D;"><i class="ph ph-users-three text-base"></i> Change &amp; Communication</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#sup-transition" class="block group/ds">
-                                    <div class="text-sm font-bold normal-case tracking-normal flex items-center gap-2" style="color: #5FA99D;"><i class="ph ph-arrows-left-right text-base"></i> Transition Management</div>
-                                </a>
-                            </li>
-                        </ul>
-                        <p class="text-[10px] normal-case tracking-normal mt-5 pt-4 border-t" style="color: #5FA99D; border-color: rgba(95, 169, 157, 0.25);">
-                            Never sold alone — the reason outcomes actually land.
-                        </p>
-                    </aside>
-                </div>
-            </div>
-
-            <a href="resources.html" class="hover:text-accent transition-colors">Resources</a>
-            <a href="success-stories.html" class="hover:text-accent transition-colors">Success Stories</a>
-            <a href="about.html" class="hover:text-accent transition-colors">About</a>
-            <a href="contact.html" class="hover:text-accent transition-colors">Contact</a>
-        </div>
-        <div class="flex items-center gap-3">
-            <a href="contact.html" class="hidden md:inline-flex text-xs font-bold uppercase tracking-widest bg-text text-surface px-6 py-3 rounded-full hover:bg-accentdark transition-all duration-300">
-                Contact Us
-            </a>
-            <button id="mobileMenuBtn" class="md:hidden w-10 h-10 flex items-center justify-center border border-bordercolor rounded-md text-text" aria-label="Toggle menu">
-                <i class="ph ph-list text-xl"></i>
-            </button>
-        </div>
+        <a href="contact.html" class="hidden md:inline-flex text-xs font-bold uppercase tracking-widest bg-text text-surface px-5 py-2.5 rounded-full">Contact Us</a>
+        <button id="mobileMenuBtn" class="md:hidden w-9 h-9 flex items-center justify-center" aria-label="Toggle menu"><i class="ph ph-list text-2xl"></i></button>
     </nav>
-
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-0 top-[72px] z-30 bg-base/98 backdrop-blur-lg hidden md:hidden overflow-y-auto">
-        <div class="p-6 space-y-6">
-            <div>
-                <p class="text-[10px] font-mono tracking-widest uppercase text-muted mb-3">// Services</p>
-                <ul class="space-y-2">
-                    <li><a href="index.html#svc-op-excellence" class="block py-2 text-sm font-bold text-text">Operational Excellence aaS</a></li>
-                    <li><a href="index.html#svc-savings" class="block py-2 text-sm font-bold text-text">Savings aaS</a></li>
-                    <li><a href="index.html#svc-consolidation" class="block py-2 text-sm font-bold text-text">Service &amp; Vendor Consolidation aaS</a></li>
-                    <li><a href="index.html#svc-rfx" class="block py-2 text-sm font-bold text-text">Complex RFx aaS</a></li>
-                    <li><a href="index.html#svc-vm" class="block py-2 text-sm font-bold text-text">Vendor Management aaS</a></li>
-                    <li><a href="https://managedsuppliers.com" target="_blank" rel="noopener" class="block py-2 text-sm font-bold text-text flex items-center gap-1">managedsuppliers <i class="ph ph-arrow-up-right text-xs"></i></a></li>
-                </ul>
-            </div>
-            <div>
-                <p class="text-[10px] font-mono tracking-widest uppercase text-muted mb-3">// How We Deliver</p>
-                <ul class="space-y-2">
-                    <li><a href="index.html#sup-pm" class="block py-2 text-sm font-bold text-text">Program &amp; Project Management</a></li>
-                    <li><a href="index.html#sup-change" class="block py-2 text-sm font-bold text-text">Change &amp; Communication</a></li>
-                    <li><a href="index.html#sup-transition" class="block py-2 text-sm font-bold text-text">Transition Management</a></li>
-                </ul>
-            </div>
-            <div class="pt-4 border-t border-bordercolor space-y-2">
-                <a href="resources.html" class="block py-2 text-sm font-bold uppercase tracking-widest text-text">Resources</a>
-                <a href="success-stories.html" class="block py-2 text-sm font-bold uppercase tracking-widest text-text">Success Stories</a>
-                <a href="about.html" class="block py-2 text-sm font-bold uppercase tracking-widest text-text">About</a>
-                <a href="contact.html" class="block py-2 text-sm font-bold uppercase tracking-widest text-text">Contact</a>
-                <a href="contact.html" class="block mt-4 text-center text-xs font-bold uppercase tracking-widest bg-text text-surface px-6 py-4 rounded-full">Contact Us</a>
-            </div>
-        </div>
+    <div id="mobileMenu" class="hidden md:hidden border-b border-bordercolor bg-base px-6 py-4 space-y-2">
+        <a href="index.html#services" class="block py-2 text-sm font-bold uppercase tracking-widest">Services</a>
+        <a href="success-stories.html" class="block py-2 text-sm font-bold uppercase tracking-widest">Success Stories</a>
+        <a href="blog.html" class="block py-2 text-sm font-bold uppercase tracking-widest">Blog</a>
+        <a href="about.html" class="block py-2 text-sm font-bold uppercase tracking-widest text-accentdark">About</a>
+        <a href="contact.html" class="block py-2 text-sm font-bold uppercase tracking-widest">Contact</a>
     </div>
 
-    <!-- Main Content -->
-    <main>
-
-        <!-- Hero Section -->
-        <section class="min-h-[60vh] w-full flex items-center justify-center relative px-6 md:px-24 pt-32 pb-16">
-            <div class="w-full max-w-5xl flex flex-col justify-center items-center text-center">
-                <span class="text-xs text-accentdark uppercase tracking-widest mb-6 block font-bold">// About</span>
-                <div class="overflow-hidden-wrapper">
-                    <h1 class="font-serif text-[10vw] md:text-[4.5vw] split-text" style="line-height: 1.05;">
-                        About Aventario
-                    </h1>
-                    <p class="text-muted text-base md:text-lg max-w-2xl mx-auto mt-6 leading-relaxed font-sans split-fade">
-                        We transform strategies into results — with structure, pragmatism, and measurable impact.
-                    </p>
-                </div>
+    <section class="px-6 md:px-12 py-20 md:py-28 border-b border-bordercolor">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
+            <div class="md:col-span-8">
+                <h1 class="font-serif text-5xl md:text-7xl mb-6">A small team that owns the outcome.</h1>
+                <p class="text-lg md:text-xl text-text leading-relaxed max-w-2xl">Vienna-based. We don&rsquo;t sell hours. We sell results — quantified, fixed-scope, fixed-price. The same team designs the engagement and runs it through to the amendment.</p>
             </div>
-        </section>
+            <div class="md:col-span-4 md:text-right">
+                <p class="text-xs uppercase tracking-widest text-text font-bold mb-2">Aventario Services GmbH</p>
+                <p class="text-base text-text">Tuchlauben 7a, 1010 Vienna</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- CEO Quote Block -->
-        <section class="py-16 px-6 md:px-12 max-w-[1100px] mx-auto">
-            <div class="border border-bordercolor rounded-md bg-surface p-8 md:p-12 flex flex-col md:flex-row gap-8 md:gap-12 items-center">
-                <div class="w-40 h-40 md:w-52 md:h-52 shrink-0 rounded-2xl overflow-hidden">
-                    <img src="https://aventario.com/lovable-uploads/27f1c087-53c4-4832-b10f-cb69d30c41ea.png" alt="Markus Kern, CEO of Aventario" class="w-full h-full object-cover">
+    <section class="px-6 md:px-12 py-16 md:py-20 border-b border-bordercolor">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+            <div>
+                <p class="font-serif text-4xl md:text-5xl text-text">25+</p>
+                <p class="text-xs uppercase tracking-widest text-text font-bold mt-2">Years in the field</p>
+            </div>
+            <div>
+                <p class="font-serif text-4xl md:text-5xl text-text">500+</p>
+                <p class="text-xs uppercase tracking-widest text-text font-bold mt-2">Projects delivered</p>
+            </div>
+            <div>
+                <p class="font-serif text-4xl md:text-5xl text-text">€3B+</p>
+                <p class="text-xs uppercase tracking-widest text-text font-bold mt-2">Contract volume</p>
+            </div>
+            <div>
+                <p class="font-serif text-4xl md:text-5xl" style="color: #f19a51;">10–40%</p>
+                <p class="text-xs uppercase tracking-widest text-text font-bold mt-2">Typical savings</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 md:px-12 py-20 md:py-24 border-b border-bordercolor">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
+            <div class="md:col-span-5">
+                <h2 class="font-serif text-3xl md:text-5xl">What we stand for.</h2>
+            </div>
+            <div class="md:col-span-7 space-y-6">
+                <p class="text-lg text-text leading-relaxed">We&rsquo;re implementers, not advisors. The engagement ends when the result is in your P&amp;L, not when the deck is printed.</p>
+                <p class="text-lg text-text leading-relaxed">We work outcome-first. Every engagement has a quantified target, a fixed timeline, and a fixed price. If we can&rsquo;t scope the outcome, we say so before signing.</p>
+                <p class="text-lg text-text leading-relaxed">Senior advisors stay in the room. Not pitch-and-pass. The partner who scoped the engagement runs it.</p>
+                <p class="text-lg text-text leading-relaxed">We leave a working operating layer behind, not a binder. Where useful, we hand the operational load over to managedsuppliers — our SaaS platform — so the governance becomes permanent.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 md:px-12 py-20 md:py-24 border-b border-bordercolor">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="font-serif text-3xl md:text-5xl mb-14">The people who run the engagements.</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                <div>
+                    <img src="https://aventario.com/lovable-uploads/08f98704-4dbe-4e32-af44-33b0d87a2d3b.png" alt="Markus Kern" class="w-32 h-32 rounded-full object-cover border-2 border-bordercolor mb-5">
+                    <h3 class="font-serif text-2xl text-text mb-1">Markus Kern</h3>
+                    <p class="text-xs font-bold uppercase tracking-widest text-text mb-4">CEO</p>
+                    <p class="text-base text-text leading-relaxed">Vision and strategy across the firm. 25+ years in IT sourcing and transformation. Final escalation point on every engagement.</p>
                 </div>
                 <div>
-                    <p class="text-base md:text-lg text-text leading-relaxed font-sans italic mb-6">
-                        Most transformations stall because the wrong suppliers are in the room. We've seen it 500 times. We built Aventario to fix that systematically.
-                    </p>
-                    <p class="text-sm font-bold text-text">&mdash; Markus Kern, CEO</p>
+                    <img src="https://aventario.com/lovable-uploads/55ddf31f-f5a6-4448-90b2-dc52a3088ac0.png" alt="Markus Jaksch" class="w-32 h-32 rounded-full object-cover border-2 border-bordercolor mb-5">
+                    <h3 class="font-serif text-2xl text-text mb-1">Markus Jaksch</h3>
+                    <p class="text-xs font-bold uppercase tracking-widest text-text mb-4">CIO</p>
+                    <p class="text-base text-text leading-relaxed">Operations and methodology. Owns the service portfolio and the delivery model — the structures clients see in every engagement.</p>
+                </div>
+                <div>
+                    <img src="https://aventario.com/lovable-uploads/55ac9b24-f0aa-42b8-adc8-675260d7c125.png" alt="Margit Györfi" class="w-32 h-32 rounded-full object-cover border-2 border-bordercolor mb-5">
+                    <h3 class="font-serif text-2xl text-text mb-1">Margit Györfi</h3>
+                    <p class="text-xs font-bold uppercase tracking-widest text-text mb-4">CPO</p>
+                    <p class="text-base text-text leading-relaxed">People and transformation. Runs change &amp; communication across multinational engagements where the cultural overlay matters.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- What Sets Us Apart -->
-        <section class="py-16 px-6 md:px-12 max-w-[1100px] mx-auto">
-            <div class="border-t border-bordercolor pt-16">
-                <span class="text-xs text-accentdark uppercase tracking-widest mb-4 block font-bold">// Differentiators</span>
-                <h2 class="font-serif text-4xl md:text-5xl mb-12">What Sets Us Apart</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="flex items-start gap-4 p-6 border border-bordercolor rounded-md bg-surface">
-                        <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-full bg-accent/10">
-                            <i class="ph ph-path text-accentdark text-xl"></i>
-                        </div>
-                        <p class="text-sm text-text leading-relaxed">End-to-end project support from planning to organizational anchoring</p>
-                    </div>
-                    <div class="flex items-start gap-4 p-6 border border-bordercolor rounded-md bg-surface">
-                        <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-full bg-accent/10">
-                            <i class="ph ph-user-circle-gear text-accentdark text-xl"></i>
-                        </div>
-                        <p class="text-sm text-text leading-relaxed">Senior consultants with backgrounds as CxOs, program leads, and Big 4 alumni (PwC, Capgemini)</p>
-                    </div>
-                    <div class="flex items-start gap-4 p-6 border border-bordercolor rounded-md bg-surface">
-                        <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-full bg-accent/10">
-                            <i class="ph ph-lightning text-accentdark text-xl"></i>
-                        </div>
-                        <p class="text-sm text-text leading-relaxed">Lean and responsive team structure — fast, efficient, and outcome-focused</p>
-                    </div>
-                    <div class="flex items-start gap-4 p-6 border border-bordercolor rounded-md bg-surface">
-                        <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-full bg-accent/10">
-                            <i class="ph ph-chart-line-up text-accentdark text-xl"></i>
-                        </div>
-                        <p class="text-sm text-text leading-relaxed">Proven delivery model with AI-supported benchmarks, templates, and dashboards</p>
-                    </div>
-                </div>
+    <section class="px-6 md:px-12 py-20 md:py-28" style="background-color: #334b60; color: #FFFFFF;">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-serif text-3xl md:text-5xl text-surface mb-8">Why this way.</h2>
+            <p class="text-lg md:text-xl leading-relaxed mb-6" style="color: rgba(255,255,255,0.85);">The classic consulting model is paid for the analysis. The classic supplier model is paid for the hours. Both reward more activity, not better outcomes.</p>
+            <p class="text-lg md:text-xl leading-relaxed mb-6" style="color: rgba(255,255,255,0.85);">We sized our model differently. Quantified outcomes. Fixed scope. Senior people in the room. Hand-off only when the structure stands on its own.</p>
+            <p class="text-lg md:text-xl leading-relaxed" style="color: rgba(255,255,255,0.85);">It means we say no more often than most. It also means clients get what we promised them.</p>
+        </div>
+    </section>
+
+    <section class="px-6 md:px-12 py-20 md:py-24 border-t border-bordercolor">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div class="md:col-span-7">
+                <h2 class="font-serif text-3xl md:text-4xl mb-4">Want to talk?</h2>
+                <p class="text-base md:text-lg text-text leading-relaxed max-w-xl">No discovery calls that go nowhere. Tell us where you&rsquo;d like to land — we&rsquo;ll tell you whether we can get you there.</p>
             </div>
-        </section>
-
-        <!-- What We Do -->
-        <section class="py-16 px-6 md:px-12 max-w-[1100px] mx-auto">
-            <div class="border-t border-bordercolor pt-16">
-                <span class="text-xs text-accentdark uppercase tracking-widest mb-4 block font-bold">// Services</span>
-                <h2 class="font-serif text-4xl md:text-5xl mb-4">What We Do</h2>
-                <p class="text-muted max-w-xl text-base mb-12">Six outcome-defined services. Each delivered as a fixed-scope engagement with measurable results.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <a href="index.html#svc-op-excellence" class="p-6 border border-bordercolor rounded-md bg-surface hover:border-accentdark/30 transition-colors group">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-md bg-accent/10 mb-5">
-                            <i class="ph ph-magnifying-glass text-accentdark text-2xl"></i>
-                        </div>
-                        <span class="text-[10px] text-accentdark font-bold uppercase tracking-widest block mb-2">01 // Operational Excellence aaS</span>
-                        <h3 class="font-serif text-xl mb-3 group-hover:text-accentdark transition-colors">Make your IT operations 20% more efficient.</h3>
-                        <p class="text-sm text-muted leading-relaxed">IT landscape assessment, process harmonization, task analysis with automation scoring, and board-ready recommendations.</p>
-                    </a>
-                    <a href="index.html#svc-savings" class="p-6 border border-bordercolor rounded-md bg-surface hover:border-accentdark/30 transition-colors group">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-md bg-accent/10 mb-5">
-                            <i class="ph ph-currency-eur text-accentdark text-2xl"></i>
-                        </div>
-                        <span class="text-[10px] text-accentdark font-bold uppercase tracking-widest block mb-2">02 // Savings aaS</span>
-                        <h3 class="font-serif text-xl mb-3 group-hover:text-accentdark transition-colors">Recover 10–40% of your IT vendor spend in 4–6 weeks.</h3>
-                        <p class="text-sm text-muted leading-relaxed">AI contract analysis, vendor-by-vendor savings report, benchmarking vs &euro;3B+ database, and prioritized renegotiation roadmap.</p>
-                    </a>
-                    <a href="index.html#svc-consolidation" class="p-6 border border-bordercolor rounded-md bg-surface hover:border-accentdark/30 transition-colors group">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-md bg-accent/10 mb-5">
-                            <i class="ph ph-squares-four text-accentdark text-2xl"></i>
-                        </div>
-                        <span class="text-[10px] text-accentdark font-bold uppercase tracking-widest block mb-2">03 // Vendor Consolidation aaS</span>
-                        <h3 class="font-serif text-xl mb-3 group-hover:text-accentdark transition-colors">Reduce dozens of vendors to a handful of strategic partners.</h3>
-                        <p class="text-sm text-muted leading-relaxed">Sourcing location identifier, make vs buy vs partner model, ITSM ticket analysis, and target supplier architecture.</p>
-                    </a>
-                    <a href="index.html#svc-rfx" class="p-6 border border-bordercolor rounded-md bg-surface hover:border-accentdark/30 transition-colors group">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-md bg-accent/10 mb-5">
-                            <i class="ph ph-scales text-accentdark text-2xl"></i>
-                        </div>
-                        <span class="text-[10px] text-accentdark font-bold uppercase tracking-widest block mb-2">04 // Complex RFx aaS</span>
-                        <h3 class="font-serif text-xl mb-3 group-hover:text-accentdark transition-colors">Run fair, structured IT tenders in 6–8 weeks.</h3>
-                        <p class="text-sm text-muted leading-relaxed">Requirements engineering, RFI &amp; market analysis, complex RFP with ZVD methodology, and weighted vendor evaluation.</p>
-                    </a>
-                    <a href="index.html#svc-vm" class="p-6 border border-bordercolor rounded-md bg-surface hover:border-accentdark/30 transition-colors group">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-md bg-accent/10 mb-5">
-                            <i class="ph ph-shield-check text-accentdark text-2xl"></i>
-                        </div>
-                        <span class="text-[10px] text-accentdark font-bold uppercase tracking-widest block mb-2">05 // Vendor Management aaS</span>
-                        <h3 class="font-serif text-xl mb-3 group-hover:text-accentdark transition-colors">Hold your IT vendors accountable to what they signed.</h3>
-                        <p class="text-sm text-muted leading-relaxed">Sourcing implementation guide, frame contract design, 3-tier governance framework, KPI framework &amp; financial management.</p>
-                    </a>
-                    <a href="https://managedsuppliers.com" target="_blank" rel="noopener" class="p-6 border border-bordercolor rounded-md bg-surface hover:border-accentdark/30 transition-colors group">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-md bg-accent/10 mb-5">
-                            <i class="ph ph-cpu text-accentdark text-2xl"></i>
-                        </div>
-                        <span class="text-[10px] text-accentdark font-bold uppercase tracking-widest block mb-2">06 // managedsuppliers</span>
-                        <h3 class="font-serif text-xl mb-3 group-hover:text-accentdark transition-colors flex items-center gap-2">Manage every vendor in one SaaS platform. <i class="ph ph-arrow-up-right text-sm"></i></h3>
-                        <p class="text-sm text-muted leading-relaxed">Aventario's consulting frameworks turned into software you run yourself — permanent organizational capability.</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Our Leadership -->
-        <section class="py-16 px-6 md:px-12 max-w-[1100px] mx-auto">
-            <div class="border-t border-bordercolor pt-16">
-                <span class="text-xs text-accentdark uppercase tracking-widest mb-4 block font-bold">// Leadership</span>
-                <h2 class="font-serif text-4xl md:text-5xl mb-12">Our Leadership</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    <!-- Markus Kern -->
-                    <div class="text-center">
-                        <div class="w-48 h-48 mx-auto rounded-2xl overflow-hidden mb-6">
-                            <img src="https://aventario.com/lovable-uploads/08f98704-4dbe-4e32-af44-33b0d87a2d3b.png" alt="Markus Kern" class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="font-serif text-xl">Markus Kern</h3>
-                        <p class="text-sm text-muted mt-1">Chief Executive Officer</p>
-                        <p class="text-sm text-accentdark font-bold mt-2 italic">"Happy Clients"</p>
-                    </div>
-                    <!-- Markus Jaksch -->
-                    <div class="text-center">
-                        <div class="w-48 h-48 mx-auto rounded-2xl overflow-hidden mb-6">
-                            <img src="https://aventario.com/lovable-uploads/55ddf31f-f5a6-4448-90b2-dc52a3088ac0.png" alt="Markus Jaksch" class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="font-serif text-xl">Markus Jaksch</h3>
-                        <p class="text-sm text-muted mt-1">Chief Operating Officer</p>
-                        <p class="text-sm text-accentdark font-bold mt-2 italic">"Happy Projects"</p>
-                    </div>
-                    <!-- Margit Gyorfi -->
-                    <div class="text-center">
-                        <div class="w-48 h-48 mx-auto rounded-2xl overflow-hidden mb-6">
-                            <img src="https://aventario.com/lovable-uploads/55ac9b24-f0aa-42b8-adc8-675260d7c125.png" alt="Margit Györfi" class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="font-serif text-xl">Margit Györfi</h3>
-                        <p class="text-sm text-muted mt-1">Chief People Officer</p>
-                        <p class="text-sm text-accentdark font-bold mt-2 italic">"Happy Consultants"</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Our Values -->
-        <section class="py-16 px-6 md:px-12 max-w-[1100px] mx-auto">
-            <div class="border-t border-bordercolor pt-16">
-                <span class="text-xs text-accentdark uppercase tracking-widest mb-4 block font-bold">// Values</span>
-                <h2 class="font-serif text-4xl md:text-5xl mb-12">Our Values</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="p-6 border border-bordercolor rounded-md bg-surface">
-                        <div class="flex items-center gap-3 mb-3">
-                            <span class="text-2xl font-serif text-accent">01</span>
-                            <h3 class="font-serif text-lg">Honesty over comfort</h3>
-                        </div>
-                        <p class="text-sm text-muted leading-relaxed">We tell clients what we find, not what they want to hear. 25 years in this industry means we've seen what happens when that stops.</p>
-                    </div>
-                    <div class="p-6 border border-bordercolor rounded-md bg-surface">
-                        <div class="flex items-center gap-3 mb-3">
-                            <span class="text-2xl font-serif text-accent">02</span>
-                            <h3 class="font-serif text-lg">Pragmatism — listen, cut, deliver</h3>
-                        </div>
-                        <p class="text-sm text-muted leading-relaxed">We skip the theory. If a process can be standardized, we standardize it. If a vendor is underperforming, we say so — then we fix it.</p>
-                    </div>
-                    <div class="p-6 border border-bordercolor rounded-md bg-surface">
-                        <div class="flex items-center gap-3 mb-3">
-                            <span class="text-2xl font-serif text-accent">03</span>
-                            <h3 class="font-serif text-lg">Defined outcomes, not open scopes</h3>
-                        </div>
-                        <p class="text-sm text-muted leading-relaxed">Every engagement starts with a clear, measurable result. Not a deliverable list — a number. We hold ourselves to it.</p>
-                    </div>
-                    <div class="p-6 border border-bordercolor rounded-md bg-surface">
-                        <div class="flex items-center gap-3 mb-3">
-                            <span class="text-2xl font-serif text-accent">04</span>
-                            <h3 class="font-serif text-lg">Accountability — we keep our word</h3>
-                        </div>
-                        <p class="text-sm text-muted leading-relaxed">Outcomes are defined upfront. If we committed to a 20% efficiency gain, that's what you get — or we haven't finished.</p>
-                    </div>
-                    <div class="p-6 border border-bordercolor rounded-md bg-surface">
-                        <div class="flex items-center gap-3 mb-3">
-                            <span class="text-2xl font-serif text-accent">05</span>
-                            <h3 class="font-serif text-lg">Capability, not dependency</h3>
-                        </div>
-                        <p class="text-sm text-muted leading-relaxed">We work alongside your team and transfer the methodology as we go. When we leave, the result stays.</p>
-                    </div>
-                    <div class="p-6 border border-bordercolor rounded-md bg-surface">
-                        <div class="flex items-center gap-3 mb-3">
-                            <span class="text-2xl font-serif text-accent">06</span>
-                            <h3 class="font-serif text-lg">Continuous improvement</h3>
-                        </div>
-                        <p class="text-sm text-muted leading-relaxed">We improve our own methods the same way we improve yours — systematically, based on data, and without ego.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Quote Block -->
-        <section class="py-16 px-6 md:px-12 max-w-[1100px] mx-auto">
-            <div class="bg-text text-surface p-10 md:p-16 rounded-sm text-center">
-                <p class="text-lg md:text-2xl leading-relaxed font-sans italic max-w-3xl mx-auto">
-                    "Aventario is large enough to support global programs — and focused enough to care. We look forward to being your long-term implementation partner."
-                </p>
-            </div>
-        </section>
-
-        <!-- Join Aventario -->
-        <section class="py-16 px-6 md:px-12 max-w-[1100px] mx-auto">
-            <div class="border-t border-bordercolor pt-16 text-center">
-                <span class="text-xs text-accentdark uppercase tracking-widest mb-4 block font-bold">// Careers</span>
-                <h2 class="font-serif text-4xl md:text-5xl mb-6">Join Aventario</h2>
-                <p class="text-muted text-base max-w-lg mx-auto leading-relaxed">
-                    Currently we don't have any open positions, but you can always send us your application to <a href="mailto:awesome@aventario.com" class="text-accentdark font-bold hover:underline">awesome@aventario.com</a>
-                </p>
-            </div>
-        </section>
-
-        <!-- Pre-Footer CTA -->
-        <section class="py-20 px-6 md:px-12 max-w-[1400px] mx-auto text-center">
-            <h2 class="font-serif text-4xl md:text-5xl mb-4">Ready to find out where you stand?</h2>
-            <p class="text-muted text-base max-w-lg mx-auto mb-8">Take our 5-minute vendor maturity assessment and get a personalized starting point — or talk directly with one of our experts.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="contact.html" class="interactable inline-flex items-center gap-3 text-sm font-bold uppercase tracking-widest bg-text text-surface px-8 py-4 rounded-full hover:bg-accentdark transition-colors">
-                    Contact Us <i class="ph ph-arrow-right"></i>
+            <div class="md:col-span-5 flex flex-col sm:flex-row gap-3 md:justify-end">
+                <a href="contact.html" class="inline-flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-widest text-surface px-6 py-3 rounded-full bg-text hover:bg-accentdark transition-colors">
+                    Contact us <i class="ph ph-arrow-right text-sm"></i>
                 </a>
-                <a href="https://form.typeform.com/to/qmNOmu5v" target="_blank" rel="noopener" class="interactable inline-flex items-center gap-3 text-sm font-bold uppercase tracking-widest border border-bordercolor px-8 py-4 rounded-full hover:bg-surface transition-colors">
-                    Take the Assessment
+                <a href="https://form.typeform.com/to/qmNOmu5v" target="_blank" rel="noopener" class="inline-flex items-center justify-center text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-full border border-bordercolor text-text hover:bg-base transition-colors">
+                    Take the assessment
                 </a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Footer -->
-        <footer class="bg-text text-surface pt-24 pb-12 rounded-t-[3rem] px-6 md:px-12 interactable">
-            <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
-
+    <footer class="bg-text text-surface px-6 md:px-12 py-16">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
+                <div class="md:col-span-5">
+                    <p class="font-serif text-2xl mb-3">Aventario</p>
+                    <p class="text-sm text-surface/60 max-w-sm">Cost &amp; value optimization for IT and supply chain. We own the outcome, not just the hours.</p>
+                </div>
+                <div class="md:col-span-3">
+                    <p class="text-xs uppercase tracking-widest text-surface/40 mb-4 font-bold">Contact</p>
+                    <ul class="space-y-2 text-sm text-surface/80">
+                        <li><a href="mailto:office@aventario.com" class="hover:text-accent">office@aventario.com</a></li>
+                        <li>Tuchlauben 7a, 1010 Vienna</li>
+                        <li>+43 134 3354012</li>
+                    </ul>
+                </div>
                 <div class="md:col-span-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 199.29 55.2" class="h-8 mb-6"><defs><linearGradient id="footer-grad" x1="11.43" y1="48.04" x2="37.22" y2="48.04" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".22" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#FFFFFF"/><stop offset=".67" stop-color="#FFFFFF"/><stop offset=".86" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient></defs><g><path d="M37.22,40.94l-5.14-8.91c-.11-.19-.38-.19-.49,0l-5.14,8.91h10.78Z" fill="#FFFFFF"/><g><polygon points="11.43 55.15 37.22 40.94 26.44 40.94 16.64 46.19 15.81 47.62 11.51 55.06 11.43 55.15" fill="url(#footer-grad)"/><path d="M55.38,40.51l-7.53-13.05L32.08,.14c-.11-.19-.38-.19-.49,0L15.81,27.46.04,54.78c-.06,.1-.05,.21,0,.29,.05,.08,.13,.14,.24,.14H11.26c.1,0,.2-.05,.25-.14l4.3-7.45,.83-1.43,14.95-25.89c.11-.19,.38-.19,.49,0l11.83,20.49c.05,.09,.15,.14,.25,.14h10.98c.22,0,.36-.24,.25-.43Z" fill="#FFFFFF"/></g><g><path d="M86.05,40.9h-5.18c-.14,0-.26-.09-.3-.22l-1.09-3.31c-.04-.11-.13-.18-.25-.18h-6.41c-.11,0-.21,.07-.25,.18l-1.1,3.35c-.04,.11-.13,.18-.25,.18h-5.22c-.18,0-.31-.18-.24-.35l7.7-20.43c.05-.13,.17-.21,.31-.21h4.54c.12,0,.23,.07,.27,.19l7.71,20.46c.06,.17-.06,.35-.24,.35Zm-8.16-8.34l-1.61-4.89c-.08-.24-.42-.24-.51,0l-1.61,4.9c-.06,.17,.07,.34,.24,.34h3.24c.18,0,.31-.18,.25-.35Z" fill="#FFFFFF"/><path d="M99.59,25.15l-5.48,15.35c-.04,.1-.13,.17-.24,.17h-4.63c-.11,0-.2-.07-.24-.17l-5.48-15.35c-.06-.17,.06-.34,.24-.34h4.42c.11,0,.2,.07,.24,.17l3.14,8.8,3.14-8.8c.04-.1,.13-.17,.24-.17h4.42c.18,0,.3,.17,.24,.34Z" fill="#FFFFFF"/><path d="M116.31,32.86c0,.46-.05,1-.14,1.47-.02,.12-.13,.21-.25,.21h-11.11c-.2,0-.32,.21-.22,.38,.68,1.16,1.9,1.88,3.25,1.88,1.15,0,2.22-.5,2.98-1.48,.06-.08,.15-.11,.25-.1l4.25,.76c.16,.03,.26,.21,.18,.36-.1,.2-.22,.45-.29,.57h0s-.07,.12-.07,.12c-.06,.11-.13,.22-.21,.34-.1,.15-.19,.28-.28,.4l-.05,.07h0s-.06,.08-.09,.12l-.05,.06c-.06,.07-.12,.14-.17,.21l-.05,.06c-.09,.11-.19,.21-.29,.31l-.06,.06c-.07,.07-.13,.13-.2,.2l-.02,.02c-.07,.07-.15,.14-.23,.21l-.08,.07-.1-.08,.08,.09c-.12,.1-.23,.19-.34,.27l-.1,.07c-.13,.1-.26,.19-.4,.28l-.04,.02c-.16,.1-.31,.19-.47,.28l-.05,.03s-.08,.04-.12,.06h-.03c-.07,.05-.14,.09-.21,.12l-.04,.02c-.15,.07-.29,.14-.43,.19h-.03c-.1,.05-.18,.08-.26,.11l-.1,.04c-.1,.04-.21,.07-.31,.11h-.02c-.11,.04-.23,.07-.37,.11l-.1,.02c-.24,.06-.48,.11-.72,.15h-.09c-.26,.05-.51,.08-.76,.09h-.09c-.15,.01-.27,.01-.39,.01s-.25,0-.39,0c-.03,0-.06,0-.09,0h-.03c-.1,0-.19-.01-.29-.02h-.03s-.06,0-.08-.01c-.14-.01-.26-.03-.37-.05h0s0,0,0,0h-.07c-.1-.03-.2-.04-.31-.07l-.11-.02c-.09-.02-.18-.04-.27-.06h-.03s-.05-.02-.08-.03c-.13-.03-.25-.07-.36-.1-.12-.04-.24-.08-.35-.12-.03,0-.05-.02-.08-.03h-.02c-.08-.04-.17-.07-.25-.11h-.02s-.05-.03-.08-.04c-.11-.05-.22-.1-.33-.15h-.01c-.1-.05-.21-.11-.32-.17-.02-.01-.05-.03-.08-.04h-.02c-.08-.05-.16-.1-.23-.14l-.09-.06c-.1-.06-.21-.13-.31-.19-1-.67-1.87-1.56-2.5-2.58-.05-.08-.1-.17-.15-.26l-.02-.04c-.05-.08-.09-.17-.14-.26l-.02-.05s-.03-.05-.04-.08c-.16-.32-.3-.67-.42-1.02-.07-.2-.12-.37-.16-.52-.03-.13-.07-.27-.09-.4-.08-.41-.14-.83-.16-1.25,0-.14-.01-.28-.01-.43s0-.29,.01-.43c.04-.74,.18-1.47,.41-2.17,.08-.23,.16-.44,.24-.63,.05-.11,.1-.22,.15-.33,.01-.03,.03-.05,.04-.08l.03-.06s.02-.05,.04-.08c.01-.03,.03-.05,.04-.08l.07-.13c.06-.11,.12-.21,.18-.31,.63-1.02,1.49-1.91,2.5-2.58,.1-.07,.2-.13,.31-.19l.09-.06c.08-.05,.16-.09,.23-.13h.02s.05-.04,.08-.05c.11-.06,.22-.11,.33-.16,.11-.05,.22-.1,.34-.15,.03-.01,.05-.02,.08-.03h.02c.08-.04,.17-.08,.25-.11h.02s.05-.03,.08-.04c.12-.04,.23-.08,.35-.12,.12-.04,.24-.07,.36-.1,.03,0,.05-.01,.08-.02h.03c.09-.03,.18-.05,.27-.07h.06c.11-.04,.29-.07,.4-.09h.02s0,0,0,0h0c.11-.02,.23-.03,.37-.05,.03,0,.06,0,.08,0h.03c.09-.01,.19-.02,.29-.02h.02s.06,0,.09,0c.15,0,.27,0,.39,0s.24,0,.38,0h.09c.26,.02,.51,.04,.76,.08l.1,.02c.24,.04,.48,.09,.72,.14l.1,.03c.13,.04,.25,.07,.36,.1h.02c.11,.04,.21,.08,.32,.11,.03,.01,.06,.02,.1,.03,.09,.04,.18,.07,.26,.1l.04,.02c.14,.06,.28,.12,.43,.19l.04,.02c.07,.04,.14,.07,.2,.1h.02s-.05,.12-.05,.12l.07-.11s.08,.04,.12,.06c.14,.08,.37,.22,.51,.3h.02c.15,.11,.29,.2,.42,.3l.02,.02s.05,.04,.08,.06c.12,.09,.23,.18,.34,.28l.07,.06c.09,.07,.17,.15,.26,.23l.02,.02c.07,.06,.13,.13,.2,.2l.05,.05c.11,.11,.2,.21,.29,.31l-.08,.1,.1-.08,.04,.05c.06,.07,.11,.13,.17,.2l.05,.07c.06,.08,.13,.16,.19,.25h0c.05,.08,.1,.15,.15,.22l.09,.14c.04,.06,.08,.12,.12,.18l.16,.26h0c.31,.55,.56,1.13,.74,1.72,.23,.76,.34,1.55,.34,2.34Zm-4.96-2.1c-.2-1.17-1.55-2.08-3.27-2.08-1.56,0-3.05,.9-3.27,2.08-.03,.16,.09,.3,.25,.3h6.04c.16,0,.28-.14,.25-.3Z" fill="#FFFFFF"/><path d="M132.6,31.49v8.92c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-8.67c0-.59-.03-1.26-.28-1.81-.11-.23-.26-.42-.44-.56-.3-.23-.68-.35-1.17-.35-.91,0-1.62,.31-1.84,.82-.26,.55-.26,1.3-.26,1.9v8.67c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v.43c0,.1,.11,.16,.2,.1,3.57-2.46,7.05,.27,7.08,.3,.13,.1,.25,.21,.36,.31h0c1.62,1.63,1.89,2.94,1.89,5.28Z" fill="#FFFFFF"/><path d="M143.71,36.84l-.57,3.75c-.02,.12-.12,.21-.24,.21-.54,.03-2,.11-2.44,.11-.04,0-.06,0-.09,0-2.69-.14-4.12-1.52-4.12-4v-7.61c0-.14-.11-.25-.25-.25h-1.65c-.14,0-.25-.11-.25-.25v-3.75c0-.14,.11-.25,.25-.25h1.65c.14,0,.25-.11,.25-.25v-4.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v4.35c0,.14,.11,.25,.25,.25h1.65c.14,0,.25,.11,.25,.25v3.75c0,.14-.11,.25-.25,.25h-1.65c-.14,0-.25,.11-.25,.25,0,1.32,0,5.21,0,5.25v.11c-.02,.48-.04,1.14,.34,1.54,.23,.23,.58,.35,1.05,.35h.86c.15,0,.27,.14,.25,.29Z" fill="#FFFFFF"/><path d="M162.83,25.06v15.35c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-.23c0-.1-.11-.16-.19-.11-1.27,.72-2.71,1.1-4.18,1.1-4.64,0-8.42-3.73-8.42-8.3s3.78-8.3,8.42-8.3c1.47,0,2.91,.38,4.18,1.1,.08,.05,.19-.01,.19-.11v-.48c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Zm-4.94,7.8c0-2.1-1.48-3.81-3.61-3.81s-3.86,1.71-3.86,3.81,1.73,3.81,3.86,3.81,3.61-1.71,3.61-3.81Z" fill="#FFFFFF"/><path d="M174.13,25.08l-.15,3.71c0,.15-.13,.26-.28,.24-.43-.04-1.3-.1-1.81,.03-.57,.14-.9,.58-1,.79-.26,.55-.26,1.03-.26,1.65v8.92c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v.44c0,.1,.11,.16,.19,.11,1.05-.65,2.29-.79,3.34-.8,.15,0,.26,.12,.26,.26Z" fill="#FFFFFF"/><path d="M181.06,20.07v3.24c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-3.24c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Zm0,4.99v15.35c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Z" fill="#FFFFFF"/><path d="M199.29,32.87c0,4.58-3.78,8.3-8.42,8.3s-8.42-3.73-8.42-8.3,3.78-8.3,8.42-8.3,8.42,3.73,8.42,8.3Zm-4.75,0c0-2-1.65-3.62-3.67-3.62s-3.67,1.62-3.67,3.62,1.65,3.62,3.67,3.62,3.67-1.62,3.67-3.62Z" fill="#FFFFFF"/></g></g></svg>
-                    <p class="text-sm text-surface/60 max-w-sm">We help enterprises to master complexity in service-cost optimization, sourcing & transformation.</p>
-                </div>
-
-                <div>
-                    <h5 class="text-xs uppercase tracking-widest text-surface/40 mb-6 font-bold">Contact</h5>
-                    <ul class="space-y-4 text-sm text-surface/80">
-                        <li><strong class="text-white">Email:</strong> <a href="mailto:office@aventario.com" class="hover:text-accent transition-colors">office@aventario.com</a></li>
-                        <li><strong class="text-white">Address:</strong> Tuchlauben 7a, 1010 Vienna</li>
-                        <li><strong class="text-white">Phone:</strong> +43 134 3354012</li>
+                    <p class="text-xs uppercase tracking-widest text-surface/40 mb-4 font-bold">Services</p>
+                    <ul class="space-y-2 text-sm text-surface/80">
+                        <li><a href="services/savings.html" class="hover:text-accent">Savings</a></li>
+                        <li><a href="services/complex-rfx.html" class="hover:text-accent">Complex RFx</a></li>
+                        <li><a href="services/vendor-management.html" class="hover:text-accent">Vendor Management</a></li>
                     </ul>
                 </div>
-
-                <div>
-                    <h5 class="text-xs uppercase tracking-widest text-surface/40 mb-6 font-bold">Services</h5>
-                    <ul class="space-y-3 text-sm text-surface/80">
-                        <li><a href="index.html#svc-op-excellence" class="hover:text-accent">Operational Excellence aaS</a></li>
-                        <li><a href="index.html#svc-savings" class="hover:text-accent">Savings aaS</a></li>
-                        <li><a href="index.html#svc-consolidation" class="hover:text-accent">Vendor Consolidation aaS</a></li>
-                        <li><a href="index.html#svc-rfx" class="hover:text-accent">Complex RFx aaS</a></li>
-                        <li><a href="index.html#svc-vm" class="hover:text-accent">Vendor Management aaS</a></li>
-                        <li><a href="https://managedsuppliers.com" target="_blank" rel="noopener" class="hover:text-accent flex items-center gap-1">managedsuppliers <i class="ph ph-arrow-up-right text-[10px]"></i></a></li>
-                    </ul>
-                    <h5 class="text-xs uppercase tracking-widest text-surface/40 mb-6 mt-8 font-bold">Company</h5>
-                    <ul class="space-y-3 text-sm text-surface/80">
+                <div class="md:col-span-2">
+                    <p class="text-xs uppercase tracking-widest text-surface/40 mb-4 font-bold">Company</p>
+                    <ul class="space-y-2 text-sm text-surface/80">
                         <li><a href="about.html" class="hover:text-accent">About</a></li>
                         <li><a href="success-stories.html" class="hover:text-accent">Success Stories</a></li>
-                        <li><a href="resources.html" class="hover:text-accent">Resources</a></li>
+                        <li><a href="blog.html" class="hover:text-accent">Blog</a></li>
                     </ul>
                 </div>
             </div>
-
-            <div class="max-w-[1400px] mx-auto border-t border-surface/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-surface/40">
-                <p>&copy; 2026 Aventario Services GmbH. All rights reserved.</p>
-                <div class="flex gap-6 mt-4 md:mt-0">
+            <div class="border-t border-surface/10 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs text-surface/40 gap-2">
+                <p>&copy; 2026 Aventario Services GmbH</p>
+                <div class="flex gap-6">
                     <a href="impressum.html" class="hover:text-surface">Imprint</a>
-                    <a href="datenschutz.html" class="hover:text-surface">Privacy Policy</a>
+                    <a href="datenschutz.html" class="hover:text-surface">Privacy</a>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-    </main>
-
-    <!-- Interactions & GSAP Script -->
     <script>
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Main Nav Scroll Effect
-        const nav = document.getElementById('mainNav');
-        window.addEventListener('scroll', () => {
-            if(window.scrollY > 50) {
-                nav.classList.add('bg-base/90', 'backdrop-blur-md', 'shadow-sm', 'border-b', 'border-bordercolor');
-                nav.classList.remove('py-6');
-                nav.classList.add('py-4');
-            } else {
-                nav.classList.remove('bg-base/90', 'backdrop-blur-md', 'shadow-sm', 'border-b', 'border-bordercolor');
-                nav.classList.remove('py-4');
-                nav.classList.add('py-6');
-            }
-        });
-
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.toggle('ph-list');
-                icon.classList.toggle('ph-x');
-            });
-            mobileMenu.querySelectorAll('a').forEach(a => {
-                a.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    const icon = mobileMenuBtn.querySelector('i');
-                    icon.classList.add('ph-list');
-                    icon.classList.remove('ph-x');
-                });
-            });
-        }
-
-        // Initialization GSAP Context
-        let ctx = gsap.context(() => {
-
-            // Baseline Grid animation
-            gsap.to('.grid-line', {
-                scaleY: 1,
-                duration: 1.5,
-                stagger: 0.1,
-                ease: "power3.inOut"
-            });
-
-            // Split text animation for Hero
-            const splitLines = document.querySelectorAll('.split-text');
-            splitLines.forEach(line => {
-                gsap.fromTo(line,
-                    { y: 100, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 1.2, ease: "power4.out", delay: 0.2, stagger: 0.1 }
-                );
-            });
-
-            gsap.fromTo('.split-fade',
-                { opacity: 0, y: 30 },
-                { opacity: 1, y: 0, duration: 1, delay: 0.8, ease: "power2.out"}
-            );
-
-            // Scroll Parallax for Giant Text
-            gsap.to('#bg-text-parallax', {
-                yPercent: 30,
-                scrollTrigger: {
-                    trigger: 'body',
-                    start: 'top top',
-                    end: 'bottom top',
-                    scrub: 1
-                }
-            });
-
-        });
-
-
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+        if (btn && menu) { btn.addEventListener('click', () => menu.classList.toggle('hidden')); }
     </script>
 </body>
 </html>
