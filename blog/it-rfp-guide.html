@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Complete Guide to IT Vendor Management (2026) — Aventario</title>
-    <meta name="description" content="A practical, field-tested guide to IT vendor management — what it is, why most organisations get it wrong, and the framework that actually works. Built from 500+ engagements and €3B in negotiated contract volume.">
-    <link rel="canonical" href="https://aventario.com/blog/it-vendor-management">
+    <title>IT RFP & RFx Guide (2026) — Aventario</title>
+    <meta name="description" content="The structural reason most IT tenders fail — and the methodology (Zero Vendor Deviation™) that compresses a 4–6 month process into 6–8 weeks while improving the comparability of the responses.">
+    <link rel="canonical" href="https://aventario.com/blog/it-rfp-guide">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="The Complete Guide to IT Vendor Management (2026)">
-    <meta property="og:description" content="What IT vendor management really is, why it fails, and the framework that works — from 500+ engagements and €3B in contract volume.">
-    <meta property="og:url" content="https://aventario.com/blog/it-vendor-management">
+    <meta property="og:title" content="How to Run Complex IT Tenders That Actually Work">
+    <meta property="og:description" content="The structural reason most IT tenders fail — and the methodology (Zero Vendor Deviation™) that compresses a 4–6 month process into 6–8 weeks while improving the comparability of the responses.">
+    <meta property="og:url" content="https://aventario.com/blog/it-rfp-guide">
     <meta property="og:site_name" content="Aventario">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 55.42 55.2'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='11.43' y1='48.04' x2='37.22' y2='48.04' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23324a60'/%3E%3Cstop offset='.45' stop-color='%236a9a9b'/%3E%3Cstop offset='1' stop-color='%238dccc0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M37.22,40.94l-5.14-8.91c-.11-.19-.38-.19-.49,0l-5.14,8.91h10.78Z' fill='%238dccc0'/%3E%3Cpolygon points='11.43 55.15 37.22 40.94 26.44 40.94 16.64 46.19 15.81 47.62 11.51 55.06 11.43 55.15' fill='url(%23g)'/%3E%3Cpath d='M55.38,40.51l-7.53-13.05L32.08,.14c-.11-.19-.38-.19-.49,0L15.81,27.46.04,54.78c-.06,.1-.05,.21,0,.29,.05,.08,.13,.14,.24,.14H11.26c.1,0,.2-.05,.25-.14l4.3-7.45,.83-1.43,14.95-25.89c.11-.19,.38-.19,.49,0l11.83,20.49c.05,.09,.15,.14,.25,.14h10.98c.22,0,.36-.24,.25-.43Z' fill='%23324a60'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,7 @@
     <style>
         body { background-color: #FAFAF7; color: #334b60; font-family: 'Lato', -apple-system, sans-serif; font-weight: 400; -webkit-font-smoothing: antialiased; }
         h1, h2, h3, h4, h5, .font-serif { font-family: 'Lato', -apple-system, sans-serif; font-weight: 900; letter-spacing: -0.015em; line-height: 1.1; }
-        .post-cover { background: linear-gradient(135deg, #334b60 0%, #50757f 50%, #88c9be 100%); }
+        .post-cover { background: linear-gradient(135deg, #f19a51 0%, #d15298 100%); }
         .prose-aventario p { font-size: 1.125rem; line-height: 1.7; margin-bottom: 1.4rem; color: #334b60; }
         .prose-aventario h2 { font-size: 1.875rem; margin-top: 3rem; margin-bottom: 1rem; }
         .prose-aventario h3 { font-size: 1.375rem; margin-top: 2rem; margin-bottom: 0.75rem; }
@@ -33,7 +33,6 @@
         .prose-aventario ol li { font-size: 1.125rem; line-height: 1.7; margin-bottom: 0.6rem; list-style: decimal; color: #334b60; }
         .prose-aventario a { color: #5FA99D; font-weight: 700; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
         .prose-aventario a:hover { color: #334b60; }
-        .prose-aventario blockquote { border-left: 3px solid #88C9BE; padding: 0.5rem 0 0.5rem 1.5rem; margin: 2rem 0; font-style: italic; color: #5f768b; }
         .prose-aventario strong { font-weight: 900; color: #334b60; }
         .pull-quote { background: #FFFFFF; border-top: 3px solid #88C9BE; border-bottom: 3px solid #88C9BE; padding: 1.75rem 1.5rem; margin: 2.5rem 0; }
         .pull-quote p { font-size: 1.25rem; font-weight: 700; line-height: 1.4; color: #334b60; margin-bottom: 0.5rem; }
@@ -43,9 +42,8 @@
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "The Complete Guide to IT Vendor Management: Strategy, Frameworks & Best Practices (2026)",
-      "description": "A practical, field-tested guide to IT vendor management — what it is, why most organisations get it wrong, and the framework that actually works.",
-      "image": "https://aventario.com/blog/og-it-vendor-management.png",
+      "headline": "IT RFP & RFI Guide: How to Run Complex IT Tenders That Actually Work",
+      "description": "The structural reason most IT tenders fail — and the methodology (Zero Vendor Deviation™) that compresses a 4–6 month process into 6–8 weeks while improving the comparability of the responses.",
       "datePublished": "2026-05-07",
       "dateModified": "2026-05-07",
       "author": {
@@ -59,16 +57,13 @@
         "name": "Aventario",
         "logo": { "@type": "ImageObject", "url": "https://aventario.com/logos/aventario-logo-CMYK.png" }
       },
-      "mainEntityOfPage": "https://aventario.com/blog/it-vendor-management",
-      "mentions": [
-        { "@type": "Person", "name": "Markus Jaksch", "jobTitle": "COO", "worksFor": { "@type": "Organization", "name": "Aventario" } }
-      ]
+      "mainEntityOfPage": "https://aventario.com/blog/it-rfp-guide",
+      "mentions": [{"@type": "Person", "name": "Markus Kern", "jobTitle": "CEO", "worksFor": {"@type": "Organization", "name": "Aventario"}}]
     }
     </script>
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="sticky top-0 z-40 bg-base/95 backdrop-blur-sm border-b border-bordercolor px-6 md:px-12 py-4 flex justify-between items-center">
         <a href="../index.html" class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 199.29 55.2" class="h-6 md:h-7"><defs><linearGradient id="nav-grad" x1="11.43" y1="48.04" x2="37.22" y2="48.04" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#324a60"/><stop offset=".45" stop-color="#6a9a9b"/><stop offset="1" stop-color="#8dccc0"/></linearGradient></defs><g><path d="M37.22,40.94l-5.14-8.91c-.11-.19-.38-.19-.49,0l-5.14,8.91h10.78Z" fill="#8dccc0"/><polygon points="11.43 55.15 37.22 40.94 26.44 40.94 16.64 46.19 15.81 47.62 11.51 55.06 11.43 55.15" fill="url(#nav-grad)"/><path d="M55.38,40.51l-7.53-13.05L32.08,.14c-.11-.19-.38-.19-.49,0L15.81,27.46.04,54.78c-.06,.1-.05,.21,0,.29,.05,.08,.13,.14,.24,.14H11.26c.1,0,.2-.05,.25-.14l4.3-7.45,.83-1.43,14.95-25.89c.11-.19,.38-.19,.49,0l11.83,20.49c.05,.09,.15,.14,.25,.14h10.98c.22,0,.36-.24,.25-.43Z" fill="#324a60"/><path d="M86.05,40.9h-5.18c-.14,0-.26-.09-.3-.22l-1.09-3.31c-.04-.11-.13-.18-.25-.18h-6.41c-.11,0-.21,.07-.25,.18l-1.1,3.35c-.04,.11-.13,.18-.25,.18h-5.22c-.18,0-.31-.18-.24-.35l7.7-20.43c.05-.13,.17-.21,.31-.21h4.54c.12,0,.23,.07,.27,.19l7.71,20.46c.06,.17-.06,.35-.24,.35Zm-8.16-8.34l-1.61-4.89c-.08-.24-.42-.24-.51,0l-1.61,4.9c-.06,.17,.07,.34,.24,.34h3.24c.18,0,.31-.18,.25-.35Z" fill="#324a60"/><path d="M99.59,25.15l-5.48,15.35c-.04,.1-.13,.17-.24,.17h-4.63c-.11,0-.2-.07-.24-.17l-5.48-15.35c-.06-.17,.06-.34,.24-.34h4.42c.11,0,.2,.07,.24,.17l3.14,8.8,3.14-8.8c.04-.1,.13-.17,.24-.17h4.42c.18,0,.3,.17,.24,.34Z" fill="#324a60"/><path d="M116.31,32.86c0,.46-.05,1-.14,1.47-.02,.12-.13,.21-.25,.21h-11.11c-.2,0-.32,.21-.22,.38,.68,1.16,1.9,1.88,3.25,1.88,1.15,0,2.22-.5,2.98-1.48,.06-.08,.15-.11,.25-.1l4.25,.76c.16,.03,.26,.21,.18,.36-1.34,2.66-4.01,4.5-7.13,4.5-4.43,0-8.04-3.71-8.04-8.3s3.61-8.3,8.04-8.3,8.04,3.71,8.04,8.3Zm-4.96-2.1c-.2-1.17-1.55-2.08-3.27-2.08-1.56,0-3.05,.9-3.27,2.08-.03,.16,.09,.3,.25,.3h6.04c.16,0,.28-.14,.25-.3Z" fill="#324a60"/><path d="M132.6,31.49v8.92c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-8.67c0-.59-.03-1.26-.28-1.81-.11-.23-.26-.42-.44-.56-.3-.23-.68-.35-1.17-.35-.91,0-1.62,.31-1.84,.82-.26,.55-.26,1.3-.26,1.9v8.67c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v.43c0,.1,.11,.16,.2,.1,3.57-2.46,7.05,.27,7.08,.3,.13,.1,.25,.21,.36,.31,1.62,1.63,1.89,2.94,1.89,5.28Z" fill="#324a60"/><path d="M143.71,36.84l-.57,3.75c-.02,.12-.12,.21-.24,.21-.54,.03-2,.11-2.44,.11-.04,0-.06,0-.09,0-2.69-.14-4.12-1.52-4.12-4v-7.61c0-.14-.11-.25-.25-.25h-1.65c-.14,0-.25-.11-.25-.25v-3.75c0-.14,.11-.25,.25-.25h1.65c.14,0,.25-.11,.25-.25v-4.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v4.35c0,.14,.11,.25,.25,.25h1.65c.14,0,.25,.11,.25,.25v3.75c0,.14-.11,.25-.25,.25h-1.65c-.14,0-.25,.11-.25,.25,0,1.32,0,5.21,0,5.25v.11c-.02,.48-.04,1.14,.34,1.54,.23,.23,.58,.35,1.05,.35h.86c.15,0,.27,.14,.25,.29Z" fill="#324a60"/><path d="M162.83,25.06v15.35c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-.23c0-.1-.11-.16-.19-.11-1.27,.72-2.71,1.1-4.18,1.1-4.64,0-8.42-3.73-8.42-8.3s3.78-8.3,8.42-8.3c1.47,0,2.91,.38,4.18,1.1,.08,.05,.19-.01,.19-.11v-.48c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Zm-4.94,7.8c0-2.1-1.48-3.81-3.61-3.81s-3.86,1.71-3.86,3.81,1.73,3.81,3.86,3.81,3.61-1.71,3.61-3.81Z" fill="#324a60"/><path d="M174.13,25.08l-.15,3.71c0,.15-.13,.26-.28,.24-.43-.04-1.3-.1-1.81,.03-.57,.14-.9,.58-1,.79-.26,.55-.26,1.03-.26,1.65v8.92c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v.44c0,.1,.11,.16,.19,.11,1.05-.65,2.29-.79,3.34-.8,.15,0,.26,.12,.26,.26Z" fill="#324a60"/><path d="M181.06,20.07v3.24c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-3.24c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Zm0,4.99v15.35c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Z" fill="#324a60"/><path d="M199.29,32.87c0,4.58-3.78,8.3-8.42,8.3s-8.42-3.73-8.42-8.3,3.78-8.3,8.42-8.3,8.42,3.73,8.42,8.3Zm-4.75,0c0-2-1.65-3.62-3.67-3.62s-3.67,1.62-3.67,3.62,1.65,3.62,3.67,3.62,3.67-1.62,3.67-3.62Z" fill="#324a60"/></g></svg></a>
         <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest font-bold items-center">
@@ -81,135 +76,73 @@
         <a href="../contact.html" class="hidden md:inline-flex text-xs font-bold uppercase tracking-widest bg-text text-surface px-5 py-2.5 rounded-full">Contact Us</a>
     </nav>
 
-    <!-- ====== HERO ====== -->
     <section class="bg-surface px-6 md:px-12 pt-16 md:pt-24 pb-12 border-b border-bordercolor">
         <div class="max-w-3xl mx-auto">
             <a href="../blog.html" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-text/60 hover:text-text mb-8"><i class="ph ph-arrow-left"></i> Back to blog</a>
-            <span class="inline-block text-xs uppercase tracking-widest font-bold px-3 py-1 rounded-full bg-text text-surface mb-6">Vendor management · Pillar</span>
-            <h1 class="font-serif text-4xl md:text-6xl mb-6">The complete guide to IT vendor management.</h1>
-            <p class="text-xl text-text/80 leading-relaxed mb-8">Strategy, frameworks, and what actually works — from 500+ engagements and €3B in negotiated contract volume.</p>
+            <span class="inline-block text-xs uppercase tracking-widest font-bold px-3 py-1 rounded-full bg-text text-surface mb-6">RFx · Pillar</span>
+            <h1 class="font-serif text-4xl md:text-6xl mb-6">The IT RFP guide.</h1>
+            <p class="text-xl text-text/80 leading-relaxed mb-8">How to run a complex IT tender in 6–8 weeks instead of 4–6 months — and why it's structure, not speed, that gets you there.</p>
             <div class="flex items-center gap-4 pt-4 border-t border-bordercolor">
                 <div class="w-12 h-12 rounded-full bg-text text-surface flex items-center justify-center text-sm font-bold">JR</div>
                 <div class="text-sm">
                     <p class="font-bold text-text">Julian Robida</p>
-                    <p class="text-text/60">Research Lead · Aventario · 14 min read · 7 May 2026</p>
+                    <p class="text-text/60">Research Lead · Aventario · 15 min read · 7 May 2026</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ====== COVER ====== -->
     <section class="bg-base px-6 md:px-12 py-12">
         <div class="max-w-4xl mx-auto post-cover aspect-[16/7] rounded-md"></div>
     </section>
 
-    <!-- ====== ARTICLE ====== -->
     <article class="bg-base px-6 md:px-12 pb-20">
         <div class="max-w-3xl mx-auto prose-aventario">
-
-            <h2>What IT vendor management is, in one sentence.</h2>
-            <p>IT vendor management is the structured discipline by which an organisation selects, contracts, governs, and continuously optimises every relationship it has with external technology providers — from hyperscalers and ERP vendors down to the regional MSP nobody remembers signing.</p>
-            <p>It is not procurement. Procurement runs the tender; vendor management runs the marriage that follows. It is not service management either, though it borrows from both. The clue is in the lifecycle: vendor management starts the day a need is identified and ends the day the last invoice is paid on the last contract — sometimes a decade later.</p>
-
-            <h2>Why this is suddenly the conversation in every CIO's office.</h2>
-            <p>Three forces have collided. IT spend, in the average DACH mid-cap, has roughly doubled in seven years. Vendor counts have followed — most organisations we assess carry between 80 and 220 active IT suppliers. And the proportion of that spend going to "as-a-service" providers, where the lever to reduce cost is no longer a one-time negotiation but continuous governance, has crossed 60%.</p>
-            <p>The combination is brutal. More money, more vendors, more recurring commitments — managed, in most cases, by the same two or three people who managed twelve vendors in 2018. Something gives. Usually it is the governance: contracts auto-renew unread, SLAs go unmonitored, and the vendor who promised innovation becomes the vendor who shows up for the QBR with last year's slide deck.</p>
+            <h2>Quick answer.</h2>
+            <p>An IT RFP runs in 6–8 weeks when the structural work is done before vendors see the question. It runs in 4–6 months when it isn't. The difference is not effort, talent, or vendor cooperation — it is whether the question itself was built to be answered comparably.</p>
+            <h2>Why most IT tenders fail before they begin.</h2>
+            <p>The default failure mode of an IT RFP is not that the wrong vendor wins. It is that, by the time the responses come back, no one can confidently say which vendor would have been the right one. Apples-to-oranges responses. Open-ended assumption blocks. Pricing that depends on volumes the buyer hasn't specified. Scope variations that make the spreadsheet useless.</p><p>The root cause is almost always upstream: the requirements document gave each vendor too much room to tell their own story instead of answering the same question. Vendors are good at this — it's their primary defence against being commoditised. If you don't close that room down deliberately, you give it away.</p>
 
             <div class="pull-quote">
-                <p>"Across our last 200 IT vendor management engagements, the single most reliable predictor of whether a contract delivers the savings on the term sheet is whether anyone was actually reading the SLA report twelve months later."</p>
-                <cite>— Markus Jaksch, COO, Aventario</cite>
+                <p>"If your evaluation panel is arguing about which slide deck was more compelling, the RFP failed before the responses came in."</p>
+                <cite>— Markus Kern, CEO, Aventario</cite>
             </div>
-
-            <h2>The vendor management lifecycle, properly defined.</h2>
-            <p>Most published lifecycles have five stages. Ours has seven, because the two that get cut — onboarding and exit — are where the money actually moves.</p>
-            <ol>
-                <li><strong>Strategy & sourcing plan.</strong> What capability do we need, build vs buy, who are the credible providers, what's the budget envelope.</li>
-                <li><strong>Requirements & RFx.</strong> The structured tender. Done well in 6–8 weeks; done badly in 6 months.</li>
-                <li><strong>Contracting.</strong> SLA, OLA, exit clauses, change-request mechanics, benchmark rights.</li>
-                <li><strong>Onboarding & transition.</strong> The 90-day window where most of the value either lands or evaporates.</li>
-                <li><strong>Operational governance.</strong> Day-to-day ticket, SLA, and incident management.</li>
-                <li><strong>Strategic governance.</strong> QBRs, roadmap reviews, benchmark refreshes, renegotiation triggers.</li>
-                <li><strong>Renewal or exit.</strong> The decision point that determines whether you keep paying for legacy or move on.</li>
-            </ol>
-            <p>Each stage has its own owner, cadence, and artefact. Skip a stage — most commonly stage 5 or 6 — and the value of the contract decays predictably. We call the resulting curve the <strong>18-month governance decay</strong>: in the absence of active management, vendor performance drifts back toward the lowest-effort baseline within roughly eighteen months of go-live, regardless of contract terms.</p>
-
-            <h2>The Three-Tier Governance Model.</h2>
-            <p>Governance fails when it is run at one altitude. The model that works runs at three.</p>
-            <h3>Tier 1 — Operational.</h3>
-            <p>Weekly or fortnightly. Service desk leads on both sides. Tickets, incidents, SLA breaches, change requests. The agenda is concrete and small: what happened, what's blocked, what's next. This is where SLA reports get challenged before they harden into "agreed truth."</p>
-            <h3>Tier 2 — Managerial.</h3>
-            <p>Monthly. Service owners, account leads, finance representation. The agenda widens: scorecard, financial reconciliation, risk register, change-request pipeline. Tier 2 is where small problems either get solved or get escalated. If it doesn't exist, every issue eventually becomes a Tier 3 issue.</p>
-            <h3>Tier 3 — Strategic.</h3>
-            <p>Quarterly. CIO or sponsor on the client side, executive sponsor on the vendor side. Roadmap, innovation, contract evolution, relationship health. Most organisations only run Tier 3 — and then complain that vendors don't innovate.</p>
-            <p>The discipline is that nothing skips a tier. An operational issue that ends up on the CIO's desk is, by definition, a governance failure two tiers down.</p>
-
-            <h2>What goes wrong, in order of frequency.</h2>
-            <p>From the engagement archive, the same five failure modes account for the bulk of value leakage. They are mundane, which is exactly why they persist.</p>
-            <ul>
-                <li><strong>The auto-renewal trap.</strong> Notice periods missed, contracts roll forward at the original price, leverage gone for another two to five years. We routinely find 15–25% of a vendor portfolio in this state at first assessment.</li>
-                <li><strong>The unmonitored SLA.</strong> Vendor self-reports green; nobody compares the report to the underlying ticket data. Real availability is often a tier below contracted.</li>
-                <li><strong>The orphan contract.</strong> Original sponsor left two years ago. Nobody owns the vendor. Invoices clear because finance doesn't know what to challenge.</li>
-                <li><strong>The unused entitlement.</strong> Licences, support tiers, hours of professional services pre-paid and never consumed. Hidden in plain sight on every renewal proposal.</li>
-                <li><strong>The scope-creep migration.</strong> Original SOW for €X. Three change requests later, run rate is 1.6× the original price and nobody can quite trace why.</li>
-            </ul>
-
-            <h2>How to start: the 90-day vendor audit.</h2>
-            <p>Most CIOs we work with inherit the vendor landscape — they didn't build it, and they cannot fully see it. Before designing a target operating model, the first job is visibility.</p>
-            <ol>
-                <li><strong>Days 1–30 — Inventory.</strong> Pull every vendor with spend > €50k in the last twelve months from finance. Cross-reference with the contract repository (or assemble one if there isn't one). Expect to find 20–30% more vendors than anyone thought.</li>
-                <li><strong>Days 31–60 — Triage.</strong> For each vendor: contract end date, notice period, last benchmark, SLA report status, sponsor. Three columns: in control, at risk, opaque.</li>
-                <li><strong>Days 61–90 — Action plan.</strong> The "opaque" column gets a reading queue. The "at risk" column gets a renegotiation calendar. The "in control" column gets a governance cadence assigned. By day 90, you have a defensible map and a 12-month workplan.</li>
-            </ol>
-
-            <h2>What good looks like, measured.</h2>
-            <p>A mature IT vendor management capability shows up in five numbers, all of which can be tracked monthly:</p>
-            <ul>
-                <li><strong>Spend under management.</strong> Percentage of total IT spend covered by an active contract, an assigned owner, and a governance cadence. Best-in-class: > 90%. Typical first-assessment baseline: 55–70%.</li>
-                <li><strong>Benchmark currency.</strong> Percentage of strategic vendors benchmarked in the last 24 months. Best-in-class: 100%. Typical: under 30%.</li>
-                <li><strong>SLA verification rate.</strong> Percentage of monthly SLA reports independently verified against ticket data. Best-in-class: 100% for tier-1 vendors. Typical: 0%.</li>
-                <li><strong>Contract action lead time.</strong> Average days from "renewal trigger" to "decision documented." Best-in-class: 90+ days. Typical: missed window, rolled forward.</li>
-                <li><strong>Realised vs negotiated savings.</strong> What landed in the P&L vs what was promised at contract signature. Best-in-class: > 80%. Typical: 30–50%.</li>
-            </ul>
-
+            <h2>The taxonomy: RFI vs RFP vs RFQ.</h2>
+            <p>Three documents, three different jobs. They are routinely used interchangeably, which is why they routinely produce sub-optimal results.</p><ul><li><strong>RFI — Request for Information.</strong> Used to map the market. The output is a shortlist and a refined understanding of what's available. No commercial commitment on either side.</li><li><strong>RFP — Request for Proposal.</strong> Used to compare structured proposals against a defined requirement set. The output is a ranked award decision. Pricing is a component, not the primary axis.</li><li><strong>RFQ — Request for Quotation.</strong> Used when the requirement is fully specified and price is the discriminator. Common for commodity hardware, less common for complex services.</li></ul><p>Most IT tenders are RFPs that have been mis-named, run as RFQs, or expected to do the work of an RFI. Naming the document correctly — and writing it accordingly — is the first cheap win.</p>
+            <h2>Zero Vendor Deviation™: the methodology.</h2>
+            <p>Aventario's proprietary methodology for complex IT tenders is built around a single principle: <strong>vendors cannot deviate from the structure of the question.</strong> Every requirement is atomic, weighted, and answerable in a fixed format. Every pricing line is broken down to a unit that is consumable in the same way across vendors. Every assumption is either pre-stated by the buyer or required to be explicit and individually priced.</p><p>The mechanics:</p><ul><li><strong>Atomised requirements.</strong> 300–600 individually-numbered, individually-weighted line items per RFP, each answerable in a constrained format (compliant / partial / non-compliant + evidence).</li><li><strong>Pricing skeleton.</strong> A pre-built pricing matrix the vendor fills in. Same units, same volume bands, same indexation, same currency. No free-form quotes.</li><li><strong>Assumption register.</strong> Buyer-stated assumptions are baked into the requirements; vendor-stated assumptions must be priced separately and ranked.</li><li><strong>Evaluation rubric, published.</strong> Vendors see the weighting before they respond. Surprises are eliminated; debates collapse.</li></ul><p>The result is responses that compare line-for-line. Evaluation that takes hours instead of weeks. Award decisions that survive board scrutiny because the methodology, not just the conclusion, is documented.</p>
+            <h2>The 6–8 week timeline, broken down.</h2>
+            <ol><li><strong>Week 1 — Requirements engineering.</strong> The hard, upstream work. Strategy, scope, weighting, evaluation rubric.</li><li><strong>Weeks 2–3 — Document build.</strong> Atomised requirements, pricing skeleton, assumption register, vendor question protocol.</li><li><strong>Week 4 — Issue and clarification.</strong> RFP goes to longlist. Single Q&A window, all questions and answers shared with all bidders.</li><li><strong>Weeks 5–6 — Vendor response window.</strong> Two weeks if the document is good; the structure does the work.</li><li><strong>Week 7 — Evaluation and shortlist.</strong> Compliance scoring against the rubric. Quantitative gap to qualitative discussion.</li><li><strong>Week 8 — Final round and award.</strong> Best-and-final, contract negotiation kick-off, award documented.</li></ol><p>This is the median cadence across our last 50 IT outsourcing tenders. Outliers exist — regulated procurements with statutory windows are longer; commodity refreshes are shorter — but the architecture is consistent.</p>
+            <h2>Where most tenders quietly burn time.</h2>
+            <ul><li><strong>Requirements drift.</strong> The team keeps refining requirements after the document is issued. Every refinement triggers a vendor clarification cycle. Discipline: freeze the document at issue.</li><li><strong>Q&A flood.</strong> 200+ vendor questions, most of which reveal a defect in the document. Discipline: aggregate, answer once, share with all bidders.</li><li><strong>Scope creep mid-flight.</strong> A new stakeholder asks for something to be added in week 5. Discipline: park it; address in contract negotiation, not the RFP.</li><li><strong>Comparison-by-narrative.</strong> Evaluation panel argues over which vendor's slide deck was more impressive. Discipline: rubric first; narrative second; evidence always.</li></ul>
+            <h2>Common-mode failure: the requirement nobody owns.</h2>
+            <p>Every long IT tender contains at least one requirement that no internal stakeholder fully owns. It is in the document because it sounded important; it is unweighted because nobody can defend a weight; it produces vendor responses that nobody can score because there is no acceptance criterion. Hunt for these in week 1. Either someone owns it (and weights it) or it comes out.</p>
             <h2>How Aventario approaches this.</h2>
-            <p>We are a boutique consultancy, not a managed-service factory. We bring the methodology — the seven-stage lifecycle, the three-tier governance model, the savings playbooks built on €3B of negotiated contract volume — and we run it shoulder-to-shoulder with your team. Many engagements end with the in-house team running the model independently; the ones that don't are the ones where the client deliberately keeps us in the seat as an outsourced vendor management office.</p>
-            <p>Either way, the output is the same: a vendor portfolio that is visible, governed, and producing the savings the contracts originally promised.</p>
-
+            <p>Our Complex RFx-as-a-Service engagement runs the full cycle. Requirements engineering, document build, vendor management, evaluation, contract negotiation. We bring the methodology, the templates, and the negotiation muscle; you keep the relationships and the sign-off. The promise: zero vendor deviation in the responses, six- to eight-week cadence, defensible award.</p>
             <h2>FAQ.</h2>
-            <h3>What is IT vendor management?</h3>
-            <p>IT vendor management is the end-to-end discipline of selecting, contracting, governing, and optimising every external technology supplier across their full lifecycle — from initial qualification through renewal or exit.</p>
-            <h3>Is IT vendor management the same as procurement?</h3>
-            <p>No. Procurement typically owns the tender and the contract signature. Vendor management owns everything that happens before procurement is engaged (sourcing strategy) and after the contract is signed (onboarding, governance, renewal). In most organisations, the two functions need to be tightly coupled but they are not interchangeable.</p>
-            <h3>How many vendors should an IT organisation have?</h3>
-            <p>The right answer is "as few as can deliver the required capability without creating concentration risk." Across our engagements, top-5 strategic vendors typically deliver 70–85% of in-scope IT services in a healthy portfolio.</p>
-            <h3>What is the biggest mistake in IT vendor management?</h3>
-            <p>Treating contract signature as the end of the work. The contract is the starting line. Without active governance through the lifecycle, even an excellent contract under-delivers within 12–18 months.</p>
-
-            <hr class="my-12 border-bordercolor">
-            <p class="text-sm text-text/60">Julian Robida is Research Lead at Aventario. Markus Jaksch (COO) contributed expert input drawn from 25+ years of running IT vendor portfolios across pharma, automotive, and financial services. Aventario is a boutique consultancy in Vienna; we have negotiated over €3B in IT contract volume and run more than 500 engagements across DACH and beyond.</p>
+            <h3>What is the difference between RFI and RFP?</h3><p>An RFI maps the market — vendors describe their capability without commitment. An RFP asks vendors to bid against a defined requirement set with structured pricing. RFI output is a shortlist; RFP output is an award decision.</p><h3>How long should an IT RFP take?</h3><p>For a complex IT outsourcing or platform tender, 6–8 weeks is achievable when requirements engineering is done properly upstream. Tenders that take 4–6 months are typically suffering from requirements drift, scope ambiguity, or vendor-deviation in the responses.</p><h3>What is Zero Vendor Deviation?</h3><p>It is Aventario's RFP methodology. Atomised requirements, structured pricing skeleton, published evaluation rubric — built so vendors cannot deviate from the structure of the question. The result is line-for-line comparable responses.</p>
+<hr class="my-12 border-bordercolor">
+            <p class="text-sm text-text/60">Julian Robida is Research Lead at Aventario. Markus Kern (CEO) contributed expert input drawn from 25+ years of running IT engagements across pharma, automotive, financial services, and the public sector. Aventario is a boutique consultancy in Vienna; we have negotiated over €3B in IT contract volume and delivered more than 500 engagements across DACH and beyond.</p>
 
             <div class="mt-12 p-8 bg-surface border border-bordercolor rounded-md">
                 <p class="text-xs uppercase tracking-widest text-text font-bold mb-3">Related reading</p>
                 <ul class="space-y-2">
-                    <li><a href="it-vendor-spend-optimization">IT vendor spend optimization: how to recover 10–40% of your IT budget</a></li>
-                    <li><a href="it-vendor-governance">The framework that keeps vendors accountable after the contract is signed</a></li>
+                    <li><a href="it-vendor-management">The complete guide to IT vendor management</a></li>
+                    <li><a href="it-contract-management">From signature to savings</a></li>
                     <li><a href="it-vendor-consolidation">From 47 vendors to 5 strategic partners</a></li>
                 </ul>
             </div>
-
         </div>
     </article>
 
-    <!-- ====== CTA ====== -->
     <section class="px-6 md:px-12 py-20" style="background-color: #334b60; color: #FFFFFF;">
         <div class="max-w-3xl mx-auto text-center">
-            <h2 class="font-serif text-3xl md:text-4xl text-surface mb-4">Run a 90-day vendor audit with us.</h2>
-            <p class="text-lg leading-relaxed mb-8" style="color: rgba(255,255,255,0.75);">Visibility first, action second. We bring the methodology and the benchmark data; you keep the result.</p>
+            <h2 class="font-serif text-3xl md:text-4xl text-surface mb-4">Run your next RFP with Zero Vendor Deviation™.</h2>
+            <p class="text-lg leading-relaxed mb-8" style="color: rgba(255,255,255,0.75);">500+ tenders run, six- to eight-week cadence, comparable responses, defensible award. Outcome-based engagement.</p>
             <a href="../contact.html" class="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-widest px-8 py-4 rounded-full" style="background-color: #f19a51; color: #FFFFFF;">Get in touch <i class="ph ph-arrow-right"></i></a>
         </div>
     </section>
 
-    <!-- ====== FOOTER ====== -->
     <footer class="bg-text text-surface px-6 md:px-12 py-16">
         <div class="max-w-6xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">

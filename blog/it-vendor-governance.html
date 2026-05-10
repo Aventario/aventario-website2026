@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Complete Guide to IT Vendor Management (2026) — Aventario</title>
-    <meta name="description" content="A practical, field-tested guide to IT vendor management — what it is, why most organisations get it wrong, and the framework that actually works. Built from 500+ engagements and €3B in negotiated contract volume.">
-    <link rel="canonical" href="https://aventario.com/blog/it-vendor-management">
+    <title>IT Vendor Governance Framework (2026) — Aventario</title>
+    <meta name="description" content="A practical framework for IT vendor governance — three-tier model, escalation discipline, SLA verification, the 18-month decay curve, and how to keep vendors accountable after the contract is signed.">
+    <link rel="canonical" href="https://aventario.com/blog/it-vendor-governance">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="The Complete Guide to IT Vendor Management (2026)">
-    <meta property="og:description" content="What IT vendor management really is, why it fails, and the framework that works — from 500+ engagements and €3B in contract volume.">
-    <meta property="og:url" content="https://aventario.com/blog/it-vendor-management">
+    <meta property="og:title" content="Keep Vendors Accountable After the Contract Is Signed">
+    <meta property="og:description" content="A practical framework for IT vendor governance — three-tier model, escalation discipline, SLA verification, the 18-month decay curve, and how to keep vendors accountable after the contract is signed.">
+    <meta property="og:url" content="https://aventario.com/blog/it-vendor-governance">
     <meta property="og:site_name" content="Aventario">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 55.42 55.2'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='11.43' y1='48.04' x2='37.22' y2='48.04' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23324a60'/%3E%3Cstop offset='.45' stop-color='%236a9a9b'/%3E%3Cstop offset='1' stop-color='%238dccc0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M37.22,40.94l-5.14-8.91c-.11-.19-.38-.19-.49,0l-5.14,8.91h10.78Z' fill='%238dccc0'/%3E%3Cpolygon points='11.43 55.15 37.22 40.94 26.44 40.94 16.64 46.19 15.81 47.62 11.51 55.06 11.43 55.15' fill='url(%23g)'/%3E%3Cpath d='M55.38,40.51l-7.53-13.05L32.08,.14c-.11-.19-.38-.19-.49,0L15.81,27.46.04,54.78c-.06,.1-.05,.21,0,.29,.05,.08,.13,.14,.24,.14H11.26c.1,0,.2-.05,.25-.14l4.3-7.45,.83-1.43,14.95-25.89c.11-.19,.38-.19,.49,0l11.83,20.49c.05,.09,.15,.14,.25,.14h10.98c.22,0,.36-.24,.25-.43Z' fill='%23324a60'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,7 @@
     <style>
         body { background-color: #FAFAF7; color: #334b60; font-family: 'Lato', -apple-system, sans-serif; font-weight: 400; -webkit-font-smoothing: antialiased; }
         h1, h2, h3, h4, h5, .font-serif { font-family: 'Lato', -apple-system, sans-serif; font-weight: 900; letter-spacing: -0.015em; line-height: 1.1; }
-        .post-cover { background: linear-gradient(135deg, #334b60 0%, #50757f 50%, #88c9be 100%); }
+        .post-cover { background: linear-gradient(135deg, #334b60 0%, #88c9be 100%); }
         .prose-aventario p { font-size: 1.125rem; line-height: 1.7; margin-bottom: 1.4rem; color: #334b60; }
         .prose-aventario h2 { font-size: 1.875rem; margin-top: 3rem; margin-bottom: 1rem; }
         .prose-aventario h3 { font-size: 1.375rem; margin-top: 2rem; margin-bottom: 0.75rem; }
@@ -33,7 +33,6 @@
         .prose-aventario ol li { font-size: 1.125rem; line-height: 1.7; margin-bottom: 0.6rem; list-style: decimal; color: #334b60; }
         .prose-aventario a { color: #5FA99D; font-weight: 700; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
         .prose-aventario a:hover { color: #334b60; }
-        .prose-aventario blockquote { border-left: 3px solid #88C9BE; padding: 0.5rem 0 0.5rem 1.5rem; margin: 2rem 0; font-style: italic; color: #5f768b; }
         .prose-aventario strong { font-weight: 900; color: #334b60; }
         .pull-quote { background: #FFFFFF; border-top: 3px solid #88C9BE; border-bottom: 3px solid #88C9BE; padding: 1.75rem 1.5rem; margin: 2.5rem 0; }
         .pull-quote p { font-size: 1.25rem; font-weight: 700; line-height: 1.4; color: #334b60; margin-bottom: 0.5rem; }
@@ -43,9 +42,8 @@
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "The Complete Guide to IT Vendor Management: Strategy, Frameworks & Best Practices (2026)",
-      "description": "A practical, field-tested guide to IT vendor management — what it is, why most organisations get it wrong, and the framework that actually works.",
-      "image": "https://aventario.com/blog/og-it-vendor-management.png",
+      "headline": "IT Vendor Governance: The Framework That Keeps Vendors Accountable After the Contract Is Signed",
+      "description": "A practical framework for IT vendor governance — three-tier model, escalation discipline, SLA verification, the 18-month decay curve, and how to keep vendors accountable after the contract is signed.",
       "datePublished": "2026-05-07",
       "dateModified": "2026-05-07",
       "author": {
@@ -59,16 +57,13 @@
         "name": "Aventario",
         "logo": { "@type": "ImageObject", "url": "https://aventario.com/logos/aventario-logo-CMYK.png" }
       },
-      "mainEntityOfPage": "https://aventario.com/blog/it-vendor-management",
-      "mentions": [
-        { "@type": "Person", "name": "Markus Jaksch", "jobTitle": "COO", "worksFor": { "@type": "Organization", "name": "Aventario" } }
-      ]
+      "mainEntityOfPage": "https://aventario.com/blog/it-vendor-governance",
+      "mentions": [{"@type": "Person", "name": "Markus Jaksch", "jobTitle": "COO", "worksFor": {"@type": "Organization", "name": "Aventario"}}]
     }
     </script>
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="sticky top-0 z-40 bg-base/95 backdrop-blur-sm border-b border-bordercolor px-6 md:px-12 py-4 flex justify-between items-center">
         <a href="../index.html" class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 199.29 55.2" class="h-6 md:h-7"><defs><linearGradient id="nav-grad" x1="11.43" y1="48.04" x2="37.22" y2="48.04" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#324a60"/><stop offset=".45" stop-color="#6a9a9b"/><stop offset="1" stop-color="#8dccc0"/></linearGradient></defs><g><path d="M37.22,40.94l-5.14-8.91c-.11-.19-.38-.19-.49,0l-5.14,8.91h10.78Z" fill="#8dccc0"/><polygon points="11.43 55.15 37.22 40.94 26.44 40.94 16.64 46.19 15.81 47.62 11.51 55.06 11.43 55.15" fill="url(#nav-grad)"/><path d="M55.38,40.51l-7.53-13.05L32.08,.14c-.11-.19-.38-.19-.49,0L15.81,27.46.04,54.78c-.06,.1-.05,.21,0,.29,.05,.08,.13,.14,.24,.14H11.26c.1,0,.2-.05,.25-.14l4.3-7.45,.83-1.43,14.95-25.89c.11-.19,.38-.19,.49,0l11.83,20.49c.05,.09,.15,.14,.25,.14h10.98c.22,0,.36-.24,.25-.43Z" fill="#324a60"/><path d="M86.05,40.9h-5.18c-.14,0-.26-.09-.3-.22l-1.09-3.31c-.04-.11-.13-.18-.25-.18h-6.41c-.11,0-.21,.07-.25,.18l-1.1,3.35c-.04,.11-.13,.18-.25,.18h-5.22c-.18,0-.31-.18-.24-.35l7.7-20.43c.05-.13,.17-.21,.31-.21h4.54c.12,0,.23,.07,.27,.19l7.71,20.46c.06,.17-.06,.35-.24,.35Zm-8.16-8.34l-1.61-4.89c-.08-.24-.42-.24-.51,0l-1.61,4.9c-.06,.17,.07,.34,.24,.34h3.24c.18,0,.31-.18,.25-.35Z" fill="#324a60"/><path d="M99.59,25.15l-5.48,15.35c-.04,.1-.13,.17-.24,.17h-4.63c-.11,0-.2-.07-.24-.17l-5.48-15.35c-.06-.17,.06-.34,.24-.34h4.42c.11,0,.2,.07,.24,.17l3.14,8.8,3.14-8.8c.04-.1,.13-.17,.24-.17h4.42c.18,0,.3,.17,.24,.34Z" fill="#324a60"/><path d="M116.31,32.86c0,.46-.05,1-.14,1.47-.02,.12-.13,.21-.25,.21h-11.11c-.2,0-.32,.21-.22,.38,.68,1.16,1.9,1.88,3.25,1.88,1.15,0,2.22-.5,2.98-1.48,.06-.08,.15-.11,.25-.1l4.25,.76c.16,.03,.26,.21,.18,.36-1.34,2.66-4.01,4.5-7.13,4.5-4.43,0-8.04-3.71-8.04-8.3s3.61-8.3,8.04-8.3,8.04,3.71,8.04,8.3Zm-4.96-2.1c-.2-1.17-1.55-2.08-3.27-2.08-1.56,0-3.05,.9-3.27,2.08-.03,.16,.09,.3,.25,.3h6.04c.16,0,.28-.14,.25-.3Z" fill="#324a60"/><path d="M132.6,31.49v8.92c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-8.67c0-.59-.03-1.26-.28-1.81-.11-.23-.26-.42-.44-.56-.3-.23-.68-.35-1.17-.35-.91,0-1.62,.31-1.84,.82-.26,.55-.26,1.3-.26,1.9v8.67c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v.43c0,.1,.11,.16,.2,.1,3.57-2.46,7.05,.27,7.08,.3,.13,.1,.25,.21,.36,.31,1.62,1.63,1.89,2.94,1.89,5.28Z" fill="#324a60"/><path d="M143.71,36.84l-.57,3.75c-.02,.12-.12,.21-.24,.21-.54,.03-2,.11-2.44,.11-.04,0-.06,0-.09,0-2.69-.14-4.12-1.52-4.12-4v-7.61c0-.14-.11-.25-.25-.25h-1.65c-.14,0-.25-.11-.25-.25v-3.75c0-.14,.11-.25,.25-.25h1.65c.14,0,.25-.11,.25-.25v-4.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v4.35c0,.14,.11,.25,.25,.25h1.65c.14,0,.25,.11,.25,.25v3.75c0,.14-.11,.25-.25,.25h-1.65c-.14,0-.25,.11-.25,.25,0,1.32,0,5.21,0,5.25v.11c-.02,.48-.04,1.14,.34,1.54,.23,.23,.58,.35,1.05,.35h.86c.15,0,.27,.14,.25,.29Z" fill="#324a60"/><path d="M162.83,25.06v15.35c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-.23c0-.1-.11-.16-.19-.11-1.27,.72-2.71,1.1-4.18,1.1-4.64,0-8.42-3.73-8.42-8.3s3.78-8.3,8.42-8.3c1.47,0,2.91,.38,4.18,1.1,.08,.05,.19-.01,.19-.11v-.48c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Zm-4.94,7.8c0-2.1-1.48-3.81-3.61-3.81s-3.86,1.71-3.86,3.81,1.73,3.81,3.86,3.81,3.61-1.71,3.61-3.81Z" fill="#324a60"/><path d="M174.13,25.08l-.15,3.71c0,.15-.13,.26-.28,.24-.43-.04-1.3-.1-1.81,.03-.57,.14-.9,.58-1,.79-.26,.55-.26,1.03-.26,1.65v8.92c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v.44c0,.1,.11,.16,.19,.11,1.05-.65,2.29-.79,3.34-.8,.15,0,.26,.12,.26,.26Z" fill="#324a60"/><path d="M181.06,20.07v3.24c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-3.24c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Zm0,4.99v15.35c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Z" fill="#324a60"/><path d="M199.29,32.87c0,4.58-3.78,8.3-8.42,8.3s-8.42-3.73-8.42-8.3,3.78-8.3,8.42-8.3,8.42,3.73,8.42,8.3Zm-4.75,0c0-2-1.65-3.62-3.67-3.62s-3.67,1.62-3.67,3.62,1.65,3.62,3.67,3.62,3.67-1.62,3.67-3.62Z" fill="#324a60"/></g></svg></a>
         <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest font-bold items-center">
@@ -81,135 +76,75 @@
         <a href="../contact.html" class="hidden md:inline-flex text-xs font-bold uppercase tracking-widest bg-text text-surface px-5 py-2.5 rounded-full">Contact Us</a>
     </nav>
 
-    <!-- ====== HERO ====== -->
     <section class="bg-surface px-6 md:px-12 pt-16 md:pt-24 pb-12 border-b border-bordercolor">
         <div class="max-w-3xl mx-auto">
             <a href="../blog.html" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-text/60 hover:text-text mb-8"><i class="ph ph-arrow-left"></i> Back to blog</a>
-            <span class="inline-block text-xs uppercase tracking-widest font-bold px-3 py-1 rounded-full bg-text text-surface mb-6">Vendor management · Pillar</span>
-            <h1 class="font-serif text-4xl md:text-6xl mb-6">The complete guide to IT vendor management.</h1>
-            <p class="text-xl text-text/80 leading-relaxed mb-8">Strategy, frameworks, and what actually works — from 500+ engagements and €3B in negotiated contract volume.</p>
+            <span class="inline-block text-xs uppercase tracking-widest font-bold px-3 py-1 rounded-full bg-text text-surface mb-6">Governance · Pillar</span>
+            <h1 class="font-serif text-4xl md:text-6xl mb-6">IT vendor governance.</h1>
+            <p class="text-xl text-text/80 leading-relaxed mb-8">The framework that keeps vendors accountable after the contract is signed — and the predictable decay curve that takes over when it isn't there.</p>
             <div class="flex items-center gap-4 pt-4 border-t border-bordercolor">
                 <div class="w-12 h-12 rounded-full bg-text text-surface flex items-center justify-center text-sm font-bold">JR</div>
                 <div class="text-sm">
                     <p class="font-bold text-text">Julian Robida</p>
-                    <p class="text-text/60">Research Lead · Aventario · 14 min read · 7 May 2026</p>
+                    <p class="text-text/60">Research Lead · Aventario · 11 min read · 7 May 2026</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ====== COVER ====== -->
     <section class="bg-base px-6 md:px-12 py-12">
         <div class="max-w-4xl mx-auto post-cover aspect-[16/7] rounded-md"></div>
     </section>
 
-    <!-- ====== ARTICLE ====== -->
     <article class="bg-base px-6 md:px-12 pb-20">
         <div class="max-w-3xl mx-auto prose-aventario">
-
-            <h2>What IT vendor management is, in one sentence.</h2>
-            <p>IT vendor management is the structured discipline by which an organisation selects, contracts, governs, and continuously optimises every relationship it has with external technology providers — from hyperscalers and ERP vendors down to the regional MSP nobody remembers signing.</p>
-            <p>It is not procurement. Procurement runs the tender; vendor management runs the marriage that follows. It is not service management either, though it borrows from both. The clue is in the lifecycle: vendor management starts the day a need is identified and ends the day the last invoice is paid on the last contract — sometimes a decade later.</p>
-
-            <h2>Why this is suddenly the conversation in every CIO's office.</h2>
-            <p>Three forces have collided. IT spend, in the average DACH mid-cap, has roughly doubled in seven years. Vendor counts have followed — most organisations we assess carry between 80 and 220 active IT suppliers. And the proportion of that spend going to "as-a-service" providers, where the lever to reduce cost is no longer a one-time negotiation but continuous governance, has crossed 60%.</p>
-            <p>The combination is brutal. More money, more vendors, more recurring commitments — managed, in most cases, by the same two or three people who managed twelve vendors in 2018. Something gives. Usually it is the governance: contracts auto-renew unread, SLAs go unmonitored, and the vendor who promised innovation becomes the vendor who shows up for the QBR with last year's slide deck.</p>
+            <h2>Quick answer.</h2>
+            <p>IT vendor governance is the structured set of forums, scorecards, escalation paths, and contractual rights that hold a vendor to the performance the contract promised. Without it, even an excellent contract under-delivers — predictably, on a curve that we observe across virtually every ungoverned engagement.</p>
+            <h2>The 18-month governance decay curve.</h2>
+            <p>In the absence of active governance, vendor performance drifts back toward the lowest-effort baseline within roughly 18 months of go-live. The curve is consistent enough across our engagement archive that we treat it as a planning assumption, not a hypothesis. Month 0–3: vendor is on best behaviour, deal is fresh, account team is attentive. Month 4–9: routine sets in, account team turns over, attention shifts to the next deal. Month 10–18: SLA reports start arriving green by default, escalations get slower, innovation commitments quietly drop. Month 18+: you are now the legacy book; the vendor's strategic energy is somewhere else.</p><p>Governance is what flattens the curve.</p>
 
             <div class="pull-quote">
-                <p>"Across our last 200 IT vendor management engagements, the single most reliable predictor of whether a contract delivers the savings on the term sheet is whether anyone was actually reading the SLA report twelve months later."</p>
+                <p>"The absence of escalations in a relationship that is materially under-performing is not health. It's the wrong people not talking."</p>
                 <cite>— Markus Jaksch, COO, Aventario</cite>
             </div>
-
-            <h2>The vendor management lifecycle, properly defined.</h2>
-            <p>Most published lifecycles have five stages. Ours has seven, because the two that get cut — onboarding and exit — are where the money actually moves.</p>
-            <ol>
-                <li><strong>Strategy & sourcing plan.</strong> What capability do we need, build vs buy, who are the credible providers, what's the budget envelope.</li>
-                <li><strong>Requirements & RFx.</strong> The structured tender. Done well in 6–8 weeks; done badly in 6 months.</li>
-                <li><strong>Contracting.</strong> SLA, OLA, exit clauses, change-request mechanics, benchmark rights.</li>
-                <li><strong>Onboarding & transition.</strong> The 90-day window where most of the value either lands or evaporates.</li>
-                <li><strong>Operational governance.</strong> Day-to-day ticket, SLA, and incident management.</li>
-                <li><strong>Strategic governance.</strong> QBRs, roadmap reviews, benchmark refreshes, renegotiation triggers.</li>
-                <li><strong>Renewal or exit.</strong> The decision point that determines whether you keep paying for legacy or move on.</li>
-            </ol>
-            <p>Each stage has its own owner, cadence, and artefact. Skip a stage — most commonly stage 5 or 6 — and the value of the contract decays predictably. We call the resulting curve the <strong>18-month governance decay</strong>: in the absence of active management, vendor performance drifts back toward the lowest-effort baseline within roughly eighteen months of go-live, regardless of contract terms.</p>
-
             <h2>The Three-Tier Governance Model.</h2>
-            <p>Governance fails when it is run at one altitude. The model that works runs at three.</p>
-            <h3>Tier 1 — Operational.</h3>
-            <p>Weekly or fortnightly. Service desk leads on both sides. Tickets, incidents, SLA breaches, change requests. The agenda is concrete and small: what happened, what's blocked, what's next. This is where SLA reports get challenged before they harden into "agreed truth."</p>
-            <h3>Tier 2 — Managerial.</h3>
-            <p>Monthly. Service owners, account leads, finance representation. The agenda widens: scorecard, financial reconciliation, risk register, change-request pipeline. Tier 2 is where small problems either get solved or get escalated. If it doesn't exist, every issue eventually becomes a Tier 3 issue.</p>
-            <h3>Tier 3 — Strategic.</h3>
-            <p>Quarterly. CIO or sponsor on the client side, executive sponsor on the vendor side. Roadmap, innovation, contract evolution, relationship health. Most organisations only run Tier 3 — and then complain that vendors don't innovate.</p>
-            <p>The discipline is that nothing skips a tier. An operational issue that ends up on the CIO's desk is, by definition, a governance failure two tiers down.</p>
-
-            <h2>What goes wrong, in order of frequency.</h2>
-            <p>From the engagement archive, the same five failure modes account for the bulk of value leakage. They are mundane, which is exactly why they persist.</p>
-            <ul>
-                <li><strong>The auto-renewal trap.</strong> Notice periods missed, contracts roll forward at the original price, leverage gone for another two to five years. We routinely find 15–25% of a vendor portfolio in this state at first assessment.</li>
-                <li><strong>The unmonitored SLA.</strong> Vendor self-reports green; nobody compares the report to the underlying ticket data. Real availability is often a tier below contracted.</li>
-                <li><strong>The orphan contract.</strong> Original sponsor left two years ago. Nobody owns the vendor. Invoices clear because finance doesn't know what to challenge.</li>
-                <li><strong>The unused entitlement.</strong> Licences, support tiers, hours of professional services pre-paid and never consumed. Hidden in plain sight on every renewal proposal.</li>
-                <li><strong>The scope-creep migration.</strong> Original SOW for €X. Three change requests later, run rate is 1.6× the original price and nobody can quite trace why.</li>
-            </ul>
-
-            <h2>How to start: the 90-day vendor audit.</h2>
-            <p>Most CIOs we work with inherit the vendor landscape — they didn't build it, and they cannot fully see it. Before designing a target operating model, the first job is visibility.</p>
-            <ol>
-                <li><strong>Days 1–30 — Inventory.</strong> Pull every vendor with spend > €50k in the last twelve months from finance. Cross-reference with the contract repository (or assemble one if there isn't one). Expect to find 20–30% more vendors than anyone thought.</li>
-                <li><strong>Days 31–60 — Triage.</strong> For each vendor: contract end date, notice period, last benchmark, SLA report status, sponsor. Three columns: in control, at risk, opaque.</li>
-                <li><strong>Days 61–90 — Action plan.</strong> The "opaque" column gets a reading queue. The "at risk" column gets a renegotiation calendar. The "in control" column gets a governance cadence assigned. By day 90, you have a defensible map and a 12-month workplan.</li>
-            </ol>
-
-            <h2>What good looks like, measured.</h2>
-            <p>A mature IT vendor management capability shows up in five numbers, all of which can be tracked monthly:</p>
-            <ul>
-                <li><strong>Spend under management.</strong> Percentage of total IT spend covered by an active contract, an assigned owner, and a governance cadence. Best-in-class: > 90%. Typical first-assessment baseline: 55–70%.</li>
-                <li><strong>Benchmark currency.</strong> Percentage of strategic vendors benchmarked in the last 24 months. Best-in-class: 100%. Typical: under 30%.</li>
-                <li><strong>SLA verification rate.</strong> Percentage of monthly SLA reports independently verified against ticket data. Best-in-class: 100% for tier-1 vendors. Typical: 0%.</li>
-                <li><strong>Contract action lead time.</strong> Average days from "renewal trigger" to "decision documented." Best-in-class: 90+ days. Typical: missed window, rolled forward.</li>
-                <li><strong>Realised vs negotiated savings.</strong> What landed in the P&L vs what was promised at contract signature. Best-in-class: > 80%. Typical: 30–50%.</li>
-            </ul>
-
+            <h3>Tier 1 — Operational.</h3><p>Weekly or fortnightly. Service desk leads on both sides. Tickets, incidents, SLA breaches, change requests. Concrete and small. The verification layer for SLA reports — issues that surface here either get resolved or escalate to Tier 2.</p><h3>Tier 2 — Managerial.</h3><p>Monthly. Service owners, account leads, finance representation. Scorecard, financial reconciliation, risk register, change-request pipeline. The layer where small problems get fixed before they become big ones. Most ungoverned vendor relationships skip this entirely; everything either festers in Tier 1 or jumps to Tier 3.</p><h3>Tier 3 — Strategic.</h3><p>Quarterly. CIO/sponsor on the client side; vendor executive on theirs. Roadmap, innovation, contract evolution, relationship health. The conversation that determines whether the vendor is investing in the relationship or harvesting it.</p>
+            <h2>The discipline: nothing skips a tier.</h2>
+            <p>The most common governance failure is not the absence of forums. It is the absence of discipline about which forum handles what. Operational issues end up on the CIO's desk; strategic decisions get made in the weekly stand-up; the QBR becomes a status report. The cure is mechanical: every issue gets logged at its tier; escalations are documented and time-bounded; the QBR agenda is set 10 working days in advance and contains nothing that wasn't on it.</p>
+            <h2>SLA compliance monitoring: don't trust the vendor's report.</h2>
+            <p>The single most reliable governance gap we find is unverified SLA reporting. The vendor's monthly report shows green; nobody compares it to the underlying ticket-level data. When the comparison is run, real availability is often a tier below contracted, with the gap absorbed by category definitions, exclusion clauses, and creative time-stop logic.</p><p>The fix is small but cultural: every monthly SLA report is independently reconciled against ticket data before it is accepted. The first cycle of doing this is uncomfortable; subsequent cycles produce dramatically more honest reports.</p>
+            <h2>Escalation processes that actually work.</h2>
+            <ol><li><strong>Defined trigger.</strong> What event constitutes an escalation. SLA breach by X%, P1 incident open Y hours, financial dispute over Z.</li><li><strong>Defined path.</strong> Who escalates to whom, in what order, with what evidence. No skipping.</li><li><strong>Time-bound resolution targets.</strong> Each escalation tier has its own SLA.</li><li><strong>Logged and reviewed.</strong> Every escalation generates a record that is reviewed at Tier 2 and rolls up to Tier 3 if it recurs.</li></ol><p>Escalations are not a sign of relationship failure. The absence of escalations in a relationship that is materially under-performing is the failure.</p>
+            <h2>The vendor governance scorecard.</h2>
+            <p>Five dimensions, scored monthly for tier-1 strategic vendors:</p><ul><li><strong>Delivery</strong> (SLA verified vs contracted)</li><li><strong>Commercial</strong> (spend on plan, billing accuracy, savings vs benchmark)</li><li><strong>Risk</strong> (security incidents, financial signals, key-person changes)</li><li><strong>Relationship</strong> (responsiveness, escalation history, governance attendance)</li><li><strong>Innovation</strong> (roadmap delivery, joint planning, capability brought)</li></ul><p>Weighted by segment. Visible to both sides. Reviewed at every Tier 3 forum. Vendors who know how they are scored manage their behaviour accordingly.</p>
+            <h2>Governance after outsourcing: the playbook most companies ignore.</h2>
+            <p>The single most damaging assumption in IT outsourcing is that, having transferred the work, the buyer has also transferred the governance. They haven't. Outsourcing transfers execution; governance has to be built deliberately on the buyer side, often by a function that didn't exist before the deal was signed. Without it, the value of the outsourcing decays on the same 18-month curve, only with less visibility because the buyer no longer touches the work.</p>
             <h2>How Aventario approaches this.</h2>
-            <p>We are a boutique consultancy, not a managed-service factory. We bring the methodology — the seven-stage lifecycle, the three-tier governance model, the savings playbooks built on €3B of negotiated contract volume — and we run it shoulder-to-shoulder with your team. Many engagements end with the in-house team running the model independently; the ones that don't are the ones where the client deliberately keeps us in the seat as an outsourced vendor management office.</p>
-            <p>Either way, the output is the same: a vendor portfolio that is visible, governed, and producing the savings the contracts originally promised.</p>
-
+            <p>Our Vendor Management-as-a-Service engagement designs the governance model and runs it through the first one or two cycles, then hands over the operating model to the client team. The deliverable is a working three-tier governance capability, not a deck that describes one. Where the client prefers, we stay in the seat as an outsourced vendor management office.</p>
             <h2>FAQ.</h2>
-            <h3>What is IT vendor management?</h3>
-            <p>IT vendor management is the end-to-end discipline of selecting, contracting, governing, and optimising every external technology supplier across their full lifecycle — from initial qualification through renewal or exit.</p>
-            <h3>Is IT vendor management the same as procurement?</h3>
-            <p>No. Procurement typically owns the tender and the contract signature. Vendor management owns everything that happens before procurement is engaged (sourcing strategy) and after the contract is signed (onboarding, governance, renewal). In most organisations, the two functions need to be tightly coupled but they are not interchangeable.</p>
-            <h3>How many vendors should an IT organisation have?</h3>
-            <p>The right answer is "as few as can deliver the required capability without creating concentration risk." Across our engagements, top-5 strategic vendors typically deliver 70–85% of in-scope IT services in a healthy portfolio.</p>
-            <h3>What is the biggest mistake in IT vendor management?</h3>
-            <p>Treating contract signature as the end of the work. The contract is the starting line. Without active governance through the lifecycle, even an excellent contract under-delivers within 12–18 months.</p>
-
-            <hr class="my-12 border-bordercolor">
-            <p class="text-sm text-text/60">Julian Robida is Research Lead at Aventario. Markus Jaksch (COO) contributed expert input drawn from 25+ years of running IT vendor portfolios across pharma, automotive, and financial services. Aventario is a boutique consultancy in Vienna; we have negotiated over €3B in IT contract volume and run more than 500 engagements across DACH and beyond.</p>
+            <h3>What is IT vendor governance?</h3><p>The structured set of forums, scorecards, escalation paths, and contractual mechanisms that hold IT vendors accountable to the performance their contracts promise.</p><h3>What is the Three-Tier Governance Model?</h3><p>Aventario's governance framework: Tier 1 (operational, weekly), Tier 2 (managerial, monthly), Tier 3 (strategic, quarterly). The discipline is that nothing skips a tier.</p><h3>Why does vendor performance decay?</h3><p>In the absence of active governance, vendor account-team attention shifts to newer deals, internal knowledge degrades, and SLA reports drift toward optimistic. The pattern is consistent enough that we treat it as a planning assumption.</p>
+<hr class="my-12 border-bordercolor">
+            <p class="text-sm text-text/60">Julian Robida is Research Lead at Aventario. Markus Jaksch (COO) contributed expert input drawn from 25+ years of running IT engagements across pharma, automotive, financial services, and the public sector. Aventario is a boutique consultancy in Vienna; we have negotiated over €3B in IT contract volume and delivered more than 500 engagements across DACH and beyond.</p>
 
             <div class="mt-12 p-8 bg-surface border border-bordercolor rounded-md">
                 <p class="text-xs uppercase tracking-widest text-text font-bold mb-3">Related reading</p>
                 <ul class="space-y-2">
-                    <li><a href="it-vendor-spend-optimization">IT vendor spend optimization: how to recover 10–40% of your IT budget</a></li>
-                    <li><a href="it-vendor-governance">The framework that keeps vendors accountable after the contract is signed</a></li>
-                    <li><a href="it-vendor-consolidation">From 47 vendors to 5 strategic partners</a></li>
+                    <li><a href="it-vendor-management">The complete guide to IT vendor management</a></li>
+                    <li><a href="it-contract-management">From signature to savings</a></li>
+                    <li><a href="supplier-relationship-management">The CRM you don't have for your vendors</a></li>
                 </ul>
             </div>
-
         </div>
     </article>
 
-    <!-- ====== CTA ====== -->
     <section class="px-6 md:px-12 py-20" style="background-color: #334b60; color: #FFFFFF;">
         <div class="max-w-3xl mx-auto text-center">
-            <h2 class="font-serif text-3xl md:text-4xl text-surface mb-4">Run a 90-day vendor audit with us.</h2>
-            <p class="text-lg leading-relaxed mb-8" style="color: rgba(255,255,255,0.75);">Visibility first, action second. We bring the methodology and the benchmark data; you keep the result.</p>
+            <h2 class="font-serif text-3xl md:text-4xl text-surface mb-4">Stand up real governance.</h2>
+            <p class="text-lg leading-relaxed mb-8" style="color: rgba(255,255,255,0.75);">Three-tier model, structured QBRs, SLA verification, escalation discipline. We design it; we run it through the first cycle; we hand over the operating model.</p>
             <a href="../contact.html" class="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-widest px-8 py-4 rounded-full" style="background-color: #f19a51; color: #FFFFFF;">Get in touch <i class="ph ph-arrow-right"></i></a>
         </div>
     </section>
 
-    <!-- ====== FOOTER ====== -->
     <footer class="bg-text text-surface px-6 md:px-12 py-16">
         <div class="max-w-6xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
