@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventario — We empower resilient organizations (alt hero)</title>
+    <meta name="description" content="Alternative hero design preview for Aventario.com — cinematic dawn ridges with the new positioning copy. Internal review only.">
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="canonical" href="https://aventario.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aventario — Alternative hero (preview)">
+    <meta property="og:description" content="Internal preview of the dawn-ridges hero variant.">
+    <meta property="og:url" content="https://aventario.com/v2">
+    <meta property="og:site_name" content="Aventario">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aventario — Alternative hero (preview)">
+    <meta name="twitter:description" content="Internal preview of the dawn-ridges hero variant.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 55.42 55.2'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='11.43' y1='48.04' x2='37.22' y2='48.04' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23324a60'/%3E%3Cstop offset='.45' stop-color='%236a9a9b'/%3E%3Cstop offset='1' stop-color='%238dccc0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M37.22,40.94l-5.14-8.91c-.11-.19-.38-.19-.49,0l-5.14,8.91h10.78Z' fill='%238dccc0'/%3E%3Cpolygon points='11.43 55.15 37.22 40.94 26.44 40.94 16.64 46.19 15.81 47.62 11.51 55.06 11.43 55.15' fill='url(%23g)'/%3E%3Cpath d='M55.38,40.51l-7.53-13.05L32.08,.14c-.11-.19-.38-.19-.49,0L15.81,27.46.04,54.78c-.06.1-.05.21,0,.29.05.08.13.14.24.14H11.26c.1,0,.2-.05,.25-.14l4.3-7.45.83-1.43,14.95-25.89c.11-.19,.38-.19,.49,0l11.83,20.49c.05,.09,.15,.14,.25,.14h10.98c.22,0,.36-.24,.25-.43Z' fill='%23324a60'/%3E%3C/svg%3E">
+
+    <!-- Fonts: Lato (400 regular, 700 bold, 900 black) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN — replace with built tailwind.css before launch) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        base: '#FAFAF7',
+                        surface: '#FFFFFF',
+                        text: '#334b60',
+                        muted: '#5f768b',
+                        accent: '#88C9BE',
+                        accentdark: '#5FA99D',
+                        magenta: '#d15298',
+                        orange: '#f19a51',
+                        bordercolor: 'rgba(51, 75, 96, 0.12)'
+                    },
+                    fontFamily: {
+                        serif: ['"Lato"', '-apple-system', 'sans-serif'],
+                        sans: ['"Lato"', '-apple-system', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        body {
+            background-color: #FAFAF7;
+            color: #334b60;
+            font-family: 'Lato', -apple-system, sans-serif;
+            font-weight: 400;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-serif {
+            font-family: 'Lato', -apple-system, sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.015em;
+            line-height: 1.05;
+            padding-bottom: 0.08em;
+        }
+
+        /* Map iframe styling */
+        .map-wrapper iframe {
+            filter: grayscale(100%) contrast(1.1) invert(95%);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
+        }
+    </style>
+</head>
+<body class="selection:bg-accent selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-40 bg-base/95 backdrop-blur-sm border-b border-bordercolor px-6 md:px-12 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 199.29 55.2" class="h-9 md:h-11"><defs><linearGradient id="nav-grad" x1="11.43" y1="48.04" x2="37.22" y2="48.04" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#324a60"/><stop offset=".45" stop-color="#6a9a9b"/><stop offset="1" stop-color="#8dccc0"/></linearGradient></defs><g><path d="M37.22,40.94l-5.14-8.91c-.11-.19-.38-.19-.49,0l-5.14,8.91h10.78Z" fill="#8dccc0"/><polygon points="11.43 55.15 37.22 40.94 26.44 40.94 16.64 46.19 15.81 47.62 11.51 55.06 11.43 55.15" fill="url(#nav-grad)"/><path d="M55.38,40.51l-7.53-13.05L32.08,.14c-.11-.19-.38-.19-.49,0L15.81,27.46.04,54.78c-.06,.1-.05,.21,0,.29,.05,.08,.13,.14,.24,.14H11.26c.1,0,.2-.05,.25-.14l4.3-7.45,.83-1.43,14.95-25.89c.11-.19,.38-.19,.49,0l11.83,20.49c.05,.09,.15,.14,.25,.14h10.98c.22,0,.36-.24,.25-.43Z" fill="#324a60"/><path d="M86.05,40.9h-5.18c-.14,0-.26-.09-.3-.22l-1.09-3.31c-.04-.11-.13-.18-.25-.18h-6.41c-.11,0-.21,.07-.25,.18l-1.1,3.35c-.04,.11-.13,.18-.25,.18h-5.22c-.18,0-.31-.18-.24-.35l7.7-20.43c.05-.13,.17-.21,.31-.21h4.54c.12,0,.23,.07,.27,.19l7.71,20.46c.06,.17-.06,.35-.24,.35Zm-8.16-8.34l-1.61-4.89c-.08-.24-.42-.24-.51,0l-1.61,4.9c-.06,.17,.07,.34,.24,.34h3.24c.18,0,.31-.18,.25-.35Z" fill="#324a60"/><path d="M99.59,25.15l-5.48,15.35c-.04,.1-.13,.17-.24,.17h-4.63c-.11,0-.2-.07-.24-.17l-5.48-15.35c-.06-.17,.06-.34,.24-.34h4.42c.11,0,.2,.07,.24,.17l3.14,8.8,3.14-8.8c.04-.1,.13-.17,.24-.17h4.42c.18,0,.3,.17,.24,.34Z" fill="#324a60"/><path d="M116.31,32.86c0,.46-.05,1-.14,1.47-.02,.12-.13,.21-.25,.21h-11.11c-.2,0-.32,.21-.22,.38,.68,1.16,1.9,1.88,3.25,1.88,1.15,0,2.22-.5,2.98-1.48,.06-.08,.15-.11,.25-.1l4.25,.76c.16,.03,.26,.21,.18,.36-1.34,2.66-4.01,4.5-7.13,4.5-4.43,0-8.04-3.71-8.04-8.3s3.61-8.3,8.04-8.3,8.04,3.71,8.04,8.3Zm-4.96-2.1c-.2-1.17-1.55-2.08-3.27-2.08-1.56,0-3.05,.9-3.27,2.08-.03,.16,.09,.3,.25,.3h6.04c.16,0,.28-.14,.25-.3Z" fill="#324a60"/><path d="M132.6,31.49v8.92c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-8.67c0-.59-.03-1.26-.28-1.81-.11-.23-.26-.42-.44-.56-.3-.23-.68-.35-1.17-.35-.91,0-1.62,.31-1.84,.82-.26,.55-.26,1.3-.26,1.9v8.67c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v.43c0,.1,.11,.16,.2,.1,3.57-2.46,7.05,.27,7.08,.3,.13,.1,.25,.21,.36,.31,1.62,1.63,1.89,2.94,1.89,5.28Z" fill="#324a60"/><path d="M143.71,36.84l-.57,3.75c-.02,.12-.12,.21-.24,.21-.54,.03-2,.11-2.44,.11-.04,0-.06,0-.09,0-2.69-.14-4.12-1.52-4.12-4v-7.61c0-.14-.11-.25-.25-.25h-1.65c-.14,0-.25-.11-.25-.25v-3.75c0-.14,.11-.25,.25-.25h1.65c.14,0,.25-.11,.25-.25v-4.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v4.35c0,.14,.11,.25,.25,.25h1.65c.14,0,.25,.11,.25,.25v3.75c0,.14-.11,.25-.25,.25h-1.65c-.14,0-.25,.11-.25,.25,0,1.32,0,5.21,0,5.25v.11c-.02,.48-.04,1.14,.34,1.54,.23,.23,.58,.35,1.05,.35h.86c.15,0,.27,.14,.25,.29Z" fill="#324a60"/><path d="M162.83,25.06v15.35c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-.23c0-.1-.11-.16-.19-.11-1.27,.72-2.71,1.1-4.18,1.1-4.64,0-8.42-3.73-8.42-8.3s3.78-8.3,8.42-8.3c1.47,0,2.91,.38,4.18,1.1,.08,.05,.19-.01,.19-.11v-.48c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Zm-4.94,7.8c0-2.1-1.48-3.81-3.61-3.81s-3.86,1.71-3.86,3.81,1.73,3.81,3.86,3.81,3.61-1.71,3.61-3.81Z" fill="#324a60"/><path d="M174.13,25.08l-.15,3.71c0,.15-.13,.26-.28,.24-.43-.04-1.3-.1-1.81,.03-.57,.14-.9,.58-1,.79-.26,.55-.26,1.03-.26,1.65v8.92c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v.44c0,.1,.11,.16,.19,.11,1.05-.65,2.29-.79,3.34-.8,.15,0,.26,.12,.26,.26Z" fill="#324a60"/><path d="M181.06,20.07v3.24c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-3.24c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Zm0,4.99v15.35c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Z" fill="#324a60"/><path d="M199.29,32.87c0,4.58-3.78,8.3-8.42,8.3s-8.42-3.73-8.42-8.3,3.78-8.3,8.42-8.3,8.42,3.73,8.42,8.3Zm-4.75,0c0-2-1.65-3.62-3.67-3.62s-3.67,1.62-3.67,3.62,1.65,3.62,3.67,3.62,3.67-1.62,3.67-3.62Z" fill="#324a60"/></g></svg></a>
+        <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest font-bold items-center">
+            <a href="index.html#services" class="hover:text-accentdark">Services</a>
+            <a href="success-stories.html" class="hover:text-accentdark">Success Stories</a>
+            <a href="blog.html" class="hover:text-accentdark">Blog</a>
+            <a href="about.html" class="hover:text-accentdark">About</a>
+            <a href="contact.html" class="hover:text-accentdark">Contact</a>
+        </div>
+        <a href="contact.html" class="hidden md:inline-flex text-xs font-bold uppercase tracking-widest bg-text text-surface px-5 py-2.5 rounded-full">Contact Us</a>
+        <button id="mobileMenuBtn" class="md:hidden w-9 h-9 flex items-center justify-center" aria-label="Toggle menu"><i class="ph ph-list text-2xl"></i></button>
+    </nav>
+    <div id="mobileMenu" class="hidden md:hidden border-b border-bordercolor bg-base px-6 py-4 space-y-2">
+        <a href="index.html#services" class="block py-2 text-sm font-bold uppercase tracking-widest">Services</a>
+        <a href="success-stories.html" class="block py-2 text-sm font-bold uppercase tracking-widest">Success Stories</a>
+        <a href="blog.html" class="block py-2 text-sm font-bold uppercase tracking-widest">Blog</a>
+        <a href="about.html" class="block py-2 text-sm font-bold uppercase tracking-widest">About</a>
+        <a href="contact.html" class="block py-2 text-sm font-bold uppercase tracking-widest">Contact</a>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 top-[72px] z-30 bg-base/98 backdrop-blur-lg hidden md:hidden overflow-y-auto">
+        <div class="p-6 space-y-4">
+            <a href="#services" class="block py-2 text-sm font-bold uppercase tracking-widest text-text">Services</a>
+            <a href="success-stories.html" class="block py-2 text-sm font-bold uppercase tracking-widest text-text">Success Stories</a>
+            <a href="blog.html" class="block py-2 text-sm font-bold uppercase tracking-widest text-text">Blog</a>
+            <a href="about.html" class="block py-2 text-sm font-bold uppercase tracking-widest text-text">About</a>
+            <a href="contact.html" class="block py-2 text-sm font-bold uppercase tracking-widest text-text">Contact</a>
+            <a href="contact.html" class="block mt-4 text-center text-xs font-bold uppercase tracking-widest bg-text text-surface px-6 py-4 rounded-full">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- ====== HERO ====== -->
+        <section class="hero-dawn relative w-full overflow-hidden" style="min-height: 100vh; background-color: #0f1623;">
+
+            <!-- Background media: still poster + looping video, full-bleed -->
+            <video class="absolute inset-0 w-full h-full z-0"
+                   style="object-fit: cover; object-position: center right;"
+                   autoplay loop muted playsinline preload="metadata"
+                   poster="images/hero-dawn-ridges.png"
+                   aria-hidden="true">
+                <source src="images/hero-dawn-ridges.mp4" type="video/mp4">
+            </video>
+
+            <!-- Legibility scrim: deep at the bottom 45%, dawn glow preserved above -->
+            <div class="absolute inset-0 z-[1] pointer-events-none"
+                 style="background:
+                    linear-gradient(to top, rgba(11,17,28,0.95) 0%, rgba(11,17,28,0.90) 32%, rgba(11,17,28,0.72) 44%, rgba(11,17,28,0.32) 55%, rgba(11,17,28,0.08) 70%, rgba(11,17,28,0) 100%),
+                    linear-gradient(to bottom, rgba(11,17,28,0.40) 0%, rgba(11,17,28,0) 22%);"></div>
+            <!-- Bottom-left plate: extra darkening only where eyebrow + headline sit (left half, lower 60% of hero) -->
+            <div class="absolute z-[1] pointer-events-none hidden md:block" style="bottom: 0; left: 0; width: 55%; height: 62%; background: radial-gradient(ellipse at bottom left, rgba(11,17,28,0.45) 0%, rgba(11,17,28,0.20) 45%, rgba(11,17,28,0) 75%);"></div>
+
+            <!-- Content -->
+            <div class="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col" style="min-height: 100vh;">
+
+                <div class="flex-1"></div>
+
+                <div class="pb-8 md:pb-12 max-w-3xl">
+
+                    <p class="text-[0.7rem] md:text-xs uppercase tracking-[0.34em] font-bold mb-5 md:mb-6 inline-flex items-center gap-3" style="color: #FAFAF7; text-shadow: 0 1px 12px rgba(0,0,0,0.6);">
+                        <span class="inline-block w-6 h-px" style="background-color: #88C9BE;"></span>
+                        Boutique Consultancy, Vienna
+                    </p>
+
+                    <h1 class="font-serif" style="color: #FAFAF7; font-size: clamp(1.9rem, 3.6vw, 3.1rem); line-height: 1.06; letter-spacing: -0.018em; text-shadow: 0 2px 24px rgba(0,0,0,0.55);">
+                        We empower<br>resilient organizations.
+                    </h1>
+
+                    <p class="mt-5 md:mt-6 text-base md:text-lg leading-relaxed max-w-2xl" style="color: rgba(250,250,247,0.92); text-shadow: 0 1px 16px rgba(0,0,0,0.6);">
+                        By improving operational smartness, technological awareness, and cost and value balance in IT and supply chain.
+                    </p>
+
+                    <!-- Stats -->
+                    <div class="mt-8 md:mt-10 grid grid-cols-2 md:grid-cols-4 gap-y-5 md:gap-y-0 md:divide-x md:divide-white/15 max-w-3xl">
+                        <div class="md:pr-6">
+                            <div class="font-serif text-2xl md:text-3xl whitespace-nowrap" style="color: #FAFAF7; text-shadow: 0 1px 14px rgba(0,0,0,0.55);">25<span style="color: #f19a51;">+</span></div>
+                            <div class="text-[0.62rem] md:text-[0.7rem] uppercase tracking-[0.22em] mt-2" style="color: rgba(250,250,247,0.78); text-shadow: 0 1px 10px rgba(0,0,0,0.6);">Exciting years</div>
+                        </div>
+                        <div class="md:px-6">
+                            <div class="font-serif text-2xl md:text-3xl whitespace-nowrap" style="color: #FAFAF7; text-shadow: 0 1px 14px rgba(0,0,0,0.55);">30<span style="color: #f19a51;">+</span></div>
+                            <div class="text-[0.62rem] md:text-[0.7rem] uppercase tracking-[0.22em] mt-2" style="color: rgba(250,250,247,0.78); text-shadow: 0 1px 10px rgba(0,0,0,0.6);">Hand-picked experts</div>
+                        </div>
+                        <div class="md:px-6">
+                            <div class="font-serif text-2xl md:text-3xl whitespace-nowrap" style="color: #FAFAF7; text-shadow: 0 1px 14px rgba(0,0,0,0.55);">500<span style="color: #f19a51;">+</span></div>
+                            <div class="text-[0.62rem] md:text-[0.7rem] uppercase tracking-[0.22em] mt-2" style="color: rgba(250,250,247,0.78); text-shadow: 0 1px 10px rgba(0,0,0,0.6);">Successful projects</div>
+                        </div>
+                        <div class="md:pl-6">
+                            <div class="font-serif text-2xl md:text-3xl whitespace-nowrap" style="color: #f19a51; text-shadow: 0 1px 14px rgba(0,0,0,0.55);">10&ndash;40<span style="font-size: 0.7em; letter-spacing: -0.05em;">%</span></div>
+                            <div class="text-[0.62rem] md:text-[0.7rem] uppercase tracking-[0.22em] mt-2" style="color: rgba(250,250,247,0.78); text-shadow: 0 1px 10px rgba(0,0,0,0.6);">Sustainable improvements</div>
+                        </div>
+                    </div>
+
+                    <!-- CTAs -->
+                    <div class="mt-10 md:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                        <a href="contact.html"
+                           class="group inline-flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-[0.18em] px-7 py-4 rounded-full transition-all"
+                           style="background-color: #FAFAF7; color: #0f1623;"
+                           onmouseover="this.style.backgroundColor='#FFFFFF'"
+                           onmouseout="this.style.backgroundColor='#FAFAF7'">
+                            Contact us
+                            <i class="ph-bold ph-arrow-right text-base transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                        <a href="https://form.typeform.com/to/qmNOmu5v" target="_blank" rel="noopener"
+                           class="group inline-flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-[0.18em] px-7 py-4 rounded-full transition-all"
+                           style="border: 1px solid rgba(250,250,247,0.45); color: #FAFAF7; background: transparent;"
+                           onmouseover="this.style.backgroundColor='rgba(250,250,247,0.08)'; this.style.borderColor='rgba(250,250,247,0.85)'"
+                           onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='rgba(250,250,247,0.45)'">
+                            Take the assessment
+                            <i class="ph ph-arrow-up-right text-base"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Hero sub-nav: anchors to the three homepage sections -->
+                <div class="pb-6 md:pb-8 pt-5 md:pt-6" style="border-top: 1px solid rgba(250,250,247,0.14);">
+                    <nav class="flex flex-wrap items-center gap-x-8 md:gap-x-10 gap-y-3 text-[0.7rem] md:text-xs uppercase tracking-[0.28em] font-bold">
+                        <a href="#success-stories" class="group inline-flex items-center gap-2.5 transition-colors" style="color: rgba(250,250,247,0.78);" onmouseover="this.style.color='#FAFAF7'" onmouseout="this.style.color='rgba(250,250,247,0.78)'">
+                            <span class="w-1 h-1 rounded-full" style="background-color: #88C9BE;"></span>
+                            Impact
+                        </a>
+                        <a href="resources.html" class="group inline-flex items-center gap-2.5 transition-colors" style="color: rgba(250,250,247,0.78);" onmouseover="this.style.color='#FAFAF7'" onmouseout="this.style.color='rgba(250,250,247,0.78)'">
+                            <span class="w-1 h-1 rounded-full" style="background-color: #88C9BE;"></span>
+                            Resources
+                        </a>
+                        <a href="about.html" class="group inline-flex items-center gap-2.5 transition-colors" style="color: rgba(250,250,247,0.78);" onmouseover="this.style.color='#FAFAF7'" onmouseout="this.style.color='rgba(250,250,247,0.78)'">
+                            <span class="w-1 h-1 rounded-full" style="background-color: #88C9BE;"></span>
+                            Team
+                        </a>
+                        <span class="ml-auto hidden md:inline-flex items-center gap-2 text-[0.65rem] tracking-[0.32em]" style="color: rgba(250,250,247,0.5);">
+                            <i class="ph ph-arrow-down text-sm" aria-hidden="true"></i> Scroll
+                        </span>
+                    </nav>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ====== 2. OUR SERVICES (bento grid) ====== -->
+        <section id="services" class="py-24 px-6 md:px-12 max-w-[1400px] mx-auto">
+            <div class="border-t border-bordercolor pt-16">
+
+                <h2 class="font-serif text-5xl md:text-6xl mb-12">Our Services</h2>
+
+                <!-- 6 equal boxes, 3 columns × 2 rows -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                    <a href="services/operational-excellence.html" class="bg-surface border border-bordercolor rounded-md p-8 flex flex-col hover:border-accent transition-colors group">
+                        <h3 class="font-serif text-xl md:text-2xl text-text mb-3 group-hover:text-accentdark transition-colors">Operational Excellence aaS</h3>
+                        <p class="text-base text-text mb-5">Make your IT operations 20% more efficient.</p>
+                        <ul class="text-sm text-text space-y-2.5 mb-6 flex-1">
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Process &amp; landscape analysis</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Automation opportunity identification</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Operating model optimization</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Implementation roadmap</li>
+                            <li class="flex gap-2 items-baseline pt-3 mt-2 border-t border-bordercolor"><i class="ph ph-arrow-right text-xs shrink-0" style="color: #f19a51;"></i> <span class="font-bold" style="color: #f19a51;">≥20%</span> <span>efficiency gain</span></li>
+                        </ul>
+                        <span class="text-xs font-bold uppercase tracking-widest text-accentdark inline-flex items-center gap-2 mt-auto">Learn more <i class="ph ph-arrow-right"></i></span>
+                    </a>
+
+                    <a href="services/savings.html" class="bg-surface border border-bordercolor rounded-md p-8 flex flex-col hover:border-accent transition-colors group">
+                        <h3 class="font-serif text-xl md:text-2xl text-text mb-3 group-hover:text-accentdark transition-colors">Savings aaS</h3>
+                        <p class="text-base text-text mb-5">Cut 10–40% from your IT vendor spend.</p>
+                        <ul class="text-sm text-text space-y-2.5 mb-6 flex-1">
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Contract &amp; spend analysis</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Vendor benchmarking</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Renegotiation strategy</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Savings realization tracking</li>
+                            <li class="flex gap-2 items-baseline pt-3 mt-2 border-t border-bordercolor"><i class="ph ph-arrow-right text-xs shrink-0" style="color: #f19a51;"></i> <span class="font-bold" style="color: #f19a51;">10–40%</span> <span>vendor savings</span></li>
+                        </ul>
+                        <span class="text-xs font-bold uppercase tracking-widest text-accentdark inline-flex items-center gap-2 mt-auto">Learn more <i class="ph ph-arrow-right"></i></span>
+                    </a>
+
+                    <a href="services/vendor-consolidation.html" class="bg-surface border border-bordercolor rounded-md p-8 flex flex-col hover:border-accent transition-colors group">
+                        <h3 class="font-serif text-xl md:text-2xl text-text mb-3 group-hover:text-accentdark transition-colors">Service &amp; Vendor Consolidation aaS</h3>
+                        <p class="text-base text-text mb-5">Reduce vendor sprawl to a handful of strategic partners.</p>
+                        <ul class="text-sm text-text space-y-2.5 mb-6 flex-1">
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Vendor landscape mapping</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Make / buy / partner decisions</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Consolidation roadmap</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Target supplier architecture</li>
+                            <li class="flex gap-2 items-baseline pt-3 mt-2 border-t border-bordercolor"><i class="ph ph-arrow-right text-xs shrink-0" style="color: #f19a51;"></i> <span class="font-bold" style="color: #f19a51;">&gt;80%</span> <span>under top-5 suppliers</span></li>
+                        </ul>
+                        <span class="text-xs font-bold uppercase tracking-widest text-accentdark inline-flex items-center gap-2 mt-auto">Learn more <i class="ph ph-arrow-right"></i></span>
+                    </a>
+
+                    <a href="services/complex-rfx.html" class="bg-surface border border-bordercolor rounded-md p-8 flex flex-col hover:border-accent transition-colors group">
+                        <h3 class="font-serif text-xl md:text-2xl text-text mb-3 group-hover:text-accentdark transition-colors">Complex RFx aaS</h3>
+                        <p class="text-base text-text mb-5">Run structured IT tenders in 6–8 weeks, not 6 months.</p>
+                        <ul class="text-sm text-text space-y-2.5 mb-6 flex-1">
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Requirements engineering</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Market analysis &amp; RFI</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Structured tender process</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Negotiation &amp; award support</li>
+                            <li class="flex gap-2 items-baseline pt-3 mt-2 border-t border-bordercolor"><i class="ph ph-arrow-right text-xs shrink-0" style="color: #f19a51;"></i> <span class="font-bold" style="color: #f19a51;">6–8 wks</span> <span>to RFP award</span></li>
+                        </ul>
+                        <span class="text-xs font-bold uppercase tracking-widest text-accentdark inline-flex items-center gap-2 mt-auto">Learn more <i class="ph ph-arrow-right"></i></span>
+                    </a>
+
+                    <a href="services/vendor-management.html" class="bg-surface border border-bordercolor rounded-md p-8 flex flex-col hover:border-accent transition-colors group">
+                        <h3 class="font-serif text-xl md:text-2xl text-text mb-3 group-hover:text-accentdark transition-colors">Vendor Management aaS</h3>
+                        <p class="text-base text-text mb-5">Hold IT vendors accountable to what they signed.</p>
+                        <ul class="text-sm text-text space-y-2.5 mb-6 flex-1">
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Governance framework design</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> SLA &amp; performance management</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Contract lifecycle management</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Continuous optimization</li>
+                            <li class="flex gap-2 items-baseline pt-3 mt-2 border-t border-bordercolor"><i class="ph ph-arrow-right text-xs shrink-0" style="color: #f19a51;"></i> <span class="font-bold" style="color: #f19a51;">10–30%</span> <span>active spend reduction</span></li>
+                        </ul>
+                        <span class="text-xs font-bold uppercase tracking-widest text-accentdark inline-flex items-center gap-2 mt-auto">Learn more <i class="ph ph-arrow-right"></i></span>
+                    </a>
+
+                    <a href="https://managedsuppliers.com" target="_blank" rel="noopener" class="rounded-md p-8 flex flex-col hover:opacity-95 transition-opacity group" style="background-color: rgba(136, 201, 190, 0.18); border: 1px solid #88C9BE;">
+                        <h3 class="font-serif text-xl md:text-2xl text-text mb-3 flex items-center gap-2 flex-wrap">managedsuppliers <i class="ph ph-arrow-up-right text-lg"></i></h3>
+                        <p class="text-base text-text mb-5">Manage every vendor relationship in one platform.</p>
+                        <ul class="text-sm text-text space-y-2.5 mb-6 flex-1">
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Real-time vendor dashboards</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> AI contract analysis</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Performance &amp; risk monitoring</li>
+                            <li class="flex gap-2 items-baseline"><i class="ph ph-arrow-right text-accentdark text-xs shrink-0"></i> Self-service governance</li>
+                            <li class="flex gap-2 pt-2 mt-2" style="border-top: 1px solid rgba(95, 169, 157, 0.3);"><i class="ph ph-cpu text-sm shrink-0 mt-1" style="color: #5FA99D;"></i> <span class="font-bold" style="color: #5FA99D;">SaaS platform</span></li>
+                        </ul>
+                        <span class="text-xs font-bold uppercase tracking-widest text-accentdark inline-flex items-center gap-2 mt-auto">managedsuppliers.com <i class="ph ph-arrow-up-right"></i></span>
+                    </a>
+
+                </div>
+
+                <!-- Support services -->
+                <h3 class="font-serif text-xl text-text mt-16 mb-6">Support Services</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <a href="services/program-project-management.html" class="bg-base border border-bordercolor rounded-md p-6 hover:border-accent transition-colors group block">
+                        <h4 class="font-serif text-lg text-text mb-2 group-hover:text-accentdark transition-colors">Program &amp; Project Management</h4>
+                        <p class="text-sm text-muted">Multi-workstream governance with clear decision rights, timeline and budget ownership.</p>
+                    </a>
+                    <a href="services/change-communication.html" class="bg-base border border-bordercolor rounded-md p-6 hover:border-accent transition-colors group block">
+                        <h4 class="font-serif text-lg text-text mb-2 group-hover:text-accentdark transition-colors">Change &amp; Communication</h4>
+                        <p class="text-sm text-muted">Stakeholder analysis, intercultural change support and resistance management.</p>
+                    </a>
+                    <a href="services/transition-management.html" class="bg-base border border-bordercolor rounded-md p-6 hover:border-accent transition-colors group block">
+                        <h4 class="font-serif text-lg text-text mb-2 group-hover:text-accentdark transition-colors">Transition Management</h4>
+                        <p class="text-sm text-muted">End-to-end transition planning, knowledge transfer, parallel operation and cutover.</p>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ====== 3. PROOF / SUCCESS STORIES ====== -->
+        <section id="success-stories" class="py-24 px-6 md:px-12 max-w-[1400px] mx-auto">
+            <div class="border-t border-bordercolor pt-16">
+                <h2 class="font-serif text-5xl md:text-6xl mb-4 max-w-3xl">Real results from real engagements.</h2>
+                <p class="text-text max-w-xl text-base md:text-lg mb-12">Selected case studies from global enterprises and specialized companies.</p>
+
+                <div class="space-y-6">
+
+                    <!-- Frankfurt Airport -->
+                    <a href="success-stories/frankfurt-airport.html" class="block bg-surface border border-bordercolor rounded-md p-8 md:p-10 hover:border-accent transition-colors">
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start">
+                            <div class="md:col-span-9">
+                                <span class="text-xs font-bold uppercase tracking-widest text-text bg-base border border-bordercolor px-3 py-1 rounded">Infrastructure</span>
+                                <p class="text-lg md:text-xl text-text leading-relaxed mt-6 mb-6">"Aventario's long-term experience and excellent understanding of infrastructure services provided a Frame Contract approach that significantly reduced the time taken for negotiations and ensured compliance across the board."</p>
+                                <p class="text-base font-bold text-text">Frankfurt Airport</p>
+                                <p class="text-sm text-text mt-1">New Infrastructure Frame Contract</p>
+                            </div>
+                            <div class="md:col-span-3 md:text-right">
+                                <span class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-text whitespace-nowrap">Read case study <i class="ph ph-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Sodexo -->
+                    <a href="success-stories/sodexo.html" class="block bg-surface border border-bordercolor rounded-md p-8 md:p-10 hover:border-accent transition-colors">
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start">
+                            <div class="md:col-span-9">
+                                <span class="text-xs font-bold uppercase tracking-widest text-text bg-base border border-bordercolor px-3 py-1 rounded">Services</span>
+                                <p class="text-lg md:text-xl text-text leading-relaxed mt-6 mb-6">"Aventario's Frame Contract model allowed us to globalize our IT organization without losing control of supplier selection or contract quality."</p>
+                                <p class="text-base font-bold text-text">Sodexo</p>
+                                <p class="text-sm text-text mt-1">Frame Contracts · Global Transformation</p>
+                            </div>
+                            <div class="md:col-span-3 md:text-right">
+                                <span class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-text whitespace-nowrap">Read case study <i class="ph ph-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Digital Transformation -->
+                    <a href="success-stories/digital-transformation.html" class="block bg-surface border border-bordercolor rounded-md p-8 md:p-10 hover:border-accent transition-colors">
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start">
+                            <div class="md:col-span-9">
+                                <span class="text-xs font-bold uppercase tracking-widest text-text bg-base border border-bordercolor px-3 py-1 rounded">Enterprise</span>
+                                <div class="mt-6 mb-4 flex items-baseline gap-4">
+                                    <span class="font-serif text-5xl" style="color: #f19a51;">40%</span>
+                                    <p class="text-base font-bold text-text">reduction in vendor management overhead</p>
+                                </div>
+                                <p class="text-lg text-text leading-relaxed mb-6">Enterprise-wide vendor platform integration across a comprehensive digital transformation initiative.</p>
+                                <p class="text-base font-bold text-text">Global Enterprise</p>
+                                <p class="text-sm text-text mt-1">Vendor Platform · Digital Transformation</p>
+                            </div>
+                            <div class="md:col-span-3 md:text-right">
+                                <span class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-text whitespace-nowrap">Read case study <i class="ph ph-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Global Pharma -->
+                    <a href="success-stories/pharmaceutical-company.html" class="block bg-surface border border-bordercolor rounded-md p-8 md:p-10 hover:border-accent transition-colors">
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start">
+                            <div class="md:col-span-9">
+                                <span class="text-xs font-bold uppercase tracking-widest text-text bg-base border border-bordercolor px-3 py-1 rounded">Pharma</span>
+                                <p class="text-lg text-text leading-relaxed mt-6 mb-4">Vendor management maturity programme for a global pharma group — governance framework, SLA enforcement, contract lifecycle.</p>
+                                <p class="text-base font-bold text-text">Global Pharma</p>
+                                <p class="text-sm text-text mt-1">Vendor Management Maturity</p>
+                            </div>
+                            <div class="md:col-span-3 md:text-right">
+                                <span class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-text whitespace-nowrap">Read case study <i class="ph ph-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Tech Company -->
+                    <a href="success-stories/tech-company.html" class="block bg-surface border border-bordercolor rounded-md p-8 md:p-10 hover:border-accent transition-colors">
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start">
+                            <div class="md:col-span-9">
+                                <span class="text-xs font-bold uppercase tracking-widest text-text bg-base border border-bordercolor px-3 py-1 rounded">Technology</span>
+                                <p class="text-lg text-text leading-relaxed mt-6 mb-4">IT security sourcing strategy and vendor selection for a multinational technology company.</p>
+                                <p class="text-base font-bold text-text">Tech Company</p>
+                                <p class="text-sm text-text mt-1">Security Strategy &amp; Sourcing</p>
+                            </div>
+                            <div class="md:col-span-3 md:text-right">
+                                <span class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-text whitespace-nowrap">Read case study <i class="ph ph-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- All case studies link -->
+                    <a href="success-stories.html" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-text hover:text-accentdark mt-6">
+                        All case studies <i class="ph ph-arrow-right"></i>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== 4. VISIT US (HQ) ====== -->
+        <section id="visit" class="py-24 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-bordercolor">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-end mb-10">
+                <div class="md:col-span-7">
+                    <p class="text-xs uppercase tracking-widest text-text font-bold mb-4">Visit us in Vienna</p>
+                    <h2 class="font-serif text-4xl md:text-6xl mb-6">Tuchlauben 7a.<br>First district, third floor.</h2>
+                    <p class="text-lg md:text-xl text-text leading-relaxed max-w-xl">A two-minute walk from Stephansplatz. Our office sits on a pedestrian arcade between Etro and Miu Miu — quiet enough to think, central enough that you&rsquo;ll find it without a map.</p>
+                </div>
+                <div class="md:col-span-5 md:text-right">
+                    <p class="text-base text-text"><span class="font-bold">Aventario Services GmbH</span><br>Tuchlauben 7a, 1010 Vienna<br>+43 134 3354012<br><a href="mailto:office@aventario.com" class="font-bold hover:text-accentdark">office@aventario.com</a></p>
+                    <a href="https://maps.google.com/?q=Tuchlauben+7a,+1010+Vienna" target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-5 text-sm font-bold uppercase tracking-widest text-text hover:text-accentdark">
+                        Get directions <i class="ph ph-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Editorial image composition: large exterior left + interior overlap right -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+                <div class="md:col-span-7 relative">
+                    <img src="images/hq/exterior.jpg"
+                         alt="Tuchlauben 7a — Aventario office building, 1010 Vienna"
+                         class="w-full h-[480px] md:h-[600px] object-cover rounded-md"
+                         loading="lazy">
+                    <div class="absolute bottom-6 left-6 bg-surface/95 backdrop-blur-sm border border-bordercolor px-5 py-3 rounded-md shadow-lg">
+                        <p class="text-xs uppercase tracking-widest text-text font-bold">The arcade entrance</p>
+                        <p class="text-sm text-text mt-1">Tuchlauben 7a · between Etro and Miu Miu</p>
+                    </div>
+                </div>
+                <div class="md:col-span-5 grid gap-4 md:gap-6">
+                    <div class="relative h-[230px] md:h-[290px]">
+                        <img src="images/hq/interior.jpg"
+                             alt="Inside Aventario&rsquo;s Vienna office — meeting room overlooking Tuchlauben"
+                             class="w-full h-full object-cover rounded-md"
+                             loading="lazy">
+                        <div class="absolute bottom-4 left-4 bg-surface/95 backdrop-blur-sm border border-bordercolor px-4 py-2 rounded-md">
+                            <p class="text-xs font-bold text-text">Where we meet you</p>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com/?q=Tuchlauben+7a,+1010+Vienna" target="_blank" rel="noopener" class="block map-wrapper w-full h-[230px] md:h-[286px] bg-surface relative overflow-hidden rounded-md group border border-bordercolor">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2658.4!2d16.3697!3d48.2107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d07989c0640e5%3A0x2a0d0e4e2e5b5c0!2sTuchlauben%207a%2C%201010%20Wien!5e0!3m2!1sen!2sat"
+                            width="100%" height="100%" style="border:0; pointer-events: none;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="absolute inset-0 bg-text/10 group-hover:bg-text/0 transition-colors pointer-events-none"></div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                            <span class="bg-surface text-text px-4 py-2 font-bold text-xs uppercase tracking-widest rounded-full shadow-lg">Open in Maps</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Visit-us CTA strip -->
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                <p class="md:col-span-7 text-base md:text-lg text-text leading-relaxed">Coffee&rsquo;s on us. Most engagements start with a 30-minute conversation in the office or a video call — whichever&rsquo;s faster for you.</p>
+                <div class="md:col-span-5 flex flex-col sm:flex-row gap-3 md:justify-end">
+                    <a href="contact.html" class="inline-flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-widest text-surface px-6 py-3 rounded-full bg-text hover:bg-accentdark transition-colors">
+                        Book a visit <i class="ph ph-arrow-right text-sm"></i>
+                    </a>
+                    <a href="https://form.typeform.com/to/qmNOmu5v" target="_blank" rel="noopener" class="inline-flex items-center justify-center text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-full border border-bordercolor text-text hover:bg-base transition-colors">
+                        Take the Assessment
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== 5. ABOUT + CONTACT (combined) ====== -->
+        <section id="about" class="py-24 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-bordercolor">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="font-serif text-5xl mb-8">Built on evidence. Delivered as a service.</h2>
+                    <p class="text-text text-base md:text-lg leading-relaxed mb-8">Vienna-based. We sell the outcome, not the hours: every engagement has a quantified target, a fixed timeline, and a fixed price. Senior advisors with backgrounds as CxOs, program leads and Big 4 alumni — owning the result from first plan through final handover.</p>
+
+                    <div class="grid grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <img src="https://aventario.com/lovable-uploads/08f98704-4dbe-4e32-af44-33b0d87a2d3b.png" alt="Markus Kern" class="w-24 h-24 rounded-full object-cover mx-auto border-2 border-bordercolor">
+                            <h5 class="font-serif text-sm mt-3 text-text">Markus Kern</h5>
+                            <p class="text-xs font-bold text-text mt-1">CEO</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="https://aventario.com/lovable-uploads/55ddf31f-f5a6-4448-90b2-dc52a3088ac0.png" alt="Markus Jaksch" class="w-24 h-24 rounded-full object-cover mx-auto border-2 border-bordercolor">
+                            <h5 class="font-serif text-sm mt-3 text-text">Markus Jaksch</h5>
+                            <p class="text-xs font-bold text-text mt-1">CIO</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="https://aventario.com/lovable-uploads/55ac9b24-f0aa-42b8-adc8-675260d7c125.png" alt="Margit Györfi" class="w-24 h-24 rounded-full object-cover mx-auto border-2 border-bordercolor">
+                            <h5 class="font-serif text-sm mt-3 text-text">Margit Györfi</h5>
+                            <p class="text-xs font-bold text-text mt-1">CPO</p>
+                        </div>
+                    </div>
+
+                    <a href="about.html" class="inline-flex items-center gap-2 mt-10 text-xs font-bold uppercase tracking-widest text-accentdark hover:underline">
+                        More about Aventario <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div id="contact">
+                    <h2 class="font-serif text-5xl mb-8">HQ Vienna.</h2>
+
+                    <div class="mb-4">
+                        <h4 class="font-bold text-lg">Aventario Services GmbH</h4>
+                        <p class="text-muted mt-1">Tuchlauben 7a, 1010 Vienna</p>
+                        <p class="text-muted mt-1">+43 134 3354012</p>
+                        <p class="text-accent mt-1"><a href="mailto:office@aventario.com" class="hover:underline">office@aventario.com</a></p>
+                    </div>
+
+                    <a href="https://maps.google.com/?q=Tuchlauben+7a,+1010+Vienna" target="_blank" rel="noopener" class="block map-wrapper w-full h-56 bg-surface grayscale relative overflow-hidden group mt-12">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2658.4!2d16.3697!3d48.2107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d07989c0640e5%3A0x2a0d0e4e2e5b5c0!2sTuchlauben%207a%2C%201010%20Wien!5e0!3m2!1sen!2sat"
+                            width="100%" height="100%" style="border:0; pointer-events: none;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        <div class="absolute inset-0 bg-text/10 group-hover:bg-text/0 transition-colors pointer-events-none"></div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                            <span class="bg-surface text-text px-4 py-2 font-bold text-xs uppercase tracking-widest rounded-full shadow-lg">Open in Maps</span>
+                        </div>
+                    </a>
+
+                    <div class="mt-10 flex flex-col sm:flex-row gap-3">
+                        <a href="contact.html" class="inline-flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-widest bg-text text-surface px-6 py-3 rounded-full hover:bg-accentdark transition-colors">
+                            Contact Us <i class="ph ph-arrow-right"></i>
+                        </a>
+                        <a href="https://form.typeform.com/to/qmNOmu5v" target="_blank" rel="noopener" class="inline-flex items-center justify-center text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-full transition-colors hover:bg-base" style="border: 1px solid rgba(51, 75, 96, 0.18); color: #334b60;">
+                            Take the Assessment
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== 5. FOOTER ====== -->
+        <footer class="bg-text text-surface px-6 md:px-12 py-16">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
+                <div class="md:col-span-5">
+                    <p class="font-serif text-2xl mb-3">Aventario</p>
+                    <p class="text-sm text-surface/60 max-w-sm">Cost &amp; value optimization for IT and supply chain. We own the outcome, not just the hours.</p>
+                </div>
+                <div class="md:col-span-3">
+                    <p class="text-xs uppercase tracking-widest text-surface/40 mb-4 font-bold">Contact</p>
+                    <ul class="space-y-2 text-sm text-surface/80">
+                        <li><a href="mailto:office@aventario.com" class="hover:text-accent">office@aventario.com</a></li>
+                        <li>Tuchlauben 7a, 1010 Vienna</li>
+                        <li>+43 134 3354012</li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <p class="text-xs uppercase tracking-widest text-surface/40 mb-4 font-bold">Services</p>
+                    <ul class="space-y-2 text-sm text-surface/80">
+                        <li><a href="services/savings.html" class="hover:text-accent">Savings</a></li>
+                        <li><a href="services/complex-rfx.html" class="hover:text-accent">Complex RFx</a></li>
+                        <li><a href="services/vendor-management.html" class="hover:text-accent">Vendor Management</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <p class="text-xs uppercase tracking-widest text-surface/40 mb-4 font-bold">Company</p>
+                    <ul class="space-y-2 text-sm text-surface/80">
+                        <li><a href="about.html" class="hover:text-accent">About</a></li>
+                        <li><a href="success-stories.html" class="hover:text-accent">Success Stories</a></li>
+                        <li><a href="blog.html" class="hover:text-accent">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-surface/10 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs text-surface/40 gap-2">
+                <p>&copy; 2026 Aventario Services GmbH</p>
+                <div class="flex gap-6">
+                    <a href="impressum.html" class="hover:text-surface">Imprint</a>
+                    <a href="datenschutz.html" class="hover:text-surface">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    </main>
+
+    <script>
+        // Nav scroll background
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-base/90', 'backdrop-blur-md', 'shadow-sm', 'border-b', 'border-bordercolor');
+                nav.classList.remove('py-6');
+                nav.classList.add('py-4');
+            } else {
+                nav.classList.remove('bg-base/90', 'backdrop-blur-md', 'shadow-sm', 'border-b', 'border-bordercolor');
+                nav.classList.remove('py-4');
+                nav.classList.add('py-6');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.toggle('ph-list');
+                icon.classList.toggle('ph-x');
+            });
+            mobileMenu.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.add('ph-list');
+                    icon.classList.remove('ph-x');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
