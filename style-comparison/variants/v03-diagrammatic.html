@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variant 03 · Diagrammatic — Aventario</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f7f8f9;
+    --ink: #161e2c;
+    --navy: #334b60;
+    --navy-dark: #1a2a3a;
+    --teal: #5fa99d;
+    --teal-soft: #8dccc0;
+    --pink: #d15298;
+    --orange: #f19a51;
+    --grid: rgba(22,30,44,0.08);
+    --line: rgba(22,30,44,0.15);
+    --muted: #5b6b80;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: -1px -1px;
+  }
+  a { color: inherit; text-decoration: none; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 32px; }
+
+  /* ============ DIAGRAMMATIC NAV ============ */
+  .nav-bar {
+    background: white;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .nav-meta {
+    display: flex; justify-content: space-between;
+    padding: 4px 32px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: 1px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-main {
+    display: grid;
+    grid-template-columns: 160px 1fr 220px;
+    align-items: stretch;
+    height: 80px;
+  }
+  .nav-logo {
+    border-right: 1px solid var(--line);
+    padding: 0 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .nav-logo .icon {
+    width: 30px; height: 30px;
+    background: var(--navy);
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 18px;
+    position: relative;
+  }
+  .nav-logo .icon::after {
+    content: ''; position: absolute; right: -4px; bottom: -4px;
+    width: 10px; height: 10px; background: var(--teal);
+  }
+  .nav-logo .brand {
+    font-weight: 600; font-size: 18px; letter-spacing: -0.4px;
+  }
+  .nav-logo .brand small {
+    display: block; font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px; letter-spacing: 1px; color: var(--muted); margin-top: 2px; font-weight: 400;
+  }
+  .nav-sitemap {
+    display: flex; align-items: center; padding: 0 24px;
+    gap: 24px;
+    border-right: 1px solid var(--line);
+  }
+  .nav-tab {
+    position: relative;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 28px 0;
+    border-bottom: 2px solid transparent;
+  }
+  .nav-tab.active { border-bottom-color: var(--teal); color: var(--ink); font-weight: 600; }
+  .nav-tab .badge {
+    position: absolute; top: 18px; right: -16px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 9px;
+    background: var(--ink); color: white;
+    padding: 1px 5px; border-radius: 2px;
+  }
+  .nav-cta {
+    background: var(--teal);
+    color: white;
+    display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+    padding: 0 24px;
+    font-weight: 600;
+  }
+  .nav-cta .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .nav-cta .text { font-size: 14px; }
+  .nav-cta .arrow { font-size: 16px; margin-top: 2px; }
+
+  /* Breadcrumb / page indicator */
+  .breadcrumb {
+    background: white;
+    padding: 10px 32px;
+    border-bottom: 1px solid var(--line);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+  }
+  .breadcrumb .crumbs { display: flex; gap: 8px; align-items: center; }
+  .breadcrumb .crumb { color: var(--muted); }
+  .breadcrumb .crumb.current { color: var(--ink); font-weight: 500; }
+  .breadcrumb .sep { color: var(--muted); }
+  .breadcrumb .status { display: flex; gap: 16px; align-items: center; }
+  .breadcrumb .dot { width: 8px; height: 8px; background: var(--teal); border-radius: 50%; }
+
+  /* ============ HERO (annotated) ============ */
+  .hero {
+    background: white;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .hero-grid { display: grid; grid-template-columns: 480px 1fr; min-height: 540px; }
+  .hero-text {
+    padding: 60px 40px;
+    background: white;
+    border-right: 1px solid var(--line);
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--ink); color: white;
+    padding: 4px 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: 1.5px;
+    margin-bottom: 22px;
+  }
+  .hero-headline {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600; font-size: 44px; line-height: 1.05; letter-spacing: -1.2px;
+    margin: 0 0 18px;
+  }
+  .hero-headline .underline-teal {
+    background-image: linear-gradient(to top, var(--teal-soft) 30%, transparent 30%);
+    padding: 0 4px;
+  }
+  .hero-sub {
+    font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0 0 28px; max-width: 380px;
+  }
+  .hero-meta-table {
+    margin-top: 26px; border-top: 1px solid var(--line); padding-top: 18px;
+  }
+  .hero-meta-table .row {
+    display: grid; grid-template-columns: 110px 1fr;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--line);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+  }
+  .hero-meta-table .row .k { color: var(--muted); }
+  .hero-meta-table .row .v { color: var(--ink); font-weight: 500; }
+  .hero-meta-table .row:last-child { border-bottom: 0; }
+  .hero-cta-row { display: flex; gap: 10px; margin-top: 24px; }
+  .hero-cta-row .btn-primary {
+    background: var(--ink); color: white; padding: 10px 18px; font-size: 13px;
+    font-weight: 600; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .hero-cta-row .btn-secondary {
+    background: white; color: var(--ink); padding: 10px 18px; font-size: 13px;
+    font-weight: 600; border: 1px solid var(--ink); display: inline-flex; align-items: center; gap: 6px;
+  }
+
+  .hero-figure {
+    position: relative;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  .hero-figure img {
+    width: 100%; height: 100%; object-fit: cover; opacity: 0.92;
+    filter: contrast(1.05) saturate(0.85);
+  }
+  .annotation {
+    position: absolute;
+    background: white;
+    border: 1px solid var(--ink);
+    padding: 6px 9px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    line-height: 1.3;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .annotation .num {
+    display: inline-block;
+    background: var(--teal);
+    color: white;
+    padding: 1px 5px;
+    margin-right: 5px;
+    font-weight: 700;
+  }
+  .annotation::before {
+    content: '';
+    position: absolute;
+    background: var(--ink);
+  }
+  .ann-1 { top: 60px; left: 60px; }
+  .ann-1::before { width: 60px; height: 1px; right: -65px; top: 14px; }
+  .ann-2 { top: 240px; right: 80px; max-width: 200px; }
+  .ann-2::before { width: 50px; height: 1px; left: -55px; top: 14px; }
+  .ann-3 { bottom: 80px; left: 100px; }
+  .ann-3::before { width: 1px; height: 50px; top: -55px; left: 30px; }
+  .ann-4 { bottom: 60px; right: 60px; }
+  .ann-4::before { width: 1px; height: 40px; top: -45px; left: 50%; }
+  .crosshair {
+    position: absolute;
+    width: 24px; height: 24px;
+    pointer-events: none;
+  }
+  .crosshair::before, .crosshair::after {
+    content: '';
+    position: absolute;
+    background: white;
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+  }
+  .crosshair::before { left: 50%; top: 0; width: 1px; height: 100%; transform: translateX(-50%); }
+  .crosshair::after { top: 50%; left: 0; height: 1px; width: 100%; transform: translateY(-50%); }
+  .crosshair-1 { top: 80px; left: 200px; }
+  .crosshair-2 { top: 260px; right: 220px; }
+  .crosshair-3 { bottom: 120px; left: 260px; }
+
+  /* Value chain strip */
+  .value-chain {
+    background: var(--ink);
+    color: white;
+    padding: 32px 32px;
+  }
+  .value-chain-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--teal-soft); margin-bottom: 14px;
+  }
+  .chain-row {
+    display: grid; grid-template-columns: repeat(6, 1fr) 24px;
+    gap: 6px; align-items: center;
+  }
+  .chain-step {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-top: 2px solid var(--teal);
+    padding: 12px 14px;
+    text-align: center;
+    position: relative;
+  }
+  .chain-step .step-n { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--teal-soft); }
+  .chain-step .step-t { font-weight: 600; font-size: 14px; margin-top: 4px; }
+  .chain-step .step-d { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 4px; font-family: 'IBM Plex Mono', monospace; }
+  .chain-arrow { font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-align: center; font-size: 18px; }
+
+  /* ============ STATS DASHBOARD ============ */
+  .stats-dashboard {
+    background: white;
+    border-bottom: 1px solid var(--line);
+    padding: 32px;
+  }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .dash-card { padding: 18px 24px; border-right: 1px solid var(--line); }
+  .dash-card:last-child { border-right: 0; }
+  .dash-card .head {
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .dash-card .head .id { background: var(--ink); color: white; padding: 1px 5px; }
+  .dash-card .big { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 44px; line-height: 1; letter-spacing: -1.5px; }
+  .dash-card .big .accent { color: var(--teal); }
+  .dash-card .lbl { font-size: 12px; color: var(--ink); margin-top: 6px; }
+  .dash-card .mini-trend { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--teal); margin-top: 4px; }
+  .dash-card.accent .big { color: var(--orange); }
+
+  /* ============ SERVICES (process diagram) ============ */
+  .section { padding: 60px 32px; }
+  .section-marker {
+    display: flex; align-items: end; justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 30px;
+  }
+  .section-marker .meta {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.5px;
+    color: var(--muted); text-transform: uppercase;
+  }
+  .section-marker .meta .id { background: var(--ink); color: white; padding: 1px 6px; margin-right: 6px; }
+  .section-marker h2 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600; font-size: 40px; line-height: 1; letter-spacing: -1px;
+    margin: 0;
+  }
+  .section-marker .count { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted); }
+
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .svc-node {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 20px;
+    position: relative;
+    display: flex; flex-direction: column;
+  }
+  .svc-node .node-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .svc-node .node-id {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    background: var(--ink); color: white;
+    padding: 2px 6px;
+  }
+  .svc-node .node-status {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--teal);
+    display: flex; align-items: center; gap: 5px;
+  }
+  .svc-node .node-status::before { content: ''; width: 6px; height: 6px; background: var(--teal); border-radius: 50%; }
+  .svc-node .icon-block {
+    width: 36px; height: 36px;
+    background: var(--teal-soft);
+    color: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 18px; margin-bottom: 12px;
+    border-radius: 2px;
+  }
+  .svc-node h3 { font-size: 17px; font-weight: 600; line-height: 1.15; margin: 0 0 6px; }
+  .svc-node .deck { font-size: 12px; color: var(--muted); margin: 0 0 14px; line-height: 1.45; }
+  .svc-node .steps {
+    margin: 0; padding: 0; list-style: none; font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    border-top: 1px dashed var(--line); padding-top: 10px; flex: 1;
+  }
+  .svc-node .steps li { padding: 3px 0; display: flex; gap: 8px; }
+  .svc-node .steps li .step-num { color: var(--teal); font-weight: 600; }
+  .svc-node .output-bar {
+    margin-top: 14px;
+    padding: 10px 12px;
+    background: var(--ink);
+    color: white;
+    display: grid; grid-template-columns: 1fr auto; align-items: center;
+    border-radius: 2px;
+  }
+  .svc-node .output-bar .label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 1.5px; color: var(--teal-soft); text-transform: uppercase; }
+  .svc-node .output-bar .v { font-size: 16px; font-weight: 600; }
+  .svc-node .output-bar .v.warm { color: var(--orange); }
+  .svc-node.platform { background: var(--navy); color: white; border-color: var(--teal); }
+  .svc-node.platform .deck { color: rgba(255,255,255,0.65); }
+  .svc-node.platform .steps { border-top-color: rgba(255,255,255,0.2); }
+  .svc-node.platform .node-id { background: var(--teal); }
+  .svc-node.platform .icon-block { background: var(--teal); color: var(--navy); }
+  .svc-node.platform .output-bar { background: var(--teal); color: var(--navy); }
+  .svc-node.platform .output-bar .label { color: var(--navy); opacity: 0.65; }
+
+  /* Support: small chips */
+  .support-chips {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px;
+  }
+  .chip-node {
+    background: white; border: 1px dashed var(--line);
+    padding: 14px 18px; border-radius: 3px;
+    display: flex; gap: 12px; align-items: start;
+  }
+  .chip-node .chip-id {
+    width: 28px; height: 28px;
+    background: var(--orange); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 10px;
+    flex-shrink: 0;
+  }
+  .chip-node h4 { font-size: 13px; font-weight: 600; margin: 0 0 4px; }
+  .chip-node p { font-size: 11px; color: var(--muted); margin: 0; line-height: 1.4; }
+
+  /* ============ AS-A-SERVICE (system diagram) ============ */
+  .system-section { background: var(--ink); color: white; padding: 60px 32px; }
+  .system-section .section-marker { border-bottom-color: white; }
+  .system-section .section-marker .meta { color: rgba(255,255,255,0.65); }
+  .system-section .section-marker .meta .id { background: var(--teal); color: var(--ink); }
+  .system-section .section-marker h2 { color: white; }
+  .system-section .section-marker .count { color: rgba(255,255,255,0.65); }
+  .system-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+  .system-desc p {
+    font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.8); margin: 0 0 12px;
+  }
+  .system-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; position: relative; }
+  .pillar-node {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 18px;
+    border-radius: 4px;
+    position: relative;
+  }
+  .pillar-node::before {
+    content: ''; position: absolute; top: -1px; left: -1px; right: -1px;
+    height: 3px; background: var(--teal);
+  }
+  .pillar-node:nth-child(2)::before { background: var(--orange); }
+  .pillar-node:nth-child(3)::before { background: var(--pink); }
+  .pillar-node .pid {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    color: var(--teal-soft); margin-bottom: 8px;
+  }
+  .pillar-node h4 { font-size: 16px; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.3px; }
+  .pillar-node p { font-size: 12px; line-height: 1.5; color: rgba(255,255,255,0.7); margin: 0; }
+  .pillar-connector {
+    position: absolute; top: 50%; height: 1px; background: var(--teal); z-index: 0;
+  }
+
+  /* ============ REFERENCES (table-of-cases) ============ */
+  .ref-section { background: white; }
+  .ref-table {
+    margin-top: 30px;
+    border: 1px solid var(--line);
+    background: white;
+  }
+  .ref-table-header {
+    background: var(--ink); color: white;
+    display: grid; grid-template-columns: 200px repeat(3, 1fr) 60px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+  }
+  .ref-table-header > div { padding: 10px 16px; border-right: 1px solid rgba(255,255,255,0.15); }
+  .ref-table-header > div:last-child { border-right: 0; }
+  .ref-row {
+    display: grid;
+    grid-template-columns: 200px repeat(3, 1fr) 60px;
+    border-bottom: 1px solid var(--line);
+  }
+  .ref-row:last-child { border-bottom: 0; }
+  .ref-row > div { padding: 18px 16px; border-right: 1px solid var(--line); }
+  .ref-row > div:last-child { border-right: 0; }
+  .ref-row .area-cell {
+    background: #f0f3f6;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .ref-row .area-cell .lbl {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    color: var(--teal); margin-bottom: 4px; letter-spacing: 1.5px;
+  }
+  .ref-row .area-cell h3 { font-size: 15px; font-weight: 600; line-height: 1.1; margin: 0; }
+  .ref-row .case-cell .tag {
+    display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 9px;
+    background: white; border: 1px solid var(--line); padding: 1px 5px; margin-bottom: 8px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+  }
+  .ref-row .case-cell h4 { font-size: 14px; font-weight: 600; margin: 0 0 4px; line-height: 1.2; }
+  .ref-row .case-cell .scope { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); }
+  .ref-row .arrow-cell {
+    background: #f0f3f6;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--teal); font-size: 18px; font-weight: 600;
+  }
+
+  /* ============ CTA + FOOTER ============ */
+  .cta-section { background: var(--ink); color: white; padding: 60px 32px; }
+  .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .cta-grid h2 { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 48px; line-height: 1.05; letter-spacing: -1.5px; margin: 0 0 14px; }
+  .cta-grid h2 span { color: var(--teal); }
+  .cta-grid p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.6; margin: 0 0 18px; max-width: 480px; }
+  .cta-grid .meta-table {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    border-top: 1px solid rgba(255,255,255,0.2); padding-top: 18px;
+  }
+  .cta-grid .meta-table .item .k { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--teal-soft); letter-spacing: 1.5px; text-transform: uppercase; }
+  .cta-grid .meta-table .item .v { font-size: 13px; margin-top: 3px; }
+  .cta-form-diagram {
+    background: white; color: var(--ink); padding: 28px; border-radius: 4px;
+    border: 1px solid var(--teal);
+  }
+  .cta-form-diagram label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; display: block; }
+  .cta-form-diagram input { width: 100%; padding: 10px 12px; border: 1px solid var(--line); font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; margin-bottom: 12px; }
+  .cta-form-diagram button { width: 100%; background: var(--ink); color: white; border: 0; padding: 12px; font-weight: 600; cursor: pointer; }
+  .cta-form-diagram button:hover { background: var(--teal); }
+
+  .footer-diagram { background: white; padding: 50px 32px 20px; border-top: 1px solid var(--line); }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+  .footer-diagram .brand-row { display: flex; gap: 12px; align-items: start; margin-bottom: 12px; }
+  .footer-diagram .brand-row .ic { width: 32px; height: 32px; background: var(--navy); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+  .footer-diagram .brand-row .name { font-size: 20px; font-weight: 600; letter-spacing: -0.4px; }
+  .footer-diagram .brand-row .name small { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--muted); margin-top: 2px; font-weight: 400; letter-spacing: 1px; }
+  .footer-diagram .brand-tag { font-size: 12px; color: var(--muted); line-height: 1.5; max-width: 320px; }
+  .footer-diagram h5 { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 0 0 12px; }
+  .footer-diagram ul { list-style: none; padding: 0; margin: 0; }
+  .footer-diagram li { font-size: 12px; padding: 3px 0; }
+  .footer-diagram li a:hover { color: var(--teal); }
+  .footer-bottom { display: flex; justify-content: space-between; padding-top: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav-bar">
+  <div class="nav-meta">
+    <span>SYSTEM ID: AVENTARIO-WEB · v.2026.05 · BUILD #06.15</span>
+    <span>STATUS: <span style="color: var(--teal);">⬤ ONLINE</span> · VIENNA · 13:48 CEST</span>
+  </div>
+  <div class="nav-main">
+    <a href="/" class="nav-logo">
+      <div class="icon">▲</div>
+      <div class="brand">Aventario<small>cost.value.system</small></div>
+    </a>
+    <nav class="nav-sitemap">
+      <a class="nav-tab" href="#services">Services <span class="badge">06</span></a>
+      <a class="nav-tab active" href="#aas">Method</a>
+      <a class="nav-tab" href="#references">References <span class="badge">15</span></a>
+      <a class="nav-tab" href="#">Insights</a>
+      <a class="nav-tab" href="#">Atelier</a>
+    </nav>
+    <a class="nav-cta" href="#cta">
+      <span class="label">→ Run diagnostic</span>
+      <span class="text">Book 30 minutes</span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+  <div class="breadcrumb">
+    <div class="crumbs">
+      <span class="crumb">/</span>
+      <span class="sep">›</span>
+      <span class="crumb current">home</span>
+      <span class="sep">›</span>
+      <span class="crumb">cost &amp; value optimization · IT &amp; supply chain</span>
+    </div>
+    <div class="status">
+      <span><span class="dot"></span> 30 + experts on call</span>
+      <span>·</span>
+      <span>SLA: 1 working day</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO (annotated) ============ -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <span class="hero-tag">▼ AVENTARIO / SYSTEM OVERVIEW</span>
+      <h1 class="hero-headline">Cost &amp; value <span class="underline-teal">optimization</span> for IT and supply chain.</h1>
+      <p class="hero-sub">A six-service operating system for the cost-and-value chain. Outcome-based engagements, fixed scope, fixed price. We own the result through to a working capability on the floor.</p>
+      <div class="hero-meta-table">
+        <div class="row"><span class="k">→ Model</span><span class="v">Outcome-based · fixed-price</span></div>
+        <div class="row"><span class="k">→ Scope</span><span class="v">Strategy · execution · capability</span></div>
+        <div class="row"><span class="k">→ Geography</span><span class="v">Vienna HQ · DACH · EU · global</span></div>
+        <div class="row"><span class="k">→ Team</span><span class="v">30+ senior practitioners</span></div>
+      </div>
+      <div class="hero-cta-row">
+        <a class="btn-primary" href="#cta">→ Run a diagnostic</a>
+        <a class="btn-secondary" href="#references">View the record</a>
+      </div>
+    </div>
+    <div class="hero-figure">
+      <img src="../../images/hero-ridge-team.png" alt="A roped team on an alpine ridge">
+
+      <div class="crosshair crosshair-1"></div>
+      <div class="crosshair crosshair-2"></div>
+      <div class="crosshair crosshair-3"></div>
+
+      <div class="annotation ann-1"><span class="num">01</span>FIRST LIGHT · 06:24</div>
+      <div class="annotation ann-2"><span class="num">02</span>ROPED TEAM<br>SINGLE SYSTEM<br>SHARED OUTCOME</div>
+      <div class="annotation ann-3"><span class="num">03</span>FIXED ROUTE · ETA -22 MIN</div>
+      <div class="annotation ann-4"><span class="num">04</span>SUMMIT VECTOR ↗</div>
+    </div>
+  </div>
+
+  <div class="value-chain">
+    <div class="value-chain-title">▼ THE AVENTARIO VALUE CHAIN · END-TO-END FLOW</div>
+    <div class="chain-row">
+      <div class="chain-step"><div class="step-n">01</div><div class="step-t">SEE</div><div class="step-d">analysis</div></div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-step"><div class="step-n">02</div><div class="step-t">SIZE</div><div class="step-d">scoping</div></div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-step"><div class="step-n">03</div><div class="step-t">SIMPLIFY</div><div class="step-d">consolidation</div></div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-step"><div class="step-n">04</div><div class="step-t">SOURCE</div><div class="step-d">tendering</div></div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-step"><div class="step-n">05</div><div class="step-t">GOVERN</div><div class="step-d">VM lifecycle</div></div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-step"><div class="step-n">06</div><div class="step-t">AUTOMATE</div><div class="step-d">platform</div></div>
+      <div class="chain-arrow">★</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS DASHBOARD ============ -->
+<section class="stats-dashboard">
+  <div class="stats-grid">
+    <div class="dash-card">
+      <div class="head"><span>METRIC</span><span class="id">M01</span></div>
+      <div class="big">25<span class="accent">+</span></div>
+      <div class="lbl">Exciting years</div>
+      <div class="mini-trend">▲ EST. 2001 · TENURE COMPOUNDING</div>
+    </div>
+    <div class="dash-card">
+      <div class="head"><span>METRIC</span><span class="id">M02</span></div>
+      <div class="big">30<span class="accent">+</span></div>
+      <div class="lbl">Hand-picked experts</div>
+      <div class="mini-trend">▲ AVERAGE 15Y INDUSTRY TENURE</div>
+    </div>
+    <div class="dash-card">
+      <div class="head"><span>METRIC</span><span class="id">M03</span></div>
+      <div class="big">500<span class="accent">+</span></div>
+      <div class="lbl">Successful projects</div>
+      <div class="mini-trend">▲ DACH · EU · GLOBAL DELIVERY</div>
+    </div>
+    <div class="dash-card accent">
+      <div class="head"><span>OUTCOME</span><span class="id">O01</span></div>
+      <div class="big">10–40%</div>
+      <div class="lbl">Sustainable improvements</div>
+      <div class="mini-trend" style="color: var(--orange);">▲ QUANTIFIED PER ENGAGEMENT</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES (process nodes) ============ -->
+<section class="section" id="services">
+  <div class="section-marker">
+    <div>
+      <div class="meta"><span class="id">§02</span> SERVICES · CORE OPERATING SYSTEM</div>
+      <h2>Six services. One delivery system.</h2>
+    </div>
+    <span class="count">▍ 06 / 06 OPERATIONAL</span>
+  </div>
+
+  <div class="svc-grid">
+    <div class="svc-node">
+      <div class="node-header"><span class="node-id">SVC.01</span><span class="node-status">ACTIVE</span></div>
+      <div class="icon-block">↻</div>
+      <h3>Operational Excellence aaS</h3>
+      <p class="deck">Make your IT operations 20% more efficient.</p>
+      <ul class="steps">
+        <li><span class="step-num">→</span>Process &amp; landscape analysis</li>
+        <li><span class="step-num">→</span>Automation opportunity ID</li>
+        <li><span class="step-num">→</span>Operating model optimisation</li>
+        <li><span class="step-num">→</span>Implementation roadmap</li>
+      </ul>
+      <div class="output-bar"><span class="label">OUTPUT</span><span class="v warm">≥20% efficiency</span></div>
+    </div>
+    <div class="svc-node">
+      <div class="node-header"><span class="node-id">SVC.02</span><span class="node-status">ACTIVE</span></div>
+      <div class="icon-block">€</div>
+      <h3>Savings aaS</h3>
+      <p class="deck">Cut 10–40% from your IT vendor spend.</p>
+      <ul class="steps">
+        <li><span class="step-num">→</span>Contract &amp; spend analysis</li>
+        <li><span class="step-num">→</span>Vendor benchmarking</li>
+        <li><span class="step-num">→</span>Renegotiation strategy</li>
+        <li><span class="step-num">→</span>Savings realisation tracking</li>
+      </ul>
+      <div class="output-bar"><span class="label">OUTPUT</span><span class="v warm">10–40% savings</span></div>
+    </div>
+    <div class="svc-node">
+      <div class="node-header"><span class="node-id">SVC.03</span><span class="node-status">ACTIVE</span></div>
+      <div class="icon-block">⊞</div>
+      <h3>Vendor Consolidation aaS</h3>
+      <p class="deck">Reduce vendor sprawl to a handful of strategic partners.</p>
+      <ul class="steps">
+        <li><span class="step-num">→</span>Vendor landscape mapping</li>
+        <li><span class="step-num">→</span>Make / buy / partner</li>
+        <li><span class="step-num">→</span>Consolidation roadmap</li>
+        <li><span class="step-num">→</span>Target supplier architecture</li>
+      </ul>
+      <div class="output-bar"><span class="label">OUTPUT</span><span class="v warm">&gt;80% via top-5</span></div>
+    </div>
+    <div class="svc-node">
+      <div class="node-header"><span class="node-id">SVC.04</span><span class="node-status">ACTIVE</span></div>
+      <div class="icon-block">⚖</div>
+      <h3>Complex RFx aaS</h3>
+      <p class="deck">Run structured IT tenders in 6–8 weeks, not 6 months.</p>
+      <ul class="steps">
+        <li><span class="step-num">→</span>Requirements engineering</li>
+        <li><span class="step-num">→</span>Market analysis &amp; RFI</li>
+        <li><span class="step-num">→</span>Structured tender process</li>
+        <li><span class="step-num">→</span>Negotiation &amp; award support</li>
+      </ul>
+      <div class="output-bar"><span class="label">OUTPUT</span><span class="v warm">6–8 weeks</span></div>
+    </div>
+    <div class="svc-node">
+      <div class="node-header"><span class="node-id">SVC.05</span><span class="node-status">ACTIVE</span></div>
+      <div class="icon-block">⛨</div>
+      <h3>Vendor Management aaS</h3>
+      <p class="deck">Hold IT vendors accountable to what they signed.</p>
+      <ul class="steps">
+        <li><span class="step-num">→</span>Governance framework design</li>
+        <li><span class="step-num">→</span>SLA &amp; performance mgmt</li>
+        <li><span class="step-num">→</span>Contract lifecycle mgmt</li>
+        <li><span class="step-num">→</span>Continuous optimisation</li>
+      </ul>
+      <div class="output-bar"><span class="label">OUTPUT</span><span class="v warm">10–30% reduction</span></div>
+    </div>
+    <a class="svc-node platform" href="https://managedsuppliers.com">
+      <div class="node-header"><span class="node-id">PLT.06</span><span class="node-status">LIVE ↗</span></div>
+      <div class="icon-block">▦</div>
+      <h3>managedsuppliers ↗</h3>
+      <p class="deck">Manage every vendor relationship in one platform.</p>
+      <ul class="steps">
+        <li><span class="step-num">→</span>Real-time dashboards</li>
+        <li><span class="step-num">→</span>AI contract analysis</li>
+        <li><span class="step-num">→</span>Performance &amp; risk</li>
+        <li><span class="step-num">→</span>Self-service governance</li>
+      </ul>
+      <div class="output-bar"><span class="label">DEPLOYMENT</span><span class="v">SaaS</span></div>
+    </a>
+  </div>
+
+  <div style="margin-top: 36px; padding-top: 20px; border-top: 1px dashed var(--line);">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 16px;">▼ SUPPORT SERVICES · EMBEDDED IN EVERY ENGAGEMENT (NOT SOLD STANDALONE)</div>
+    <div class="support-chips">
+      <div class="chip-node">
+        <div class="chip-id">PM</div>
+        <div>
+          <h4>Programme &amp; Project Mgmt</h4>
+          <p>Multi-workstream governance with clear decision rights, timeline and budget ownership.</p>
+        </div>
+      </div>
+      <div class="chip-node">
+        <div class="chip-id">CC</div>
+        <div>
+          <h4>Change &amp; Communication</h4>
+          <p>Stakeholder analysis, intercultural change support and resistance management.</p>
+        </div>
+      </div>
+      <div class="chip-node">
+        <div class="chip-id">TM</div>
+        <div>
+          <h4>Transition Management</h4>
+          <p>End-to-end transition planning, knowledge transfer, parallel operation and cutover.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AS-A-SERVICE (system diagram) ============ -->
+<section class="system-section" id="aas">
+  <div class="section-marker">
+    <div>
+      <div class="meta"><span class="id">§03</span> METHOD · SPARK TO TURNKEY</div>
+      <h2>One delivery system. Three pillars.</h2>
+    </div>
+    <span class="count">▍ 03 / 03 PILLARS</span>
+  </div>
+
+  <div class="system-grid">
+    <div class="system-desc">
+      <p>We see ourselves as a full-service provider, supporting your initiatives from the initial spark through to <span style="color: var(--teal);">turnkey</span> completion.</p>
+      <p>We drive sustainable results by engaging and empowering the whole affected organisation — its people, processes and stakeholders — throughout every phase.</p>
+      <p>Every project is staffed against our three delivery pillars, so you get one seamless, integrated service rather than a sequence of hand-offs.</p>
+    </div>
+    <div class="system-pillars">
+      <div class="pillar-node">
+        <div class="pid">PILLAR.01</div>
+        <h4>Transformation Implementation</h4>
+        <p>We don't hand over a roadmap and leave. Our teams sit inside the programme until structures, processes and supplier relationships stand on their own.</p>
+      </div>
+      <div class="pillar-node">
+        <div class="pid">PILLAR.02</div>
+        <h4>Programme &amp; Project Mgmt</h4>
+        <p>Multi-workstream governance with clear decision rights, milestone ownership and tight control over timeline and budget.</p>
+      </div>
+      <div class="pillar-node">
+        <div class="pid">PILLAR.03</div>
+        <h4>Change &amp; Communication</h4>
+        <p>Stakeholder analysis, intercultural change and adoption work — so the new way of working sticks once we're gone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REFERENCES (case table) ============ -->
+<section class="section ref-section" id="references">
+  <div class="section-marker">
+    <div>
+      <div class="meta"><span class="id">§04</span> RECORD · ANCHOR CASES</div>
+      <h2>Real results. Real engagements.</h2>
+    </div>
+    <span class="count">▍ 15 ANCHOR CASES · ALL ANONYMISED</span>
+  </div>
+
+  <div class="ref-table">
+    <div class="ref-table-header">
+      <div>SERVICE AREA</div>
+      <div>CASE 01</div>
+      <div>CASE 02</div>
+      <div>CASE 03</div>
+      <div></div>
+    </div>
+
+    <div class="ref-row">
+      <div class="area-cell"><div class="lbl">▍ A.I</div><h3>Operational Excellence</h3></div>
+      <div class="case-cell"><span class="tag">Pharma</span><h4>Global Fleet Electrification</h4><div class="scope">1,500 vehicles · 22 months</div></div>
+      <div class="case-cell"><span class="tag">Global Services</span><h4>Unified Global ITSM</h4><div class="scope">400K+ employees · 24 mo</div></div>
+      <div class="case-cell"><span class="tag">Pharma</span><h4>IT Landscape Harmonisation</h4><div class="scope">9,000 systems · 110 capabilities</div></div>
+      <div class="arrow-cell">→</div>
+    </div>
+    <div class="ref-row">
+      <div class="area-cell"><div class="lbl">▍ A.II</div><h3>Savings</h3></div>
+      <div class="case-cell"><span class="tag">Pharma</span><h4>Device Standardisation</h4><div class="scope">Lab equipment · 28 months</div></div>
+      <div class="case-cell"><span class="tag">Pharma</span><h4>Infra Consolidation &amp; RFI</h4><div class="scope">13 service domains · TCO</div></div>
+      <div class="case-cell"><span class="tag">Aviation</span><h4>22-Domain Service Tender</h4><div class="scope">Datacenter / Cloud · 13 mo</div></div>
+      <div class="arrow-cell">→</div>
+    </div>
+    <div class="ref-row">
+      <div class="area-cell"><div class="lbl">▍ A.III</div><h3>Vendor Consolidation</h3></div>
+      <div class="case-cell"><span class="tag">Pharma</span><h4>Engineering &amp; Facilities</h4><div class="scope">8,500 staff · 3 years</div></div>
+      <div class="case-cell"><span class="tag">Automotive</span><h4>Global IT Client Rollout</h4><div class="scope">22 countries · 25K+ users</div></div>
+      <div class="case-cell"><span class="tag">Aviation</span><h4>Multi-Gen Outsourcing</h4><div class="scope">20+ years · Frame contracts</div></div>
+      <div class="arrow-cell">→</div>
+    </div>
+    <div class="ref-row">
+      <div class="area-cell"><div class="lbl">▍ A.IV</div><h3>Complex RFx</h3></div>
+      <div class="case-cell"><span class="tag">Public Transport</span><h4>Passenger Counter Platform</h4><div class="scope">BVergG · &gt;€1M contract</div></div>
+      <div class="case-cell"><span class="tag">Public Transport</span><h4>Onboard Information Tender</h4><div class="scope">Sector contractor · 18 mo</div></div>
+      <div class="case-cell"><span class="tag">Food Industry</span><h4>4-Month IT Sourcing</h4><div class="scope">Strategy / RFI / RFP</div></div>
+      <div class="arrow-cell">→</div>
+    </div>
+    <div class="ref-row">
+      <div class="area-cell"><div class="lbl">▍ A.V</div><h3>Vendor Management</h3></div>
+      <div class="case-cell"><span class="tag">Aviation</span><h4>22-Domain Governance</h4><div class="scope">Post-tender · Service govern.</div></div>
+      <div class="case-cell"><span class="tag">Pharma</span><h4>Standardisation Governance</h4><div class="scope">28 months · Steering &amp; oversight</div></div>
+      <div class="case-cell"><span class="tag">Pharma</span><h4>Portfolio &amp; Programme</h4><div class="scope">320 projects · 26 programmes</div></div>
+      <div class="arrow-cell">→</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 32px; text-align: center;">
+    <a href="success-stories" style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; background: var(--ink); color: white; font-weight: 600; font-size: 14px;">
+      ▍ Browse all 15+ references → <span style="font-family: 'IBM Plex Mono', monospace; opacity: 0.7;">/success-stories</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section" id="cta">
+  <div class="section-marker">
+    <div>
+      <div class="meta" style="color: rgba(255,255,255,0.65);"><span class="id" style="background: var(--teal); color: var(--ink);">§05</span> NEXT STEP · DIAGNOSTIC</div>
+      <h2 style="color: white;">Run a 30-min diagnostic.</h2>
+    </div>
+    <span class="count" style="color: rgba(255,255,255,0.65);">▍ SLA: 1 WORKING DAY</span>
+  </div>
+  <div class="cta-grid">
+    <div>
+      <h2>Where is the leak<br>in your IT vendor <span>stack</span>?</h2>
+      <p>No deck. One call. We tell you exactly where the leak is in your IT vendor stack — and what we'd do to close it.</p>
+      <div class="meta-table">
+        <div class="item"><div class="k">▍ FORMAT</div><div class="v">Remote · 30 minutes</div></div>
+        <div class="item"><div class="k">▍ COST</div><div class="v">Free</div></div>
+        <div class="item"><div class="k">▍ DELIVERABLE</div><div class="v">2-page diagnostic summary</div></div>
+        <div class="item"><div class="k">▍ FOLLOW-UP</div><div class="v">Within 1 working day</div></div>
+      </div>
+    </div>
+    <form class="cta-form-diagram">
+      <label>▍ FULL NAME</label>
+      <input type="text" placeholder="Your name" required>
+      <label>▍ WORK EMAIL</label>
+      <input type="email" placeholder="you@company.com" required>
+      <label>▍ COMPANY</label>
+      <input type="text" placeholder="Your company" required>
+      <button type="submit">→ BOOK DIAGNOSTIC</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer-diagram">
+  <div class="footer-grid">
+    <div>
+      <div class="brand-row">
+        <div class="ic">▲</div>
+        <div class="name">Aventario<small>SYSTEM-ID · AVT-2026.5</small></div>
+      </div>
+      <p class="brand-tag">Vienna-based consultancy. Cost &amp; value optimization for IT and supply chain. We own the outcome, not the hours.</p>
+    </div>
+    <div>
+      <h5>▍ LOCATION</h5>
+      <ul>
+        <li>Tuchlauben 7a</li>
+        <li>1010 Vienna · AT</li>
+        <li>48.21°N · 16.37°E</li>
+      </ul>
+    </div>
+    <div>
+      <h5>▍ CHANNELS</h5>
+      <ul>
+        <li><a href="mailto:office@aventario.com">office@aventario.com</a></li>
+        <li>+43 134 3354012</li>
+        <li>LinkedIn ↗</li>
+      </ul>
+    </div>
+    <div>
+      <h5>▍ SITEMAP</h5>
+      <ul>
+        <li>Services</li>
+        <li>References</li>
+        <li>Insights · Blog</li>
+        <li>Impressum · Privacy</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 AVENTARIO SERVICES GMBH · ATU 75913004 · FN 540546x</span>
+    <span>BUILD #06.15 · DEPLOYED 2026-05-14T11:48Z</span>
+  </div>
+</footer>
+
+</body>
+</html>

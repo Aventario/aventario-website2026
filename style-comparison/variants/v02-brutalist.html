@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variant 02 · Brutalist — Aventario</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --paper: #f7f1e8;
+    --navy: #1a2a3a;
+    --hot-orange: #ff5722;
+    --acid: #c8ff00;
+    --magenta: #d15298;
+    --teal: #00d4a8;
+    --rule: #0a0a0a;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .mono { font-family: 'Space Mono', monospace; }
+  .display { font-family: 'Archivo Black', sans-serif; line-height: 0.85; letter-spacing: -0.04em; }
+
+  /* ============ TICKER NAV ============ */
+  .ticker {
+    background: var(--ink);
+    color: var(--paper);
+    overflow: hidden;
+    padding: 6px 0;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+  .ticker-track {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll 60s linear infinite;
+  }
+  @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+  .ticker span { margin: 0 16px; }
+  .ticker .hot { color: var(--hot-orange); font-weight: 700; }
+  .ticker .acid { color: var(--acid); font-weight: 700; }
+
+  /* ============ MEGA HEADER ============ */
+  .mega-header {
+    background: var(--paper);
+    border-bottom: 4px solid var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .mega-header-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr 220px;
+    align-items: stretch;
+    min-height: 110px;
+  }
+  .logo-block {
+    background: var(--ink);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 88px;
+    line-height: 0.8;
+    letter-spacing: -6px;
+    position: relative;
+  }
+  .logo-block::after {
+    content: '';
+    position: absolute;
+    top: 12px; right: 12px;
+    width: 14px; height: 14px;
+    background: var(--hot-orange);
+  }
+  .header-name-strip {
+    border-right: 2px solid var(--ink);
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .header-name-strip .meta-row {
+    display: flex; justify-content: space-between;
+    font-family: 'Space Mono', monospace; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .header-name-strip .name {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 32px;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .header-cta {
+    background: var(--hot-orange);
+    color: var(--ink);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 1;
+    text-align: center;
+    padding: 18px;
+  }
+  .header-cta .big { font-size: 22px; }
+  .header-cta .arrow { font-size: 24px; margin-top: 4px; }
+  .nav-strip {
+    background: var(--paper);
+    border-top: 2px solid var(--ink);
+    padding: 0;
+    display: flex;
+  }
+  .nav-strip a {
+    flex: 1;
+    padding: 14px;
+    text-align: center;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 13px;
+    letter-spacing: -0.3px;
+    border-right: 1px solid var(--ink);
+    transition: background 0.1s ease;
+  }
+  .nav-strip a:last-child { border-right: 0; }
+  .nav-strip a:hover { background: var(--acid); color: var(--ink); }
+  .nav-strip .active { background: var(--ink); color: var(--paper); }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  .hero-image {
+    width: 100%; height: 720px;
+    object-fit: cover; object-position: center;
+    display: block;
+    filter: contrast(1.15) saturate(0.7);
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.2) 50%, rgba(10,10,10,0) 100%);
+  }
+  .hero-text {
+    position: absolute;
+    inset: 0;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 60px 48px;
+  }
+  .hero-eyebrow {
+    background: var(--hot-orange);
+    color: var(--ink);
+    display: inline-block;
+    padding: 6px 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    width: fit-content;
+  }
+  .hero-headline {
+    font-family: 'Archivo Black', sans-serif;
+    color: var(--paper);
+    font-size: 140px;
+    line-height: 0.78;
+    letter-spacing: -6px;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  .hero-headline .highlight { background: var(--acid); color: var(--ink); padding: 0 8px; display: inline-block; transform: skew(-3deg); }
+  .hero-headline .navy-bg { background: var(--navy); color: var(--paper); padding: 0 8px; display: inline-block; }
+  .hero-sub {
+    font-family: 'Inter', sans-serif;
+    color: var(--paper);
+    font-size: 22px;
+    line-height: 1.25;
+    max-width: 720px;
+    margin-top: 28px;
+    font-weight: 700;
+  }
+  .hero-arrow {
+    position: absolute;
+    top: 60px; right: 60px;
+    font-family: 'Archivo Black', sans-serif;
+    color: var(--acid);
+    font-size: 80px;
+    transform: rotate(135deg);
+    line-height: 1;
+  }
+
+  /* ============ STATS BLOCK ============ */
+  .stats-block {
+    background: var(--ink);
+    color: var(--paper);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: 4px solid var(--ink);
+  }
+  .stat-cell {
+    padding: 36px 30px;
+    border-right: 2px solid var(--paper);
+    position: relative;
+  }
+  .stat-cell:last-child { border-right: 0; }
+  .stat-cell:nth-child(1) { background: var(--ink); }
+  .stat-cell:nth-child(2) { background: var(--navy); }
+  .stat-cell:nth-child(3) { background: var(--ink); }
+  .stat-cell:nth-child(4) { background: var(--hot-orange); color: var(--ink); }
+  .stat-cell .num-tag {
+    position: absolute; top: 8px; left: 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    opacity: 0.65;
+  }
+  .stat-cell .big-n {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 84px;
+    line-height: 0.85;
+    letter-spacing: -3px;
+  }
+  .stat-cell .lbl {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 8px;
+    font-weight: 700;
+  }
+  .stat-cell .accent-line { color: var(--acid); }
+  .stat-cell:nth-child(4) .accent-line { color: var(--navy); }
+
+  /* ============ SERVICES BRUTAL ============ */
+  .services-brutal { background: var(--paper); padding: 80px 0 0; border-bottom: 4px solid var(--ink); }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+  .section-mega-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 180px;
+    line-height: 0.8;
+    letter-spacing: -8px;
+    margin: 0 0 40px;
+    text-transform: uppercase;
+  }
+  .section-mega-title .stroke { color: var(--paper); -webkit-text-stroke: 3px var(--ink); }
+  .section-mega-title .acid { background: var(--acid); display: inline-block; padding: 0 12px; transform: skew(-2deg); }
+  .section-meta { display: flex; justify-content: space-between; align-items: end; margin-bottom: 30px; }
+  .section-meta .lbl { font-family: 'Space Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+  .section-meta .count { font-family: 'Archivo Black', sans-serif; font-size: 36px; line-height: 1; }
+
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 4px solid var(--ink); }
+  .svc-card {
+    border-right: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    padding: 28px 26px 32px;
+    background: var(--paper);
+    position: relative;
+    min-height: 360px;
+    display: flex; flex-direction: column;
+  }
+  .svc-card:nth-child(3n) { border-right: 0; }
+  .svc-card:hover { background: var(--acid); }
+  .svc-card .num {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 72px; line-height: 0.85;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .svc-card .num .slash { color: var(--hot-orange); }
+  .svc-card .title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 26px;
+    line-height: 1;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .svc-card .deck {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+  .svc-card ul { list-style: none; padding: 0; margin: 0 0 16px; flex: 1; }
+  .svc-card li {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(10,10,10,0.15);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .svc-card .outcome {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 14px;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 20px;
+  }
+  .svc-card .outcome .label { font-family: 'Space Mono', monospace; font-size: 10px; opacity: 0.65; text-transform: uppercase; font-weight: 700; }
+  .svc-card.platform { background: var(--navy); color: var(--paper); }
+  .svc-card.platform:hover { background: var(--teal); color: var(--ink); }
+  .svc-card.platform .num { color: var(--paper); }
+  .svc-card.platform li { border-bottom-color: rgba(247,241,232,0.2); }
+  .svc-card.platform .outcome { background: var(--hot-orange); color: var(--ink); }
+  .svc-card.platform .outcome .label { color: var(--ink); opacity: 0.65; }
+
+  /* Support strip */
+  .support-strip {
+    margin: 0;
+    padding: 40px 48px;
+    background: var(--ink);
+    color: var(--paper);
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr 1fr;
+    gap: 36px;
+    align-items: start;
+  }
+  .support-strip .label-block { font-family: 'Archivo Black', sans-serif; font-size: 32px; line-height: 0.85; }
+  .support-strip .label-block span { display: block; }
+  .support-strip .label-block .small { font-family: 'Space Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-top: 8px; opacity: 0.65; }
+  .support-strip .item h4 { font-family: 'Archivo Black', sans-serif; font-size: 18px; text-transform: uppercase; margin: 0 0 8px; letter-spacing: -0.3px; }
+  .support-strip .item p { font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.4; opacity: 0.85; margin: 0; }
+
+  /* ============ AS-A-SERVICE BLOCK ============ */
+  .aas-block { background: var(--paper); padding: 80px 0; border-bottom: 4px solid var(--ink); }
+  .aas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; }
+  .aas-headline {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 120px; line-height: 0.82; letter-spacing: -4px;
+    margin: 0;
+  }
+  .aas-headline .navy-bg { background: var(--navy); color: var(--paper); padding: 0 10px; display: inline-block; }
+  .aas-headline .hot-bg { background: var(--hot-orange); color: var(--ink); padding: 0 10px; display: inline-block; transform: skew(-2deg); }
+  .aas-body { padding-bottom: 24px; }
+  .aas-body p { font-size: 18px; line-height: 1.5; font-weight: 700; margin: 0 0 14px; }
+  .aas-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 60px; border-top: 4px solid var(--ink); }
+  .aas-pillar {
+    padding: 28px;
+    border-right: 2px solid var(--ink);
+  }
+  .aas-pillar:last-child { border-right: 0; }
+  .aas-pillar:nth-child(1) { background: var(--acid); }
+  .aas-pillar:nth-child(2) { background: var(--magenta); color: var(--paper); }
+  .aas-pillar:nth-child(3) { background: var(--teal); }
+  .aas-pillar .num {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 64px; line-height: 0.85; letter-spacing: -2px; margin-bottom: 12px;
+  }
+  .aas-pillar h3 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 24px; line-height: 0.95; letter-spacing: -0.8px; margin: 0 0 12px;
+    text-transform: uppercase;
+  }
+  .aas-pillar p {
+    font-size: 13px; line-height: 1.5; font-weight: 700; margin: 0;
+  }
+
+  /* ============ REFERENCES BRUTAL ============ */
+  .ref-section { background: var(--paper); padding: 80px 0; border-bottom: 4px solid var(--ink); }
+  .ref-grid-area {
+    display: grid;
+    grid-template-columns: 240px 1fr 1fr 1fr;
+    border-top: 4px solid var(--ink);
+    margin-top: 40px;
+  }
+  .ref-grid-area > div { border-bottom: 2px solid var(--ink); border-right: 2px solid var(--ink); padding: 24px; }
+  .ref-grid-area > div:nth-child(4n) { border-right: 0; }
+  .ref-area {
+    background: var(--ink);
+    color: var(--paper);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .ref-area .num { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--acid); margin-bottom: 8px; font-weight: 700; }
+  .ref-area h3 { font-family: 'Archivo Black', sans-serif; font-size: 26px; line-height: 0.95; letter-spacing: -0.5px; margin: 0; text-transform: uppercase; }
+  .ref-case {
+    background: var(--paper);
+    transition: background 0.1s;
+  }
+  .ref-case:hover { background: var(--acid); }
+  .ref-case .sector { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; padding: 3px 8px; background: var(--ink); color: var(--paper); display: inline-block; margin-bottom: 14px; }
+  .ref-case h4 { font-family: 'Archivo Black', sans-serif; font-size: 18px; line-height: 1; letter-spacing: -0.3px; margin: 0 0 10px; text-transform: uppercase; }
+  .ref-case .scope { font-family: 'Space Mono', monospace; font-size: 11px; line-height: 1.4; }
+  .ref-case .arrow { font-family: 'Archivo Black', sans-serif; font-size: 24px; margin-top: 10px; display: block; }
+
+  .ref-all { padding: 30px; text-align: center; font-family: 'Archivo Black', sans-serif; font-size: 36px; letter-spacing: -1.5px; text-transform: uppercase; background: var(--hot-orange); color: var(--ink); margin-top: -2px; }
+  .ref-all .arrow { font-size: 32px; }
+
+  /* ============ CTA + FOOTER ============ */
+  .cta-strip { background: var(--acid); padding: 60px 0; }
+  .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .cta-grid h2 { font-family: 'Archivo Black', sans-serif; font-size: 80px; line-height: 0.85; letter-spacing: -3px; margin: 0; text-transform: uppercase; }
+  .cta-grid p { font-size: 16px; font-weight: 700; line-height: 1.4; margin: 18px 0 0; }
+  .cta-form-brutal { background: var(--ink); padding: 28px; color: var(--paper); }
+  .cta-form-brutal label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: var(--acid); margin-bottom: 6px; display: block; }
+  .cta-form-brutal input { width: 100%; padding: 14px; background: transparent; border: 2px solid var(--paper); color: var(--paper); font-family: 'Space Mono', monospace; font-size: 16px; }
+  .cta-form-brutal button { width: 100%; margin-top: 12px; padding: 16px; background: var(--hot-orange); color: var(--ink); border: 0; font-family: 'Archivo Black', sans-serif; font-size: 18px; letter-spacing: -0.5px; text-transform: uppercase; cursor: pointer; }
+  .cta-form-brutal .fine { font-family: 'Space Mono', monospace; font-size: 10px; color: rgba(247,241,232,0.5); margin-top: 10px; }
+
+  .footer-brutal { background: var(--ink); color: var(--paper); padding: 60px 0 28px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; padding-bottom: 28px; border-bottom: 2px solid var(--paper); }
+  .footer-brutal .brand-mega { font-family: 'Archivo Black', sans-serif; font-size: 80px; line-height: 0.8; letter-spacing: -3px; margin: 0 0 10px; }
+  .footer-brutal .brand-mega .acid { color: var(--acid); }
+  .footer-brutal .brand-tag { font-family: 'Space Mono', monospace; font-size: 12px; max-width: 300px; line-height: 1.5; }
+  .footer-brutal h5 { font-family: 'Archivo Black', sans-serif; font-size: 16px; text-transform: uppercase; margin: 0 0 12px; letter-spacing: -0.3px; }
+  .footer-brutal ul { list-style: none; padding: 0; margin: 0; }
+  .footer-brutal li { font-family: 'Space Mono', monospace; font-size: 12px; padding: 4px 0; }
+  .footer-brutal li a:hover { color: var(--acid); }
+  .footer-bottom { display: flex; justify-content: space-between; padding-top: 22px; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.65; }
+</style>
+</head>
+<body>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="hot">⬤ LIVE</span><span>AVENTARIO · VIENNA · 2026</span><span>→</span>
+    <span>500+ PROJECTS DELIVERED</span><span class="acid">▲</span>
+    <span>€3B+ NEGOTIATED CONTRACTS</span><span>→</span>
+    <span class="hot">10–40% TYPICAL SAVINGS</span><span>★</span>
+    <span>OUTCOME-BASED · FIXED-PRICE · NO RETAINERS</span><span>→</span>
+    <span class="acid">⬤ NOW BOOKING Q3-2026 ENGAGEMENTS</span><span>★</span>
+    <span>SAVE 10-40% ON IT VENDOR SPEND</span><span>→</span>
+    <span>BOOK A 30-MIN DIAGNOSTIC ↗</span>
+  </div>
+</div>
+
+<!-- ============ MEGA HEADER ============ -->
+<header class="mega-header">
+  <div class="mega-header-grid">
+    <div class="logo-block">▲</div>
+    <div class="header-name-strip">
+      <div class="meta-row">
+        <span>AVENTARIO SERVICES GMBH</span>
+        <span>VIENNA · AT · 2026</span>
+      </div>
+      <div class="name">AVENTARIO™</div>
+      <div class="meta-row">
+        <span>COST. VALUE. OPTIMIZATION.</span>
+        <span>FOR IT &amp; SUPPLY CHAIN.</span>
+      </div>
+    </div>
+    <a href="#cta" class="header-cta">
+      <span>BOOK</span>
+      <span class="big">30 MIN</span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+  <nav class="nav-strip">
+    <a href="#services">[ SERVICES ]</a>
+    <a href="#aas">[ METHOD ]</a>
+    <a href="#references" class="active">[ REFERENCES ]</a>
+    <a href="#about">[ ABOUT ]</a>
+    <a href="#cta">[ CONTACT ]</a>
+    <a href="#">[ BLOG ↗ ]</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <img src="../../images/hero-ridge-team.png" alt="A roped team of mountaineers traversing an alpine ridge at dawn" class="hero-image">
+  <div class="hero-overlay"></div>
+  <div class="hero-arrow">↘</div>
+  <div class="hero-text">
+    <div class="hero-eyebrow">▲▲▲ INTRODUCING AVENTARIO 2026</div>
+    <h1 class="hero-headline">COST<br>&amp; <span class="highlight">VALUE.</span><br><span class="navy-bg">OPTIMIZED.</span></h1>
+    <p class="hero-sub">We empower resilient organisations by improving operational smartness, technological awareness, and the cost-and-value balance — in IT and supply chain.</p>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<div class="stats-block">
+  <div class="stat-cell">
+    <div class="num-tag">/ 01</div>
+    <div class="big-n">25<span class="accent-line">+</span></div>
+    <div class="lbl">Exciting years</div>
+  </div>
+  <div class="stat-cell">
+    <div class="num-tag">/ 02</div>
+    <div class="big-n">30<span class="accent-line">+</span></div>
+    <div class="lbl">Hand-picked experts</div>
+  </div>
+  <div class="stat-cell">
+    <div class="num-tag">/ 03</div>
+    <div class="big-n">500<span class="accent-line">+</span></div>
+    <div class="lbl">Successful projects</div>
+  </div>
+  <div class="stat-cell">
+    <div class="num-tag">/ 04</div>
+    <div class="big-n">10–<span class="accent-line">40%</span></div>
+    <div class="lbl">Sustainable improvements</div>
+  </div>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<section class="services-brutal" id="services">
+  <div class="container">
+    <div class="section-meta">
+      <span class="lbl">▍ §02 · OUR SERVICES</span>
+      <span class="count">06/06</span>
+    </div>
+    <h2 class="section-mega-title"><span class="stroke">OUR</span> <span class="acid">SERVICES.</span></h2>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card">
+      <div class="num">01<span class="slash">/</span></div>
+      <div class="title">Operational<br>Excellence</div>
+      <p class="deck">Make your IT operations 20% more efficient.</p>
+      <ul>
+        <li>→ PROCESS &amp; LANDSCAPE ANALYSIS</li>
+        <li>→ AUTOMATION OPPORTUNITY ID</li>
+        <li>→ OPERATING MODEL OPTIMISATION</li>
+        <li>→ IMPLEMENTATION ROADMAP</li>
+      </ul>
+      <div class="outcome"><span class="label">OUTCOME</span><span>≥20%</span></div>
+    </div>
+    <div class="svc-card">
+      <div class="num">02<span class="slash">/</span></div>
+      <div class="title">Savings.</div>
+      <p class="deck">Cut 10–40% from your IT vendor spend.</p>
+      <ul>
+        <li>→ CONTRACT &amp; SPEND ANALYSIS</li>
+        <li>→ VENDOR BENCHMARKING</li>
+        <li>→ RENEGOTIATION STRATEGY</li>
+        <li>→ SAVINGS REALISATION TRACKING</li>
+      </ul>
+      <div class="outcome"><span class="label">OUTCOME</span><span>10–40%</span></div>
+    </div>
+    <div class="svc-card">
+      <div class="num">03<span class="slash">/</span></div>
+      <div class="title">Vendor<br>Consolidation</div>
+      <p class="deck">Reduce vendor sprawl to a handful of strategic partners.</p>
+      <ul>
+        <li>→ VENDOR LANDSCAPE MAPPING</li>
+        <li>→ MAKE / BUY / PARTNER</li>
+        <li>→ CONSOLIDATION ROADMAP</li>
+        <li>→ TARGET SUPPLIER ARCHITECTURE</li>
+      </ul>
+      <div class="outcome"><span class="label">OUTCOME</span><span>&gt;80% TOP-5</span></div>
+    </div>
+    <div class="svc-card">
+      <div class="num">04<span class="slash">/</span></div>
+      <div class="title">Complex<br>RFx</div>
+      <p class="deck">Run structured IT tenders in 6–8 weeks, not 6 months.</p>
+      <ul>
+        <li>→ REQUIREMENTS ENGINEERING</li>
+        <li>→ MARKET ANALYSIS &amp; RFI</li>
+        <li>→ STRUCTURED TENDER PROCESS</li>
+        <li>→ NEGOTIATION &amp; AWARD SUPPORT</li>
+      </ul>
+      <div class="outcome"><span class="label">OUTCOME</span><span>6–8 WEEKS</span></div>
+    </div>
+    <div class="svc-card">
+      <div class="num">05<span class="slash">/</span></div>
+      <div class="title">Vendor<br>Management</div>
+      <p class="deck">Hold IT vendors accountable to what they signed.</p>
+      <ul>
+        <li>→ GOVERNANCE FRAMEWORK DESIGN</li>
+        <li>→ SLA &amp; PERFORMANCE MANAGEMENT</li>
+        <li>→ CONTRACT LIFECYCLE MANAGEMENT</li>
+        <li>→ CONTINUOUS OPTIMISATION</li>
+      </ul>
+      <div class="outcome"><span class="label">OUTCOME</span><span>10–30%</span></div>
+    </div>
+    <a href="https://managedsuppliers.com" class="svc-card platform">
+      <div class="num">06<span class="slash">/</span></div>
+      <div class="title">managed↗<br>suppliers</div>
+      <p class="deck">Manage every vendor relationship in one platform.</p>
+      <ul>
+        <li>→ REAL-TIME VENDOR DASHBOARDS</li>
+        <li>→ AI CONTRACT ANALYSIS</li>
+        <li>→ PERFORMANCE &amp; RISK MONITORING</li>
+        <li>→ SELF-SERVICE GOVERNANCE</li>
+      </ul>
+      <div class="outcome"><span class="label">SAAS</span><span>↗ LAUNCH</span></div>
+    </a>
+  </div>
+
+  <!-- Support strip -->
+  <div class="support-strip">
+    <div class="label-block">
+      <span>SUPPORT</span>
+      <span style="color: var(--hot-orange);">SERVICES</span>
+      <span class="small">/ EMBEDDED IN EVERY ENGAGEMENT</span>
+    </div>
+    <div class="item">
+      <h4>▍ PROGRAMME &amp; PROJECT MGMT</h4>
+      <p>Multi-workstream governance with clear decision rights, timeline and budget ownership.</p>
+    </div>
+    <div class="item">
+      <h4>▍ CHANGE &amp; COMMUNICATION</h4>
+      <p>Stakeholder analysis, intercultural change support and resistance management.</p>
+    </div>
+    <div class="item">
+      <h4>▍ TRANSITION MANAGEMENT</h4>
+      <p>End-to-end transition planning, knowledge transfer, parallel operation and cutover.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AS A SERVICE ============ -->
+<section class="aas-block" id="aas">
+  <div class="container">
+    <div class="section-meta">
+      <span class="lbl">▍ §03 · THE METHOD</span>
+      <span class="count">03/03 PILLARS</span>
+    </div>
+    <div class="aas-grid">
+      <h2 class="aas-headline">SPARK<br>TO<br><span class="navy-bg">TURNKEY.</span><br><span class="hot-bg">WE OWN IT.</span></h2>
+      <div class="aas-body">
+        <p>The classic consulting model is paid for the analysis.</p>
+        <p>The classic supplier model is paid for the hours.</p>
+        <p>Both reward more activity, not better outcomes.</p>
+        <p style="margin-top: 24px; font-size: 14px; opacity: 0.65; font-weight: 400;">We see ourselves as a full-service provider, supporting your initiatives from the initial spark through to "turnkey" completion. Every project is staffed against our three delivery pillars, so you get one seamless, integrated service rather than a sequence of hand-offs.</p>
+      </div>
+    </div>
+    <div class="aas-pillars">
+      <div class="aas-pillar">
+        <div class="num">01.</div>
+        <h3>Transformation<br>Implementation</h3>
+        <p>We don't hand over a roadmap and leave. Our teams sit inside the programme until structures, processes and supplier relationships stand on their own.</p>
+      </div>
+      <div class="aas-pillar">
+        <div class="num">02.</div>
+        <h3>Programme &amp;<br>Project Mgmt</h3>
+        <p>Multi-workstream governance with clear decision rights, milestone ownership and tight control over timeline and budget.</p>
+      </div>
+      <div class="aas-pillar">
+        <div class="num">03.</div>
+        <h3>Change &amp;<br>Communication</h3>
+        <p>Stakeholder analysis, intercultural change and adoption work — so the new way of working sticks once we're gone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REFERENCES ============ -->
+<section class="ref-section" id="references">
+  <div class="container">
+    <div class="section-meta">
+      <span class="lbl">▍ §04 · THE RECORD</span>
+      <span class="count">15 ANCHOR CASES</span>
+    </div>
+    <h2 class="section-mega-title"><span class="stroke">THE</span> <span class="acid">RECORD.</span></h2>
+    <p style="font-size: 18px; font-weight: 700; max-width: 700px; margin: 0;">Three anchor projects per service area. All clients anonymised to industry only.</p>
+  </div>
+
+  <div class="ref-grid-area">
+    <div class="ref-area"><div class="num">A.I / 05</div><h3>OPERATIONAL<br>EXCELLENCE</h3></div>
+    <a href="#" class="ref-case"><span class="sector">PHARMA</span><h4>Global Fleet Electrification</h4><p class="scope">▍ 1,500 vehicles<br>▍ 22 months</p><span class="arrow">↗</span></a>
+    <a href="#" class="ref-case"><span class="sector">GLOBAL SERVICES</span><h4>Unified Global ITSM</h4><p class="scope">▍ 400,000+ employees<br>▍ 24 months</p><span class="arrow">↗</span></a>
+    <a href="#" class="ref-case"><span class="sector">PHARMA</span><h4>IT Landscape Harmonisation</h4><p class="scope">▍ 9,000 systems<br>▍ 110 capabilities</p><span class="arrow">↗</span></a>
+
+    <div class="ref-area"><div class="num">A.II / 05</div><h3>SAVINGS</h3></div>
+    <a href="#" class="ref-case"><span class="sector">PHARMA</span><h4>Device Standardisation</h4><p class="scope">▍ Lab equipment<br>▍ 28 months</p><span class="arrow">↗</span></a>
+    <a href="#" class="ref-case"><span class="sector">PHARMA</span><h4>Infrastructure Consolidation</h4><p class="scope">▍ 13 service domains<br>▍ TCO analysis</p><span class="arrow">↗</span></a>
+    <a href="#" class="ref-case"><span class="sector">AVIATION</span><h4>22-Domain Service Tender</h4><p class="scope">▍ Datacenter / Cloud<br>▍ 13 months</p><span class="arrow">↗</span></a>
+
+    <div class="ref-area"><div class="num">A.III / 05</div><h3>VENDOR<br>CONSOLIDATION</h3></div>
+    <a href="#" class="ref-case"><span class="sector">PHARMA</span><h4>Engineering &amp; Facilities</h4><p class="scope">▍ 8,500 staff<br>▍ 3 years</p><span class="arrow">↗</span></a>
+    <a href="#" class="ref-case"><span class="sector">AUTOMOTIVE</span><h4>Global IT Client Rollout</h4><p class="scope">▍ 22 countries<br>▍ 25,000+ users</p><span class="arrow">↗</span></a>
+    <a href="#" class="ref-case"><span class="sector">AVIATION</span><h4>Multi-Gen Outsourcing</h4><p class="scope">▍ 20+ years<br>▍ Frame contracts</p><span class="arrow">↗</span></a>
+
+    <div class="ref-area"><div class="num">A.IV / 05</div><h3>COMPLEX<br>RFx</h3></div>
+    <a href="#" class="ref-case"><span class="sector">PUBLIC TRANSPORT</span><h4>Passenger Counter Platform</h4><p class="scope">▍ BVergG<br>▍ &gt;€1M contract</p><span class="arrow">↗</span></a>
+    <a href="#" class="ref-case"><span class="sector">PUBLIC TRANSPORT</span><h4>Onboard Information Tender</h4><p class="scope">▍ Sector contractor<br>▍ 18 months</p><span class="arrow">↗</span></a>
+    <a href="#" class="ref-case"><span class="sector">FOOD INDUSTRY</span><h4>4-Month IT Sourcing</h4><p class="scope">▍ Strategy / RFI / RFP<br>▍ Negotiations</p><span class="arrow">↗</span></a>
+
+    <div class="ref-area"><div class="num">A.V / 05</div><h3>VENDOR<br>MANAGEMENT</h3></div>
+    <a href="#" class="ref-case"><span class="sector">AVIATION</span><h4>22-Domain Governance</h4><p class="scope">▍ Post-tender<br>▍ Service governance</p><span class="arrow">↗</span></a>
+    <a href="#" class="ref-case"><span class="sector">PHARMA</span><h4>Standardisation Governance</h4><p class="scope">▍ 28 months<br>▍ Steering &amp; oversight</p><span class="arrow">↗</span></a>
+    <a href="#" class="ref-case"><span class="sector">PHARMA</span><h4>Portfolio &amp; Programme</h4><p class="scope">▍ 320 projects<br>▍ 26 programmes / 15 portfolios</p><span class="arrow">↗</span></a>
+  </div>
+
+  <a href="#" class="ref-all" style="display: block;">SEE ALL REFERENCES <span class="arrow">↗</span></a>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-strip" id="cta">
+  <div class="container">
+    <div class="cta-grid">
+      <div>
+        <h2>SAVE<br>10–<br><span style="background: var(--hot-orange); padding: 0 10px;">40%.</span></h2>
+        <p>30-min diagnostic. No deck. We tell you exactly where the leak is in your IT vendor stack — and what we'd do to close it.</p>
+      </div>
+      <form class="cta-form-brutal">
+        <label>→ YOUR WORK EMAIL</label>
+        <input type="email" placeholder="you@company.com" required>
+        <button type="submit">▍ BOOK THE DIAGNOSTIC ↗</button>
+        <p class="fine">▍ By submitting you agree to our Privacy Policy. Unsubscribe any time.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer-brutal">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h2 class="brand-mega">AVENTARIO<span class="acid">™</span></h2>
+        <p class="brand-tag">▍ COST &amp; VALUE OPTIMIZATION FOR IT AND SUPPLY CHAIN. WE OWN THE OUTCOME, NOT THE HOURS.</p>
+      </div>
+      <div>
+        <h5>HQ</h5>
+        <ul>
+          <li>TUCHLAUBEN 7A</li>
+          <li>1010 VIENNA</li>
+          <li>AUSTRIA</li>
+        </ul>
+      </div>
+      <div>
+        <h5>CONTACT</h5>
+        <ul>
+          <li>OFFICE@AVENTARIO.COM</li>
+          <li>+43 134 3354012</li>
+          <li>LINKEDIN ↗</li>
+        </ul>
+      </div>
+      <div>
+        <h5>SITEMAP</h5>
+        <ul>
+          <li>SERVICES</li>
+          <li>REFERENCES</li>
+          <li>BLOG</li>
+          <li>IMPRESSUM · PRIVACY</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AVENTARIO SERVICES GMBH</span>
+      <span>SET IN ARCHIVO BLACK &amp; SPACE MONO</span>
+      <span>VIENNA → 2026 → 06/15</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -2,440 +2,166 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Aventario Homepage — 4 Style Variants</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aventario — Homepage Variants · Side-by-Side</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #334b60;
-    --navy-dark: #1e2d3a;
-    --teal: #8dccc0;
-    --teal-deep: #5fa99d;
-    --pink: #d15298;
-    --orange: #f19a51;
-    --cream: #faf7f0;
-    --off-white: #FAFAF7;
-    --bone: #f4f2eb;
-    --line: rgba(51,75,96,0.18);
-    --muted: #5f768b;
+    --paper:#F4F2EC; --ink:#1C2A36; --navy:#334b60; --steel:#5f768b;
+    --rule: rgba(28,42,54,.18);
   }
+  *,*::before,*::after { box-sizing:border-box; }
+  html,body { margin:0; padding:0; background:var(--paper); color:var(--ink); font-family:'Lato',-apple-system,sans-serif; -webkit-font-smoothing:antialiased; }
 
-  @page {
-    margin: 0;
+  header.cover {
+    padding: 36px 32px 24px;
+    border-bottom: 1px solid var(--rule);
+    background:#FBFAF6;
   }
+  .cover-inner { max-width: 1400px; margin: 0 auto; display:flex; flex-direction:column; gap:6px; }
+  .eyebrow { font-family:'Lato'; font-size:11px; font-weight:700; letter-spacing:.28em; text-transform:uppercase; color:var(--steel); }
+  .title { font-family:'Cormorant Garamond', Georgia, serif; font-weight:500; font-size:48px; line-height:1.05; letter-spacing:-.012em; margin:6px 0 0; }
+  .title em { font-style:italic; color:#7c2d3a; }
+  .subtitle { font-family:'Cormorant Garamond', Georgia, serif; font-style:italic; font-size:20px; color:var(--steel); margin-top:6px; max-width: 1200px; }
+  .meta { display:flex; flex-wrap:wrap; gap:24px; margin-top:18px; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--steel); font-weight:700; }
+  .meta strong { color:var(--ink); }
 
-  html, body { margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  body {
-    font-family: 'Lato', -apple-system, sans-serif;
-    background: #ECECEC;
-    color: var(--navy);
+  .grid {
+    display:grid;
+    grid-template-columns: repeat(4, 1700px);
+    gap: 0;
+    padding: 0;
+    overflow-x: auto;
+    background: var(--paper);
+    border-top: 1px solid var(--rule);
+  }
+  .col {
     width: 1700px;
-    overflow-x: hidden;
+    border-right: 1px solid var(--rule);
+    background:#FBFAF6;
   }
-
-  /* ============ Page chrome (overall) ============ */
-  .page-shell { padding: 36px 36px 28px; }
-  .page-header { margin-bottom: 22px; display: flex; justify-content: space-between; align-items: end; }
-  .page-header h1 {
-    font-family: 'Lato', sans-serif; font-weight: 900; color: var(--navy);
-    font-size: 28px; letter-spacing: -0.5px; line-height: 1.05; margin: 0;
-  }
-  .page-header .meta {
-    font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 700;
-  }
-  .page-header .subtitle {
-    font-size: 14px; color: var(--muted); margin-top: 6px; max-width: 580px;
-  }
-
-  .variant-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-
-  .variant-card {
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 8px 28px rgba(51,75,96,0.10), 0 2px 6px rgba(51,75,96,0.06);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .variant-label {
-    background: var(--navy);
-    color: #fff;
-    padding: 14px 18px;
-    display: flex;
+  .col:last-child { border-right: none; }
+  .col-head {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--rule);
+    background:#FBFAF6;
+    display:flex;
+    align-items: flex-start;
     justify-content: space-between;
-    align-items: baseline;
+    gap: 16px;
   }
-  .variant-label .num {
-    font-size: 11px; letter-spacing: 2.5px; font-weight: 700; color: var(--teal);
+  .col-head .num {
+    font-family:'Cormorant Garamond', serif;
+    font-size: 36px;
+    color:#7c2d3a;
+    font-style: italic;
+    line-height:1;
+    margin-right: 10px;
   }
-  .variant-label .name {
-    font-size: 16px; font-weight: 900; letter-spacing: -0.3px;
-  }
-  .variant-label .descriptor {
-    font-size: 11px; color: rgba(255,255,255,0.65); margin-top: 4px; font-weight: 400; font-style: italic;
+  .col-head .name { font-family:'Cormorant Garamond', serif; font-size: 30px; line-height:1.1; }
+  .col-head .name em { font-style:italic; color:#7c2d3a; }
+  .col-head .note { font-size: 11px; color: var(--steel); letter-spacing:.18em; text-transform:uppercase; margin-top:6px; font-weight:700; }
+  .col-head .openlink { font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#7c2d3a; text-decoration:none; font-weight:700; align-self:center; white-space:nowrap; border:1px solid #7c2d3a; padding: 8px 14px; }
+  .col-head .openlink:hover { background:#7c2d3a; color:#FBFAF6; }
+
+  .frame {
+    width: 1700px;
+    height: 4500px;
+    border: 0;
+    display: block;
+    background:#FBFAF6;
   }
 
-  .variant-body {
-    height: 940px;
-    overflow: hidden;
-    position: relative;
+  .legend {
+    padding: 14px 32px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: #FBFAF6;
+    display:flex; gap: 28px; flex-wrap: wrap;
+    font-size: 12px; color: var(--steel);
   }
+  .legend strong { color: var(--ink); font-weight:700; letter-spacing:.18em; text-transform:uppercase; font-size:11px; margin-right:6px; }
+  .swatch { display:inline-block; width:12px; height:12px; vertical-align:middle; margin-right:6px; border:1px solid var(--rule); }
 
-  .variant-caption {
-    padding: 12px 18px;
-    background: #fff;
-    border-top: 1px solid rgba(51,75,96,0.10);
-    font-size: 11px;
-    color: var(--muted);
-    line-height: 1.4;
-  }
-  .variant-caption strong { color: var(--navy); font-weight: 700; }
-
-  /* ===================================================================
-     VARIANT 1 — EDITORIAL
-     Magazine-style. Refined serif headers. Multi-column. Lots of air.
-     =================================================================== */
-  .v1 {
-    background: var(--cream);
-    font-family: 'Lato', sans-serif;
-    color: var(--navy);
-    height: 100%;
-    padding: 22px 26px;
-    box-sizing: border-box;
-  }
-  .v1 .v1-eyebrow { font-family: 'Lato'; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; font-weight: 700; color: var(--muted); border-top: 1px solid var(--navy); padding-top: 8px; margin-bottom: 4px; }
-  .v1 .v1-issue { display: flex; justify-content: space-between; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 700; }
-  .v1 .v1-rule { width: 100%; height: 1px; background: var(--navy); margin: 18px 0 14px; }
-  .v1 .v1-feature-eyebrow { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; color: var(--pink); margin-bottom: 6px; }
-  .v1 .v1-headline { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 32px; line-height: 1.0; letter-spacing: -0.5px; color: var(--navy); margin: 0 0 14px; }
-  .v1 .v1-headline em { font-style: italic; font-weight: 400; color: var(--muted); display: block; font-size: 22px; line-height: 1.2; margin-top: 4px; }
-  .v1 .v1-lede { font-size: 11px; line-height: 1.55; color: var(--navy); column-count: 2; column-gap: 16px; margin-bottom: 16px; }
-  .v1 .v1-lede:first-letter { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 36px; float: left; line-height: 0.85; margin: 4px 6px 0 0; color: var(--navy); }
-  .v1 .v1-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 16px; }
-  .v1 .v1-stat .n { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 22px; color: var(--navy); line-height: 1; }
-  .v1 .v1-stat .l { font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; color: var(--muted); margin-top: 4px; }
-  .v1 .v1-services { font-size: 10px; line-height: 1.6; }
-  .v1 .v1-services .v1-svc-eyebrow { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; color: var(--muted); margin-bottom: 8px; }
-  .v1 .v1-services ol { list-style: none; padding: 0; margin: 0; counter-reset: svc; }
-  .v1 .v1-services li { counter-increment: svc; padding: 6px 0; border-bottom: 1px solid var(--line); display: flex; gap: 10px; align-items: baseline; }
-  .v1 .v1-services li::before { content: counter(svc, decimal-leading-zero); font-family: 'Playfair Display', serif; font-style: italic; color: var(--muted); font-size: 10px; min-width: 18px; }
-  .v1 .v1-services li b { font-weight: 700; color: var(--navy); }
-  .v1 .v1-cta { margin-top: 16px; text-align: center; }
-  .v1 .v1-cta a { font-family: 'Playfair Display', serif; font-style: italic; font-size: 13px; color: var(--navy); text-decoration: underline; text-decoration-color: var(--pink); }
-
-  /* ===================================================================
-     VARIANT 2 — BRUTALIST
-     Oversized type. Hard blocks. Asymmetric bleed. High contrast.
-     =================================================================== */
-  .v2 {
-    background: #fff;
-    font-family: 'Lato', sans-serif;
-    color: #000;
-    height: 100%;
-    box-sizing: border-box;
-    position: relative;
-    overflow: hidden;
-  }
-  .v2 .v2-top { padding: 14px 18px; display: flex; justify-content: space-between; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 900; border-bottom: 2px solid #000; }
-  .v2 .v2-hero { padding: 0 18px; }
-  .v2 .v2-hero-eyebrow { font-size: 9px; letter-spacing: 3px; font-weight: 900; padding: 8px 0; }
-  .v2 .v2-headline { font-family: 'Lato', sans-serif; font-weight: 900; font-size: 82px; line-height: 0.85; letter-spacing: -3px; color: #000; margin: 0; text-transform: uppercase; }
-  .v2 .v2-headline .yellow { background: var(--orange); padding: 0 4px; }
-  .v2 .v2-arrow { font-size: 26px; font-weight: 900; margin: 14px 0; }
-  .v2 .v2-block-navy { background: var(--navy); color: #fff; padding: 18px; margin: 14px 0 0; }
-  .v2 .v2-block-navy .label { font-size: 9px; letter-spacing: 2.5px; font-weight: 900; color: var(--teal); margin-bottom: 6px; }
-  .v2 .v2-block-navy .text { font-size: 14px; font-weight: 700; line-height: 1.25; }
-  .v2 .v2-stats { background: #000; color: #fff; padding: 16px 18px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 18px; }
-  .v2 .v2-stats .n { font-size: 28px; font-weight: 900; line-height: 1; }
-  .v2 .v2-stats .l { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: var(--teal); margin-top: 3px; }
-  .v2 .v2-services-row { padding: 16px 18px; background: var(--cream); }
-  .v2 .v2-services-row .lbl { font-size: 9px; letter-spacing: 3px; font-weight: 900; margin-bottom: 10px; }
-  .v2 .v2-services-row ul { list-style: none; padding: 0; margin: 0; }
-  .v2 .v2-services-row li { font-weight: 900; font-size: 14px; padding: 6px 0; border-bottom: 1px solid rgba(0,0,0,0.4); text-transform: uppercase; letter-spacing: -0.3px; }
-  .v2 .v2-services-row li .pct { color: var(--pink); font-weight: 900; font-size: 12px; float: right; }
-  .v2 .v2-bottom { background: var(--orange); color: #000; padding: 14px 18px; font-weight: 900; font-size: 14px; text-transform: uppercase; }
-  .v2 .v2-bottom .arrow { float: right; }
-
-  /* ===================================================================
-     VARIANT 3 — DIAGRAMMATIC
-     Process flow. Connectors. Grid of cards. Technical/infographic.
-     =================================================================== */
-  .v3 {
-    background: var(--off-white);
-    font-family: 'IBM Plex Sans', 'Lato', sans-serif;
-    color: var(--navy);
-    height: 100%;
-    padding: 18px;
-    box-sizing: border-box;
-  }
-  .v3 .v3-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
-  .v3 .v3-top .nav { font-size: 9px; letter-spacing: 2px; font-weight: 700; color: var(--muted); text-transform: uppercase; }
-  .v3 .v3-hero { padding: 18px 0 12px; }
-  .v3 .v3-eyebrow { display: inline-block; background: var(--navy); color: #fff; padding: 3px 8px; font-size: 8px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; border-radius: 2px; }
-  .v3 .v3-headline { font-size: 22px; font-weight: 700; line-height: 1.15; letter-spacing: -0.5px; color: var(--navy); margin: 0; }
-  .v3 .v3-headline span { color: var(--teal-deep); }
-  .v3 .v3-flow { margin: 16px 0; }
-  .v3 .v3-flow-title { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 8px; }
-  .v3 .v3-flow-chain { display: flex; align-items: center; gap: 2px; }
-  .v3 .v3-flow-step { flex: 1; background: #fff; border: 1px solid var(--line); border-top: 2px solid var(--teal-deep); padding: 8px 6px; text-align: center; border-radius: 3px; }
-  .v3 .v3-flow-step .n { font-size: 8px; letter-spacing: 1.5px; color: var(--teal-deep); font-weight: 700; }
-  .v3 .v3-flow-step .t { font-size: 9px; font-weight: 700; color: var(--navy); margin-top: 2px; line-height: 1.1; }
-  .v3 .v3-flow-arrow { font-size: 14px; color: var(--teal-deep); font-weight: 700; }
-  .v3 .v3-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 14px 0; }
-  .v3 .v3-card { background: #fff; border: 1px solid var(--line); padding: 10px; border-radius: 4px; position: relative; }
-  .v3 .v3-card .idx { position: absolute; top: 8px; right: 10px; font-size: 8px; color: var(--muted); font-weight: 700; }
-  .v3 .v3-card .icon { width: 22px; height: 22px; background: var(--teal); border-radius: 3px; margin-bottom: 6px; display: flex; align-items: center; justify-content: center; color: var(--navy); font-weight: 700; font-size: 12px; }
-  .v3 .v3-card .ttl { font-size: 11px; font-weight: 700; color: var(--navy); }
-  .v3 .v3-card .sub { font-size: 9px; color: var(--muted); margin-top: 3px; line-height: 1.3; }
-  .v3 .v3-card .out { font-size: 9px; color: var(--teal-deep); font-weight: 700; margin-top: 6px; }
-  .v3 .v3-result { background: var(--navy); color: #fff; padding: 12px; border-radius: 4px; margin-top: 6px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .v3 .v3-result .n { font-size: 16px; font-weight: 700; line-height: 1; }
-  .v3 .v3-result .n span { color: var(--teal); font-size: 12px; }
-  .v3 .v3-result .l { font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-top: 3px; }
-
-  /* ===================================================================
-     VARIANT 4 — CONSIDERED
-     Clean. Restrained. Board-pack quality. McKinsey-esque structure.
-     =================================================================== */
-  .v4 {
-    background: #fff;
-    font-family: 'Lato', sans-serif;
-    color: var(--navy);
-    height: 100%;
-    padding: 22px 24px;
-    box-sizing: border-box;
-  }
-  .v4 .v4-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1.5px solid var(--navy); }
-  .v4 .v4-top .brand { font-size: 14px; font-weight: 900; letter-spacing: -0.3px; color: var(--navy); }
-  .v4 .v4-top .meta { font-size: 9px; letter-spacing: 2px; color: var(--muted); font-weight: 700; text-transform: uppercase; }
-  .v4 .v4-hero { padding: 26px 0; text-align: center; }
-  .v4 .v4-eyebrow { font-size: 9px; letter-spacing: 3px; font-weight: 700; color: var(--teal-deep); text-transform: uppercase; margin-bottom: 12px; }
-  .v4 .v4-headline { font-size: 26px; font-weight: 900; color: var(--navy); line-height: 1.1; letter-spacing: -0.3px; margin: 0 0 10px; }
-  .v4 .v4-sub { font-size: 12px; color: var(--muted); line-height: 1.5; max-width: 90%; margin: 0 auto; }
-  .v4 .v4-divider { border-top: 1px solid var(--line); margin: 18px 0; }
-  .v4 .v4-section-label { font-size: 9px; letter-spacing: 2.5px; font-weight: 700; color: var(--teal-deep); text-transform: uppercase; margin-bottom: 10px; text-align: center; }
-  .v4 .v4-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 16px 12px; background: var(--bone); border-radius: 3px; }
-  .v4 .v4-stats .stat { text-align: center; }
-  .v4 .v4-stats .n { font-size: 22px; font-weight: 900; color: var(--navy); line-height: 1; }
-  .v4 .v4-stats .l { font-size: 8px; letter-spacing: 1.5px; font-weight: 700; color: var(--muted); margin-top: 5px; text-transform: uppercase; line-height: 1.2; }
-  .v4 .v4-services { margin-top: 18px; }
-  .v4 .v4-services .row { display: grid; grid-template-columns: 28px 1fr 60px; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); align-items: center; font-size: 10px; }
-  .v4 .v4-services .row .num { font-size: 9px; letter-spacing: 1.5px; color: var(--muted); font-weight: 700; }
-  .v4 .v4-services .row .ttl { font-weight: 700; color: var(--navy); }
-  .v4 .v4-services .row .out { font-size: 9px; color: var(--teal-deep); text-align: right; font-weight: 700; }
-  .v4 .v4-cta { background: var(--navy); color: #fff; padding: 14px; text-align: center; margin-top: 18px; border-radius: 3px; }
-  .v4 .v4-cta .lbl { font-size: 9px; letter-spacing: 2.5px; color: var(--teal); font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
-  .v4 .v4-cta .ttl { font-size: 14px; font-weight: 900; letter-spacing: -0.3px; }
-  .v4 .v4-cta .btn { display: inline-block; margin-top: 8px; background: var(--teal); color: var(--navy); padding: 6px 14px; font-size: 9px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; border-radius: 100px; }
-
+  .footnote { padding: 24px 32px 40px; font-family:'Cormorant Garamond', serif; font-style:italic; color: var(--steel); font-size: 16px; max-width: 1400px; }
 </style>
 </head>
 <body>
 
-<div class="page-shell">
-
-    <div class="page-header">
-        <div>
-            <h1>Aventario homepage · four design directions</h1>
-            <p class="subtitle">Same content, same brand palette, four distinct typographic and structural treatments. Each preview is a compressed mock-up of how the homepage hero, key stats and service portfolio render in that direction. Pick the one that fits how Aventario should read at first glance.</p>
-        </div>
-        <div class="meta">
-            For management review<br>
-            2026-05-14 · Aventario
-        </div>
+<header class="cover">
+  <div class="cover-inner">
+    <span class="eyebrow">Aventario — Homepage Design Study · May MMXXVI</span>
+    <h1 class="title">Four design directions, <em>one homepage.</em></h1>
+    <p class="subtitle">Each variant carries the same content — the live hero, the six core services, the three enablers, the engagement model, the fifteen anchor references, and the closing call. Header treatment differs deliberately, to make the design language legible at a glance.</p>
+    <div class="meta">
+      <span><strong>Prepared for</strong> Markus Kern · Markus Jaksch · Margit Györfi</span>
+      <span><strong>Author</strong> Julian Robida</span>
+      <span><strong>Live reference</strong> aventario.com</span>
     </div>
+  </div>
+</header>
 
-    <div class="variant-row">
-
-        <!-- ============== VARIANT 1: EDITORIAL ============== -->
-        <div class="variant-card">
-            <div class="variant-label">
-                <div>
-                    <div class="num">VARIANT 01 / 04</div>
-                    <div class="name">Editorial</div>
-                    <div class="descriptor">Magazine-style, restrained, multi-column.</div>
-                </div>
-            </div>
-            <div class="variant-body">
-                <div class="v1">
-                    <div class="v1-issue">
-                        <span>Aventario · Vol. 01</span>
-                        <span>Vienna · 2026</span>
-                    </div>
-                    <div class="v1-eyebrow">The Aventario Quarterly</div>
-                    <div class="v1-rule"></div>
-                    <div class="v1-feature-eyebrow">Feature · Cost & Value Optimization</div>
-                    <h2 class="v1-headline">We don't sell hours. <em>We sell outcomes that land in your P&amp;L.</em></h2>
-                    <p class="v1-lede">For twenty-five years Aventario has helped enterprises across IT and supply chain master complexity in service-cost optimisation, sourcing and transformation. Our engagements are outcome-based and fixed-price: we own the result, from strategy through to a working operating model on the floor. Six core services, three embedded enablers, one delivery system. Vienna-headquartered, working globally.</p>
-                    <div class="v1-stats">
-                        <div class="v1-stat"><div class="n">25+</div><div class="l">Years</div></div>
-                        <div class="v1-stat"><div class="n">500+</div><div class="l">Projects</div></div>
-                        <div class="v1-stat"><div class="n">€3B+</div><div class="l">Contracts</div></div>
-                    </div>
-                    <div class="v1-services">
-                        <div class="v1-svc-eyebrow">Service Portfolio</div>
-                        <ol>
-                            <li><b>Operational Excellence</b> &mdash; ≥20% efficiency gain</li>
-                            <li><b>Savings</b> &mdash; 10–40% spend reduction</li>
-                            <li><b>Vendor Consolidation</b> &mdash; top-5 supplier rule</li>
-                            <li><b>Complex RFx</b> &mdash; 6–8 week tender</li>
-                            <li><b>Vendor Management</b> &mdash; full lifecycle</li>
-                            <li><b>managedsuppliers</b> &mdash; the SaaS layer</li>
-                        </ol>
-                    </div>
-                    <div class="v1-cta"><a href="#">Continue reading →</a></div>
-                </div>
-            </div>
-            <div class="variant-caption"><strong>Reads as:</strong> credible long-form publication. Slow burn, depth-of-content signal. Best for an audience that wants to read before being sold.</div>
-        </div>
-
-        <!-- ============== VARIANT 2: BRUTALIST ============== -->
-        <div class="variant-card">
-            <div class="variant-label">
-                <div>
-                    <div class="num">VARIANT 02 / 04</div>
-                    <div class="name">Brutalist</div>
-                    <div class="descriptor">Oversized type, hard blocks, asymmetric bleed.</div>
-                </div>
-            </div>
-            <div class="variant-body">
-                <div class="v2">
-                    <div class="v2-top">
-                        <span>AVENTARIO ▲</span>
-                        <span>VIENNA · 2026</span>
-                    </div>
-                    <div class="v2-hero">
-                        <div class="v2-hero-eyebrow">▲▲▲ COST &amp; VALUE OPTIMIZATION</div>
-                        <h2 class="v2-headline">COST<br>&amp;<span class="yellow">VALUE.</span></h2>
-                        <div class="v2-arrow">↘</div>
-                    </div>
-                    <div class="v2-block-navy">
-                        <div class="label">→ WHAT WE DO</div>
-                        <div class="text">Run the vendor lifecycle, or just the parts you can't. Outcome-based. Fixed price. No retainers.</div>
-                    </div>
-                    <div class="v2-stats">
-                        <div><div class="n">25+</div><div class="l">YEARS</div></div>
-                        <div><div class="n">500+</div><div class="l">PROJECTS</div></div>
-                        <div><div class="n">€3B+</div><div class="l">CONTRACTS</div></div>
-                        <div><div class="n">10–40%</div><div class="l">SAVINGS</div></div>
-                    </div>
-                    <div class="v2-services-row">
-                        <div class="lbl">█ SIX SERVICES</div>
-                        <ul>
-                            <li>OPS EXCELLENCE <span class="pct">≥20%</span></li>
-                            <li>SAVINGS <span class="pct">10–40%</span></li>
-                            <li>CONSOLIDATION <span class="pct">TOP 5</span></li>
-                            <li>COMPLEX RFx <span class="pct">6–8 W</span></li>
-                            <li>VENDOR MGMT <span class="pct">10–30%</span></li>
-                        </ul>
-                    </div>
-                    <div class="v2-bottom">START → AVENTARIO.COM<span class="arrow">↗</span></div>
-                </div>
-            </div>
-            <div class="variant-caption"><strong>Reads as:</strong> loud, confident, modern. Cuts through. Best for an audience that values directness and is tired of consulting buzzword aesthetics.</div>
-        </div>
-
-        <!-- ============== VARIANT 3: DIAGRAMMATIC ============== -->
-        <div class="variant-card">
-            <div class="variant-label">
-                <div>
-                    <div class="num">VARIANT 03 / 04</div>
-                    <div class="name">Diagrammatic</div>
-                    <div class="descriptor">Process-flow, connectors, grid of cards.</div>
-                </div>
-            </div>
-            <div class="variant-body">
-                <div class="v3">
-                    <div class="v3-top">
-                        <span style="font-weight: 700; font-size: 13px; color: var(--navy);">▲ Aventario</span>
-                        <span class="nav">SERVICES · IMPACT · ABOUT</span>
-                    </div>
-                    <div class="v3-hero">
-                        <span class="v3-eyebrow">Cost &amp; Value Operating System</span>
-                        <h2 class="v3-headline">Outcome-based delivery, mapped end-to-end. <span>See → Size → Simplify → Source → Govern → Automate.</span></h2>
-                    </div>
-                    <div class="v3-flow">
-                        <div class="v3-flow-title">The Aventario Value Chain</div>
-                        <div class="v3-flow-chain">
-                            <div class="v3-flow-step"><div class="n">01</div><div class="t">SEE</div></div>
-                            <div class="v3-flow-arrow">›</div>
-                            <div class="v3-flow-step"><div class="n">02</div><div class="t">SIZE</div></div>
-                            <div class="v3-flow-arrow">›</div>
-                            <div class="v3-flow-step"><div class="n">03</div><div class="t">SIMPLIFY</div></div>
-                            <div class="v3-flow-arrow">›</div>
-                            <div class="v3-flow-step"><div class="n">04</div><div class="t">SOURCE</div></div>
-                            <div class="v3-flow-arrow">›</div>
-                            <div class="v3-flow-step"><div class="n">05</div><div class="t">GOVERN</div></div>
-                        </div>
-                    </div>
-                    <div class="v3-grid">
-                        <div class="v3-card"><span class="idx">01</span><div class="icon">↻</div><div class="ttl">Operational Excellence</div><div class="sub">Process &amp; landscape optimisation</div><div class="out">≥20% efficiency</div></div>
-                        <div class="v3-card"><span class="idx">02</span><div class="icon">€</div><div class="ttl">Savings</div><div class="sub">AI contract analysis &amp; benchmarking</div><div class="out">10–40% reduction</div></div>
-                        <div class="v3-card"><span class="idx">03</span><div class="icon">⊞</div><div class="ttl">Vendor Consolidation</div><div class="sub">Top-5 supplier rationalisation</div><div class="out">80%+ via top 5</div></div>
-                        <div class="v3-card"><span class="idx">04</span><div class="icon">⚖</div><div class="ttl">Complex RFx</div><div class="sub">Structured IT tenders, end-to-end</div><div class="out">6–8 week run</div></div>
-                        <div class="v3-card"><span class="idx">05</span><div class="icon">⛨</div><div class="ttl">Vendor Management</div><div class="sub">Full lifecycle governance</div><div class="out">10–30% spend cut</div></div>
-                        <div class="v3-card"><span class="idx">06</span><div class="icon">▦</div><div class="ttl">managedsuppliers</div><div class="sub">SaaS layer that makes it permanent</div><div class="out">AI-driven platform</div></div>
-                    </div>
-                    <div class="v3-result">
-                        <div><div class="n">500+ <span>projects</span></div><div class="l">Delivered globally</div></div>
-                        <div><div class="n">€3B+ <span>volume</span></div><div class="l">Negotiated contracts</div></div>
-                    </div>
-                </div>
-            </div>
-            <div class="variant-caption"><strong>Reads as:</strong> systems thinking, methodical, technical. Maps the whole value chain on one screen. Best for a procurement audience that wants to see the operating logic at a glance.</div>
-        </div>
-
-        <!-- ============== VARIANT 4: CONSIDERED ============== -->
-        <div class="variant-card">
-            <div class="variant-label">
-                <div>
-                    <div class="num">VARIANT 04 / 04</div>
-                    <div class="name">Considered</div>
-                    <div class="descriptor">Clean, restrained, board-pack quality.</div>
-                </div>
-            </div>
-            <div class="variant-body">
-                <div class="v4">
-                    <div class="v4-top">
-                        <span class="brand">▲ Aventario</span>
-                        <span class="meta">Vienna · 2026</span>
-                    </div>
-                    <div class="v4-hero">
-                        <div class="v4-eyebrow">Cost &amp; Value Optimization · IT &amp; Supply Chain</div>
-                        <h2 class="v4-headline">A consultancy that owns the outcome, not the hours.</h2>
-                        <p class="v4-sub">Outcome-based engagements that own the result, from strategy to execution to lasting capability. Vienna-based, serving Europe and worldwide via remote engagements.</p>
-                    </div>
-                    <div class="v4-divider"></div>
-                    <div class="v4-section-label">Track Record</div>
-                    <div class="v4-stats">
-                        <div class="stat"><div class="n">25+</div><div class="l">Years experience</div></div>
-                        <div class="stat"><div class="n">500+</div><div class="l">Projects delivered</div></div>
-                        <div class="stat"><div class="n">€3B+</div><div class="l">Contract volume</div></div>
-                        <div class="stat"><div class="n">10–40%</div><div class="l">Typical savings</div></div>
-                    </div>
-                    <div class="v4-services">
-                        <div class="v4-section-label" style="text-align: left;">Service Portfolio · Six Core Services</div>
-                        <div class="row"><div class="num">01</div><div class="ttl">Operational Excellence</div><div class="out">≥20% efficiency</div></div>
-                        <div class="row"><div class="num">02</div><div class="ttl">Savings</div><div class="out">10–40% saving</div></div>
-                        <div class="row"><div class="num">03</div><div class="ttl">Vendor Consolidation</div><div class="out">80%+ via top 5</div></div>
-                        <div class="row"><div class="num">04</div><div class="ttl">Complex RFx</div><div class="out">6–8 weeks</div></div>
-                        <div class="row"><div class="num">05</div><div class="ttl">Vendor Management</div><div class="out">10–30% reduction</div></div>
-                        <div class="row"><div class="num">06</div><div class="ttl">managedsuppliers</div><div class="out">SaaS platform</div></div>
-                    </div>
-                    <div class="v4-cta">
-                        <div class="lbl">Where to begin</div>
-                        <div class="ttl">Take the free VM-Assessment</div>
-                        <div class="btn">Start →</div>
-                    </div>
-                </div>
-            </div>
-            <div class="variant-caption"><strong>Reads as:</strong> professional, board-room, McKinsey-style. Restrained and trustworthy. Best for an audience that buys with their CFO in the room.</div>
-        </div>
-
-    </div>
+<div class="legend">
+  <span><strong>How to read</strong> Each column is the full homepage in that design direction. Scroll within a column to see the whole page; scroll the page horizontally to compare.</span>
+  <span><strong>Palette</strong>
+    <span class="swatch" style="background:#334b60"></span>navy
+    <span class="swatch" style="background:#8dccc0"></span>seafoam
+    <span class="swatch" style="background:#d15298"></span>magenta
+    <span class="swatch" style="background:#f19a51"></span>orange
+  </span>
 </div>
+
+<div class="grid">
+
+  <section class="col">
+    <div class="col-head">
+      <div>
+        <div><span class="num">01.</span><span class="name">Editorial — <em>magazine masthead.</em></span></div>
+        <div class="note">Restrained · multi-column · serif accents · drop-caps · case-study index</div>
+      </div>
+      <a class="openlink" href="variants/v01-editorial.html" target="_blank" rel="noopener">Open full →</a>
+    </div>
+    <iframe class="frame" src="variants/v01-editorial.html" loading="lazy" title="Editorial variant"></iframe>
+  </section>
+
+  <section class="col">
+    <div class="col-head">
+      <div>
+        <div><span class="num">02.</span><span class="name">Brutalist — <em>oversized type.</em></span></div>
+        <div class="note">Hard blocks · acid yellow · Archivo Black · ticker · asymmetric bleed</div>
+      </div>
+      <a class="openlink" href="variants/v02-brutalist.html" target="_blank" rel="noopener">Open full →</a>
+    </div>
+    <iframe class="frame" src="variants/v02-brutalist.html" loading="lazy" title="Brutalist variant"></iframe>
+  </section>
+
+  <section class="col">
+    <div class="col-head">
+      <div>
+        <div><span class="num">03.</span><span class="name">Diagrammatic — <em>process flow.</em></span></div>
+        <div class="note">Grid paper · annotations · IBM Plex · system IDs · output bars</div>
+      </div>
+      <a class="openlink" href="variants/v03-diagrammatic.html" target="_blank" rel="noopener">Open full →</a>
+    </div>
+    <iframe class="frame" src="variants/v03-diagrammatic.html" loading="lazy" title="Diagrammatic variant"></iframe>
+  </section>
+
+  <section class="col">
+    <div class="col-head">
+      <div>
+        <div><span class="num">04.</span><span class="name">Considered — <em>board-pack.</em></span></div>
+        <div class="note">Cormorant display · hairline rules · roman numerals · plates &amp; exhibits</div>
+      </div>
+      <a class="openlink" href="variants/v04-considered.html" target="_blank" rel="noopener">Open full →</a>
+    </div>
+    <iframe class="frame" src="variants/v04-considered.html" loading="lazy" title="Considered variant"></iframe>
+  </section>
+
+</div>
+
+<p class="footnote">— Read in any order. The "live one" is the present aventario.com homepage; these four are variations on it. Headers in particular are deliberately different to demonstrate the range; the rest of each page applies the same design language consistently to every section.</p>
 
 </body>
 </html>

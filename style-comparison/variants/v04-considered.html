@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aventario — Variant 04 · Considered</title>
+<meta name="description" content="Board-pack aesthetic homepage variant — Aventario.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Considered: Lato + GT Sectra-feel via Cormorant Garamond for restrained editorial accents -->
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        paper:   '#F4F2EC',  /* warmer board-pack paper */
+        ivory:   '#FBFAF6',
+        ink:     '#1C2A36',  /* deeper than navy for contrast */
+        navy:    '#334b60',
+        steel:   '#5f768b',
+        rule:    'rgba(28,42,54,0.14)',
+        rulesoft:'rgba(28,42,54,0.08)',
+        seafoam: '#8dccc0',
+        teal:    '#5FA99D',
+        pink:    '#d15298',
+        amber:   '#f19a51',
+        burgundy:'#7c2d3a'
+      },
+      fontFamily: {
+        sans:    ['"Lato"','-apple-system','sans-serif'],
+        display: ['"Cormorant Garamond"','Georgia','serif']
+      }
+    }
+  }
+}
+</script>
+
+<style>
+  html,body { background:#F4F2EC; color:#1C2A36; font-family:'Lato',sans-serif; font-weight:400; -webkit-font-smoothing:antialiased; }
+  body { font-feature-settings: "ss01","liga","kern"; }
+
+  /* Subtle paper texture using layered noise */
+  body::before {
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image:
+      radial-gradient(rgba(28,42,54,0.03) 1px, transparent 1px),
+      radial-gradient(rgba(28,42,54,0.02) 1px, transparent 1px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 1px;
+    opacity:.6;
+  }
+  main, header, footer { position:relative; z-index:1; }
+
+  /* Document-style numerals */
+  .num   { font-feature-settings:"tnum","lnum"; }
+  .small-caps { font-variant: all-small-caps; letter-spacing:.18em; }
+
+  /* Hairline rules */
+  .hairline-t { border-top: 1px solid rgba(28,42,54,0.18); }
+  .hairline-b { border-bottom: 1px solid rgba(28,42,54,0.18); }
+  .hairline   { border: 1px solid rgba(28,42,54,0.18); }
+
+  /* Editorial display type */
+  .display { font-family:'Cormorant Garamond', Georgia, serif; font-weight:500; letter-spacing:-0.012em; line-height:1.02; }
+  .display em { font-style: italic; color:#7c2d3a; }
+
+  /* Plate / chapter heading */
+  .plate-label {
+    font-family:'Lato',sans-serif;
+    font-weight:700;
+    font-size:10px;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:#5f768b;
+  }
+  .roman { font-family:'Cormorant Garamond', serif; font-style: italic; color:#7c2d3a; }
+
+  /* Section index */
+  .toc-row { display:grid; grid-template-columns: 4ch 1fr auto; align-items:baseline; gap:1rem; padding: .5rem 0; border-bottom: 1px solid rgba(28,42,54,0.08); }
+  .toc-row:last-child { border-bottom:none; }
+
+  /* Print-style rule */
+  .double-rule { border-top:1px solid rgba(28,42,54,.6); position:relative; padding-top:6px; }
+  .double-rule::before { content:""; display:block; height:1px; background:rgba(28,42,54,.6); margin-top:-4px; margin-bottom:3px; }
+
+  /* Pull-quote */
+  .pull-quote { quotes: "\201C" "\201D"; }
+  .pull-quote::before { content: open-quote; font-family:'Cormorant Garamond', serif; font-size:6rem; line-height:.7; color:#7c2d3a; float:left; margin-right:.3rem; margin-top:.45rem; }
+
+  /* Subtle card */
+  .plate { background:#FBFAF6; border:1px solid rgba(28,42,54,.14); }
+  .plate-tight { background:#FBFAF6; border:1px solid rgba(28,42,54,.14); border-radius:2px; }
+
+  /* Header */
+  .masthead {
+    background:#F4F2EC;
+    border-bottom: 1px solid rgba(28,42,54,.18);
+  }
+  .masthead .rule-top { border-top: 3px double rgba(28,42,54,.4); }
+
+  /* Service stripe */
+  .stripe { background: repeating-linear-gradient(90deg, rgba(28,42,54,.12) 0 1px, transparent 1px 8px); height:1px; }
+
+  /* Hero overlay */
+  .hero-frame { border: 1px solid rgba(28,42,54,.22); }
+  .hero-caption { font-family:'Cormorant Garamond', serif; font-style:italic; }
+
+  /* Buttons */
+  .btn-ink   { background:#1C2A36; color:#FBFAF6; }
+  .btn-ink:hover { background:#334b60; }
+  .btn-ghost { border:1px solid rgba(28,42,54,.5); color:#1C2A36; }
+  .btn-ghost:hover { background:#1C2A36; color:#FBFAF6; }
+
+  /* Sidenotes */
+  .sidenote { font-family:'Cormorant Garamond', serif; font-style:italic; color:#5f768b; }
+
+  /* Subtle hover */
+  a.case-row:hover .case-title { color:#7c2d3a; }
+  a.case-row:hover .arrow { transform: translateX(4px); }
+  .arrow { transition: transform .25s ease; }
+
+  /* References table */
+  .ref-row { display:grid; grid-template-columns: 80px 1.4fr 2.6fr 1fr 30px; gap: 1.25rem; padding: 1.1rem 0; border-bottom: 1px solid rgba(28,42,54,.12); align-items:baseline; }
+  .ref-row:first-child { border-top: 1px solid rgba(28,42,54,.4); }
+  .ref-row.head { padding: .7rem 0; border-bottom: 1px solid rgba(28,42,54,.4); }
+  @media (max-width: 768px) {
+    .ref-row { grid-template-columns: 1fr; gap:.4rem; padding: 1rem 0; }
+    .ref-row.head { display:none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== MASTHEAD (board-pack: dateline above, double rule, restrained nav) ====== -->
+<header class="masthead">
+  <!-- Dateline strip -->
+  <div class="max-w-[1320px] mx-auto px-6 md:px-12 py-3 flex items-center justify-between text-[11px] small-caps text-steel">
+    <span>Vol. XII · No. 03 &nbsp;·&nbsp; Vienna · MMXXVI</span>
+    <span class="hidden md:inline">Confidential — Prepared for the reader</span>
+    <span>Issue 14 · May</span>
+  </div>
+
+  <div class="rule-top"></div>
+
+  <!-- Masthead title + nav -->
+  <div class="max-w-[1320px] mx-auto px-6 md:px-12 pt-7 pb-5">
+    <div class="grid grid-cols-12 items-end gap-6">
+      <!-- Left: small monogram -->
+      <div class="col-span-3 hidden md:flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55.42 55.2" class="h-9 w-9">
+          <path d="M37.22,40.94l-5.14-8.91c-.11-.19-.38-.19-.49,0l-5.14,8.91h10.78Z" fill="#8dccc0"/>
+          <polygon points="11.43 55.15 37.22 40.94 26.44 40.94 16.64 46.19 15.81 47.62 11.51 55.06 11.43 55.15" fill="#8dccc0"/>
+          <path d="M55.38,40.51l-7.53-13.05L32.08,.14c-.11-.19-.38-.19-.49,0L15.81,27.46.04,54.78c-.06.1-.05.21,0,.29.05.08.13.14.24.14H11.26c.1,0,.2-.05,.25-.14l4.3-7.45,.83-1.43,14.95-25.89c.11-.19,.38-.19,.49,0l11.83,20.49c.05,.09,.15,.14,.25,.14h10.98c.22,0,.36-.24,.25-.43Z" fill="#1C2A36"/>
+        </svg>
+        <div class="leading-tight">
+          <div class="text-[10px] small-caps text-steel">Established</div>
+          <div class="text-sm font-bold tracking-wide">MMI · 2001</div>
+        </div>
+      </div>
+
+      <!-- Centre: wordmark in editorial display -->
+      <div class="col-span-12 md:col-span-6 text-center">
+        <h1 class="display text-[68px] md:text-[92px] leading-none">Aventario</h1>
+        <p class="display italic text-base md:text-lg text-steel mt-1">Cost &amp; Value Optimization for IT and Supply Chain</p>
+      </div>
+
+      <!-- Right: city / contact -->
+      <div class="col-span-3 hidden md:block text-right leading-tight">
+        <div class="text-[10px] small-caps text-steel">Office</div>
+        <div class="text-sm font-bold">Tuchlauben 7a</div>
+        <div class="text-sm">1010 Vienna · Austria</div>
+        <div class="text-sm mt-1 text-steel">+43 134 3354012</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Double rule + nav -->
+  <div style="border-top:1px solid rgba(28,42,54,.7); border-bottom:1px solid rgba(28,42,54,.7); height:5px; position:relative;">
+    <div style="position:absolute; left:0; right:0; top:50%; transform:translateY(-50%); height:1px; background:rgba(28,42,54,.7);"></div>
+  </div>
+
+  <nav class="max-w-[1320px] mx-auto px-6 md:px-12 py-3 flex flex-wrap items-center justify-between gap-y-2 text-[12px] small-caps">
+    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-ink">
+      <a href="#services" class="hover:text-burgundy">I · Services</a>
+      <span class="text-rule">·</span>
+      <a href="#as-a-service" class="hover:text-burgundy">II · Engagement Model</a>
+      <span class="text-rule">·</span>
+      <a href="#references" class="hover:text-burgundy">III · References</a>
+      <span class="text-rule">·</span>
+      <a href="#contact" class="hover:text-burgundy">IV · Contact</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-steel hidden md:inline">Reader: prospective principal</span>
+      <a href="#contact" class="btn-ink px-5 py-2 text-[11px] font-bold tracking-widest uppercase">Request a meeting</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- ====== I · COVER PLATE — restrained hero with the mountain framed as a plate ====== -->
+<section class="max-w-[1320px] mx-auto px-6 md:px-12 pt-12 pb-16">
+
+  <div class="grid grid-cols-12 gap-6 md:gap-10">
+
+    <!-- Left margin: chapter mark + sidenote -->
+    <aside class="hidden md:block md:col-span-2 pt-2">
+      <div class="plate-label">Plate I</div>
+      <div class="roman text-3xl mt-1">i.</div>
+      <div class="sidenote text-sm mt-6 leading-snug">
+        Mountaineering is the closest physical analogue to a complex IT engagement: a small roped team, a fixed line, the same summit, one shared outcome.
+      </div>
+      <div class="mt-8 small-caps text-[10px] text-steel">Annotation</div>
+      <div class="text-sm mt-1">First light · 06:24 CET</div>
+      <div class="text-sm">Bearing 312° NW</div>
+    </aside>
+
+    <!-- Centre: editorial headline + image plate -->
+    <div class="col-span-12 md:col-span-10">
+
+      <!-- Kicker line -->
+      <div class="flex items-center gap-4 mb-6">
+        <span class="plate-label">An introduction</span>
+        <span class="flex-1 stripe"></span>
+        <span class="plate-label">14 May MMXXVI</span>
+      </div>
+
+      <h2 class="display text-[56px] md:text-[88px] leading-[1.02] mb-4">
+        We own the <em>outcome</em>,<br>not just the hours.
+      </h2>
+
+      <p class="display italic text-xl md:text-2xl text-steel max-w-3xl leading-snug mb-10">
+        Cost and value optimization for IT and supply chain — delivered as a service. Strategy through execution through lasting capability.
+      </p>
+
+      <!-- Image plate with caption -->
+      <figure class="hero-frame">
+        <div class="relative overflow-hidden" style="aspect-ratio: 16/7; background:#0f1623;">
+          <img src="../../images/hero-ridge-team.png" alt="A roped team of mountaineers traversing an alpine ridge at dawn"
+               class="absolute inset-0 w-full h-full" style="object-fit:cover; object-position:center;">
+          <!-- Subtle vignette to lift caption -->
+          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(11,17,28,.55) 0%, rgba(11,17,28,0) 45%);"></div>
+          <!-- Corner crosshairs (board-pack mark) -->
+          <span class="absolute top-3 left-3 w-3 h-3 border-t border-l" style="border-color:rgba(251,250,246,.8)"></span>
+          <span class="absolute top-3 right-3 w-3 h-3 border-t border-r" style="border-color:rgba(251,250,246,.8)"></span>
+          <span class="absolute bottom-3 left-3 w-3 h-3 border-b border-l" style="border-color:rgba(251,250,246,.8)"></span>
+          <span class="absolute bottom-3 right-3 w-3 h-3 border-b border-r" style="border-color:rgba(251,250,246,.8)"></span>
+        </div>
+        <figcaption class="px-5 py-3 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 hairline-t">
+          <div class="hero-caption text-base">Fig. 1 — A roped team on a fixed line, first light, alpine ridge.</div>
+          <div class="text-[11px] small-caps text-steel">Plate I · cover image · MMXXVI</div>
+        </figcaption>
+      </figure>
+
+      <!-- Stats — printed-table style with small caps -->
+      <div class="mt-10 hairline-t">
+        <div class="grid grid-cols-2 md:grid-cols-4">
+          <div class="py-6 md:py-8 pr-4 border-r border-rulesoft">
+            <div class="display text-5xl md:text-6xl num">25<span class="text-3xl align-top">+</span></div>
+            <div class="small-caps text-[10px] mt-2 text-steel">Years operating</div>
+          </div>
+          <div class="py-6 md:py-8 px-4 border-r border-rulesoft">
+            <div class="display text-5xl md:text-6xl num">30<span class="text-3xl align-top">+</span></div>
+            <div class="small-caps text-[10px] mt-2 text-steel">Hand-picked experts</div>
+          </div>
+          <div class="py-6 md:py-8 px-4 border-r border-rulesoft">
+            <div class="display text-5xl md:text-6xl num">500<span class="text-3xl align-top">+</span></div>
+            <div class="small-caps text-[10px] mt-2 text-steel">Projects delivered</div>
+          </div>
+          <div class="py-6 md:py-8 pl-4">
+            <div class="display text-5xl md:text-6xl num" style="color:#7c2d3a;">10–40<span class="text-3xl align-top">%</span></div>
+            <div class="small-caps text-[10px] mt-2 text-steel">Sustainable cost savings</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+        <a href="#services" class="btn-ink px-7 py-3 text-[11px] font-bold tracking-widest uppercase">Explore the portfolio</a>
+        <a href="#contact" class="btn-ghost px-7 py-3 text-[11px] font-bold tracking-widest uppercase">Talk to a partner</a>
+        <span class="sidenote ml-auto">— continued, Plate II →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== II · TABLE OF CONTENTS / EXECUTIVE INDEX ====== -->
+<section class="max-w-[1320px] mx-auto px-6 md:px-12 py-16 hairline-t">
+  <div class="grid grid-cols-12 gap-6 md:gap-10">
+    <div class="col-span-12 md:col-span-3">
+      <div class="plate-label mb-2">Plate II</div>
+      <h3 class="display text-4xl">Index of this issue</h3>
+    </div>
+    <div class="col-span-12 md:col-span-9">
+      <div>
+        <div class="toc-row">
+          <span class="roman">i.</span>
+          <span class="text-lg"><a href="#services" class="hover:text-burgundy">Our portfolio — six core services, three enablers</a></span>
+          <span class="small-caps text-[10px] text-steel">p. 03</span>
+        </div>
+        <div class="toc-row">
+          <span class="roman">ii.</span>
+          <span class="text-lg"><a href="#as-a-service" class="hover:text-burgundy">How we engage — from spark to turnkey</a></span>
+          <span class="small-caps text-[10px] text-steel">p. 11</span>
+        </div>
+        <div class="toc-row">
+          <span class="roman">iii.</span>
+          <span class="text-lg"><a href="#references" class="hover:text-burgundy">Selected references — fifteen anchor engagements</a></span>
+          <span class="small-caps text-[10px] text-steel">p. 17</span>
+        </div>
+        <div class="toc-row">
+          <span class="roman">iv.</span>
+          <span class="text-lg"><a href="#contact" class="hover:text-burgundy">Contact &amp; correspondence</a></span>
+          <span class="small-caps text-[10px] text-steel">p. 24</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== III · SERVICES (printed bento — restrained rules, no shadows) ====== -->
+<section id="services" class="max-w-[1320px] mx-auto px-6 md:px-12 py-20 hairline-t">
+
+  <header class="grid grid-cols-12 gap-6 md:gap-10 mb-12">
+    <div class="col-span-12 md:col-span-3">
+      <div class="plate-label mb-3">Plate III · Services</div>
+      <div class="roman text-3xl">i.</div>
+    </div>
+    <div class="col-span-12 md:col-span-9">
+      <h2 class="display text-5xl md:text-7xl leading-[1.02]">A portfolio<br><em>built on outcomes.</em></h2>
+      <p class="display italic text-xl text-steel mt-5 max-w-2xl">Six core services along the value chain — See, Size, Simplify, Source, Govern, Automate. Three embedded enablers carry every engagement.</p>
+    </div>
+  </header>
+
+  <!-- Six cards as printed plates -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style="background:rgba(28,42,54,.18);">
+
+    <!-- 01 -->
+    <a href="#" class="plate p-8 flex flex-col group">
+      <div class="flex items-baseline justify-between mb-5">
+        <div class="display text-2xl text-burgundy">i.</div>
+        <div class="small-caps text-[10px] text-steel">Operational Excellence aaS</div>
+      </div>
+      <h3 class="display text-3xl mb-3 leading-tight">Make your IT operations <em>twenty percent</em> more efficient.</h3>
+      <ul class="text-sm text-ink/90 space-y-2 mb-6">
+        <li class="hairline-b pb-2">— Process &amp; landscape analysis</li>
+        <li class="hairline-b pb-2">— Automation opportunity identification</li>
+        <li class="hairline-b pb-2">— Operating model optimization</li>
+        <li>— Implementation roadmap</li>
+      </ul>
+      <div class="mt-auto flex items-baseline justify-between hairline-t pt-4">
+        <div>
+          <div class="small-caps text-[10px] text-steel">Outcome</div>
+          <div class="display text-2xl num"><em>≥20%</em> efficiency gain</div>
+        </div>
+        <span class="small-caps text-[10px] text-burgundy arrow group-hover:underline">Read on →</span>
+      </div>
+    </a>
+
+    <!-- 02 -->
+    <a href="#" class="plate p-8 flex flex-col group">
+      <div class="flex items-baseline justify-between mb-5">
+        <div class="display text-2xl text-burgundy">ii.</div>
+        <div class="small-caps text-[10px] text-steel">Savings aaS</div>
+      </div>
+      <h3 class="display text-3xl mb-3 leading-tight">Cut <em>ten to forty percent</em> from your IT vendor spend.</h3>
+      <ul class="text-sm text-ink/90 space-y-2 mb-6">
+        <li class="hairline-b pb-2">— Contract &amp; spend analysis</li>
+        <li class="hairline-b pb-2">— Vendor benchmarking</li>
+        <li class="hairline-b pb-2">— Renegotiation strategy</li>
+        <li>— Savings realization tracking</li>
+      </ul>
+      <div class="mt-auto flex items-baseline justify-between hairline-t pt-4">
+        <div>
+          <div class="small-caps text-[10px] text-steel">Outcome</div>
+          <div class="display text-2xl num"><em>10–40%</em> vendor savings</div>
+        </div>
+        <span class="small-caps text-[10px] text-burgundy arrow group-hover:underline">Read on →</span>
+      </div>
+    </a>
+
+    <!-- 03 -->
+    <a href="#" class="plate p-8 flex flex-col group">
+      <div class="flex items-baseline justify-between mb-5">
+        <div class="display text-2xl text-burgundy">iii.</div>
+        <div class="small-caps text-[10px] text-steel">Service &amp; Vendor Consolidation aaS</div>
+      </div>
+      <h3 class="display text-3xl mb-3 leading-tight">Reduce vendor sprawl to a <em>handful</em> of strategic partners.</h3>
+      <ul class="text-sm text-ink/90 space-y-2 mb-6">
+        <li class="hairline-b pb-2">— Vendor landscape mapping</li>
+        <li class="hairline-b pb-2">— Make / buy / partner decisions</li>
+        <li class="hairline-b pb-2">— Consolidation roadmap</li>
+        <li>— Target supplier architecture</li>
+      </ul>
+      <div class="mt-auto flex items-baseline justify-between hairline-t pt-4">
+        <div>
+          <div class="small-caps text-[10px] text-steel">Outcome</div>
+          <div class="display text-2xl num"><em>&gt;80%</em> under top-5</div>
+        </div>
+        <span class="small-caps text-[10px] text-burgundy arrow group-hover:underline">Read on →</span>
+      </div>
+    </a>
+
+    <!-- 04 -->
+    <a href="#" class="plate p-8 flex flex-col group">
+      <div class="flex items-baseline justify-between mb-5">
+        <div class="display text-2xl text-burgundy">iv.</div>
+        <div class="small-caps text-[10px] text-steel">Complex RFx aaS</div>
+      </div>
+      <h3 class="display text-3xl mb-3 leading-tight">Run structured IT tenders in <em>six to eight weeks</em>, not six months.</h3>
+      <ul class="text-sm text-ink/90 space-y-2 mb-6">
+        <li class="hairline-b pb-2">— Requirements engineering</li>
+        <li class="hairline-b pb-2">— Market analysis &amp; RFI</li>
+        <li class="hairline-b pb-2">— Structured tender process</li>
+        <li>— Negotiation &amp; award support</li>
+      </ul>
+      <div class="mt-auto flex items-baseline justify-between hairline-t pt-4">
+        <div>
+          <div class="small-caps text-[10px] text-steel">Outcome</div>
+          <div class="display text-2xl num"><em>6–8 wks</em> to RFP award</div>
+        </div>
+        <span class="small-caps text-[10px] text-burgundy arrow group-hover:underline">Read on →</span>
+      </div>
+    </a>
+
+    <!-- 05 -->
+    <a href="#" class="plate p-8 flex flex-col group">
+      <div class="flex items-baseline justify-between mb-5">
+        <div class="display text-2xl text-burgundy">v.</div>
+        <div class="small-caps text-[10px] text-steel">Vendor Management aaS</div>
+      </div>
+      <h3 class="display text-3xl mb-3 leading-tight">Hold IT vendors <em>accountable</em> to what they signed.</h3>
+      <ul class="text-sm text-ink/90 space-y-2 mb-6">
+        <li class="hairline-b pb-2">— Governance framework design</li>
+        <li class="hairline-b pb-2">— SLA &amp; performance management</li>
+        <li class="hairline-b pb-2">— Contract lifecycle management</li>
+        <li>— Continuous optimization</li>
+      </ul>
+      <div class="mt-auto flex items-baseline justify-between hairline-t pt-4">
+        <div>
+          <div class="small-caps text-[10px] text-steel">Outcome</div>
+          <div class="display text-2xl num"><em>10–30%</em> active spend reduction</div>
+        </div>
+        <span class="small-caps text-[10px] text-burgundy arrow group-hover:underline">Read on →</span>
+      </div>
+    </a>
+
+    <!-- 06 — managedsuppliers, slightly tinted -->
+    <a href="https://managedsuppliers.com" target="_blank" rel="noopener" class="p-8 flex flex-col group" style="background: rgba(141,204,192,.16); border:1px solid rgba(95,169,157,.5);">
+      <div class="flex items-baseline justify-between mb-5">
+        <div class="display text-2xl text-teal">vi.</div>
+        <div class="small-caps text-[10px] text-teal">managedsuppliers · SaaS</div>
+      </div>
+      <h3 class="display text-3xl mb-3 leading-tight">Manage every vendor in <em>one platform.</em></h3>
+      <ul class="text-sm text-ink/90 space-y-2 mb-6">
+        <li class="hairline-b pb-2">— Real-time vendor dashboards</li>
+        <li class="hairline-b pb-2">— AI contract analysis</li>
+        <li class="hairline-b pb-2">— Performance &amp; risk monitoring</li>
+        <li>— Self-service governance</li>
+      </ul>
+      <div class="mt-auto flex items-baseline justify-between pt-4" style="border-top:1px solid rgba(95,169,157,.5);">
+        <div>
+          <div class="small-caps text-[10px] text-teal">Platform</div>
+          <div class="display text-2xl"><em>SaaS</em> · always-on</div>
+        </div>
+        <span class="small-caps text-[10px] text-teal group-hover:underline">managedsuppliers.com ↗</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Support services as a small printed table -->
+  <div class="mt-14">
+    <div class="flex items-end justify-between mb-4">
+      <h3 class="display text-2xl">Embedded enablers</h3>
+      <span class="sidenote">Carried on every engagement — never sold standalone.</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px" style="background:rgba(28,42,54,.18);">
+      <a href="#" class="plate-tight p-6 group">
+        <div class="small-caps text-[10px] text-steel mb-2">Enabler · α</div>
+        <h4 class="display text-xl mb-2">Program &amp; Project Management</h4>
+        <p class="text-sm text-steel leading-snug">Multi-workstream governance with clear decision rights, timeline and budget ownership.</p>
+      </a>
+      <a href="#" class="plate-tight p-6 group">
+        <div class="small-caps text-[10px] text-steel mb-2">Enabler · β</div>
+        <h4 class="display text-xl mb-2">Change &amp; Communication</h4>
+        <p class="text-sm text-steel leading-snug">Stakeholder analysis, intercultural change support and resistance management.</p>
+      </a>
+      <a href="#" class="plate-tight p-6 group">
+        <div class="small-caps text-[10px] text-steel mb-2">Enabler · γ</div>
+        <h4 class="display text-xl mb-2">Transition Management</h4>
+        <p class="text-sm text-steel leading-snug">End-to-end transition planning, knowledge transfer, parallel operation and cutover.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== IV · ENGAGEMENT MODEL — pull-quote essay ====== -->
+<section id="as-a-service" class="max-w-[1320px] mx-auto px-6 md:px-12 py-20 hairline-t">
+
+  <header class="grid grid-cols-12 gap-6 md:gap-10 mb-12">
+    <div class="col-span-12 md:col-span-3">
+      <div class="plate-label mb-3">Plate IV · Engagement Model</div>
+      <div class="roman text-3xl">ii.</div>
+    </div>
+    <div class="col-span-12 md:col-span-9">
+      <h2 class="display text-5xl md:text-7xl leading-[1.02]">From <em>spark</em><br>to turnkey.</h2>
+    </div>
+  </header>
+
+  <!-- Two-column essay + sidenote -->
+  <div class="grid grid-cols-12 gap-6 md:gap-10 mb-14">
+    <aside class="hidden md:block md:col-span-3">
+      <div class="sidenote text-base leading-snug">
+        We see ourselves as a full-service provider, supporting initiatives from the initial spark through to <em>“turnkey”</em> completion.
+      </div>
+      <div class="mt-6 pull-quote text-2xl display leading-snug">
+        We do not hand over a roadmap and leave.”
+      </div>
+    </aside>
+    <div class="col-span-12 md:col-span-9 text-lg leading-relaxed text-ink/95 space-y-5">
+      <p class="display text-2xl"><span style="float:left; font-family:'Cormorant Garamond', serif; font-size:5.5rem; line-height:.7; margin-right:.4rem; margin-top:.4rem; color:#7c2d3a;">W</span>e drive sustainable results by engaging and empowering the whole affected organization — its people, processes and stakeholders — throughout every phase. Every project is staffed against our three delivery pillars, so the client receives one seamless, integrated service rather than a sequence of hand-offs.</p>
+      <p>This is the difference between strategy that lives on a slide and strategy that lives in the operating model. We stay until structures, processes and supplier relationships stand on their own.</p>
+    </div>
+  </div>
+
+  <!-- Three pillars as printed exhibits -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-px" style="background:rgba(28,42,54,.18);">
+    <div class="plate p-8">
+      <div class="small-caps text-[10px] text-steel mb-3">Exhibit A</div>
+      <h3 class="display text-3xl mb-3 leading-tight">Transformation <em>implementation</em></h3>
+      <p class="text-sm leading-relaxed text-ink/90">We don't hand over a roadmap and leave. Our teams sit inside the program until structures, processes and supplier relationships stand on their own.</p>
+    </div>
+    <div class="plate p-8">
+      <div class="small-caps text-[10px] text-steel mb-3">Exhibit B</div>
+      <h3 class="display text-3xl mb-3 leading-tight">Program &amp; project <em>management</em></h3>
+      <p class="text-sm leading-relaxed text-ink/90">Multi-workstream governance with clear decision rights, milestone ownership and tight control over timeline and budget.</p>
+    </div>
+    <div class="plate p-8">
+      <div class="small-caps text-[10px] text-steel mb-3">Exhibit C</div>
+      <h3 class="display text-3xl mb-3 leading-tight">Change &amp; <em>communication</em></h3>
+      <p class="text-sm leading-relaxed text-ink/90">Stakeholder analysis, intercultural change and adoption work — so the new way of working sticks once we're gone.</p>
+    </div>
+  </div>
+
+  <!-- Value chain as a horizontal hairline diagram -->
+  <div class="mt-14 hairline-t pt-10">
+    <div class="flex items-end justify-between mb-6">
+      <h3 class="display text-2xl">The value chain</h3>
+      <span class="sidenote">Fig. 2 — six stages, one continuous engagement.</span>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-px" style="background:rgba(28,42,54,.18);">
+      <div class="plate-tight p-5"><div class="display text-3xl text-burgundy">α</div><div class="small-caps text-[10px] mt-1 text-steel">Stage 1</div><div class="display text-xl mt-1">See</div></div>
+      <div class="plate-tight p-5"><div class="display text-3xl text-burgundy">β</div><div class="small-caps text-[10px] mt-1 text-steel">Stage 2</div><div class="display text-xl mt-1">Size</div></div>
+      <div class="plate-tight p-5"><div class="display text-3xl text-burgundy">γ</div><div class="small-caps text-[10px] mt-1 text-steel">Stage 3</div><div class="display text-xl mt-1">Simplify</div></div>
+      <div class="plate-tight p-5"><div class="display text-3xl text-burgundy">δ</div><div class="small-caps text-[10px] mt-1 text-steel">Stage 4</div><div class="display text-xl mt-1">Source</div></div>
+      <div class="plate-tight p-5"><div class="display text-3xl text-burgundy">ε</div><div class="small-caps text-[10px] mt-1 text-steel">Stage 5</div><div class="display text-xl mt-1">Govern</div></div>
+      <div class="plate-tight p-5"><div class="display text-3xl text-burgundy">ζ</div><div class="small-caps text-[10px] mt-1 text-steel">Stage 6</div><div class="display text-xl mt-1">Automate</div></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ====== V · REFERENCES — registry table ====== -->
+<section id="references" class="max-w-[1320px] mx-auto px-6 md:px-12 py-20 hairline-t">
+
+  <header class="grid grid-cols-12 gap-6 md:gap-10 mb-12">
+    <div class="col-span-12 md:col-span-3">
+      <div class="plate-label mb-3">Plate V · References</div>
+      <div class="roman text-3xl">iii.</div>
+    </div>
+    <div class="col-span-12 md:col-span-9 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div>
+        <h2 class="display text-5xl md:text-7xl leading-[1.02]">Real results from<br><em>real engagements.</em></h2>
+        <p class="display italic text-xl text-steel mt-5 max-w-2xl">Three anchor projects per service area. All clients anonymised to industry only.</p>
+      </div>
+      <a href="#" class="btn-ghost px-6 py-3 text-[11px] font-bold tracking-widest uppercase whitespace-nowrap">View full register →</a>
+    </div>
+  </header>
+
+  <!-- Service registry -->
+  <div>
+
+    <!-- Service heading: Operational Excellence -->
+    <div class="mt-2 mb-1 flex items-end justify-between">
+      <h3 class="display text-3xl"><em>i.</em> Operational Excellence</h3>
+      <span class="small-caps text-[10px] text-steel">Service area · 03 cases</span>
+    </div>
+    <div>
+      <div class="ref-row head">
+        <span class="small-caps text-[10px] text-steel">Ref. №</span>
+        <span class="small-caps text-[10px] text-steel">Industry</span>
+        <span class="small-caps text-[10px] text-steel">Engagement</span>
+        <span class="small-caps text-[10px] text-steel">Scope</span>
+        <span></span>
+      </div>
+      <a href="#" class="case-row ref-row">
+        <span class="display text-2xl num">R-01</span>
+        <span class="text-sm font-bold">Pharma</span>
+        <span class="case-title display text-lg leading-tight">Global Fleet Electrification</span>
+        <span class="text-sm text-steel num">1,500 vehicles · 22 mo</span>
+        <span class="arrow text-burgundy text-sm">→</span>
+      </a>
+      <a href="#" class="case-row ref-row">
+        <span class="display text-2xl num">R-02</span>
+        <span class="text-sm font-bold">Global Services</span>
+        <span class="case-title display text-lg leading-tight">Unified Global IT Service Management</span>
+        <span class="text-sm text-steel num">400,000+ empl · 24 mo</span>
+        <span class="arrow text-burgundy text-sm">→</span>
+      </a>
+      <a href="#" class="case-row ref-row">
+        <span class="display text-2xl num">R-03</span>
+        <span class="text-sm font-bold">Pharma</span>
+        <span class="case-title display text-lg leading-tight">IT Landscape Harmonization</span>
+        <span class="text-sm text-steel num">9,000 systems · 110 capabilities</span>
+        <span class="arrow text-burgundy text-sm">→</span>
+      </a>
+    </div>
+
+    <!-- Service heading: Savings -->
+    <div class="mt-12 mb-1 flex items-end justify-between">
+      <h3 class="display text-3xl"><em>ii.</em> Savings</h3>
+      <span class="small-caps text-[10px] text-steel">Service area · 03 cases</span>
+    </div>
+    <div>
+      <div class="ref-row head">
+        <span class="small-caps text-[10px] text-steel">Ref. №</span>
+        <span class="small-caps text-[10px] text-steel">Industry</span>
+        <span class="small-caps text-[10px] text-steel">Engagement</span>
+        <span class="small-caps text-[10px] text-steel">Scope</span>
+        <span></span>
+      </div>
+      <a href="#" class="case-row ref-row">
+        <span class="display text-2xl num">R-04</span>
+        <span class="text-sm font-bold">Pharma</span>
+        <span class="case-title display text-lg leading-tight">Global Device Standardization Program</span>
+        <span class="text-sm text-steel num">Lab equipment · 28 mo</span>
+        <span class="arrow text-burgundy text-sm">→</span>
+      </a>
+      <a href="#" class="case-row ref-row">
+        <span class="display text-2xl num">R-05</span>
+        <span class="text-sm font-bold">Pharma</span>
+        <span class="case-title display text-lg leading-tight">IT Infrastructure Consolidation &amp; RFI</span>
+        <span class="text-sm text-steel num">13 service domains · TCO</span>
+        <span class="arrow text-burgundy text-sm">→</span>
+      </a>
+      <a href="#" class="case-row ref-row">
+        <span class="display text-2xl num">R-06</span>
+        <span class="text-sm font-bold">Aviation</span>
+        <span class="case-title display text-lg leading-tight">22-Domain IT Service Tender</span>
+        <span class="text-sm text-steel num">Datacenter · Cloud · Network · 13 mo</span>
+        <span class="arrow text-burgundy text-sm">→</span>
+      </a>
+    </div>
+
+    <!-- Service heading: Vendor Consolidation -->
+    <div class="mt-12 mb-1 flex items-end justify-between">
+      <h3 class="display text-3xl"><em>iii.</em> Service &amp; Vendor Consolidation</h3>
+      <span class="small-caps text-[10px] text-steel">Service area · 03 cases</span>
+    </div>
+    <div>
+      <div class="ref-row head">
+        <span class="small-caps text-[10px] text-steel">Ref. №</span>
+        <span class="small-caps text-[10px] text-steel">Industry</span>
+        <span class="small-caps text-[10px] text-steel">Engagement</span>
+        <span class="small-caps text-[10px] text-steel">Scope</span>
+        <span></span>
+      </div>
+      <a href="#" class="case-row ref-row">
+        <span class="display text-2xl num">R-07</span>
+        <span class="text-sm font-bold">Pharma</span>
+        <span class="case-title display text-lg leading-tight">Global Engineering &amp; Facilities Consolidation</span>
+        <span class="text-sm text-steel num">8,500 staff · 3 yrs</span>
+        <span class="arrow text-burgundy text-sm">→</span>
+      </a>
+      <a href="#" class="case-row ref-row">
+        <span class="display text-2xl num">R-08</span>
+        <span class="text-sm font-bold">Automotive</span>
+        <span class="case-title display text-lg leading-tight">Global IT Client Rollout</span>
+        <span class="text-sm text-steel num">22 countries · 25,000+ users</span>
+        <span class="arrow text-burgundy text-sm">→</span>
+      </a>
+      <a href="#" class="case-row ref-row">
+        <span class="display text-2xl num">R-09</span>
+        <span class="text-sm font-bold">Aviation</span>
+        <span class="case-title display text-lg leading-tight">Multi-Generation Infrastructure Outsourcing</span>
+        <span class="text-sm text-steel num">20+ yrs · frame contracts</span>
+        <span class="arrow text-burgundy text-sm">→</span>
+      </a>
+    </div>
+
+    <!-- Service heading: Complex RFx -->
+    <div class="mt-12 mb-1 flex items-end justify-between">
+      <h3 class="display text-3xl"><em>iv.</em> Complex RFx</h3>
+      <span class="small-caps text-[10px] text-steel">Service area · 03 cases</span>
+    </div>
+    <div>
+      <div class="ref-row head">
+        <span class="small-caps text-[10px] text-steel">Ref. №</span>
+        <span class="small-caps text-[10px] text-steel">Industry</span>
+        <span class="small-caps text-[10px] text-steel">Engagement</span>
+        <span class="small-caps text-[10px] text-steel">Scope</span>
+        <span></span>
+      </div>
+      <a href="#" class="case-row ref-row">
+        <span class="display text-2xl num">R-10</span>
+        <span class="text-sm font-bold">Public Transport</span>
+        <span class="case-title display text-lg leading-tight">Passenger Counter Platform Tender</span>
+        <span class="text-sm text-steel num">BVergG · &gt;€1M contract</span>
+        <span class="arrow text-burgundy text-sm">→</span>
+      </a>
+      <a href="#" class="case-row ref-row">
+        <span class="display text-2xl num">R-11</span>
+        <span class="text-sm font-bold">Public Transport</span>
+        <span class="case-title display text-lg leading-tight">Onboard Information Platform Tender</span>
+        <span class="text-sm text-steel num">Sector contractor · 18 mo</span>
+        <span class="arrow text-burgundy text-sm">→</span>
+      </a>
+      <a href="#" class="case-row ref-row">
+        <span class="display text-2xl num">R-12</span>
+        <span class="text-sm font-bold">Food Industry</span>
+        <span class="case-title display text-lg leading-tight">IT Infrastructure Sourcing in 4 Months</span>
+        <span class="text-sm text-steel num">Strategy · RFI/RFP · Negotiations</span>
+        <span class="arrow text-burgundy text-sm">→</span>
+      </a>
+    </div>
+
+    <!-- Service heading: Vendor Management -->
+    <div class="mt-12 mb-1 flex items-end justify-between">
+      <h3 class="display text-3xl"><em>v.</em> Vendor Management</h3>
+      <span class="small-caps text-[10px] text-steel">Service area · 03 cases</span>
+    </div>
+    <div>
+      <div class="ref-row head">
+        <span class="small-caps text-[10px] text-steel">Ref. №</span>
+        <span class="small-caps text-[10px] text-steel">Industry</span>
+        <span class="small-caps text-[10px] text-steel">Engagement</span>
+        <span class="small-caps text-[10px] text-steel">Scope</span>
+        <span></span>
+      </div>
+      <a href="#" class="case-row ref-row">
+        <span class="display text-2xl num">R-13</span>
+        <span class="text-sm font-bold">Aviation</span>
+        <span class="case-title display text-lg leading-tight">22-Domain Outsourcing Governance</span>
+        <span class="text-sm text-steel num">Post-tender service governance</span>
+        <span class="arrow text-burgundy text-sm">→</span>
+      </a>
+      <a href="#" class="case-row ref-row">
+        <span class="display text-2xl num">R-14</span>
+        <span class="text-sm font-bold">Pharma</span>
+        <span class="case-title display text-lg leading-tight">Global Standardization Programme Governance</span>
+        <span class="text-sm text-steel num">28 mo · steering &amp; oversight</span>
+        <span class="arrow text-burgundy text-sm">→</span>
+      </a>
+      <a href="#" class="case-row ref-row">
+        <span class="display text-2xl num">R-15</span>
+        <span class="text-sm font-bold">Pharma</span>
+        <span class="case-title display text-lg leading-tight">Global Portfolio &amp; Programme Management</span>
+        <span class="text-sm text-steel num">320 projects · 26 programmes · 15 portfolios</span>
+        <span class="arrow text-burgundy text-sm">→</span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Bottom note -->
+  <div class="mt-12 hairline-t pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <p class="sidenote text-base">Selected anchor engagements — full register on request to office@aventario.com.</p>
+    <a href="#" class="small-caps text-[11px] text-burgundy hover:underline">View all references →</a>
+  </div>
+
+</section>
+
+<!-- ====== VI · CTA — restrained closing leaflet ====== -->
+<section id="contact" class="max-w-[1320px] mx-auto px-6 md:px-12 py-20 hairline-t">
+  <div class="plate p-10 md:p-16 grid grid-cols-12 gap-6 md:gap-10">
+    <div class="col-span-12 md:col-span-2">
+      <div class="plate-label">Plate VI</div>
+      <div class="roman text-3xl mt-1">iv.</div>
+    </div>
+    <div class="col-span-12 md:col-span-7">
+      <h2 class="display text-4xl md:text-6xl leading-[1.04]">Where is the <em>leak</em> in your IT vendor stack?</h2>
+      <p class="display italic text-xl text-steel mt-5 max-w-2xl leading-snug">Thirty minutes with a senior partner. No deck. We listen, ask three questions, and tell you whether we can help — or who can.</p>
+      <div class="mt-8 flex flex-wrap gap-x-4 gap-y-3">
+        <a href="#" class="btn-ink px-7 py-3 text-[11px] font-bold tracking-widest uppercase">Book 30 minutes</a>
+        <a href="#" class="btn-ghost px-7 py-3 text-[11px] font-bold tracking-widest uppercase">Download the firm brief (PDF)</a>
+      </div>
+    </div>
+    <div class="col-span-12 md:col-span-3 hairline-t md:hairline-t-0 md:border-l border-rule pt-6 md:pt-0 md:pl-8 text-sm leading-relaxed text-steel">
+      <div class="small-caps text-[10px] mb-2 text-ink">For correspondence</div>
+      <div class="font-bold text-ink">Aventario Services GmbH</div>
+      <div>Tuchlauben 7a, 1010 Vienna</div>
+      <div class="mt-2"><a href="mailto:office@aventario.com" class="hover:text-burgundy">office@aventario.com</a></div>
+      <div>+43 134 3354012</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ====== COLOPHON FOOTER ====== -->
+<footer class="hairline-t mt-10" style="background:#1C2A36; color:#FBFAF6;">
+  <div class="max-w-[1320px] mx-auto px-6 md:px-12 py-14">
+
+    <div class="grid grid-cols-12 gap-8">
+      <!-- Wordmark + about -->
+      <div class="col-span-12 md:col-span-4">
+        <div class="display text-5xl">Aventario.</div>
+        <p class="display italic text-lg mt-3 text-white/75">Cost &amp; value optimization for IT and supply chain.</p>
+        <div class="mt-6 text-sm leading-relaxed text-white/80 space-y-1.5">
+          <div><span class="small-caps text-[10px] text-white/55 mr-2">Office</span> Tuchlauben 7a, 1010 Vienna</div>
+          <div><span class="small-caps text-[10px] text-white/55 mr-2">Mail</span> <a href="mailto:office@aventario.com" class="hover:text-seafoam">office@aventario.com</a></div>
+          <div><span class="small-caps text-[10px] text-white/55 mr-2">Tel</span> +43 134 3354012</div>
+        </div>
+      </div>
+
+      <!-- Index column 1 -->
+      <div class="col-span-6 md:col-span-2">
+        <div class="small-caps text-[10px] text-white/55 mb-3">Services</div>
+        <ul class="space-y-2 text-sm text-white/90">
+          <li><a href="#" class="hover:text-seafoam">Operational Excellence</a></li>
+          <li><a href="#" class="hover:text-seafoam">Savings</a></li>
+          <li><a href="#" class="hover:text-seafoam">Vendor Consolidation</a></li>
+          <li><a href="#" class="hover:text-seafoam">Complex RFx</a></li>
+          <li><a href="#" class="hover:text-seafoam">Vendor Management</a></li>
+        </ul>
+      </div>
+
+      <!-- Index column 2 -->
+      <div class="col-span-6 md:col-span-2">
+        <div class="small-caps text-[10px] text-white/55 mb-3">Resources</div>
+        <ul class="space-y-2 text-sm text-white/90">
+          <li><a href="#" class="hover:text-seafoam">Whitepapers</a></li>
+          <li><a href="#" class="hover:text-seafoam">Vendor Maturity Assessment</a></li>
+          <li><a href="#" class="hover:text-seafoam">Webinars</a></li>
+          <li><a href="#" class="hover:text-seafoam">Case Studies</a></li>
+          <li><a href="#" class="hover:text-seafoam">Blog</a></li>
+        </ul>
+        <div class="small-caps text-[10px] text-white/55 mb-3 mt-6">Legal</div>
+        <ul class="space-y-2 text-sm text-white/90">
+          <li><a href="#" class="hover:text-seafoam">Data Policy</a></li>
+          <li><a href="#" class="hover:text-seafoam">Imprint &amp; T&amp;C</a></li>
+        </ul>
+      </div>
+
+      <!-- managedsuppliers + newsletter -->
+      <div class="col-span-12 md:col-span-4 space-y-4">
+        <a href="https://managedsuppliers.com" target="_blank" rel="noopener" class="block p-5" style="border:1px solid rgba(251,250,246,.18); background:rgba(251,250,246,.04);">
+          <div class="flex items-baseline gap-3 mb-2">
+            <span class="display text-xl text-seafoam">▲</span>
+            <span class="small-caps text-[11px] text-white/80">managedsuppliers</span>
+          </div>
+          <p class="text-sm leading-relaxed text-white/85 mb-3">Our vendor-management platform — real-time dashboards, AI contract analysis, performance monitoring.</p>
+          <span class="small-caps text-[10px] text-seafoam">managedsuppliers.com ↗</span>
+        </a>
+        <div class="p-5" style="border:1px solid rgba(251,250,246,.18); background:rgba(251,250,246,.04);">
+          <div class="display text-xl mb-1">Monthly briefing</div>
+          <p class="text-sm leading-relaxed text-white/80 mb-3">One letter a month on IT vendor management, sourcing and governance. No filler.</p>
+          <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed';" class="flex flex-col sm:flex-row gap-2">
+            <input type="email" required placeholder="you@company.com" class="flex-1 text-sm px-4 py-2 bg-transparent placeholder:text-white/40" style="border:1px solid rgba(251,250,246,.3); color:#FBFAF6;">
+            <button type="submit" class="text-[11px] font-bold uppercase tracking-widest px-4 py-2 whitespace-nowrap" style="background:#FBFAF6; color:#1C2A36;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colophon -->
+    <div class="mt-12 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-[11px] small-caps text-white/55" style="border-top:1px solid rgba(251,250,246,.18);">
+      <div>© MMXXVI Aventario Services GmbH · All rights reserved</div>
+      <div>Set in Cormorant Garamond &amp; Lato · Printed in Vienna · Variant 04 · Considered</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

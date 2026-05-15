@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variant 01 · Editorial — Aventario</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Playfair+Display:wght@400;400i;700;900;900i&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<style>
+  :root {
+    --ink: #1c1c1c;
+    --navy: #334b60;
+    --teal: #5fa99d;
+    --teal-soft: #8dccc0;
+    --pink: #d15298;
+    --orange: #f19a51;
+    --cream: #faf7f0;
+    --bone: #f4f2eb;
+    --line: rgba(28,28,28,0.15);
+    --muted: #6b7280;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .serif { font-family: 'Playfair Display', Georgia, serif; }
+  .small-caps { letter-spacing: 3px; text-transform: uppercase; font-weight: 700; font-size: 10px; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  .rule { border-top: 1px solid var(--ink); }
+  .rule-thin { border-top: 1px solid var(--line); }
+  .rule-thick { border-top: 4px double var(--ink); }
+
+  /* ============ MASTHEAD (newspaper-style) ============ */
+  .masthead { background: var(--cream); border-bottom: 1px solid var(--ink); }
+  .masthead-top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 0; border-bottom: 1px solid var(--line);
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+  }
+  .masthead-top .left { display: flex; gap: 18px; }
+  .masthead-top .right { display: flex; gap: 18px; }
+  .masthead-name {
+    text-align: center; padding: 16px 0 12px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900; font-size: 72px; letter-spacing: -2px; line-height: 1;
+  }
+  .masthead-name em { font-style: italic; font-weight: 400; }
+  .masthead-tagline {
+    text-align: center; padding-bottom: 14px;
+    font-style: italic; font-family: 'Playfair Display', serif; font-size: 16px; color: var(--muted);
+  }
+  .masthead-nav {
+    display: flex; justify-content: center; gap: 28px;
+    padding: 12px 0; border-top: 1px solid var(--ink); border-bottom: 4px double var(--ink);
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700;
+  }
+  .masthead-nav a:hover { color: var(--teal); }
+
+  /* ============ COVER STORY (hero) ============ */
+  .cover-story { padding: 36px 0 28px; }
+  .cover-grid { display: grid; grid-template-columns: 1fr 5fr 2fr; gap: 32px; }
+  .cover-eyebrow { writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; font-weight: 700; color: var(--pink); }
+  .cover-photo { position: relative; }
+  .cover-photo img { width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: center right; display: block; filter: grayscale(0.18) contrast(1.05); }
+  .cover-photo .caption { font-style: italic; font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+  .cover-photo .caption strong { color: var(--ink); font-style: normal; font-weight: 700; }
+  .cover-sidebar { border-left: 1px solid var(--line); padding-left: 18px; }
+  .cover-sidebar h4 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 13px; margin: 0 0 6px; }
+  .cover-sidebar .sidebar-item { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .cover-sidebar .sidebar-item:last-child { border-bottom: 0; }
+  .cover-sidebar .sidebar-item .meta { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: var(--pink); margin-bottom: 4px; }
+  .cover-sidebar .sidebar-item p { margin: 0; font-size: 12px; line-height: 1.4; }
+  .cover-headline-block { padding-top: 24px; max-width: 880px; }
+  .cover-tag { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; font-weight: 700; color: var(--pink); margin-bottom: 6px; }
+  .cover-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900; font-size: 78px; line-height: 0.92; letter-spacing: -2.5px;
+    margin: 0;
+  }
+  .cover-headline em { font-style: italic; font-weight: 400; color: var(--muted); font-size: 56px; display: block; line-height: 1; margin-top: 6px; }
+  .cover-dek {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 22px; line-height: 1.45; color: var(--ink); margin: 18px 0 0; max-width: 760px;
+  }
+  .cover-byline { display: flex; gap: 18px; margin-top: 16px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: var(--muted); }
+
+  /* ============ STATS BAR ============ */
+  .stats-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    padding: 28px 0; border-top: 4px double var(--ink); border-bottom: 1px solid var(--ink);
+  }
+  .stat-item { padding: 0 24px; border-right: 1px solid var(--line); }
+  .stat-item:last-child { border-right: 0; }
+  .stat-item .n { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 56px; line-height: 0.95; }
+  .stat-item .n em { font-style: italic; font-weight: 400; }
+  .stat-item.accent .n { color: var(--orange); }
+  .stat-item .label { font-style: italic; font-family: 'Playfair Display', serif; font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .stat-item .source { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: var(--ink); margin-top: 6px; }
+
+  /* ============ SECTION HEADERS ============ */
+  .section { padding: 60px 0; }
+  .section-eyebrow { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+  .section-eyebrow .lbl { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; font-weight: 700; }
+  .section-eyebrow .num { font-style: italic; font-family: 'Playfair Display', serif; color: var(--muted); }
+  .section-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 56px; line-height: 1; letter-spacing: -1.5px; margin: 0 0 8px; }
+  .section-title em { font-style: italic; font-weight: 400; }
+  .section-lede { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; line-height: 1.5; color: var(--muted); max-width: 720px; margin: 0 0 36px; }
+
+  /* ============ SERVICES (article-list style) ============ */
+  .services-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 60px; }
+  .service-article {
+    padding: 28px 0; border-bottom: 1px solid var(--line);
+    display: grid; grid-template-columns: 50px 1fr 80px; gap: 18px;
+  }
+  .service-article .svc-num {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 32px; color: var(--muted); line-height: 1; padding-top: 6px;
+  }
+  .service-article .svc-body h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; line-height: 1.15; margin: 0 0 6px; letter-spacing: -0.3px; }
+  .service-article .svc-body .deck { font-style: italic; font-family: 'Playfair Display', serif; font-size: 14px; color: var(--muted); margin-bottom: 10px; line-height: 1.4; }
+  .service-article .svc-body ul { list-style: none; padding: 0; margin: 0; font-size: 12px; line-height: 1.6; color: var(--ink); }
+  .service-article .svc-body li::before { content: '·'; color: var(--pink); margin-right: 6px; font-weight: 900; }
+  .service-article .svc-stat { text-align: right; }
+  .service-article .svc-stat .n { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 24px; color: var(--orange); line-height: 1; }
+  .service-article .svc-stat .lbl { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; color: var(--muted); margin-top: 4px; }
+  .service-article .svc-link { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; font-style: italic; color: var(--ink); font-family: 'Playfair Display', serif; margin-top: 8px; display: inline-block; }
+  .service-article .svc-link em { font-style: italic; }
+
+  /* Featured (managedsuppliers) */
+  .platform-feature {
+    background: var(--bone);
+    padding: 36px;
+    border-top: 4px double var(--ink); border-bottom: 4px double var(--ink);
+    margin: 40px 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center;
+  }
+  .platform-feature .label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; font-weight: 700; color: var(--teal); margin-bottom: 8px; }
+  .platform-feature h3 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: 40px; line-height: 0.95; margin: 0 0 12px; }
+  .platform-feature p { font-size: 14px; line-height: 1.6; color: var(--ink); margin: 0 0 14px; }
+  .platform-feature ul { list-style: none; padding: 0; margin: 0; }
+  .platform-feature li { font-size: 12px; padding: 4px 0; }
+  .platform-feature li::before { content: '◆'; color: var(--teal); margin-right: 8px; }
+  .platform-feature .cta { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: var(--ink); text-decoration: underline; text-decoration-color: var(--teal); }
+
+  /* Support services */
+  .support-services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-top: 28px; border-top: 1px solid var(--line); }
+  .support-service { padding: 0 18px; border-left: 2px solid var(--pink); }
+  .support-service:nth-child(2) { border-left-color: var(--orange); }
+  .support-service:nth-child(3) { border-left-color: var(--teal); }
+  .support-service h4 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin: 0 0 6px; }
+  .support-service p { font-size: 12px; line-height: 1.5; color: var(--muted); margin: 0; font-style: italic; font-family: 'Playfair Display', serif; }
+
+  /* ============ AS A SERVICE (essay style) ============ */
+  .essay-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: start; }
+  .essay-lede {
+    font-family: 'Playfair Display', serif; font-size: 18px; line-height: 1.6; color: var(--ink);
+    column-count: 2; column-gap: 32px; column-rule: 1px solid var(--line);
+  }
+  .essay-lede:first-letter { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 64px; float: left; line-height: 0.85; margin: 6px 8px 0 0; color: var(--ink); }
+  .essay-lede p:first-child { margin-top: 0; }
+  .pillar-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
+  .pillar { }
+  .pillar .pl-icon { width: 48px; height: 48px; border: 1.5px solid var(--ink); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: 22px; margin-bottom: 14px; }
+  .pillar h4 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.3px; }
+  .pillar p { font-size: 13px; line-height: 1.6; color: var(--ink); margin: 0; }
+
+  /* ============ REFERENCES (case-study index style) ============ */
+  .case-section { background: var(--bone); padding: 60px 0; margin-top: 60px; }
+  .case-row { display: grid; grid-template-columns: 200px 1fr; gap: 28px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .case-row .row-label { padding-top: 6px; }
+  .case-row .row-label .area { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 22px; line-height: 1.1; }
+  .case-row .row-label .area em { font-style: italic; font-weight: 400; }
+  .case-row .row-label .meta { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: var(--pink); margin-top: 4px; }
+  .case-row .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .case-row .case { padding-right: 20px; border-right: 1px solid var(--line); }
+  .case-row .case:last-child { border-right: 0; }
+  .case-row .case .sector { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: var(--muted); margin-bottom: 5px; }
+  .case-row .case h4 { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; line-height: 1.2; margin: 0 0 5px; }
+  .case-row .case .scope { font-style: italic; font-family: 'Playfair Display', serif; font-size: 12px; color: var(--muted); }
+
+  /* ============ CTA / NEWSLETTER ============ */
+  .cta-section { padding: 80px 0; background: var(--ink); color: var(--cream); }
+  .cta-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 48px; align-items: center; }
+  .cta-grid h2 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: 56px; line-height: 1; margin: 0 0 14px; color: var(--cream); }
+  .cta-grid h2 em { color: var(--orange); }
+  .cta-grid p { font-size: 16px; line-height: 1.6; color: rgba(250,247,240,0.75); max-width: 480px; margin: 0; }
+  .cta-form { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.18); padding: 24px; }
+  .cta-form label { display: block; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; color: var(--teal-soft); margin-bottom: 8px; }
+  .cta-form input { width: 100%; padding: 10px 14px; background: transparent; border: 1px solid rgba(255,255,255,0.3); color: var(--cream); font-family: 'Playfair Display', serif; font-size: 16px; }
+  .cta-form button { margin-top: 14px; width: 100%; background: var(--orange); color: var(--ink); border: 0; padding: 12px 24px; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900; font-size: 16px; cursor: pointer; }
+  .cta-form .fine { font-size: 10px; color: rgba(250,247,240,0.5); margin-top: 10px; font-style: italic; }
+
+  /* ============ FOOTER (colophon) ============ */
+  .colophon { background: var(--cream); padding: 56px 0 28px; border-top: 1px solid var(--ink); }
+  .colophon-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px; padding-bottom: 32px; border-bottom: 4px double var(--ink); }
+  .colophon h5 { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 900; margin: 0 0 14px; }
+  .colophon .brand-name { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 38px; letter-spacing: -1px; line-height: 1; margin: 0 0 8px; }
+  .colophon .brand-tag { font-style: italic; color: var(--muted); font-family: 'Playfair Display', serif; font-size: 14px; max-width: 280px; line-height: 1.5; }
+  .colophon ul { list-style: none; padding: 0; margin: 0; }
+  .colophon li { padding: 4px 0; font-size: 13px; }
+  .colophon li a:hover { color: var(--pink); }
+  .colophon-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; font-size: 11px; font-style: italic; color: var(--muted); font-family: 'Playfair Display', serif; }
+  .colophon-bottom .ornament { font-size: 16px; }
+
+</style>
+</head>
+<body>
+
+<!-- ============ MASTHEAD ============ -->
+<header class="masthead">
+  <div class="container">
+    <div class="masthead-top">
+      <div class="left">
+        <span>Vol. 01</span><span>Vienna · 2026</span><span>EN · DE</span>
+      </div>
+      <div class="right">
+        <span>The Aventario Quarterly</span><span>Issue Twelve</span>
+      </div>
+    </div>
+    <h1 class="masthead-name">Aventario<em>.</em></h1>
+    <p class="masthead-tagline">Cost &amp; Value Optimization for IT and Supply Chain · est. 2001</p>
+    <nav class="masthead-nav">
+      <a href="#services">Services</a>
+      <a href="#essay">Essays</a>
+      <a href="#references">References</a>
+      <a href="#about">Atelier</a>
+      <a href="#cta">Subscribe</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ COVER STORY ============ -->
+<section class="cover-story">
+  <div class="container">
+    <div class="cover-grid">
+      <div class="cover-eyebrow">FEATURE · MAY 2026 · COVER STORY</div>
+      <div>
+        <div class="cover-photo">
+          <img src="../../images/hero-ridge-team.png" alt="A roped team of mountaineers traversing an alpine ridge at dawn — Aventario brand image">
+          <p class="caption"><strong>Above:</strong> A roped team traverses an alpine ridge at first light. <em>The Aventario method, in one frame: one route, one rope, one outcome owned by the whole team.</em></p>
+        </div>
+      </div>
+      <aside class="cover-sidebar">
+        <h4>Inside this issue</h4>
+        <div class="sidebar-item">
+          <div class="meta">Service</div>
+          <p>Six services, delivered as a service. The architecture, the outcomes, the price.</p>
+        </div>
+        <div class="sidebar-item">
+          <div class="meta">Reference</div>
+          <p>Global pharma fleet electrification: 1,500 vehicles in 22 months.</p>
+        </div>
+        <div class="sidebar-item">
+          <div class="meta">Essay</div>
+          <p>The case against the consulting deck. Why we sell outcomes, not slides.</p>
+        </div>
+        <div class="sidebar-item">
+          <div class="meta">Field Notes</div>
+          <p>30+ hand-picked experts. 25 years on the ridge. Notes from the rope.</p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="cover-headline-block">
+      <div class="cover-tag">The Lead Article · No. 12</div>
+      <h2 class="cover-headline">Cost &amp; value optimization<em>for IT and supply chain.</em></h2>
+      <p class="cover-dek">We empower resilient organisations by improving operational smartness, technological awareness, and the cost-and-value balance &mdash; from the first spark to a working operating model on the floor.</p>
+      <div class="cover-byline"><span>By the Aventario team</span><span>Vienna · 2026</span><span>4-minute read</span></div>
+    </div>
+
+    <div class="stats-strip">
+      <div class="stat-item"><div class="n">25<em>+</em></div><div class="label">Exciting years</div><div class="source">Est. 2001 · Vienna</div></div>
+      <div class="stat-item"><div class="n">30<em>+</em></div><div class="label">Hand-picked experts</div><div class="source">Senior practitioners only</div></div>
+      <div class="stat-item"><div class="n">500<em>+</em></div><div class="label">Successful projects</div><div class="source">DACH · EU · global</div></div>
+      <div class="stat-item accent"><div class="n">10<em>–</em>40%</div><div class="label">Sustainable improvements</div><div class="source">Quantified per engagement</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES (article-list style) ============ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="lbl">Section A · The Portfolio</span>
+      <span class="num"><em>folio</em> i</span>
+    </div>
+    <h2 class="section-title">Six services, <em>one delivery system.</em></h2>
+    <p class="section-lede">Outcome-based engagements that own the result. Each service starts with the question — what would success look like measured? — and runs through to a working capability on the floor.</p>
+
+    <div class="services-list">
+      <article class="service-article">
+        <div class="svc-num">i.</div>
+        <div class="svc-body">
+          <h3>Operational Excellence aaS</h3>
+          <p class="deck">Make your IT operations 20% more efficient.</p>
+          <ul>
+            <li>Process &amp; landscape analysis</li>
+            <li>Automation opportunity identification</li>
+            <li>Operating model optimisation</li>
+            <li>Implementation roadmap</li>
+          </ul>
+          <a class="svc-link" href="#">Read more →</a>
+        </div>
+        <div class="svc-stat"><div class="n">≥20%</div><div class="lbl">Efficiency gain</div></div>
+      </article>
+
+      <article class="service-article">
+        <div class="svc-num">ii.</div>
+        <div class="svc-body">
+          <h3>Savings aaS</h3>
+          <p class="deck">Cut 10–40% from your IT vendor spend.</p>
+          <ul>
+            <li>Contract &amp; spend analysis</li>
+            <li>Vendor benchmarking</li>
+            <li>Renegotiation strategy</li>
+            <li>Savings realisation tracking</li>
+          </ul>
+          <a class="svc-link" href="#">Read more →</a>
+        </div>
+        <div class="svc-stat"><div class="n">10–40%</div><div class="lbl">Vendor savings</div></div>
+      </article>
+
+      <article class="service-article">
+        <div class="svc-num">iii.</div>
+        <div class="svc-body">
+          <h3>Service &amp; Vendor Consolidation aaS</h3>
+          <p class="deck">Reduce vendor sprawl to a handful of strategic partners.</p>
+          <ul>
+            <li>Vendor landscape mapping</li>
+            <li>Make / buy / partner decisions</li>
+            <li>Consolidation roadmap</li>
+            <li>Target supplier architecture</li>
+          </ul>
+          <a class="svc-link" href="#">Read more →</a>
+        </div>
+        <div class="svc-stat"><div class="n">&gt;80%</div><div class="lbl">via top-5</div></div>
+      </article>
+
+      <article class="service-article">
+        <div class="svc-num">iv.</div>
+        <div class="svc-body">
+          <h3>Complex RFx aaS</h3>
+          <p class="deck">Run structured IT tenders in 6–8 weeks, not 6 months.</p>
+          <ul>
+            <li>Requirements engineering</li>
+            <li>Market analysis &amp; RFI</li>
+            <li>Structured tender process</li>
+            <li>Negotiation &amp; award support</li>
+          </ul>
+          <a class="svc-link" href="#">Read more →</a>
+        </div>
+        <div class="svc-stat"><div class="n">6–8w</div><div class="lbl">RFP to award</div></div>
+      </article>
+
+      <article class="service-article">
+        <div class="svc-num">v.</div>
+        <div class="svc-body">
+          <h3>Vendor Management aaS</h3>
+          <p class="deck">Hold IT vendors accountable to what they signed.</p>
+          <ul>
+            <li>Governance framework design</li>
+            <li>SLA &amp; performance management</li>
+            <li>Contract lifecycle management</li>
+            <li>Continuous optimisation</li>
+          </ul>
+          <a class="svc-link" href="#">Read more →</a>
+        </div>
+        <div class="svc-stat"><div class="n">10–30%</div><div class="lbl">Spend cut</div></div>
+      </article>
+
+      <article class="service-article">
+        <div class="svc-num">vi.</div>
+        <div class="svc-body">
+          <h3>The Aventario Method</h3>
+          <p class="deck">A single delivery system across all six. See, size, simplify, source, govern, automate.</p>
+          <ul>
+            <li>Outcome-based, fixed-scope, fixed-price</li>
+            <li>Senior advisors stay in the room</li>
+            <li>Working operating layer, not a binder</li>
+            <li>The same team scopes and delivers</li>
+          </ul>
+          <a class="svc-link" href="#">Read more →</a>
+        </div>
+        <div class="svc-stat"><div class="n">25y</div><div class="lbl">refined</div></div>
+      </article>
+    </div>
+
+    <!-- Platform feature -->
+    <div class="platform-feature">
+      <div>
+        <div class="label">A Companion Platform · managedsuppliers</div>
+        <h3>Manage every vendor relationship<br>in one platform.</h3>
+        <p>Where the engagement ends and the operating model needs to keep running, we hand the operational load over to <em>managedsuppliers</em> &mdash; our SaaS layer that makes the governance permanent.</p>
+        <a href="https://managedsuppliers.com" class="cta">visit managedsuppliers.com →</a>
+      </div>
+      <ul>
+        <li>Real-time vendor dashboards</li>
+        <li>AI contract analysis</li>
+        <li>Performance &amp; risk monitoring</li>
+        <li>Self-service governance</li>
+        <li>SLA tracking &amp; alerting</li>
+        <li>Contract lifecycle workflows</li>
+      </ul>
+    </div>
+
+    <!-- Support services -->
+    <div class="support-services">
+      <div class="support-service">
+        <h4>Programme &amp; Project Management</h4>
+        <p>Multi-workstream governance with clear decision rights, timeline and budget ownership.</p>
+      </div>
+      <div class="support-service">
+        <h4>Change &amp; Communication</h4>
+        <p>Stakeholder analysis, intercultural change support and resistance management.</p>
+      </div>
+      <div class="support-service">
+        <h4>Transition Management</h4>
+        <p>End-to-end transition planning, knowledge transfer, parallel operation and cutover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AS A SERVICE (essay) ============ -->
+<section class="section" id="essay" style="border-top: 4px double var(--ink); background: var(--bone);">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="lbl">Section B · The Method</span>
+      <span class="num"><em>essay</em> ii</span>
+    </div>
+    <h2 class="section-title">Spark to turnkey. <em>We own the result.</em></h2>
+    <p class="section-lede">The classic consulting model is paid for the analysis. The classic supplier model is paid for the hours. Both reward more activity, not better outcomes.</p>
+
+    <div class="essay-grid">
+      <div></div>
+      <div class="essay-lede">
+        <p>We see ourselves as a full-service provider, supporting your initiatives from the initial spark through to "turnkey" completion. We drive sustainable results by engaging and empowering the whole affected organisation &mdash; its people, processes and stakeholders &mdash; throughout every phase.</p>
+        <p>Every project is staffed against our three delivery pillars, so you get one seamless, integrated service rather than a sequence of hand-offs. The team that scopes the engagement runs it through to the amendment. We don't hand over a roadmap and leave: our teams sit inside the programme until structures, processes and supplier relationships stand on their own.</p>
+      </div>
+    </div>
+
+    <div class="pillar-row">
+      <div class="pillar">
+        <div class="pl-icon">i</div>
+        <h4>Transformation Implementation</h4>
+        <p>We don't hand over a roadmap and leave. Our teams sit inside the programme until structures, processes and supplier relationships stand on their own.</p>
+      </div>
+      <div class="pillar">
+        <div class="pl-icon">ii</div>
+        <h4>Programme &amp; Project Management</h4>
+        <p>Multi-workstream governance with clear decision rights, milestone ownership and tight control over timeline and budget.</p>
+      </div>
+      <div class="pillar">
+        <div class="pl-icon">iii</div>
+        <h4>Change &amp; Communication</h4>
+        <p>Stakeholder analysis, intercultural change and adoption work &mdash; so the new way of working sticks once we're gone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REFERENCES (case index) ============ -->
+<section class="case-section" id="references">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="lbl">Section C · The Record</span>
+      <span class="num"><em>folio</em> iii</span>
+    </div>
+    <h2 class="section-title">Real results from <em>real engagements.</em></h2>
+    <p class="section-lede">Three anchor projects per service area. All clients anonymised to industry only. The full case-study library is open to qualified prospects on request.</p>
+
+    <div class="case-row">
+      <div class="row-label">
+        <div class="area">Operational <em>Excellence</em></div>
+        <div class="meta">A · I · 03 cases</div>
+      </div>
+      <div class="cases">
+        <div class="case">
+          <div class="sector">Pharma</div>
+          <h4>Global Fleet Electrification</h4>
+          <p class="scope">1,500 vehicles · 22 months</p>
+        </div>
+        <div class="case">
+          <div class="sector">Global Services</div>
+          <h4>Unified Global IT Service Management</h4>
+          <p class="scope">400,000+ employees · 24 months</p>
+        </div>
+        <div class="case">
+          <div class="sector">Pharma</div>
+          <h4>IT Landscape Harmonisation</h4>
+          <p class="scope">9,000 systems · 110 capabilities</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-row">
+      <div class="row-label">
+        <div class="area"><em>Savings</em></div>
+        <div class="meta">A · II · 03 cases</div>
+      </div>
+      <div class="cases">
+        <div class="case">
+          <div class="sector">Pharma</div>
+          <h4>Global Device Standardisation Programme</h4>
+          <p class="scope">Lab equipment · 28 months</p>
+        </div>
+        <div class="case">
+          <div class="sector">Pharma</div>
+          <h4>IT Infrastructure Consolidation &amp; RFI</h4>
+          <p class="scope">13 service domains · TCO analysis</p>
+        </div>
+        <div class="case">
+          <div class="sector">Aviation Infrastructure</div>
+          <h4>22-Domain IT Service Tender</h4>
+          <p class="scope">Datacenter, Cloud, Network · 13 months</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-row">
+      <div class="row-label">
+        <div class="area">Vendor <em>Consolidation</em></div>
+        <div class="meta">A · III · 03 cases</div>
+      </div>
+      <div class="cases">
+        <div class="case">
+          <div class="sector">Pharma</div>
+          <h4>Global Engineering &amp; Facilities Consolidation</h4>
+          <p class="scope">8,500 staff · 3 years</p>
+        </div>
+        <div class="case">
+          <div class="sector">Automotive</div>
+          <h4>Global IT Client Rollout</h4>
+          <p class="scope">22 countries · 25,000+ users</p>
+        </div>
+        <div class="case">
+          <div class="sector">Aviation Infrastructure</div>
+          <h4>Multi-Generation Infrastructure Outsourcing</h4>
+          <p class="scope">20+ years · Frame contracts</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-row">
+      <div class="row-label">
+        <div class="area">Complex <em>RFx</em></div>
+        <div class="meta">A · IV · 03 cases</div>
+      </div>
+      <div class="cases">
+        <div class="case">
+          <div class="sector">Public Transport</div>
+          <h4>Passenger Counter Platform Tender</h4>
+          <p class="scope">BVergG · &gt;€1M contract value</p>
+        </div>
+        <div class="case">
+          <div class="sector">Public Transport</div>
+          <h4>Onboard Information Platform Tender</h4>
+          <p class="scope">Sector contractor · 18 months</p>
+        </div>
+        <div class="case">
+          <div class="sector">Food Industry</div>
+          <h4>IT Infrastructure Sourcing in 4 Months</h4>
+          <p class="scope">Sourcing strategy · RFI/RFP · Negotiations</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-row">
+      <div class="row-label">
+        <div class="area">Vendor <em>Management</em></div>
+        <div class="meta">A · V · 03 cases</div>
+      </div>
+      <div class="cases">
+        <div class="case">
+          <div class="sector">Aviation Infrastructure</div>
+          <h4>22-Domain Outsourcing Governance</h4>
+          <p class="scope">Post-tender service governance</p>
+        </div>
+        <div class="case">
+          <div class="sector">Pharma</div>
+          <h4>Global Standardisation Programme Governance</h4>
+          <p class="scope">28 months · Steering &amp; supplier oversight</p>
+        </div>
+        <div class="case">
+          <div class="sector">Pharma</div>
+          <h4>Global Portfolio &amp; Programme Management</h4>
+          <p class="scope">320 projects · 26 programmes · 15 portfolios</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 36px; text-align: center;">
+      <a href="success-stories" class="svc-link" style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: var(--ink); text-decoration: underline; text-decoration-color: var(--pink);">Read all references in the archive →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA / NEWSLETTER ============ -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <div class="cta-grid">
+      <div>
+        <div class="cover-tag" style="color: var(--teal-soft);">Subscribe · Monthly Field Notes</div>
+        <h2>Field notes <em>from the ridge.</em></h2>
+        <p>One letter a month. Field-grade material from the team that runs the engagements. No "thought leadership" &mdash; only what we've seen this week.</p>
+      </div>
+      <form class="cta-form">
+        <label>Your work email</label>
+        <input type="email" placeholder="you@company.com" required>
+        <button type="submit">Subscribe →</button>
+        <p class="fine">By submitting, you agree to receive Aventario Field Notes. Unsubscribe any time.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COLOPHON ============ -->
+<footer class="colophon" id="contact">
+  <div class="container">
+    <div class="colophon-grid">
+      <div>
+        <p class="brand-name">Aventario<em>.</em></p>
+        <p class="brand-tag">Vienna-based consultancy. Cost &amp; value optimization for IT and supply chain. We own the outcome, not the hours.</p>
+      </div>
+      <div>
+        <h5>Visit</h5>
+        <ul>
+          <li>Tuchlauben 7a</li>
+          <li>1010 Vienna</li>
+          <li>Austria</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Correspond</h5>
+        <ul>
+          <li><a href="mailto:office@aventario.com">office@aventario.com</a></li>
+          <li>+43 134 3354012</li>
+          <li>LinkedIn</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Read</h5>
+        <ul>
+          <li>The Aventario Quarterly</li>
+          <li>Field Notes</li>
+          <li>References</li>
+          <li>Impressum · Privacy</li>
+        </ul>
+      </div>
+    </div>
+    <div class="colophon-bottom">
+      <span>© MMXXVI Aventario Services GmbH · Vol. 01 · No. 12</span>
+      <span class="ornament">❦</span>
+      <span>Set in Playfair Display &amp; Lato · Vienna · 2026</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
