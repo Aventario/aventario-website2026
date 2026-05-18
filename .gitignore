@@ -1,27 +1,8 @@
-# Local dev
-.DS_Store
-Thumbs.db
-
-# Node / Tailwind build deps
+# Local-only audit artefacts + backup drafts
+_audit/screens/
+_audit/report.json
+_audit/node_modules/
 node_modules/
 package-lock.json
-
-# Vercel
-.vercel/
-
-# Editor / agent
-.claude/
-CLAUDE.md
-
-# Stale snapshots
-*.before-*
-*.bak
-
-# Generated / temp
-*.docx~
-~$*
-
-# Secrets — never commit
-.github_token*
-.env
-.env.*
+index.previous-pre-v03.html
+index.v03-draft.html
