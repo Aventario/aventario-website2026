@@ -32,6 +32,9 @@
         .res-cover { background: linear-gradient(135deg, #334b60 0%, #5f768b 100%); }
         .res-cover.alt-1 { background: linear-gradient(135deg, #88c9be 0%, #5fa99d 100%); }
         .res-cover.alt-2 { background: linear-gradient(135deg, #f19a51 0%, #d15298 100%); }
+        .res-chip { color: #334b60; background: #fff; border-color: rgba(51,75,96,0.18); }
+        .res-chip:hover { background: #FAFAF7; border-color: #5FA99D; }
+        .res-chip-active { background: #334b60 !important; color: #FAFAF7 !important; border-color: #334b60 !important; }
     </style>
     <script type="application/ld+json">
 [
@@ -132,7 +135,7 @@
     <nav class="sticky top-0 z-40 bg-base/95 backdrop-blur-sm border-b border-bordercolor px-6 md:px-12 py-4 flex justify-between items-center">
         <a href="index.html" class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 199.29 55.2" class="h-11 md:h-14"><g><path d="M37.22,40.94l-5.14-8.91c-.11-.19-.38-.19-.49,0l-5.14,8.91h10.78Z" fill="#8dccc0"/><polygon points="11.43 55.15 37.22 40.94 26.44 40.94 16.64 46.19 15.81 47.62 11.51 55.06 11.43 55.15" fill="#8dccc0"/><path d="M55.38,40.51l-7.53-13.05L32.08,.14c-.11-.19-.38-.19-.49,0L15.81,27.46.04,54.78c-.06,.1-.05,.21,0,.29,.05,.08,.13,.14,.24,.14H11.26c.1,0,.2-.05,.25-.14l4.3-7.45,.83-1.43,14.95-25.89c.11-.19,.38-.19,.49,0l11.83,20.49c.05,.09,.15,.14,.25,.14h10.98c.22,0,.36-.24,.25-.43Z" fill="#324a60"/><path d="M86.05,40.9h-5.18c-.14,0-.26-.09-.3-.22l-1.09-3.31c-.04-.11-.13-.18-.25-.18h-6.41c-.11,0-.21,.07-.25,.18l-1.1,3.35c-.04,.11-.13,.18-.25,.18h-5.22c-.18,0-.31-.18-.24-.35l7.7-20.43c.05-.13,.17-.21,.31-.21h4.54c.12,0,.23,.07,.27,.19l7.71,20.46c.06,.17-.06,.35-.24,.35Zm-8.16-8.34l-1.61-4.89c-.08-.24-.42-.24-.51,0l-1.61,4.9c-.06,.17,.07,.34,.24,.34h3.24c.18,0,.31-.18,.25-.35Z" fill="#324a60"/><path d="M99.59,25.15l-5.48,15.35c-.04,.1-.13,.17-.24,.17h-4.63c-.11,0-.2-.07-.24-.17l-5.48-15.35c-.06-.17,.06-.34,.24-.34h4.42c.11,0,.2,.07,.24,.17l3.14,8.8,3.14-8.8c.04-.1,.13-.17,.24-.17h4.42c.18,0,.3,.17,.24,.34Z" fill="#324a60"/><path d="M116.31,32.86c0,.46-.05,1-.14,1.47-.02,.12-.13,.21-.25,.21h-11.11c-.2,0-.32,.21-.22,.38,.68,1.16,1.9,1.88,3.25,1.88,1.15,0,2.22-.5,2.98-1.48,.06-.08,.15-.11,.25-.1l4.25,.76c.16,.03,.26,.21,.18,.36-1.34,2.66-4.01,4.5-7.13,4.5-4.43,0-8.04-3.71-8.04-8.3s3.61-8.3,8.04-8.3,8.04,3.71,8.04,8.3Zm-4.96-2.1c-.2-1.17-1.55-2.08-3.27-2.08-1.56,0-3.05,.9-3.27,2.08-.03,.16,.09,.3,.25,.3h6.04c.16,0,.28-.14,.25-.3Z" fill="#324a60"/><path d="M132.6,31.49v8.92c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-8.67c0-.59-.03-1.26-.28-1.81-.11-.23-.26-.42-.44-.56-.3-.23-.68-.35-1.17-.35-.91,0-1.62,.31-1.84,.82-.26,.55-.26,1.3-.26,1.9v8.67c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v.43c0,.1,.11,.16,.2,.1,3.57-2.46,7.05,.27,7.08,.3,.13,.1,.25,.21,.36,.31,1.62,1.63,1.89,2.94,1.89,5.28Z" fill="#324a60"/><path d="M143.71,36.84l-.57,3.75c-.02,.12-.12,.21-.24,.21-.54,.03-2,.11-2.44,.11-.04,0-.06,0-.09,0-2.69-.14-4.12-1.52-4.12-4v-7.61c0-.14-.11-.25-.25-.25h-1.65c-.14,0-.25-.11-.25-.25v-3.75c0-.14,.11-.25,.25-.25h1.65c.14,0,.25-.11,.25-.25v-4.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v4.35c0,.14,.11,.25,.25,.25h1.65c.14,0,.25,.11,.25,.25v3.75c0,.14-.11,.25-.25,.25h-1.65c-.14,0-.25,.11-.25,.25,0,1.32,0,5.21,0,5.25v.11c-.02,.48-.04,1.14,.34,1.54,.23,.23,.58,.35,1.05,.35h.86c.15,0,.27,.14,.25,.29Z" fill="#324a60"/><path d="M162.83,25.06v15.35c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-.23c0-.1-.11-.16-.19-.11-1.27,.72-2.71,1.1-4.18,1.1-4.64,0-8.42-3.73-8.42-8.3s3.78-8.3,8.42-8.3c1.47,0,2.91,.38,4.18,1.1,.08,.05,.19-.01,.19-.11v-.48c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Zm-4.94,7.8c0-2.1-1.48-3.81-3.61-3.81s-3.86,1.71-3.86,3.81,1.73,3.81,3.86,3.81,3.61-1.71,3.61-3.81Z" fill="#324a60"/><path d="M174.13,25.08l-.15,3.71c0,.15-.13,.26-.28,.24-.43-.04-1.3-.1-1.81,.03-.57,.14-.9,.58-1,.79-.26,.55-.26,1.03-.26,1.65v8.92c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v.44c0,.1,.11,.16,.19,.11,1.05-.65,2.29-.79,3.34-.8,.15,0,.26,.12,.26,.26Z" fill="#324a60"/><path d="M181.06,20.07v3.24c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-3.24c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Zm0,4.99v15.35c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Z" fill="#324a60"/><path d="M199.29,32.87c0,4.58-3.78,8.3-8.42,8.3s-8.42-3.73-8.42-8.3,3.78-8.3,8.42-8.3,8.42,3.73,8.42,8.3Zm-4.75,0c0-2-1.65-3.62-3.67-3.62s-3.67,1.62-3.67,3.62,1.65,3.62,3.67,3.62,3.67-1.62,3.67-3.62Z" fill="#324a60"/></g></svg></a>
         <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-bold items-center">
-            <a href="portfolio.html" class="hover:text-accentdark">Portfolio</a>
+            <a href="portfolio.html" class="hover:text-accentdark">Services</a>
             <a href="impact.html" class="hover:text-accentdark">Impact</a>
             <a href="resources.html" class="text-accentdark">Resources</a>
             <a href="about.html" class="hover:text-accentdark">Team</a>
@@ -142,7 +145,7 @@
         <button id="mobileMenuBtn" class="md:hidden w-9 h-9 flex items-center justify-center" aria-label="Toggle menu"><i class="ph ph-list text-2xl"></i></button>
     </nav>
     <div id="mobileMenu" class="hidden md:hidden border-b border-bordercolor bg-base px-6 py-4 space-y-2">
-        <a href="portfolio.html" class="block py-2 text-base font-bold uppercase tracking-widest hover:text-accentdark">Portfolio</a>
+        <a href="portfolio.html" class="block py-2 text-base font-bold uppercase tracking-widest hover:text-accentdark">Services</a>
         <a href="impact.html" class="block py-2 text-base font-bold uppercase tracking-widest hover:text-accentdark">Impact</a>
         <a href="resources.html" class="block py-2 text-sm font-bold uppercase tracking-widest text-accentdark">Resources</a>
         <a href="about.html" class="block py-2 text-base font-bold uppercase tracking-widest hover:text-accentdark">Team</a>
@@ -153,64 +156,77 @@
     <section class="px-6 md:px-12 py-20 md:py-28 border-b border-bordercolor">
         <div class="max-w-6xl mx-auto">
             <h1 class="font-serif text-5xl md:text-7xl mb-6">Resources.</h1>
-            <p class="text-lg md:text-xl text-text leading-relaxed max-w-2xl">Whitepapers and guides we&rsquo;ve written for the people we work with. Practical material, not thought-leadership.</p>
+            <p class="text-lg md:text-xl text-text leading-relaxed max-w-2xl">Whitepapers, assessments, webinars and reference material we&rsquo;ve written for the people we work with. Practical, not thought-leadership.</p>
         </div>
     </section>
 
-    <section class="px-6 md:px-12 py-16 md:py-20">
+    <section class="px-6 md:px-12 py-12 md:py-16 border-b border-bordercolor">
         <div class="max-w-6xl mx-auto">
-            <p class="text-xs uppercase tracking-widest text-text font-bold mb-6">Featured</p>
-            <a href="resources/operative-vendor-management" class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 group">
-                <div class="md:col-span-6 res-cover aspect-[4/3] rounded-md relative overflow-hidden flex items-end p-8">
-                    <img src="images/whitepaper-ovm-cover.png" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[60%] max-h-[80%] rounded-sm" style="box-shadow: 0 12px 36px rgba(0,0,0,0.35); transform: translate(-50%, -50%) rotate(-3deg);">
-                    <div class="relative z-10">
-                        <span class="inline-block text-xs uppercase tracking-widest font-bold px-3 py-1 rounded-full bg-surface/15 text-surface backdrop-blur-sm border border-surface/20">Whitepaper · New</span>
+
+            <!-- Filter chips -->
+            <div id="res-filter" class="flex flex-wrap gap-2 mb-10">
+                <button data-filter="all" class="res-chip res-chip-active text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border transition-colors">All</button>
+                <button data-filter="whitepaper" class="res-chip text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border transition-colors">Whitepapers</button>
+                <button data-filter="assessment" class="res-chip text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border transition-colors">Assessments</button>
+                <button data-filter="webinar" class="res-chip text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border transition-colors">Webinars</button>
+                <button data-filter="onepager" class="res-chip text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border transition-colors">Masterclass onepagers</button>
+                <button data-filter="video" class="res-chip text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border transition-colors">Videos</button>
+            </div>
+
+            <!-- Unified grid -->
+            <div id="res-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+
+                <!-- Whitepaper: OVM -->
+                <a href="resources/operative-vendor-management" data-kind="whitepaper" class="res-card group">
+                    <div class="res-cover aspect-[4/3] rounded-md mb-5 relative overflow-hidden flex items-end p-5">
+                        <img src="images/whitepaper-ovm-cover.png" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[58%] max-h-[78%] rounded-sm" style="box-shadow: 0 12px 36px rgba(0,0,0,0.35); transform: translate(-50%, -50%) rotate(-3deg);" loading="lazy">
+                        <span class="relative z-10 inline-block text-xs uppercase tracking-widest font-bold px-2.5 py-1 rounded-full bg-surface/15 text-surface backdrop-blur-sm border border-surface/20">Whitepaper</span>
                     </div>
-                </div>
-                <div class="md:col-span-6 flex flex-col justify-center">
-                    <p class="text-xs uppercase tracking-widest text-text font-bold mb-3">14 pages &middot; PDF</p>
-                    <h2 class="font-serif text-3xl md:text-4xl mb-4 group-hover:text-accentdark transition-colors">Operative IT Vendor Management. An operating model in 12 months.</h2>
-                    <p class="text-base md:text-lg text-text leading-relaxed mb-6">Most organisations lose 11% of contract value after signature. This whitepaper sets out the governance framework, seven core capabilities, and a 12-month path to build the operating model that closes the gap.</p>
-                    <span class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-text whitespace-nowrap group-hover:text-accentdark transition-colors">Get the whitepaper <i class="ph ph-arrow-right transition-transform group-hover:translate-x-1"></i></span>
-                </div>
-            </a>
-        </div>
-    </section>
+                    <p class="text-xs uppercase tracking-widest text-text mb-2">14 pages &middot; PDF</p>
+                    <h3 class="font-serif text-2xl text-text mb-3 group-hover:text-accentdark transition-colors leading-tight">Operative IT Vendor Management.</h3>
+                    <p class="text-text leading-relaxed">An operating model in 12 months &mdash; governance framework, seven core capabilities, and the 12-month path to close the 11% post-signature value-leak.</p>
+                </a>
 
-    <section class="px-6 md:px-12 py-20 md:py-24 border-y border-bordercolor">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="font-serif text-3xl md:text-4xl mb-12">Library</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-
-                <a href="https://form.typeform.com/to/qmNOmu5v" target="_blank" rel="noopener" class="group">
-                    <div class="res-cover alt-1 aspect-[4/3] rounded-md mb-5 flex items-end p-5">
-                        <span class="inline-block text-xs uppercase tracking-widest font-bold px-2.5 py-1 rounded-full bg-surface/15 text-surface backdrop-blur-sm border border-surface/20">Assessment</span>
+                <!-- Assessment: Vendor Maturity -->
+                <a href="https://form.typeform.com/to/qmNOmu5v" target="_blank" rel="noopener" data-kind="assessment" class="res-card group">
+                    <div class="res-cover alt-1 aspect-[4/3] rounded-md mb-5 relative overflow-hidden flex items-end p-5">
+                        <img src="images/resources/assessment-cards.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" loading="lazy" onload="this.style.opacity=1" onerror="this.remove()">
+                        <span class="relative z-10 inline-block text-xs uppercase tracking-widest font-bold px-2.5 py-1 rounded-full bg-surface/15 text-surface backdrop-blur-sm border border-surface/20">Assessment</span>
                     </div>
                     <p class="text-xs uppercase tracking-widest text-text mb-2">5-minute interactive</p>
                     <h3 class="font-serif text-2xl text-text mb-3 group-hover:text-accentdark transition-colors leading-tight">Vendor Maturity Assessment.</h3>
                     <p class="text-text leading-relaxed">A short Typeform that gives you a calibrated starting point: where your vendor portfolio sits across governance, sourcing and savings.</p>
                 </a>
 
-                <a href="#" class="group">
-                    <div class="res-cover alt-2 aspect-[4/3] rounded-md mb-5 flex items-end p-5">
-                        <span class="inline-block text-xs uppercase tracking-widest font-bold px-2.5 py-1 rounded-full bg-surface/15 text-surface backdrop-blur-sm border border-surface/20">Guide</span>
+                <!-- Webinar: Building a Smart Vendor Strategy -->
+                <a href="https://event.webinarjam.com/9yn3p/register/mmxr2by" target="_blank" rel="noopener" data-kind="webinar" class="res-card group">
+                    <div class="res-cover alt-2 aspect-[4/3] rounded-md mb-5 relative overflow-hidden flex items-end p-5">
+                        <img src="images/resources/webinar-vendor-strategy.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" loading="lazy" onload="this.style.opacity=1" onerror="this.remove()">
+                        <span class="relative z-10 inline-block text-xs uppercase tracking-widest font-bold px-2.5 py-1 rounded-full bg-surface/15 text-surface backdrop-blur-sm border border-surface/20">Webinar &middot; Register</span>
                     </div>
-                    <p class="text-xs uppercase tracking-widest text-text mb-2">Coming soon</p>
-                    <h3 class="font-serif text-2xl text-text mb-3 group-hover:text-accentdark transition-colors leading-tight">Negotiation &amp; Supplier Relationships.</h3>
-                    <p class="text-text leading-relaxed">A 27-page guidebook on running supplier negotiations with leverage you actually have — plus a one-page desk reference.</p>
+                    <p class="text-xs uppercase tracking-widest text-text mb-2">Live &middot; with Nico Burtzlaff</p>
+                    <h3 class="font-serif text-2xl text-text mb-3 group-hover:text-accentdark transition-colors leading-tight">Building a Smart Vendor Strategy: The Basics.</h3>
+                    <p class="text-text leading-relaxed">Vendor management essentials &mdash; common pitfalls, practical improvements and the framework for stronger supplier oversight, with a live walkthrough of managedsuppliers.</p>
                 </a>
 
-                <a href="#" class="group">
-                    <div class="res-cover aspect-[4/3] rounded-md mb-5 flex items-end p-5">
-                        <span class="inline-block text-xs uppercase tracking-widest font-bold px-2.5 py-1 rounded-full bg-surface/15 text-surface backdrop-blur-sm border border-surface/20">Guide</span>
+                <!-- Webinar: Contracts -->
+                <a href="https://event.webinarjam.com/9yn3p/register/rgz04bw" target="_blank" rel="noopener" data-kind="webinar" class="res-card group">
+                    <div class="res-cover aspect-[4/3] rounded-md mb-5 relative overflow-hidden flex items-end p-5">
+                        <img src="images/resources/webinar-contracts.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300" loading="lazy" onload="this.style.opacity=1" onerror="this.remove()">
+                        <span class="relative z-10 inline-block text-xs uppercase tracking-widest font-bold px-2.5 py-1 rounded-full bg-surface/15 text-surface backdrop-blur-sm border border-surface/20">Webinar &middot; Register</span>
                     </div>
-                    <p class="text-xs uppercase tracking-widest text-text mb-2">Coming soon</p>
-                    <h3 class="font-serif text-2xl text-text mb-3 group-hover:text-accentdark transition-colors leading-tight">Running a Defensible RFx.</h3>
-                    <p class="text-text leading-relaxed">Field-tested approach to running structured tenders in 6&ndash;8 weeks: requirements engineering, evaluation, award trail.</p>
+                    <p class="text-xs uppercase tracking-widest text-text mb-2">Live &middot; with Margit Györfi &amp; Martin Chalkley</p>
+                    <h3 class="font-serif text-2xl text-text mb-3 group-hover:text-accentdark transition-colors leading-tight">Contracts That Close Deals Faster.</h3>
+                    <p class="text-text leading-relaxed">How to draft contracts that move deals forward &mdash; balancing legal protection with commercial intent so paperwork accelerates relationships instead of stalling them.</p>
                 </a>
 
             </div>
+
+            <p id="res-empty" class="hidden text-center text-muted py-12">No resources match that filter yet.</p>
+
+            <!-- Open-slot block: drop more items as you get them (Masterclass onepagers, Contract Accelerator video, etc.) -->
+            <p class="mt-12 text-sm text-muted text-center">More resources land here as we publish them. Want a topic written up? <a href="contact.html" class="font-bold text-accentdark hover:underline">Ask us.</a></p>
+
         </div>
     </section>
 
@@ -305,6 +321,28 @@
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
         if (btn && menu) { btn.addEventListener('click', () => menu.classList.toggle('hidden')); }
+
+        // Resource filter
+        const resFilter = document.getElementById('res-filter');
+        if (resFilter) {
+            const chips = resFilter.querySelectorAll('button');
+            const cards = document.querySelectorAll('.res-card');
+            const empty = document.getElementById('res-empty');
+            chips.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const f = btn.dataset.filter;
+                    chips.forEach(b => b.classList.toggle('res-chip-active', b === btn));
+                    let visible = 0;
+                    cards.forEach(card => {
+                        const k = card.dataset.kind;
+                        const show = f === 'all' || k === f;
+                        card.style.display = show ? '' : 'none';
+                        if (show) visible++;
+                    });
+                    if (empty) empty.classList.toggle('hidden', visible !== 0);
+                });
+            });
+        }
     </script>
 </body>
 </html>
