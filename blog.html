@@ -61,7 +61,12 @@
         #empty-state.visible { display: block; }
         .filter-bar { transition: box-shadow 0.2s ease; }
         .filter-bar.scrolled { box-shadow: 0 4px 12px -8px rgba(51, 75, 96, 0.15); }
-    </style>
+    
+        /* Hand-drawn illustration entrance — fades up + scales in on scroll */
+        .illu { opacity: 0; transform: translateY(24px) scale(0.96); transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); will-change: opacity, transform; }
+        .illu.in-view { opacity: 1; transform: translateY(0) scale(1); }
+        @media (prefers-reduced-motion: reduce) { .illu { opacity: 1; transform: none; transition: none; } }
+</style>
     <script type="application/ld+json">
 [
   {
@@ -508,7 +513,12 @@
             </div>
 
             <div id="empty-state" class="text-center py-20">
-                <i class="ph ph-magnifying-glass text-4xl text-text/30 mb-4"></i>
+                <img src="images/illustrations/v2/shrugger.png"
+                     alt=""
+                     role="presentation"
+                     class="illu in-view w-full max-w-[280px] h-auto mx-auto mb-6"
+                     loading="lazy"
+                     decoding="async">
                 <h3 class="font-serif text-2xl text-text mb-2">No articles match those filters.</h3>
                 <p class="text-text/60 mb-6">Try removing a filter or resetting the search.</p>
                 <button id="emptyReset" class="text-sm font-bold uppercase tracking-widest bg-text text-surface px-5 py-2.5 rounded-full hover:bg-accentdark transition-colors">Reset filters</button>
@@ -683,6 +693,19 @@
             }
 
             applyFilters();
+        })();
+    
+        // Fade-up + scale-in for hand-drawn illustrations
+        (function(){
+          const els = document.querySelectorAll('.illu');
+          if (!els.length || !('IntersectionObserver' in window)) {
+            els.forEach(el => el.classList.add('in-view'));
+            return;
+          }
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+          }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+          els.forEach(el => io.observe(el));
         })();
     </script>
 </body>

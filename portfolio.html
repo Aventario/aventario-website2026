@@ -35,7 +35,12 @@
         .matrix-area { background-color: #334b60; color: #FAFAF7; }
         .matrix-solution { background-color: #FFFFFF; border: 1px solid rgba(51, 75, 96, 0.12); }
         .matrix-aas { background-color: rgba(136, 201, 190, 0.18); border: 1px solid #88C9BE; }
-    </style>
+    
+        /* Hand-drawn illustration entrance — fades up + scales in on scroll */
+        .illu { opacity: 0; transform: translateY(24px) scale(0.96); transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); will-change: opacity, transform; }
+        .illu.in-view { opacity: 1; transform: translateY(0) scale(1); }
+        @media (prefers-reduced-motion: reduce) { .illu { opacity: 1; transform: none; transition: none; } }
+</style>
 </head>
 <body>
 
@@ -300,6 +305,19 @@
                 });
             });
         }
+    
+        // Fade-up + scale-in for hand-drawn illustrations
+        (function(){
+          const els = document.querySelectorAll('.illu');
+          if (!els.length || !('IntersectionObserver' in window)) {
+            els.forEach(el => el.classList.add('in-view'));
+            return;
+          }
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+          }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+          els.forEach(el => io.observe(el));
+        })();
     </script>
 </body>
 </html>

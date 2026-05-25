@@ -35,7 +35,12 @@
         body { background-color: #FAFAF7; color: #334b60; font-family: 'Lato', -apple-system, sans-serif; font-weight: 400; -webkit-font-smoothing: antialiased; }
         h1, h2, h3, h4, h5, .font-serif { font-family: 'Lato', -apple-system, sans-serif; font-weight: 900; letter-spacing: -0.015em; line-height: 1.05; }
         .map-wrapper iframe { filter: grayscale(100%) contrast(1.1) invert(95%); }
-    </style>
+    
+        /* Hand-drawn illustration entrance — fades up + scales in on scroll */
+        .illu { opacity: 0; transform: translateY(24px) scale(0.96); transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); will-change: opacity, transform; }
+        .illu.in-view { opacity: 1; transform: translateY(0) scale(1); }
+        @media (prefers-reduced-motion: reduce) { .illu { opacity: 1; transform: none; transition: none; } }
+</style>
     <script type="application/ld+json">
 [
   {
@@ -417,6 +422,19 @@
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
         if (btn && menu) { btn.addEventListener('click', () => menu.classList.toggle('hidden')); }
+    
+        // Fade-up + scale-in for hand-drawn illustrations
+        (function(){
+          const els = document.querySelectorAll('.illu');
+          if (!els.length || !('IntersectionObserver' in window)) {
+            els.forEach(el => el.classList.add('in-view'));
+            return;
+          }
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+          }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+          els.forEach(el => io.observe(el));
+        })();
     </script>
 </body>
 </html>

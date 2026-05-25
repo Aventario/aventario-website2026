@@ -41,6 +41,14 @@
         /* Mobile burger icon over hero: white when transparent, navy when past-hero */
         nav#mainNav[data-over-hero] #mobileMenuBtn { color: #FAFAF7; text-shadow: 0 1px 8px rgba(0,0,0,0.5); transition: color 0.25s ease, text-shadow 0.25s ease; }
         nav#mainNav[data-over-hero].past-hero #mobileMenuBtn { color: #334b60; text-shadow: none; }
+        /* Pull the first hero section up behind the transparent nav so the image is truly full-bleed top */
+        body:has(nav#mainNav[data-over-hero]) main > section:first-child,
+        body:has(nav#mainNav[data-over-hero]) > section:first-of-type { margin-top: -88px; }
+        @media (max-width: 1023px) {
+          body:has(nav#mainNav[data-over-hero]) main > section:first-child,
+          body:has(nav#mainNav[data-over-hero]) > section:first-of-type { margin-top: -76px; }
+        }
+
 
 
 
@@ -51,7 +59,12 @@
         .impact-chip { color: rgba(250,250,247,0.92); background-color: rgba(250,250,247,0.10); border: 1px solid rgba(250,250,247,0.28); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: all 0.15s; }
         .impact-chip:hover { background-color: rgba(250,250,247,0.20); border-color: rgba(136,201,190,0.85); color: #FAFAF7; }
         .impact-chip.active { background-color: #FAFAF7; color: #334b60; border-color: #FAFAF7; }
-    </style>
+    
+        /* Hand-drawn illustration entrance — fades up + scales in on scroll */
+        .illu { opacity: 0; transform: translateY(24px) scale(0.96); transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); will-change: opacity, transform; }
+        .illu.in-view { opacity: 1; transform: translateY(0) scale(1); }
+        @media (prefers-reduced-motion: reduce) { .illu { opacity: 1; transform: none; transition: none; } }
+</style>
     <script type="application/ld+json">
 [
   {
@@ -461,7 +474,15 @@
 
             </div>
 
-            <p id="impact-empty" class="hidden text-text text-base py-12 text-center">No references in this area yet &mdash; we'd be happy to discuss your specific challenge directly. <a href="contact.html" class="font-bold text-accentdark hover:underline">Talk to us</a>.</p>
+            <div id="impact-empty" class="hidden py-12 md:py-16 text-center">
+                <img src="images/illustrations/v2/shrugger.png"
+                     alt=""
+                     role="presentation"
+                     class="illu in-view w-full max-w-[280px] h-auto mx-auto mb-6"
+                     loading="lazy"
+                     decoding="async">
+                <p class="text-text text-base md:text-lg max-w-xl mx-auto">No references in this area yet &mdash; we&rsquo;d be happy to discuss your specific challenge directly. <a href="contact.html" class="font-bold text-accentdark hover:underline">Talk to us</a>.</p>
+            </div>
 
         </div>
     </section>
@@ -644,6 +665,19 @@
           upd();
           window.addEventListener('scroll', upd, { passive: true });
           window.addEventListener('resize', () => { threshold = Math.max(50, hero.offsetHeight - 80); upd(); }, { passive: true });
+        })();
+    
+        // Fade-up + scale-in for hand-drawn illustrations
+        (function(){
+          const els = document.querySelectorAll('.illu');
+          if (!els.length || !('IntersectionObserver' in window)) {
+            els.forEach(el => el.classList.add('in-view'));
+            return;
+          }
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+          }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+          els.forEach(el => io.observe(el));
         })();
     </script>
 </body>
