@@ -38,8 +38,6 @@
         nav#mainNav[data-over-hero].past-hero .nav-inner a.nav-link { color: #334b60; text-shadow: none; }
         nav#mainNav[data-over-hero] .nav-inner a.nav-cta { background-color: rgba(250,250,247,0.18) !important; border: 1px solid rgba(250,250,247,0.45) !important; color: #FAFAF7 !important; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
         nav#mainNav[data-over-hero].past-hero .nav-inner a.nav-cta { background-color: #334b60 !important; border-color: #334b60 !important; color: #FAFAF7 !important; -webkit-backdrop-filter: none; backdrop-filter: none; }
-        nav#mainNav[data-over-hero] .nav-inner svg path[fill="#324a60"] { fill: #FAFAF7; transition: fill 0.25s ease; }
-        nav#mainNav[data-over-hero].past-hero .nav-inner svg path[fill="#FAFAF7"] { fill: #324a60; }
         /* Mobile burger icon over hero: white when transparent, navy when past-hero */
         nav#mainNav[data-over-hero] #mobileMenuBtn { color: #FAFAF7; text-shadow: 0 1px 8px rgba(0,0,0,0.5); transition: color 0.25s ease, text-shadow 0.25s ease; }
         nav#mainNav[data-over-hero].past-hero #mobileMenuBtn { color: #334b60; text-shadow: none; }
@@ -616,6 +614,14 @@
           if (!n || !n.hasAttribute('data-over-hero')) return;
           // Strip Tailwind utilities that fight our inline bg toggle
           ['bg-base/95','backdrop-blur-sm','border-b','border-bordercolor'].forEach(c => n.classList.remove(c));
+          // Walk SVG paths and tag the originally-navy ones so JS can re-color them on past-hero toggle
+          n.querySelectorAll('svg path').forEach(pa => {
+            const f = (pa.getAttribute('fill') || '').toLowerCase();
+            if (f === '#324a60' || f === 'rgb(50, 74, 96)' || f === 'rgb(50,74,96)') {
+              pa.dataset.origFill = '#324a60';
+              pa.setAttribute('fill', '#FAFAF7');
+            }
+          });
           n.querySelectorAll('.nav-inner > div a').forEach(a => a.classList.add('nav-link'));
           const cta = n.querySelector('.nav-inner > a[href="contact.html"], .nav-inner > a[href$="contact.html"]');
           if (cta) cta.classList.add('nav-cta');
@@ -628,9 +634,11 @@
             if (past) {
               n.style.setProperty('background-color', 'rgba(250,250,247,0.95)', 'important');
               n.style.setProperty('border-bottom', '1px solid rgba(51,75,96,0.12)', 'important');
+              n.querySelectorAll('svg path[data-orig-fill]').forEach(pa => pa.setAttribute('fill', pa.dataset.origFill));
             } else {
               n.style.setProperty('background-color', 'transparent', 'important');
               n.style.setProperty('border-color', 'transparent', 'important');
+              n.querySelectorAll('svg path[data-orig-fill]').forEach(pa => pa.setAttribute('fill', '#FAFAF7'));
             }
           };
           upd();
