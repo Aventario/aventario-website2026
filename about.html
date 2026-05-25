@@ -40,6 +40,10 @@
         nav#mainNav[data-over-hero].past-hero .nav-inner a.nav-cta { background-color: #334b60 !important; border-color: #334b60 !important; color: #FAFAF7 !important; -webkit-backdrop-filter: none; backdrop-filter: none; }
         nav#mainNav[data-over-hero] .nav-inner svg path[fill="#324a60"] { fill: #FAFAF7; transition: fill 0.25s ease; }
         nav#mainNav[data-over-hero].past-hero .nav-inner svg path[fill="#FAFAF7"] { fill: #324a60; }
+        /* Mobile burger icon over hero: white when transparent, navy when past-hero */
+        nav#mainNav[data-over-hero] #mobileMenuBtn { color: #FAFAF7; text-shadow: 0 1px 8px rgba(0,0,0,0.5); transition: color 0.25s ease, text-shadow 0.25s ease; }
+        nav#mainNav[data-over-hero].past-hero #mobileMenuBtn { color: #334b60; text-shadow: none; }
+
 
 
 
@@ -295,7 +299,7 @@
     <section class="px-6 md:px-12 py-16 md:py-20 border-b border-bordercolor" style="background-color: #FBFAF6;">
         <div class="max-w-6xl mx-auto">
             <p class="text-xs uppercase tracking-widest text-accentdark font-bold mb-3">How we work</p>
-            <h2 class="font-serif text-3xl md:text-4xl mb-12 md:mb-14">Structure, pragmatism &amp; measurable impact.</h2>
+            <h2 class="font-serif text-3xl md:text-4xl mb-12 md:mb-14">Speed, structure &amp; measurable impact.</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
                 <div>
                     <i class="ph-bold ph-lightning text-3xl mb-3 block" style="color: #f19a51;"></i>
@@ -303,9 +307,9 @@
                     <p class="text-sm text-muted leading-relaxed">Weeks to first value, not quarters. We move at the pace of the decision, not the deck.</p>
                 </div>
                 <div>
-                    <i class="ph-bold ph-target text-3xl mb-3 block" style="color: #5FA99D;"></i>
-                    <p class="font-serif text-2xl md:text-3xl text-text mb-2">Pragmatism</p>
-                    <p class="text-sm text-muted leading-relaxed">Hands-on, lean delivery. No consulting theatre, no analysis-for-its-own-sake.</p>
+                    <i class="ph-bold ph-wrench text-3xl mb-3 block" style="color: #5FA99D;"></i>
+                    <p class="font-serif text-2xl md:text-3xl text-text mb-2">Hands-on</p>
+                    <p class="text-sm text-muted leading-relaxed">We work alongside you, not at you. No consulting theatre, no analysis-for-its-own-sake.</p>
                 </div>
                 <div>
                     <i class="ph-bold ph-grid-four text-3xl mb-3 block" style="color: #334b60;"></i>

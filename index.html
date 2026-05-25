@@ -64,6 +64,10 @@
         nav#mainNav[data-over-hero].past-hero .nav-inner a.nav-cta { background-color: #334b60 !important; border-color: #334b60 !important; color: #FAFAF7 !important; -webkit-backdrop-filter: none; backdrop-filter: none; }
         nav#mainNav[data-over-hero] .nav-inner svg path[fill="#324a60"] { fill: #FAFAF7; transition: fill 0.25s ease; }
         nav#mainNav[data-over-hero].past-hero .nav-inner svg path[fill="#FAFAF7"] { fill: #324a60; }
+        /* Mobile burger icon over hero: white when transparent, navy when past-hero */
+        nav#mainNav[data-over-hero] #mobileMenuBtn { color: #FAFAF7; text-shadow: 0 1px 8px rgba(0,0,0,0.5); transition: color 0.25s ease, text-shadow 0.25s ease; }
+        nav#mainNav[data-over-hero].past-hero #mobileMenuBtn { color: #334b60; text-shadow: none; }
+
 
 
 
