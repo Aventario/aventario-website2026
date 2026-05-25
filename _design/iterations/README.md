@@ -31,11 +31,24 @@ higgsfield generate create flux_2 \
 - The "behind" word for the halo is important — without it, Flux puts the color block in front of the figure.
 - "Smooth organic blob, wavy soft edges, no spikes" — without this, Flux defaults to jagged starburst shapes.
 
-## Next up (pending user approval of handshake-VALIDATED.png)
+## Starter set of 4 — Aventario-tinted palette
 
-Generate the rest of the starter set of 4 (per `_design/illustration-spec.md` §3):
+User approved the handshake style + asked for "a little bit of Aventario colors" — moved the palette from generic pastels to brand-derived pastels (each tinted from one of the 4 brand colours).
 
-1. ✅ L4 — Handshake across a table — VALIDATED
-2. ⏳ A1 — Roped pair, hand offered back (mint accent #A6CFB4)
-3. ⏳ R1 — Letter into mailbox (mint accent #A6CFB4)
-4. ⏳ I1 — Shrugging figure with empty folder (dusty blue accent #A8B9C8)
+| ID | Scene | File | Accent | Brand tie |
+|---|---|---|---|---|
+| L4 | Handshake across a table | `handshake-VALIDATED.png` | `#A8B9C8` dusty blue | navy `#334b60` desaturated |
+| A1 | Roped pair, hand offered back | `A1-roped-pair-v1.png` | `#B5D8CF` soft seafoam | seafoam `#88C9BE` desaturated |
+| R1 | Letter into mailbox | `R1-mailbox-v1.png` | `#F4C99B` soft orange | orange `#f19a51` desaturated |
+| I1 | Shrugging figure with empty folder | `I1-shrugger-v1.png` | `#E8AAC8` soft magenta | magenta `#d15298` desaturated |
+
+All four use the validated Flux 2 prompt template (above), only `{SCENE}` and `{ACCENT_HEX}` swapped. Set reads as a coherent series with brand variety.
+
+## Next up (pending user approval of the starter set)
+
+Once the user signs off:
+1. Wire each starter into its target page (CTA / About hero / Resources newsletter / empty state)
+2. Scale to the full 12-illustration map per `_design/illustration-spec.md`:
+   - 6 Our Values mini-illustrations
+   - 4 People values mini-illustrations
+   - Remaining placements (As-a-Service handover, References stacked-team, founder backdrop accent, Contact listening, Resources writer's desk)
