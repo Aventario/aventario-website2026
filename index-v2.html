@@ -5,37 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aventario — Cost &amp; Value Optimization for IT &amp; Supply Chain</title>
 <meta name="description" content="Outcome-based IT and supplier optimization for DACH enterprises. We own the result — strategy to execution to lasting capability.">
+<meta property="og:title" content="Aventario — We own the result. Not just the hours.">
+<meta property="og:description" content="Outcome-based IT and supplier cost-value optimization for DACH enterprises.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
-  tailwind.config = {
-    theme: { extend: {
-      colors: {
-        base:'#FAFAF7', surface:'#ffffff', navy:'#334b60', navydeep:'#1e2d3d', navyink:'#14202c',
-        seafoam:'#8dccc0', teal:'#5FA99D', orange:'#f19a51', magenta:'#d15298',
-        muted:'#5f7687', line:'rgba(255,255,255,0.10)'
-      },
-      fontFamily: { display:['Fraunces','serif'], sans:['Inter','system-ui','sans-serif'] },
-    }}
-  }
+  tailwind.config = { theme: { extend: {
+    colors: { base:'#FAFAF7', surface:'#ffffff', navy:'#334b60', navydeep:'#1e2d3d', navyink:'#14202c',
+      seafoam:'#8dccc0', teal:'#5FA99D', orange:'#f19a51', magenta:'#d15298', muted:'#5f7687' },
+    fontFamily: { display:['Fraunces','serif'], sans:['Inter','system-ui','sans-serif'] },
+  }}}
 </script>
 <style>
-  html{scroll-behavior:auto}
   body{background:#14202c;color:#eaf1f5;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   ::selection{background:#8dccc0;color:#14202c}
   .display{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.02em;line-height:0.98}
   .eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.28em;font-weight:600}
-  /* signature seafoam glow */
+  .secnum{font-family:'Fraunces',serif;font-size:.8rem;color:#8dccc0;letter-spacing:.1em}
+  a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #8dccc0;outline-offset:3px;border-radius:4px}
   .glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;pointer-events:none;background:radial-gradient(circle,#8dccc0 0%,transparent 70%)}
-  /* reveal */
   [data-reveal]{opacity:0;transform:translateY(28px)}
   .reveal-in{opacity:1!important;transform:none!important;transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
-  /* hero line mask */
   .line-mask{overflow:hidden;display:block}
   .line-mask > span{display:block;transform:translateY(110%)}
+  /* progress bar */
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#8dccc0,#5FA99D);z-index:60}
   /* nav */
   #nav{transition:transform .4s cubic-bezier(.2,.8,.2,1),background-color .4s,backdrop-filter .4s,border-color .4s}
   #nav.hidden-nav{transform:translateY(-100%)}
@@ -43,38 +42,42 @@
   .navlink{position:relative}
   .navlink::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:#8dccc0;transition:width .3s}
   .navlink:hover::after{width:100%}
-  /* magnetic button */
+  #mobilemenu{transition:opacity .35s,visibility .35s;}
+  #mobilemenu.closed{opacity:0;visibility:hidden}
   .btn-primary{background:#8dccc0;color:#14202c;transition:background .25s,transform .15s}
   .btn-primary:hover{background:#b4ded5}
+  .btn-primary:active{transform:scale(.97)}
   .btn-ghost{border:1px solid rgba(255,255,255,.25);transition:border-color .25s,background-color .25s}
   .btn-ghost:hover{border-color:#8dccc0;background:rgba(141,204,192,.08)}
-  /* service card */
   .svc{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .4s,background-color .4s}
   .svc:hover{transform:translateY(-6px);border-color:rgba(141,204,192,.5);background:rgba(141,204,192,.05)}
   .svc:hover .svc-mark{transform:scale(1.06) translate(8px,-6px)}
   .svc-mark{transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-  /* chain panels */
-  #chainTrack{display:flex;will-change:transform}
-  .chain-panel{flex:0 0 86vw;max-width:560px}
-  @media(min-width:768px){.chain-panel{flex:0 0 46vw}}
+  .chip{font-size:.66rem;letter-spacing:.04em;color:#aebfcb;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:3px 9px;white-space:nowrap}
+  #chainTrack{display:flex}
+  .chain-panel{flex:0 0 84vw;max-width:540px;scroll-snap-align:center}
+  @media(min-width:768px){.chain-panel{flex:0 0 44vw}}
   .num-outline{-webkit-text-stroke:1px rgba(141,204,192,.45);color:transparent;font-family:'Fraunces',serif}
-  /* marquee */
-  .marquee{display:flex;gap:4rem;white-space:nowrap;animation:scrollx 32s linear infinite}
-  @keyframes scrollx{to{transform:translateX(-50%)}}
-  /* scroll cue */
+  .logo-mono{filter:brightness(0) invert(1);opacity:.55;transition:opacity .3s}
+  .logo-mono:hover{opacity:.9}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
   .bob{animation:bob 1.8s ease-in-out infinite}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  .floaty{animation:floaty 6s ease-in-out infinite}
   .grain{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-  @media (prefers-reduced-motion: reduce){ [data-reveal]{opacity:1;transform:none} .line-mask>span{transform:none} .marquee{animation:none} }
+  #toTop{transition:opacity .3s,transform .3s;opacity:0;transform:translateY(10px);pointer-events:none}
+  #toTop.show{opacity:1;transform:none;pointer-events:auto}
+  @media (prefers-reduced-motion: reduce){ [data-reveal]{opacity:1;transform:none} .line-mask>span{transform:none} .floaty,.bob{animation:none} }
 </style>
 </head>
 <body>
 <div class="grain"></div>
+<div id="progress"></div>
 
 <!-- NAV -->
 <nav id="nav" class="fixed top-0 inset-x-0 z-50 px-6 md:px-12 py-4 border-b border-transparent">
   <div class="max-w-[1320px] mx-auto flex items-center justify-between">
-    <a href="#top" class="flex items-center gap-2" aria-label="Aventario">
+    <a href="#top" class="flex items-center gap-2" aria-label="Aventario home">
       <svg viewBox="0 0 199.29 55.2" class="h-7 w-auto"><g><path d="M37.22,40.94l-5.14-8.91c-.11-.19-.38-.19-.49,0l-5.14,8.91h10.78Z" fill="#8dccc0"/><polygon points="11.43 55.15 37.22 40.94 26.44 40.94 16.64 46.19 15.81 47.62 11.51 55.06 11.43 55.15" fill="#8dccc0"/><path d="M55.38,40.51l-7.53-13.05L32.08,.14c-.11-.19-.38-.19-.49,0L15.81,27.46.04,54.78c-.06,.1-.05,.21,0,.29,.05,.08,.13,.14,.24,.14H11.26c.1,0,.2-.05,.25-.14l4.3-7.45,.83-1.43,14.95-25.89c.11-.19,.38-.19,.49,0l11.83,20.49c.05,.09,.15,.14,.25,.14h10.98c.22,0,.36-.24,.25-.43Z" fill="#FAFAF7"/><path d="M86.05,40.9h-5.18c-.14,0-.26-.09-.3-.22l-1.09-3.31c-.04-.11-.13-.18-.25-.18h-6.41c-.11,0-.21,.07-.25,.18l-1.1,3.35c-.04,.11-.13,.18-.25,.18h-5.22c-.18,0-.31-.18-.24-.35l7.7-20.43c.05-.13,.17-.21,.31-.21h4.54c.12,0,.23,.07,.27,.19l7.71,20.46c.06,.17-.06,.35-.24,.35Zm-8.16-8.34l-1.61-4.89c-.08-.24-.42-.24-.51,0l-1.61,4.9c-.06,.17,.07,.34,.24,.34h3.24c.18,0,.31-.18,.25-.35Z" fill="#FAFAF7"/><path d="M99.59,25.15l-5.48,15.35c-.04,.1-.13,.17-.24,.17h-4.63c-.11,0-.2-.07-.24-.17l-5.48-15.35c-.06-.17,.06-.34,.24-.34h4.42c.11,0,.2,.07,.24,.17l3.14,8.8,3.14-8.8c.04-.1,.13-.17,.24-.17h4.42c.18,0,.3,.17,.24,.34Z" fill="#FAFAF7"/><path d="M116.31,32.86c0,.46-.05,1-.14,1.47-.02,.12-.13,.21-.25,.21h-11.11c-.2,0-.32,.21-.22,.38,.68,1.16,1.9,1.88,3.25,1.88,1.15,0,2.22-.5,2.98-1.48,.06-.08,.15-.11,.25-.1l4.25,.76c.16,.03,.26,.21,.18,.36-1.34,2.66-4.01,4.5-7.13,4.5-4.43,0-8.04-3.71-8.04-8.3s3.61-8.3,8.04-8.3,8.04,3.71,8.04,8.3Zm-4.96-2.1c-.2-1.17-1.55-2.08-3.27-2.08-1.56,0-3.05,.9-3.27,2.08-.03,.16,.09,.3,.25,.3h6.04c.16,0,.28-.14,.25-.3Z" fill="#FAFAF7"/><path d="M132.6,31.49v8.92c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-8.67c0-.59-.03-1.26-.28-1.81-.11-.23-.26-.42-.44-.56-.3-.23-.68-.35-1.17-.35-.91,0-1.62,.31-1.84,.82-.26,.55-.26,1.3-.26,1.9v8.67c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v.43c0,.1,.11,.16,.2,.1,3.57-2.46,7.05,.27,7.08,.3,.13,.1,.25,.21,.36,.31,1.62,1.63,1.89,2.94,1.89,5.28Z" fill="#FAFAF7"/><path d="M143.71,36.84l-.57,3.75c-.02,.12-.12,.21-.24,.21-.54,.03-2,.11-2.44,.11-.04,0-.06,0-.09,0-2.69-.14-4.12-1.52-4.12-4v-7.61c0-.14-.11-.25-.25-.25h-1.65c-.14,0-.25-.11-.25-.25v-3.75c0-.14,.11-.25,.25-.25h1.65c.14,0,.25-.11,.25-.25v-4.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v4.35c0,.14,.11,.25,.25,.25h1.65c.14,0,.25,.11,.25,.25v3.75c0,.14-.11,.25-.25,.25h-1.65c-.14,0-.25,.11-.25,.25,0,1.32,0,5.21,0,5.25v.11c-.02,.48-.04,1.14,.34,1.54,.23,.23,.58,.35,1.05,.35h.86c.15,0,.27,.14,.25,.29Z" fill="#FAFAF7"/><path d="M162.83,25.06v15.35c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-.23c0-.1-.11-.16-.19-.11-1.27,.72-2.71,1.1-4.18,1.1-4.64,0-8.42-3.73-8.42-8.3s3.78-8.3,8.42-8.3c1.47,0,2.91,.38,4.18,1.1,.08,.05,.19-.01,.19-.11v-.48c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Zm-4.94,7.8c0-2.1-1.48-3.81-3.61-3.81s-3.86,1.71-3.86,3.81,1.73,3.81,3.86,3.81,3.61-1.71,3.61-3.81Z" fill="#FAFAF7"/><path d="M174.13,25.08l-.15,3.71c0,.15-.13,.26-.28,.24-.43-.04-1.3-.1-1.81,.03-.57,.14-.9,.58-1,.79-.26,.55-.26,1.03-.26,1.65v8.92c0,.14-.11,.25-.25,.25h-4.73c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25v.44c0,.1,.11,.16,.19,.11,1.05-.65,2.29-.79,3.34-.8,.15,0,.26,.12,.26,.26Z" fill="#FAFAF7"/><path d="M181.06,20.07v3.24c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-3.24c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Zm0,4.99v15.35c0,.14-.11,.25-.25,.25h-4.43c-.14,0-.25-.11-.25-.25v-15.35c0-.14,.11-.25,.25-.25h4.43c.14,0,.25,.11,.25,.25Z" fill="#FAFAF7"/><path d="M199.29,32.87c0,4.58-3.78,8.3-8.42,8.3s-8.42-3.73-8.42-8.3,3.78-8.3,8.42-8.3,8.42,3.73,8.42,8.3Zm-4.75,0c0-2-1.65-3.62-3.67-3.62s-3.67,1.62-3.67,3.62,1.65,3.62,3.67,3.62,3.67-1.62,3.67-3.62Z" fill="#FAFAF7"/></g></svg>
     </a>
     <div class="hidden md:flex items-center gap-9 text-sm text-white/80">
@@ -83,9 +86,21 @@
       <a href="#proof" class="navlink hover:text-white">Impact</a>
       <a href="contact.html" class="navlink hover:text-white">Contact</a>
     </div>
-    <a href="contact.html#book" data-magnetic class="btn-primary text-xs font-semibold uppercase tracking-widest px-5 py-3 rounded-full">Book a call</a>
+    <div class="flex items-center gap-3">
+      <a href="contact.html#book" data-magnetic class="btn-primary text-xs font-semibold uppercase tracking-widest px-5 py-3 rounded-full">Book a call</a>
+      <button id="menuBtn" class="md:hidden w-10 h-10 flex items-center justify-center text-white" aria-label="Open menu"><i class="ph ph-list text-2xl"></i></button>
+    </div>
   </div>
 </nav>
+<!-- mobile menu -->
+<div id="mobilemenu" class="closed fixed inset-0 z-[55] bg-navyink/97 backdrop-blur-lg flex flex-col items-center justify-center gap-8 text-2xl md:hidden">
+  <button id="menuClose" class="absolute top-5 right-6 w-10 h-10 text-white" aria-label="Close menu"><i class="ph ph-x text-2xl"></i></button>
+  <a href="#services" class="mm-link display text-white">Services</a>
+  <a href="#method" class="mm-link display text-white">How we work</a>
+  <a href="#proof" class="mm-link display text-white">Impact</a>
+  <a href="contact.html" class="mm-link display text-white">Contact</a>
+  <a href="contact.html#book" class="btn-primary text-sm font-semibold uppercase tracking-widest px-7 py-4 rounded-full mt-4">Book a 30-min call</a>
+</div>
 
 <main id="top">
 
@@ -94,11 +109,11 @@
     <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline poster="images/hero-ridge-team.png">
       <source src="images/hero-ridge-team.mp4" type="video/mp4">
     </video>
-    <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(20,32,44,.72) 0%,rgba(20,32,44,.55) 35%,rgba(20,32,44,.85) 100%)"></div>
+    <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(20,32,44,.82) 0%,rgba(20,32,44,.55) 38%,rgba(20,32,44,.92) 100%)"></div>
     <div class="glow" style="width:680px;height:680px;top:-180px;right:-140px"></div>
     <div class="relative z-10 w-full max-w-[1320px] mx-auto px-6 md:px-12 pt-28">
       <p class="eyebrow text-seafoam mb-6 line-mask" data-hero><span>Cost &amp; Value Optimization · IT &amp; Supply Chain</span></p>
-      <h1 class="display text-[15vw] md:text-[8.5rem] text-white tracking-tight">
+      <h1 class="display text-[14vw] md:text-[8.5rem] text-white">
         <span class="line-mask" data-hero><span>We own the result.</span></span>
         <span class="line-mask" data-hero><span class="text-seafoam italic font-light">Not just the hours.</span></span>
       </h1>
@@ -108,29 +123,46 @@
         <a href="#services" class="btn-ghost text-white text-sm font-semibold uppercase tracking-widest px-7 py-4 rounded-full">See the services</a>
       </div>
     </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/50 bob" data-hero-fade><i class="ph ph-mouse-simple text-2xl"></i></div>
+    <a href="#trust" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/50 bob" data-hero-fade aria-label="Scroll down"><i class="ph ph-mouse-simple text-2xl"></i></a>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section id="trust" class="px-6 md:px-12 py-12 bg-navyink border-y border-white/5">
+    <div class="max-w-[1320px] mx-auto flex flex-col md:flex-row items-center gap-6 md:gap-12">
+      <p class="eyebrow text-white/40 shrink-0" data-reveal>Trusted on engagements with</p>
+      <div class="flex items-center gap-10 md:gap-14 flex-wrap justify-center" data-reveal>
+        <img src="images/logos/clients/sodexo.svg" alt="Sodexo" class="logo-mono h-5 md:h-6 w-auto">
+        <img src="images/logos/clients/fraport.svg" alt="Fraport" class="logo-mono h-5 md:h-6 w-auto">
+        <span class="logo-mono opacity-40 text-white text-sm uppercase tracking-widest font-semibold">Pharma · Automotive · Aviation · Public</span>
+      </div>
+    </div>
   </section>
 
   <!-- PROOF STATS -->
-  <section id="proof-strip" class="relative px-6 md:px-12 py-20 md:py-28 bg-navyink">
-    <div class="max-w-[1320px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-6">
-      <div data-reveal><div class="display text-5xl md:text-7xl text-white"><span class="count" data-to="25">0</span>+</div><p class="mt-3 text-sm text-white/55 uppercase tracking-widest">Years in the field</p></div>
-      <div data-reveal><div class="display text-5xl md:text-7xl text-white"><span class="count" data-to="500">0</span>+</div><p class="mt-3 text-sm text-white/55 uppercase tracking-widest">Projects delivered</p></div>
-      <div data-reveal><div class="display text-5xl md:text-7xl text-white">€<span class="count" data-to="3">0</span>B+</div><p class="mt-3 text-sm text-white/55 uppercase tracking-widest">Contract volume negotiated</p></div>
-      <div data-reveal><div class="display text-5xl md:text-7xl text-orange"><span class="count" data-to="40">0</span>%</div><p class="mt-3 text-sm text-white/55 uppercase tracking-widest">Spend taken out, sustainably</p></div>
+  <section class="relative px-6 md:px-12 py-20 md:py-28 bg-navyink">
+    <div class="max-w-[1320px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-6 md:divide-x divide-white/10">
+      <div class="md:px-6" data-reveal><div class="display text-5xl md:text-7xl text-white"><span class="count" data-to="25">0</span>+</div><p class="mt-3 text-sm text-white/55 uppercase tracking-widest">Years in the field</p></div>
+      <div class="md:px-6" data-reveal><div class="display text-5xl md:text-7xl text-white"><span class="count" data-to="500">0</span>+</div><p class="mt-3 text-sm text-white/55 uppercase tracking-widest">Projects delivered</p></div>
+      <div class="md:px-6" data-reveal><div class="display text-5xl md:text-7xl text-white">€<span class="count" data-to="3">0</span>B+</div><p class="mt-3 text-sm text-white/55 uppercase tracking-widest">Contract volume negotiated</p></div>
+      <div class="md:px-6" data-reveal><div class="display text-5xl md:text-7xl text-orange"><span class="count" data-to="40">0</span>%</div><p class="mt-3 text-sm text-white/55 uppercase tracking-widest">Spend taken out, sustainably</p></div>
     </div>
   </section>
 
   <!-- PROBLEM -->
   <section class="relative px-6 md:px-12 py-24 md:py-36 bg-navydeep overflow-hidden">
     <div class="glow" style="width:520px;height:520px;bottom:-200px;left:-160px;opacity:.3"></div>
-    <div class="max-w-[1320px] mx-auto relative">
-      <p class="eyebrow text-seafoam mb-6" data-reveal>The problem</p>
-      <h2 class="display text-4xl md:text-6xl text-white max-w-4xl" data-reveal>IT budgets are squeezed. Vendors multiply. And nobody can see where the money actually goes.</h2>
-      <div class="mt-16 grid md:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden border border-white/10">
-        <div class="bg-navydeep p-8 md:p-10" data-reveal><i class="ph ph-eye-slash text-3xl text-seafoam"></i><h3 class="display text-2xl text-white mt-5 mb-3">No visibility</h3><p class="text-white/65 leading-relaxed">Shadow IT, orphaned systems, opaque spend. You can't optimize what you can't see.</p></div>
-        <div class="bg-navydeep p-8 md:p-10" data-reveal><i class="ph ph-stack-overflow text-3xl text-seafoam"></i><h3 class="display text-2xl text-white mt-5 mb-3">Vendor sprawl</h3><p class="text-white/65 leading-relaxed">Forty-seven suppliers, fragmented leverage, contracts no one enforces.</p></div>
-        <div class="bg-navydeep p-8 md:p-10" data-reveal><i class="ph ph-flag-banner text-3xl text-seafoam"></i><h3 class="display text-2xl text-white mt-5 mb-3">Strategy that stalls</h3><p class="text-white/65 leading-relaxed">Decks that never reach execution. Transformation that runs out of road.</p></div>
+    <div class="max-w-[1320px] mx-auto relative grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="lg:col-span-7">
+        <p class="secnum mb-3" data-reveal>01 — The problem</p>
+        <h2 class="display text-4xl md:text-6xl text-white max-w-2xl" data-reveal>IT budgets are squeezed. Vendors multiply. And no one can see where the money goes.</h2>
+        <div class="mt-12 space-y-px bg-white/10 rounded-2xl overflow-hidden border border-white/10">
+          <div class="bg-navydeep p-7 md:p-8 flex gap-5" data-reveal><i class="ph ph-eye-slash text-3xl text-seafoam shrink-0"></i><div><h3 class="display text-2xl text-white mb-1">No visibility</h3><p class="text-white/65 leading-relaxed">Shadow IT, orphaned systems, opaque spend. You can't optimize what you can't see.</p></div></div>
+          <div class="bg-navydeep p-7 md:p-8 flex gap-5" data-reveal><i class="ph ph-share-network text-3xl text-seafoam shrink-0"></i><div><h3 class="display text-2xl text-white mb-1">Vendor sprawl</h3><p class="text-white/65 leading-relaxed">Forty-seven suppliers, fragmented leverage, contracts no one enforces.</p></div></div>
+          <div class="bg-navydeep p-7 md:p-8 flex gap-5" data-reveal><i class="ph ph-flag-banner text-3xl text-seafoam shrink-0"></i><div><h3 class="display text-2xl text-white mb-1">Strategy that stalls</h3><p class="text-white/65 leading-relaxed">Decks that never reach execution. Transformation that runs out of road.</p></div></div>
+        </div>
+      </div>
+      <div class="lg:col-span-5 flex justify-center" data-reveal>
+        <img id="problemArt" src="images/illustrations/marks/problem.png" alt="A climber lost in fog amid a tangle of vendor ropes, one clear orange path to the summit" class="floaty w-[78%] sm:w-[60%] lg:w-full max-w-[420px] h-auto">
       </div>
     </div>
   </section>
@@ -140,7 +172,7 @@
     <div class="max-w-[1320px] mx-auto">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
         <div>
-          <p class="eyebrow text-seafoam mb-5" data-reveal>What we do</p>
+          <p class="secnum mb-3" data-reveal>02 — What we do</p>
           <h2 class="display text-4xl md:text-6xl text-white max-w-2xl" data-reveal>Six services. One outcome — IT spend under control.</h2>
         </div>
         <p class="text-white/55 max-w-sm" data-reveal>Each delivered as-a-service: outcome-based, not staff augmentation. We implement, not just advise.</p>
@@ -150,37 +182,43 @@
           <img src="images/illustrations/marks/services/opex.png" alt="" class="svc-mark w-20 h-20 object-contain mb-6">
           <p class="eyebrow text-orange mb-2">See · Diagnose</p>
           <h3 class="display text-2xl text-white mb-2">Operational Excellence</h3>
-          <p class="text-white/60 leading-relaxed">Find the 20% your processes waste. ≥20% efficiency gain.</p>
+          <p class="text-white/60 leading-relaxed mb-4">Find the 20% your processes waste. ≥20% efficiency gain.</p>
+          <div class="flex flex-wrap gap-1.5"><span class="chip">Effort optimization</span><span class="chip">Process automation</span><span class="chip">Landscape harmonization</span></div>
         </a>
         <a href="impact.html" class="svc rounded-2xl p-8" data-reveal>
           <img src="images/illustrations/marks/services/savings.png" alt="" class="svc-mark w-20 h-20 object-contain mb-6">
           <p class="eyebrow text-orange mb-2">Size · Quantify</p>
           <h3 class="display text-2xl text-white mb-2">Savings</h3>
-          <p class="text-white/60 leading-relaxed">AI reads your contracts. You keep the savings — 10–40%.</p>
+          <p class="text-white/60 leading-relaxed mb-4">AI reads your contracts. You keep the savings — 10–40%.</p>
+          <div class="flex flex-wrap gap-1.5"><span class="chip">AI contract analysis</span><span class="chip">Cost assessment</span><span class="chip">Sourcing evaluation</span></div>
         </a>
         <a href="impact.html" class="svc rounded-2xl p-8" data-reveal>
           <img src="images/illustrations/marks/services/consolidation.png" alt="" class="svc-mark w-20 h-20 object-contain mb-6">
           <p class="eyebrow text-orange mb-2">Simplify</p>
           <h3 class="display text-2xl text-white mb-2">Vendor Consolidation</h3>
-          <p class="text-white/60 leading-relaxed">47 vendors → 5 strategic partners. &gt;80% via top-5.</p>
+          <p class="text-white/60 leading-relaxed mb-4">47 vendors → 5 strategic partners. &gt;80% via top-5.</p>
+          <div class="flex flex-wrap gap-1.5"><span class="chip">Portfolio streamlining</span><span class="chip">Sourcing concept</span><span class="chip">Service mgmt</span></div>
         </a>
         <a href="impact.html" class="svc rounded-2xl p-8" data-reveal>
           <img src="images/illustrations/marks/services/rfx.png" alt="" class="svc-mark w-20 h-20 object-contain mb-6">
           <p class="eyebrow text-orange mb-2">Source</p>
           <h3 class="display text-2xl text-white mb-2">Complex RFx</h3>
-          <p class="text-white/60 leading-relaxed">Zero vendor deviation — complex RFPs in 6–8 weeks.</p>
+          <p class="text-white/60 leading-relaxed mb-4">Zero vendor deviation — complex RFPs in 6–8 weeks.</p>
+          <div class="flex flex-wrap gap-1.5"><span class="chip">Requirements</span><span class="chip">Managed RFx</span><span class="chip">Frame contracts</span></div>
         </a>
         <a href="impact.html" class="svc rounded-2xl p-8" data-reveal>
           <img src="images/illustrations/marks/services/vendormgmt.png" alt="" class="svc-mark w-20 h-20 object-contain mb-6">
           <p class="eyebrow text-orange mb-2">Govern</p>
           <h3 class="display text-2xl text-white mb-2">Vendor Management</h3>
-          <p class="text-white/60 leading-relaxed">We make sure vendors deliver. 10–30% spend reduction.</p>
+          <p class="text-white/60 leading-relaxed mb-4">We make sure vendors deliver. 10–30% spend reduction.</p>
+          <div class="flex flex-wrap gap-1.5"><span class="chip">Assessment</span><span class="chip">Implementation</span><span class="chip">Operation</span></div>
         </a>
         <a href="https://managedsuppliers.com" target="_blank" rel="noopener" class="svc rounded-2xl p-8 border-seafoam/30" data-reveal style="background:rgba(141,204,192,.06)">
           <img src="images/illustrations/marks/services/saas.png" alt="" class="svc-mark w-20 h-20 object-contain mb-6">
           <p class="eyebrow text-seafoam mb-2">Automate · SaaS</p>
           <h3 class="display text-2xl text-white mb-2">managedsuppliers <i class="ph ph-arrow-up-right text-base align-top"></i></h3>
-          <p class="text-white/60 leading-relaxed">Real-time, AI-driven vendor &amp; performance management.</p>
+          <p class="text-white/60 leading-relaxed mb-4">Real-time, AI-driven vendor &amp; performance management.</p>
+          <div class="flex flex-wrap gap-1.5"><span class="chip">SOW &amp; CR lifecycle</span><span class="chip">KPI dashboards</span><span class="chip">AI forecasting</span></div>
         </a>
       </div>
     </div>
@@ -188,18 +226,52 @@
 
   <!-- METHOD — pinned horizontal value chain -->
   <section id="method" class="relative bg-navydeep">
-    <div id="chainPin" class="relative h-[100svh] overflow-hidden flex flex-col justify-center">
-      <div class="px-6 md:px-12 max-w-[1320px] mx-auto w-full mb-10">
-        <p class="eyebrow text-seafoam mb-4">How we work</p>
+    <div id="chainPin" class="relative h-auto md:h-[100svh] overflow-hidden flex flex-col justify-center py-20 md:py-0">
+      <div class="px-6 md:px-12 max-w-[1320px] mx-auto w-full mb-8">
+        <p class="secnum mb-3">03 — How we work</p>
         <h2 class="display text-4xl md:text-6xl text-white">See → Size → Simplify → Source → Govern → Automate.</h2>
+        <div class="mt-6 hidden md:flex items-center gap-3"><div class="h-[3px] w-40 bg-white/10 rounded-full overflow-hidden"><div id="chainBar" class="h-full w-0 bg-seafoam"></div></div><span class="text-white/40 text-xs uppercase tracking-widest">Scroll</span></div>
       </div>
-      <div id="chainTrack" class="px-6 md:px-12 gap-5">
+      <div id="chainTrack" class="px-6 md:px-12 gap-5 overflow-x-auto md:overflow-visible snap-x" style="-webkit-overflow-scrolling:touch">
         <div class="chain-panel"><div class="h-full rounded-2xl border border-white/10 bg-white/[0.025] p-8 md:p-10"><div class="num-outline text-7xl md:text-8xl mb-6">01</div><p class="eyebrow text-seafoam mb-2">See</p><h3 class="display text-3xl text-white mb-3">Where waste lives</h3><p class="text-white/60 leading-relaxed">A nine-day read of the landscape — every contract, every clause, every system. The map before the climb.</p></div></div>
         <div class="chain-panel"><div class="h-full rounded-2xl border border-white/10 bg-white/[0.025] p-8 md:p-10"><div class="num-outline text-7xl md:text-8xl mb-6">02</div><p class="eyebrow text-seafoam mb-2">Size</p><h3 class="display text-3xl text-white mb-3">The opportunity</h3><p class="text-white/60 leading-relaxed">How much you overpay, and where. Benchmarked against €3B+ of negotiated volume.</p></div></div>
         <div class="chain-panel"><div class="h-full rounded-2xl border border-white/10 bg-white/[0.025] p-8 md:p-10"><div class="num-outline text-7xl md:text-8xl mb-6">03</div><p class="eyebrow text-seafoam mb-2">Simplify</p><h3 class="display text-3xl text-white mb-3">The landscape</h3><p class="text-white/60 leading-relaxed">Collapse the sprawl. A handful of strategic partners instead of a long tail of vendors.</p></div></div>
         <div class="chain-panel"><div class="h-full rounded-2xl border border-white/10 bg-white/[0.025] p-8 md:p-10"><div class="num-outline text-7xl md:text-8xl mb-6">04</div><p class="eyebrow text-seafoam mb-2">Source</p><h3 class="display text-3xl text-white mb-3">The right partners</h3><p class="text-white/60 leading-relaxed">Complex RFx run properly — zero vendor deviation, in weeks not quarters.</p></div></div>
         <div class="chain-panel"><div class="h-full rounded-2xl border border-white/10 bg-white/[0.025] p-8 md:p-10"><div class="num-outline text-7xl md:text-8xl mb-6">05</div><p class="eyebrow text-seafoam mb-2">Govern</p><h3 class="display text-3xl text-white mb-3">Make them deliver</h3><p class="text-white/60 leading-relaxed">A VMO and control framework that keeps the brake hand on spend, risk and renewals.</p></div></div>
         <div class="chain-panel"><div class="h-full rounded-2xl border border-seafoam/30 p-8 md:p-10" style="background:rgba(141,204,192,.06)"><div class="num-outline text-7xl md:text-8xl mb-6" style="-webkit-text-stroke-color:rgba(241,154,81,.6)">06</div><p class="eyebrow text-orange mb-2">Automate</p><h3 class="display text-3xl text-white mb-3">Lasting capability</h3><p class="text-white/60 leading-relaxed">managedsuppliers keeps it running — real-time, AI-driven, without adding headcount.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTEGRATED SERVICE + ENABLERS (ported from v1) -->
+  <section class="relative px-6 md:px-12 py-24 md:py-36 bg-navyink overflow-hidden">
+    <div class="max-w-[1320px] mx-auto">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16">
+        <div class="lg:col-span-5">
+          <p class="secnum mb-3" data-reveal>04 — End to end</p>
+          <h2 class="display text-4xl md:text-6xl text-white" data-reveal>A seamless, integrated service.</h2>
+        </div>
+        <div class="lg:col-span-7 space-y-5 text-lg text-white/70 leading-relaxed" data-reveal>
+          <p>We see ourselves as a <span class="text-white font-medium">full-service provider</span> — supporting your initiatives from the first spark through to turnkey completion.</p>
+          <p>We drive sustainable results by engaging and empowering the whole affected organization and its stakeholders across every phase. Three disciplines are embedded in every engagement:</p>
+        </div>
+      </div>
+      <div class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-12 max-w-5xl mx-auto">
+        <figure class="text-center" data-reveal>
+          <img src="images/illustrations/marks/services/ppm.png" alt="Program and project management" class="w-28 h-28 md:w-36 md:h-36 mx-auto mb-5 object-contain">
+          <figcaption class="display text-xl text-white mb-2">Program &amp; Project Management</figcaption>
+          <p class="text-sm text-white/55 leading-relaxed">Structured governance so nothing slips through the cracks.</p>
+        </figure>
+        <figure class="text-center" data-reveal>
+          <img src="images/illustrations/marks/services/changecomms.png" alt="Change and communication" class="w-28 h-28 md:w-36 md:h-36 mx-auto mb-5 object-contain">
+          <figcaption class="display text-xl text-white mb-2">Change &amp; Communication</figcaption>
+          <p class="text-sm text-white/55 leading-relaxed">Transformation fails when people resist — we keep them on board.</p>
+        </figure>
+        <figure class="text-center" data-reveal>
+          <img src="images/illustrations/marks/services/transition.png" alt="Transition management" class="w-28 h-28 md:w-36 md:h-36 mx-auto mb-5 object-contain">
+          <figcaption class="display text-xl text-white mb-2">Transition Management</figcaption>
+          <p class="text-sm text-white/55 leading-relaxed">Seamless handovers, zero service disruption.</p>
+        </figure>
       </div>
     </div>
   </section>
@@ -218,7 +290,7 @@
   <!-- PROOF / REFERENCES -->
   <section id="proof" class="relative px-6 md:px-12 py-24 md:py-36 bg-navyink">
     <div class="max-w-[1320px] mx-auto">
-      <p class="eyebrow text-seafoam mb-5" data-reveal>Impact</p>
+      <p class="secnum mb-3" data-reveal>05 — Impact</p>
       <h2 class="display text-4xl md:text-6xl text-white max-w-3xl mb-16" data-reveal>The work behind the numbers.</h2>
       <div class="grid md:grid-cols-3 gap-5">
         <a href="impact.html" class="svc rounded-2xl p-8 flex flex-col" data-reveal><div class="display text-5xl text-seafoam mb-3">1,500</div><h3 class="text-white font-semibold mb-2">Global fleet electrification</h3><p class="text-white/55 text-sm flex-1">Process standardisation &amp; change for a 1,500-vehicle transition. 22 months.</p><span class="mt-5 text-xs uppercase tracking-widest text-white/50">Pharma →</span></a>
@@ -240,24 +312,65 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="px-6 md:px-12 pt-16 pb-10 bg-navyink border-t border-white/10">
-    <div class="max-w-[1320px] mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-      <div>
-        <p class="display text-2xl text-white mb-1">Aventario</p>
-        <p class="text-white/50 text-sm">Cost &amp; Value Optimization for IT &amp; Supply Chain · Vienna</p>
+  <!-- FOOTER (rich, ported from v1) -->
+  <footer class="px-6 md:px-12 pt-20 pb-10 bg-navyink border-t border-white/10">
+    <div class="max-w-[1320px] mx-auto">
+      <div class="grid grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 mb-14">
+        <div class="col-span-2 lg:col-span-4">
+          <p class="display text-3xl text-white mb-3">Aventario</p>
+          <p class="text-white/55 text-sm leading-relaxed max-w-xs">Cost &amp; Value Optimization for IT &amp; Supply Chain. Vienna-based, working across Europe.</p>
+          <p class="text-white/45 text-sm mt-5">Tuchlauben 7a, 1010 Vienna<br><a href="mailto:office@aventario.com" class="hover:text-seafoam">office@aventario.com</a> · <a href="tel:+431343354012" class="hover:text-seafoam">+43 134 3354012</a></p>
+        </div>
+        <div class="lg:col-span-2">
+          <p class="eyebrow text-white/45 mb-4">Services</p>
+          <ul class="space-y-2.5 text-sm text-white/80">
+            <li><a href="impact.html" class="hover:text-seafoam">Operational Excellence</a></li>
+            <li><a href="impact.html" class="hover:text-seafoam">Savings</a></li>
+            <li><a href="impact.html" class="hover:text-seafoam">Vendor Consolidation</a></li>
+            <li><a href="impact.html" class="hover:text-seafoam">Complex RFx</a></li>
+            <li><a href="impact.html" class="hover:text-seafoam">Vendor Management</a></li>
+          </ul>
+        </div>
+        <div class="lg:col-span-2">
+          <p class="eyebrow text-white/45 mb-4">Company</p>
+          <ul class="space-y-2.5 text-sm text-white/80">
+            <li><a href="impact.html" class="hover:text-seafoam">Impact</a></li>
+            <li><a href="resources.html" class="hover:text-seafoam">Resources</a></li>
+            <li><a href="about.html" class="hover:text-seafoam">Team</a></li>
+            <li><a href="blog.html" class="hover:text-seafoam">Blog</a></li>
+            <li><a href="contact.html" class="hover:text-seafoam">Contact</a></li>
+          </ul>
+          <p class="eyebrow text-white/45 mt-7 mb-3">Legal</p>
+          <ul class="space-y-2.5 text-sm text-white/80">
+            <li><a href="datenschutz.html" class="hover:text-seafoam">Data Policy</a></li>
+            <li><a href="impressum.html" class="hover:text-seafoam">Imprint &amp; T&amp;C</a></li>
+          </ul>
+        </div>
+        <div class="col-span-2 lg:col-span-4 space-y-4">
+          <a href="https://managedsuppliers.com" target="_blank" rel="noopener" class="block rounded-xl p-6 border border-white/12 hover:bg-white/[0.04] transition-colors" style="background:rgba(141,204,192,.05)">
+            <div class="flex items-center gap-2.5 mb-3"><i class="ph-fill ph-triangle text-xl text-seafoam"></i><span class="eyebrow text-white/85">managedsuppliers</span></div>
+            <p class="text-sm text-white/75 leading-relaxed mb-4">The CRM for your supplier relationships — real-time analytics and automation.</p>
+            <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-5 py-2.5 rounded-full border border-white/35 text-white">Learn more <i class="ph ph-arrow-up-right text-sm"></i></span>
+          </a>
+          <div class="rounded-xl p-6 border border-white/12">
+            <p class="display text-lg text-white mb-2">Monthly newsletter</p>
+            <p class="text-sm text-white/65 leading-relaxed mb-4">Practical vendor-management insight. No fluff.</p>
+            <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed';" class="flex flex-col sm:flex-row gap-2">
+              <input type="email" required placeholder="you@company.com" class="flex-1 text-sm px-4 py-2.5 rounded-full bg-transparent border border-white/25 text-white placeholder:text-white/40">
+              <button type="submit" class="btn-primary text-xs font-semibold uppercase tracking-widest whitespace-nowrap px-5 py-2.5 rounded-full">Subscribe</button>
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-white/70">
-        <a href="index.html" class="hover:text-seafoam">Home (v1)</a>
-        <a href="impact.html" class="hover:text-seafoam">Impact</a>
-        <a href="resources.html" class="hover:text-seafoam">Resources</a>
-        <a href="about.html" class="hover:text-seafoam">Team</a>
-        <a href="contact.html" class="hover:text-seafoam">Contact</a>
+      <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs text-white/40">
+        <p>© 2026 Aventario Services GmbH · <span class="text-seafoam">v2 concept — design exploration</span></p>
+        <a href="index.html" class="hover:text-seafoam uppercase tracking-widest">View v1 →</a>
       </div>
     </div>
-    <p class="max-w-[1320px] mx-auto mt-10 pt-6 border-t border-white/10 text-xs text-white/40">© 2026 Aventario Services GmbH · Tuchlauben 7a, 1010 Vienna · <span class="text-seafoam">v2 concept — design exploration</span></p>
   </footer>
 </main>
+
+<button id="toTop" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-seafoam text-navyink flex items-center justify-center shadow-lg" aria-label="Back to top"><i class="ph ph-arrow-up text-xl"></i></button>
 
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -265,81 +378,89 @@
 <script>
 (function(){
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // ---- Lenis smooth scroll ----
   let lenis;
   if (!reduce && window.Lenis) {
-    lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 1 });
+    lenis = new Lenis({ lerp: 0.1 });
     function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
   }
   gsap.registerPlugin(ScrollTrigger);
-  if (lenis) { lenis.on('scroll', ScrollTrigger.update); }
+  if (lenis) lenis.on('scroll', ScrollTrigger.update);
 
-  // anchor links via lenis
+  // anchors
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click', e=>{
       const id=a.getAttribute('href'); if(id.length<2) return;
       const el=document.querySelector(id); if(!el) return;
-      e.preventDefault();
+      e.preventDefault(); closeMenu();
       if(lenis) lenis.scrollTo(el,{offset:-10}); else el.scrollIntoView({behavior:'smooth'});
     });
   });
 
-  // ---- Hero entrance ----
-  const heroLines = document.querySelectorAll('[data-hero] > span');
-  const heroFade = document.querySelectorAll('[data-hero-fade]');
+  // mobile menu
+  const mm=document.getElementById('mobilemenu');
+  function closeMenu(){ mm.classList.add('closed'); }
+  document.getElementById('menuBtn').addEventListener('click',()=>mm.classList.remove('closed'));
+  document.getElementById('menuClose').addEventListener('click',closeMenu);
+
+  // hero entrance
+  const heroLines=document.querySelectorAll('[data-hero] > span');
+  const heroFade=document.querySelectorAll('[data-hero-fade]');
   if(reduce){ heroLines.forEach(s=>s.style.transform='none'); }
-  else {
-    const tl = gsap.timeline({ defaults:{ ease:'power3.out' }});
-    tl.to(heroLines, { y:0, duration:1.1, stagger:0.12 }, 0.2)
-      .from(heroFade, { y:20, opacity:0, duration:0.9, stagger:0.12 }, 0.9);
-  }
+  else { gsap.timeline({defaults:{ease:'power3.out'}})
+    .to(heroLines,{y:0,duration:1.1,stagger:0.12},0.2)
+    .from(heroFade,{y:20,opacity:0,duration:0.9,stagger:0.12},0.9); }
 
-  // ---- Reveal on scroll ----
+  // reveals
   gsap.utils.toArray('[data-reveal]').forEach(el=>{
-    ScrollTrigger.create({ trigger:el, start:'top 85%', once:true,
-      onEnter:()=>el.classList.add('reveal-in') });
+    ScrollTrigger.create({trigger:el,start:'top 86%',once:true,onEnter:()=>el.classList.add('reveal-in')});
   });
-  if(reduce){ document.querySelectorAll('[data-reveal]').forEach(el=>el.classList.add('reveal-in')); }
+  if(reduce) document.querySelectorAll('[data-reveal]').forEach(el=>el.classList.add('reveal-in'));
 
-  // ---- Count-up stats ----
+  // count-up
   document.querySelectorAll('.count').forEach(el=>{
-    const to = +el.dataset.to;
-    ScrollTrigger.create({ trigger:el, start:'top 90%', once:true, onEnter:()=>{
-      const o={v:0}; gsap.to(o,{v:to,duration:1.6,ease:'power2.out',onUpdate:()=>{el.textContent=Math.round(o.v);}});
+    const to=+el.dataset.to;
+    ScrollTrigger.create({trigger:el,start:'top 90%',once:true,onEnter:()=>{
+      const o={v:0}; gsap.to(o,{v:to,duration:1.6,ease:'power2.out',onUpdate:()=>el.textContent=Math.round(o.v)});
     }});
   });
 
-  // ---- Nav hide/show + solid ----
-  const nav=document.getElementById('nav'); let lastY=0;
-  ScrollTrigger.create({ start:0, end:'max', onUpdate:(self)=>{
+  // progress bar + nav + toTop
+  const nav=document.getElementById('nav'); const bar=document.getElementById('progress'); const toTop=document.getElementById('toTop'); let lastY=0;
+  ScrollTrigger.create({start:0,end:'max',onUpdate:(self)=>{
     const y=self.scroll();
-    nav.classList.toggle('solid', y>40);
-    if(y>lastY && y>400) nav.classList.add('hidden-nav'); else nav.classList.remove('hidden-nav');
+    bar.style.width=(self.progress*100)+'%';
+    nav.classList.toggle('solid',y>40);
+    if(y>lastY && y>500) nav.classList.add('hidden-nav'); else nav.classList.remove('hidden-nav');
+    toTop.classList.toggle('show',y>900);
     lastY=y;
   }});
+  toTop.addEventListener('click',()=> lenis?lenis.scrollTo(0):window.scrollTo({top:0,behavior:'smooth'}));
 
-  // ---- Pinned horizontal value chain ----
+  // pinned value chain (desktop only) + progress
   if(!reduce && window.innerWidth>=768){
     const track=document.getElementById('chainTrack');
     const pin=document.getElementById('chainPin');
+    const chainBar=document.getElementById('chainBar');
     const dist=()=> track.scrollWidth - window.innerWidth + 96;
-    gsap.to(track,{ x:()=> -dist(), ease:'none',
-      scrollTrigger:{ trigger:pin, start:'top top', end:()=> '+='+dist(), pin:true, scrub:1, invalidateOnRefresh:true }});
+    gsap.to(track,{x:()=> -dist(),ease:'none',
+      scrollTrigger:{trigger:pin,start:'top top',end:()=> '+='+dist(),pin:true,scrub:1,invalidateOnRefresh:true,
+        onUpdate:s=>{ if(chainBar) chainBar.style.width=(s.progress*100)+'%'; }}});
   }
 
-  // ---- Parallax band ----
-  gsap.to('#bandImg',{ yPercent:12, ease:'none', scrollTrigger:{ trigger:'#bandImg', start:'top bottom', end:'bottom top', scrub:true }});
+  // parallax band
+  gsap.to('#bandImg',{yPercent:12,ease:'none',scrollTrigger:{trigger:'#bandImg',start:'top bottom',end:'bottom top',scrub:true}});
+  // problem art subtle parallax
+  gsap.to('#problemArt',{yPercent:-8,ease:'none',scrollTrigger:{trigger:'#problemArt',start:'top bottom',end:'bottom top',scrub:true}});
 
-  // ---- Magnetic buttons ----
+  // magnetic
   if(!reduce && window.matchMedia('(pointer:fine)').matches){
     document.querySelectorAll('[data-magnetic]').forEach(btn=>{
-      btn.addEventListener('mousemove',e=>{ const r=btn.getBoundingClientRect();
+      btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();
         gsap.to(btn,{x:(e.clientX-r.left-r.width/2)*0.3,y:(e.clientY-r.top-r.height/2)*0.4,duration:0.4,ease:'power3.out'});});
-      btn.addEventListener('mouseleave',()=> gsap.to(btn,{x:0,y:0,duration:0.5,ease:'elastic.out(1,0.4)'}));
+      btn.addEventListener('mouseleave',()=>gsap.to(btn,{x:0,y:0,duration:0.5,ease:'elastic.out(1,0.4)'}));
     });
   }
-
   window.addEventListener('load',()=>ScrollTrigger.refresh());
 })();
 </script>
