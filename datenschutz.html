@@ -14,6 +14,10 @@
         tailwind.config = { theme: { extend: { colors: { base: '#FAFAF7', surface: '#FFFFFF', text: '#334b60', muted: '#5f768b', accent: '#88C9BE', accentdark: '#5FA99D', bordercolor: 'rgba(51, 75, 96, 0.12)' }, fontFamily: { serif: ['"Lato"', '-apple-system', 'sans-serif'], sans: ['"Lato"', '-apple-system', 'sans-serif'] } } } }
     </script>
     <style>
+        /* Keyboard focus visibility (a11y) */
+        :focus-visible { outline: 2px solid #5FA99D; outline-offset: 2px; border-radius: 3px; }
+        :focus:not(:focus-visible) { outline: none; }
+
         body { background-color: #FAFAF7; color: #334b60; font-family: 'Lato', -apple-system, sans-serif; font-weight: 400; -webkit-font-smoothing: antialiased; }
         h1, h2, h3, h4, .font-serif { font-family: 'Lato', -apple-system, sans-serif; font-weight: 900; letter-spacing: -0.015em; line-height: 1.05; }
         .prose p { margin-bottom: 1em; line-height: 1.7; }

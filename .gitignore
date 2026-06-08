@@ -6,3 +6,10 @@ node_modules/
 package-lock.json
 index.previous-pre-v03.html
 index.v03-draft.html
+
+# Moved into website/ during 2026-05-22 cleanup — kept locally, not deployed
+_staging/
+_config/
+.claude/
+.vercel/
+CLAUDE.md
