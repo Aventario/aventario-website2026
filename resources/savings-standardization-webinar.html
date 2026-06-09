@@ -19,40 +19,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { theme: { extend: { colors: { base: '#FAFAF7', surface: '#FFFFFF', text: '#334b60', muted: '#5f768b', accent: '#88C9BE', accentdark: '#5FA99D', orange: '#f19a51', pink: '#d15298', yellow: '#E9C547', bordercolor: 'rgba(51, 75, 96, 0.12)' }, fontFamily: { serif: ['"Lato"', '-apple-system', 'sans-serif'], sans: ['"Lato"', '-apple-system', 'sans-serif'] } } } }
+        tailwind.config = { theme: { extend: { colors: { base: '#FAFAF7', surface: '#FFFFFF', text: '#334b60', muted: '#5f768b', accent: '#88C9BE', accentdark: '#5FA99D', orange: '#f19a51', bordercolor: 'rgba(51, 75, 96, 0.12)' }, fontFamily: { serif: ['"Lato"', '-apple-system', 'sans-serif'], sans: ['"Lato"', '-apple-system', 'sans-serif'] } } } }
     </script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         body { background-color: #FAFAF7; color: #334b60; font-family: 'Lato', -apple-system, sans-serif; font-weight: 400; -webkit-font-smoothing: antialiased; }
         h1, h2, h3, h4, h5, .font-serif { font-family: 'Lato', -apple-system, sans-serif; font-weight: 900; letter-spacing: -0.015em; line-height: 1.05; }
+        *:focus-visible { outline: 2px solid #5FA99D; outline-offset: 2px; }
 
-        /* Decorative accent shapes (matching the LinkedIn-post visual language) */
-        .corner-yellow { position: absolute; right: 0; bottom: 0; width: 120px; height: 120px; background: #E9C547; transform: rotate(-8deg) translate(30%, 30%); z-index: 0; }
-        .corner-seafoam { position: absolute; right: 0; bottom: 0; width: 120px; height: 120px; background: #88C9BE; transform: rotate(-8deg) translate(30%, 30%); z-index: 0; }
-        .corner-pink { position: absolute; right: 0; bottom: 0; width: 120px; height: 120px; background: #d15298; transform: rotate(-8deg) translate(30%, 30%); z-index: 0; }
-        .dot-grid { position: absolute; top: 1.5rem; right: 2rem; width: 70px; height: 70px; background-image: radial-gradient(#5FA99D 1.5px, transparent 1.5px); background-size: 12px 12px; opacity: 0.65; z-index: 0; }
-        .kicker-line { display: inline-block; width: 28px; height: 2.5px; background: #5FA99D; vertical-align: middle; margin-right: 10px; }
+        /* Decorative campaign elements retired — these render invisibly to match the main site */
+        .corner-yellow, .corner-seafoam, .corner-pink, .dot-grid, .kicker-line { display: none; }
 
-        /* Hero CTA — primary navy fill with bold magenta highlight */
-        .cta-primary { background: #d15298; color: #FFFFFF; padding: 1rem 2.25rem; border-radius: 999px; font-weight: 900; letter-spacing: 0.06em; font-size: 0.9rem; text-transform: uppercase; transition: background 0.2s ease, transform 0.2s ease; display: inline-flex; align-items: center; gap: 0.5rem; }
-        .cta-primary:hover { background: #b9407f; transform: translateY(-1px); }
-        .cta-secondary { background: #334b60; color: #FFFFFF; padding: 1rem 2.25rem; border-radius: 999px; font-weight: 900; letter-spacing: 0.06em; font-size: 0.9rem; text-transform: uppercase; transition: background 0.2s ease; display: inline-flex; align-items: center; gap: 0.5rem; }
-        .cta-secondary:hover { background: #5FA99D; }
+        /* Site-style primary button (navy fill) */
+        .cta-primary { background: #334b60; color: #FFFFFF; padding: 1rem 2.25rem; border-radius: 999px; font-weight: 700; letter-spacing: 0.12em; font-size: 0.875rem; text-transform: uppercase; transition: background 0.2s ease; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .cta-primary:hover { background: #5FA99D; }
 
         .stat-block { padding: 1.25rem 0; border-top: 2px solid #88C9BE; }
-        .stat-block.alt-pink { border-top-color: #d15298; }
-        .stat-block.alt-orange { border-top-color: #f19a51; }
-        .stat-block.alt-yellow { border-top-color: #E9C547; }
-        .stat-block.alt-navy { border-top-color: #334b60; }
 
         .agenda-row { border-bottom: 1px solid rgba(51,75,96,0.10); padding: 1.1rem 0; }
         .agenda-row:last-child { border-bottom: 0; }
 
-        .date-card { position: relative; background: #334b60; color: #FAFAF7; padding: 2rem 1.75rem; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.10), 0 20px 50px rgba(0,0,0,0.20); overflow: hidden; }
-        .date-card::after { content: ""; position: absolute; right: -25px; bottom: -25px; width: 110px; height: 110px; background: #E9C547; transform: rotate(-8deg); z-index: 0; }
-        .date-card > * { position: relative; z-index: 1; }
-
-        *:focus-visible { outline: 2px solid #88C9BE; outline-offset: 2px; }
+        .date-card { background: #334b60; color: #FAFAF7; padding: 2rem 1.75rem; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.10), 0 20px 50px rgba(0,0,0,0.20); }
     </style>
     <script type="application/ld+json">
 {
@@ -221,7 +208,7 @@
             </div>
             <div class="md:col-span-8">
                 <div class="agenda-row grid grid-cols-12 gap-4">
-                    <div class="col-span-2 font-serif text-3xl" style="color: #d15298;">01</div>
+                    <div class="col-span-2 font-serif text-3xl" style="color: #334b60;">01</div>
                     <div class="col-span-10">
                         <h3 class="font-serif text-2xl mb-2">Where the cost sits</h3>
                         <p class="text-base text-text leading-relaxed">The three concrete ways decentralized buying leaks margin. Overhead duplication. Asymmetric pricing. No global negotiating power. Why none of it shows up cleanly on the P&amp;L.</p>
@@ -235,7 +222,7 @@
                     </div>
                 </div>
                 <div class="agenda-row grid grid-cols-12 gap-4">
-                    <div class="col-span-2 font-serif text-3xl" style="color: #E9C547;">03</div>
+                    <div class="col-span-2 font-serif text-3xl" style="color: #5FA99D;">03</div>
                     <div class="col-span-10">
                         <h3 class="font-serif text-2xl mb-2">Two ways to run a standardization project</h3>
                         <p class="text-base text-text leading-relaxed">Data-heavy versus trust-based. Six months to two years versus six to twelve. When to pick which, and why one ends in board-defensible savings while the other ends in faster cash.</p>
@@ -262,7 +249,7 @@
             </div>
             <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                    <i class="ph ph-buildings text-pink text-3xl mb-3"></i>
+                    <i class="ph ph-buildings text-accentdark text-3xl mb-3"></i>
                     <h3 class="font-serif text-xl mb-2">CIOs at multi-site companies</h3>
                     <p class="text-base text-text leading-relaxed">Standardizing equipment, services and software across regions, while keeping local autonomy.</p>
                 </div>
@@ -272,7 +259,7 @@
                     <p class="text-base text-text leading-relaxed">Recovering the post-signature value gap that local negotiation cannot reach.</p>
                 </div>
                 <div>
-                    <i class="ph ph-currency-eur text-yellow text-3xl mb-3"></i>
+                    <i class="ph ph-currency-eur text-orange text-3xl mb-3"></i>
                     <h3 class="font-serif text-xl mb-2">CFOs sponsoring the cost programme</h3>
                     <p class="text-base text-text leading-relaxed">Defending the 12-month spend reduction case to the board with anchored, real-world numbers.</p>
                 </div>
