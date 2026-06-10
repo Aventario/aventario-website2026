@@ -195,18 +195,47 @@
                     <div class="bg-surface border border-bordercolor rounded-md p-4 md:p-5">
                         <p class="font-serif text-base md:text-lg mb-3">Get the whitepaper.</p>
 
-                        <!-- HubSpot form (portal 25802339, formId c158b069-fc55-4d24-bcfb-20060d53a56e, region eu1).
-                             The form renders into #hubspot-form-target. HubSpot handles
-                             validation, lead capture, and the post-submit file delivery. -->
-                        <div id="hubspot-form-target"></div>
-                        <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
+                        <!-- Whitepaper gate -> /api/lead (Supabase). On success the PDF download starts. -->
+                        <form id="wpForm" class="space-y-2.5">
+                            <label class="sr-only" for="wp-name">Name</label>
+                            <input id="wp-name" name="name" type="text" required placeholder="Name" autocomplete="name" class="w-full text-sm px-3.5 py-2.5 rounded-md bg-base border border-bordercolor focus:border-accentdark outline-none transition-colors">
+                            <label class="sr-only" for="wp-email">Work email</label>
+                            <input id="wp-email" name="email" type="email" required placeholder="Work email" autocomplete="email" class="w-full text-sm px-3.5 py-2.5 rounded-md bg-base border border-bordercolor focus:border-accentdark outline-none transition-colors">
+                            <label class="sr-only" for="wp-company">Company</label>
+                            <input id="wp-company" name="company" type="text" placeholder="Company" autocomplete="organization" class="w-full text-sm px-3.5 py-2.5 rounded-md bg-base border border-bordercolor focus:border-accentdark outline-none transition-colors">
+                            <label class="flex items-start gap-2 text-[11px] text-muted leading-snug">
+                                <input type="checkbox" name="consent" required class="mt-0.5 shrink-0">
+                                <span>I agree to receive the whitepaper and occasional updates. Unsubscribe any time.</span>
+                            </label>
+                            <button type="submit" class="w-full text-xs font-bold uppercase tracking-widest bg-text text-surface px-5 py-3 rounded-full hover:bg-accentdark transition-colors disabled:opacity-60">Download the PDF</button>
+                            <p id="wp-status" class="text-[12px] hidden" role="status" aria-live="polite"></p>
+                        </form>
                         <script>
-                          hbspt.forms.create({
-                            portalId: "25802339",
-                            formId: "c158b069-fc55-4d24-bcfb-20060d53a56e",
-                            region: "eu1",
-                            target: "#hubspot-form-target"
-                          });
+                          (function () {
+                            var form = document.getElementById('wpForm'); if (!form) return;
+                            var status = document.getElementById('wp-status');
+                            var btn = form.querySelector('button[type=submit]');
+                            var PDF = '/Vendor_Management_Paper.pdf';
+                            function show(msg, ok) { status.textContent = msg; status.classList.remove('hidden'); status.style.color = ok ? '#5FA99D' : '#b4456f'; }
+                            form.addEventListener('submit', async function (e) {
+                              e.preventDefault();
+                              if (!form.checkValidity()) { form.reportValidity(); return; }
+                              var fd = new FormData(form);
+                              var data = { type: 'whitepaper', name: (fd.get('name') || '').toString().trim(), email: (fd.get('email') || '').toString().trim(), company: (fd.get('company') || '').toString().trim(), consent: !!fd.get('consent'), source: 'operative-vendor-management' };
+                              var orig = btn.textContent; btn.disabled = true; btn.textContent = 'Preparing…';
+                              try {
+                                var r = await fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+                                var j = await r.json().catch(function () { return {}; });
+                                if (!r.ok) throw new Error('status ' + r.status);
+                                show('Thanks — your download is starting.', true);
+                                window.location.href = j.download || PDF;
+                                form.reset();
+                              } catch (err) {
+                                show('Starting your download…', true);
+                                window.location.href = PDF;
+                              } finally { btn.disabled = false; btn.textContent = orig; }
+                            });
+                          })();
                         </script>
 
                         <p class="text-[11px] text-muted mt-3 leading-snug">By submitting, you agree to receive the whitepaper and occasional updates. Unsubscribe any time. <a href="../datenschutz.html" class="text-accentdark hover:underline">Privacy</a>.</p>

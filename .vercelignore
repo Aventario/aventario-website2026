@@ -11,3 +11,5 @@ _build_batch3.py
 _build_batch4.py
 _build_faqs.py
 _build_pillars.py
+*.sql
+supabase

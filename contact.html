@@ -206,29 +206,78 @@
                 <div>
                     <h2 class="font-serif text-2xl md:text-3xl mb-6">Send us a message.</h2>
                     <div class="bg-surface border border-bordercolor rounded-md p-6 md:p-8">
-                        <div id="hubspot-contact-form"></div>
+                        <form id="contactForm" class="space-y-4" novalidate>
+                            <div>
+                                <label for="cf-name" class="block text-sm font-bold mb-1.5">Name</label>
+                                <input id="cf-name" name="name" type="text" autocomplete="name" required class="w-full text-sm px-4 py-3 rounded-md bg-base border border-bordercolor focus:border-accentdark outline-none transition-colors">
+                            </div>
+                            <div>
+                                <label for="cf-email" class="block text-sm font-bold mb-1.5">Work email</label>
+                                <input id="cf-email" name="email" type="email" autocomplete="email" required class="w-full text-sm px-4 py-3 rounded-md bg-base border border-bordercolor focus:border-accentdark outline-none transition-colors">
+                            </div>
+                            <div>
+                                <label for="cf-company" class="block text-sm font-bold mb-1.5">Company</label>
+                                <input id="cf-company" name="company" type="text" autocomplete="organization" class="w-full text-sm px-4 py-3 rounded-md bg-base border border-bordercolor focus:border-accentdark outline-none transition-colors">
+                            </div>
+                            <div>
+                                <label for="cf-message" class="block text-sm font-bold mb-1.5">How can we help?</label>
+                                <textarea id="cf-message" name="message" rows="4" required class="w-full text-sm px-4 py-3 rounded-md bg-base border border-bordercolor focus:border-accentdark outline-none transition-colors resize-y"></textarea>
+                            </div>
+                            <label class="flex items-start gap-2.5 text-[13px] text-muted leading-snug">
+                                <input type="checkbox" name="consent" required class="mt-0.5 shrink-0">
+                                <span>I agree that Aventario may store and process my data to respond to my enquiry. See our <a href="datenschutz.html" class="text-accentdark hover:underline">privacy notice</a>.</span>
+                            </label>
+                            <button type="submit" class="w-full inline-flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-widest bg-text text-surface px-6 py-3.5 rounded-full hover:bg-accentdark transition-colors disabled:opacity-60">Send message</button>
+                            <p id="cf-status" class="text-sm hidden" role="status" aria-live="polite"></p>
+                        </form>
                     </div>
                 </div>
                 <div id="book" class="scroll-mt-24">
                     <h2 class="font-serif text-2xl md:text-3xl mb-6">Or book a call directly.</h2>
                     <div class="bg-surface border border-bordercolor rounded-md overflow-hidden" style="min-height:720px;">
-                        <iframe src="https://meetings-eu1.hubspot.com/jrobida/aventario-meeting-schedule-link?embed=true" title="Schedule a meeting with Aventario" width="100%" height="720" style="border:0; display:block;" loading="lazy"></iframe>
+                        <!-- Cal.com booking embed. Replace the src with your real Cal.com event link
+                             once your account is set up (e.g. https://cal.com/aventario/intro — or on
+                             EU hosting, https://cal.eu/aventario/intro). See SUPABASE-SETUP.md, step 3. -->
+                        <iframe src="https://cal.com/aventario/intro" title="Book a call with Aventario" width="100%" height="720" style="border:0; display:block;" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
     <script>
-        if (window.hbspt) {
-            hbspt.forms.create({
-                portalId: "25802339",
-                formId: "4bea1481-9a1d-4dcf-92b4-321273a649fd",
-                region: "eu1",
-                target: "#hubspot-contact-form"
+        // Contact form -> /api/lead (Supabase). Falls back to mailto if the API is unreachable.
+        (function () {
+            var form = document.getElementById('contactForm');
+            if (!form) return;
+            var status = document.getElementById('cf-status');
+            var btn = form.querySelector('button[type=submit]');
+            function show(msg, ok) { status.textContent = msg; status.classList.remove('hidden'); status.style.color = ok ? '#5FA99D' : '#b4456f'; }
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                if (!form.checkValidity()) { form.reportValidity(); return; }
+                var fd = new FormData(form);
+                var data = {
+                    type: 'contact',
+                    name: (fd.get('name') || '').toString().trim(),
+                    email: (fd.get('email') || '').toString().trim(),
+                    company: (fd.get('company') || '').toString().trim(),
+                    message: (fd.get('message') || '').toString().trim(),
+                    consent: !!fd.get('consent'),
+                    source: 'contact.html'
+                };
+                var orig = btn.textContent; btn.disabled = true; btn.textContent = 'Sending…';
+                try {
+                    var r = await fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+                    if (!r.ok) throw new Error('status ' + r.status);
+                    form.reset(); show('Thanks — we will reply within one working day.', true);
+                } catch (err) {
+                    var mb = encodeURIComponent((data.message || '') + '\n\n— ' + data.name + (data.company ? ', ' + data.company : '') + '\n' + data.email);
+                    show('Opening your email app so your message is not lost…', true);
+                    window.location.href = 'mailto:office@aventario.com?subject=' + encodeURIComponent('Website enquiry') + '&body=' + mb;
+                } finally { btn.disabled = false; btn.textContent = orig; }
             });
-        }
+        })();
     </script>
 
     <footer class="px-6 md:px-12 pt-16 pb-8" style="background-color: #334b60; color: #FAFAF7;">
