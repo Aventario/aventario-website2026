@@ -33,3 +33,27 @@ create policy "Public can submit a lead"
   for insert
   to anon
   with check (true);
+
+-- Webinar registrations (webinar.html). Same insert-only RLS pattern.
+create table if not exists public.webinar_registrations (
+  id          uuid primary key default gen_random_uuid(),
+  created_at  timestamptz not null default now(),
+  name        text,
+  email       text not null,
+  company     text,
+  consent     boolean not null default false,
+  webinar     text,
+  source      text
+);
+alter table public.webinar_registrations enable row level security;
+grant insert on public.webinar_registrations to anon;
+drop policy if exists "Public can register for a webinar" on public.webinar_registrations;
+create policy "Public can register for a webinar"
+  on public.webinar_registrations
+  for insert
+  to anon
+  with check (true);
+
+-- IMPORTANT: the browser sends the publishable key as the `apikey` header ONLY.
+-- Do NOT also send `Authorization: Bearer <publishable key>`. The new sb_publishable_
+-- keys are not JWTs; sending one as a Bearer token breaks role resolution and trips RLS.
