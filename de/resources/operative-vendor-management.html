@@ -236,6 +236,7 @@
                               try {
                                 var r = await fetch(SB_URL + '/rest/v1/leads', { method: 'POST', headers: { 'Content-Type': 'application/json', apikey: SB_KEY, Prefer: 'return=minimal' }, body: JSON.stringify(data) });
                                 if (!r.ok) throw new Error('status ' + r.status);
+                                if (window.gtag) gtag('event','generate_lead',{form_location:location.pathname});
                                 show('Danke, Ihr Download startet.', true);
                                 window.location.href = PDF;
                                 form.reset();

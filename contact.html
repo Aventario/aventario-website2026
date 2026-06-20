@@ -272,6 +272,7 @@
                 try {
                     var r = await fetch(SB_URL + '/rest/v1/leads', { method: 'POST', headers: { 'Content-Type': 'application/json', apikey: SB_KEY, Prefer: 'return=minimal' }, body: JSON.stringify(data) });
                     if (!r.ok) throw new Error('status ' + r.status);
+                    if (window.gtag) gtag('event','generate_lead',{form_location:location.pathname});
                     form.reset(); show('Thanks — we will reply within one working day.', true);
                 } catch (err) {
                     var mb = encodeURIComponent((data.message || '') + '\n\n— ' + data.name + (data.company ? ', ' + data.company : '') + '\n' + data.email);
