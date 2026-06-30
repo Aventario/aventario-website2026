@@ -285,13 +285,24 @@
         <section id="services" class="py-24 md:py-28 px-6 md:px-12 max-w-[1400px] mx-auto">
             <div class="border-t border-bordercolor pt-16">
 
-                <h2 class="font-serif text-5xl md:text-6xl mb-5">Aventario Services</h2>
-                <p class="text-lg md:text-xl leading-relaxed text-muted max-w-3xl mb-12">Our areas of expertise to optimize your IT and supply chain sustainably.</p>
+                <!-- Portfolio header + Consulting / Aventario AI toggle -->
+                <div class="flex flex-col lg:flex-row lg:justify-between gap-8 mb-12">
+                    <div>
+                        <h2 id="svcHeading" class="font-serif text-5xl md:text-6xl mb-5">Aventario Services</h2>
+                        <p id="svcIntro" class="text-lg md:text-xl leading-relaxed text-muted max-w-3xl">Our areas of expertise to optimize your IT and supply chain sustainably.</p>
+                    </div>
+                    <div id="svcToggle" role="tablist" aria-label="Portfolio view" class="inline-flex shrink-0 rounded-full" style="background-color: rgba(51,75,96,0.06); padding: 4px; align-self: flex-start;">
+                        <button type="button" role="tab" aria-selected="true" data-view="consulting" class="svc-tab text-sm font-bold uppercase tracking-widest px-5 py-2.5 rounded-full transition-colors" style="background-color: #334b60; color: #FAFAF7;">Consulting</button>
+                        <button type="button" role="tab" aria-selected="false" data-view="ai" class="svc-tab text-sm font-bold uppercase tracking-widest px-5 py-2.5 rounded-full transition-colors flex items-center gap-2" style="background-color: transparent; color: #334b60;"><i class="ph ph-sparkle"></i>Aventario AI</button>
+                    </div>
+                </div>
+
+                <div id="view-consulting">
 
                 <!-- ============================================================ -->
                 <!-- AS A SERVICE MATRIX — column-orientation per mgmt slide      -->
-                <!-- Top row: 5 area headers (dark) + managedsuppliers (seafoam)  -->
-                <!-- Middle: 5 cols × 3 rows of solutions (managedsuppliers spans)-->
+                <!-- Top row: 5 area headers (dark) + Aventario AI (orange, toggles AI view) -->
+                <!-- Middle: 5 cols × 3 rows of solutions (Aventario AI column spans)   -->
                 <!-- Bottom: Cross-Functional row (5 cols of enablers)            -->
                 <!-- ============================================================ -->
 
@@ -361,15 +372,15 @@
                             </div>
                         </div>
 
-                        <!-- managedsuppliers vertical right column (spans header + 3 solution rows) -->
-                        <a href="https://managedsuppliers.com" target="_blank" rel="noopener" class="w-24 shrink-0 flex flex-col rounded-md p-4 hover:opacity-95 transition-opacity" style="background-color: #88C9BE; color: #1C2A36;">
+                        <!-- Aventario AI vertical right column — switches the section to the AI portfolio -->
+                        <button type="button" onclick="setSvcView('ai')" aria-label="View the Aventario AI portfolio" class="w-24 shrink-0 flex flex-col rounded-md p-4 cursor-pointer hover:opacity-95 transition-opacity" style="background-color: #f19a51; color: #3a2410;">
                             <div class="flex-1 flex items-center justify-center">
-                                <h3 class="font-serif text-2xl leading-tight" style="writing-mode: vertical-rl; transform: rotate(180deg);">managedsuppliers <i class="ph ph-arrow-up-right text-base"></i></h3>
+                                <h3 class="font-serif text-2xl leading-tight" style="writing-mode: vertical-rl; transform: rotate(180deg);">Aventario AI <i class="ph ph-sparkle text-base"></i></h3>
                             </div>
-                            <p class="text-[10px] uppercase tracking-widest font-bold text-center mt-2">SaaS<br>platform</p>
+                            <p class="text-[10px] uppercase tracking-widest font-bold text-center mt-2">AI<br>portfolio</p>
                             <!-- spacer mirroring the cross-functional row so the side column ends above it -->
                             <div class="h-20"></div>
-                        </a>
+                        </button>
                     </div>
                 </div>
 
@@ -381,7 +392,7 @@
                         <div class="rounded-md p-4 text-center" style="background-color: #334b60; color: #FAFAF7;"><h3 class="font-serif text-lg">Service &amp; Vendor Consolidation</h3><p class="text-xs mt-3" style="color: #c8d4dd;">Service Portfolio Streamlining &middot; Shoring / Sourcing Concept Implementation &middot; Service Management Optimization</p></div>
                         <div class="rounded-md p-4 text-center" style="background-color: #334b60; color: #FAFAF7;"><h3 class="font-serif text-lg">Complex RFX</h3><p class="text-xs mt-3" style="color: #c8d4dd;">Requirements Engineering &middot; Managed RFX &middot; Frame Contract Implementation</p></div>
                         <div class="rounded-md p-4 text-center" style="background-color: #334b60; color: #FAFAF7;"><h3 class="font-serif text-lg">Vendor Management</h3><p class="text-xs mt-3" style="color: #c8d4dd;">Vendor Management Assessment &middot; Implementation &middot; Operation</p></div>
-                        <a href="https://managedsuppliers.com" target="_blank" rel="noopener" class="block rounded-md p-4 text-center" style="background-color: #88C9BE; color: #1C2A36;"><h3 class="font-serif text-lg flex items-center justify-center gap-2">managedsuppliers <i class="ph ph-arrow-up-right"></i></h3><p class="text-xs uppercase tracking-widest font-bold mt-2">SaaS platform</p></a>
+                        <button type="button" onclick="setSvcView('ai')" class="w-full block rounded-md p-4 text-center" style="background-color: #f19a51; color: #3a2410;"><h3 class="font-serif text-lg flex items-center justify-center gap-2">Aventario AI <i class="ph ph-sparkle"></i></h3><p class="text-xs uppercase tracking-widest font-bold mt-2">AI portfolio</p></button>
                     </div>
                     <p class="text-xs uppercase tracking-widest font-bold text-text mt-6 mb-2" style="color: #8a5214;">Cross-Functional Services</p>
                     <div class="grid grid-cols-1 gap-2">
@@ -391,8 +402,102 @@
                     </div>
                 </div>
 
+                </div><!-- /view-consulting -->
+
+                <!-- ===== Aventario AI portfolio view (toggled from the Consulting matrix) ===== -->
+                <div id="view-ai" hidden>
+
+                    <!-- Delivery model: three layers -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
+                        <div class="rounded-md p-4 flex items-center justify-center text-center" style="background-color: rgba(241,154,81,0.10); border: 1px solid rgba(180,83,9,0.35); min-height: 76px;"><p class="text-sm font-bold text-text leading-tight">Experienced consultants managing the engagement</p></div>
+                        <div class="rounded-md p-4 flex items-center justify-center text-center" style="background-color: rgba(241,154,81,0.10); border: 1px solid rgba(180,83,9,0.35); min-height: 76px;"><p class="text-sm font-bold text-text leading-tight">Subject matter experts performing the analysis and evaluation</p></div>
+                        <div class="rounded-md p-4 flex items-center justify-center text-center" style="background-color: rgba(241,154,81,0.10); border: 1px solid rgba(180,83,9,0.35); min-height: 76px;"><p class="text-sm font-bold text-text leading-tight">Enabled by advanced AI technology</p></div>
+                    </div>
+
+                    <!-- AI Products -->
+                    <h3 class="font-serif text-2xl text-text mb-4">Aventario AI Products</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
+                        <div class="rounded-md overflow-hidden border border-bordercolor flex flex-col">
+                            <div class="p-4 text-center" style="background-color: #f19a51; color: #3a2410;"><h3 class="font-serif text-lg leading-tight">AI Contract Analyzer</h3></div>
+                            <p class="p-4 text-sm text-muted leading-relaxed flex-1 bg-surface">AI-based agent for mass contract analysis that identifies improvement potential in existing contracts. Relevant for M&amp;A, audits, vendor consolidations, and cost-saving initiatives.</p>
+                        </div>
+                        <div class="rounded-md overflow-hidden border border-bordercolor flex flex-col">
+                            <div class="p-4 text-center" style="background-color: #f19a51; color: #3a2410;"><h3 class="font-serif text-lg leading-tight">AI Tender Manager</h3></div>
+                            <p class="p-4 text-sm text-muted leading-relaxed flex-1 bg-surface">AI-based review, evaluation, and rating of incoming supplier offers, with identification of the required improvements and next steps with suppliers.</p>
+                        </div>
+                        <div class="rounded-md overflow-hidden border border-bordercolor flex flex-col">
+                            <div class="p-4 text-center" style="background-color: #f19a51; color: #3a2410;"><h3 class="font-serif text-lg leading-tight">AI Contract2Invoice Inspector</h3></div>
+                            <p class="p-4 text-sm text-muted leading-relaxed flex-1 bg-surface">AI-based agent that checks incoming invoices against the price units and contract terms held in the underlying contracts.</p>
+                        </div>
+                    </div>
+
+                    <!-- AI Consulting Service -->
+                    <h3 class="font-serif text-2xl text-text mb-4">AI Consulting Service</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
+                        <div class="bg-surface rounded-md p-4 flex flex-col border border-bordercolor" style="border-top: 3px solid #f19a51;">
+                            <h3 class="font-bold text-sm text-text mb-2 leading-tight">AI Awareness and Enablement</h3>
+                            <p class="text-xs text-muted leading-relaxed">Creative workshops for AI use-case identification and qualification with IT and business.</p>
+                        </div>
+                        <div class="bg-surface rounded-md p-4 flex flex-col border border-bordercolor" style="border-top: 3px solid #f19a51;">
+                            <h3 class="font-bold text-sm text-text mb-2 leading-tight">AI Empowerment</h3>
+                            <p class="text-xs text-muted leading-relaxed">Workshops and trainings for AI usage in specific work situations, for example prompting techniques for internal auditors.</p>
+                        </div>
+                        <div class="bg-surface rounded-md p-4 flex flex-col border border-bordercolor" style="border-top: 3px solid #f19a51;">
+                            <h3 class="font-bold text-sm text-text mb-2 leading-tight">AI Process Efficiency Elevation</h3>
+                            <p class="text-xs text-muted leading-relaxed">Evaluation of complex processes to find efficiency gains through AI agents and automation, plus the definition of the related concepts.</p>
+                        </div>
+                        <div class="bg-surface rounded-md p-4 flex flex-col border border-bordercolor" style="border-top: 3px solid #f19a51;">
+                            <h3 class="font-bold text-sm text-text mb-2 leading-tight">AI Team Efficiency Elevation</h3>
+                            <p class="text-xs text-muted leading-relaxed">Structured evaluation of all core tasks across an organization to identify every AI potential.</p>
+                        </div>
+                        <div class="bg-surface rounded-md p-4 flex flex-col border border-bordercolor" style="border-top: 3px solid #f19a51;">
+                            <h3 class="font-bold text-sm text-text mb-2 leading-tight">AI Proof of Concepts</h3>
+                            <p class="text-xs text-muted leading-relaxed">Implementation of PoCs to evaluate impact and to enable qualified decision-making.</p>
+                        </div>
+                    </div>
+
+                    <!-- Vendor and Contract Managed Services -->
+                    <div class="rounded-md p-6" style="background-color: rgba(241,154,81,0.10); border: 2px solid #B45309;">
+                        <h3 class="font-serif text-xl text-text mb-1">Vendor and Contract Managed Services</h3>
+                        <p class="text-sm text-muted leading-relaxed">Manage, improve, and renegotiate selected contract bundles with subject-matter experts and Aventario product solutions, to run contracts in a highly efficient way.</p>
+                    </div>
+
+                </div>
+
             </div>
         </section>
+
+        <!-- Portfolio toggle: Consulting <-> Aventario AI -->
+        <script>
+          (function(){
+            var HEAD = {
+              consulting: { h: 'Aventario Services', p: 'Our areas of expertise to optimize your IT and supply chain sustainably.' },
+              ai:         { h: 'Aventario AI', p: 'Cost and value optimization in IT and supply chain through technological advantage.' }
+            };
+            var views = { consulting: document.getElementById('view-consulting'), ai: document.getElementById('view-ai') };
+            var tabs = Array.prototype.slice.call(document.querySelectorAll('.svc-tab'));
+            var heading = document.getElementById('svcHeading');
+            var intro = document.getElementById('svcIntro');
+            window.setSvcView = function(view){
+              if(!views[view]) return;
+              Object.keys(views).forEach(function(k){ if(views[k]) views[k].hidden = (k !== view); });
+              tabs.forEach(function(t){
+                var on = t.getAttribute('data-view') === view;
+                t.setAttribute('aria-selected', on ? 'true' : 'false');
+                if(t.getAttribute('data-view') === 'consulting'){
+                  t.style.backgroundColor = on ? '#334b60' : 'transparent';
+                  t.style.color = on ? '#FAFAF7' : '#334b60';
+                } else {
+                  t.style.backgroundColor = on ? '#f19a51' : 'transparent';
+                  t.style.color = on ? '#3a2410' : '#334b60';
+                }
+              });
+              if(heading) heading.textContent = HEAD[view].h;
+              if(intro) intro.textContent = HEAD[view].p;
+            };
+            tabs.forEach(function(t){ t.addEventListener('click', function(){ window.setSvcView(t.getAttribute('data-view')); }); });
+          })();
+        </script>
 
         <!-- ====== 3. AS A SERVICE — narrative explainer below the matrix ====== -->
         <section id="as-a-service" class="py-20 md:py-24 px-6 md:px-12 max-w-[1400px] mx-auto">
