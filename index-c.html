@@ -563,6 +563,13 @@
             </div>
         </section>
 
+        <!-- Internal demo control: remove before shipping the chosen dark variant -->
+        <div id="darkDemo" hidden style="position:fixed;left:1rem;bottom:1rem;z-index:60;display:flex;align-items:center;gap:.5rem;background:#16212e;border:1px solid rgba(255,255,255,0.18);border-radius:9999px;padding:5px 6px 5px 14px;box-shadow:0 10px 30px -10px rgba(0,0,0,.6);font-size:11px;color:#9fb1c2;font-weight:700;text-transform:uppercase;letter-spacing:.08em;">
+            Dark demo
+            <button type="button" data-mode="panel" style="font:inherit;border:0;cursor:pointer;border-radius:9999px;padding:5px 11px;background-color:#f19a51;color:#3a2410;">Panel</button>
+            <button type="button" data-mode="full" style="font:inherit;border:0;cursor:pointer;border-radius:9999px;padding:5px 11px;background-color:transparent;color:#e7edf3;">Full page</button>
+        </div>
+
         <!-- Portfolio toggle: Consulting <-> Aventario AI -->
         <script>
           (function(){
