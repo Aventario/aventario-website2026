@@ -237,9 +237,10 @@
       body.ai-full.ai-mode .hero-ridge::after{content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(120deg, rgba(241,154,81,0.30) 0%, rgba(241,154,81,0.06) 45%, rgba(13,19,30,0) 78%); mix-blend-mode:screen;}
 
       /* Contact pill: full label over hero, collapses to a round icon once scrolled */
-      a.contact-pill{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;height:46px;padding:0 1.5rem;border-radius:9999px;transition:padding .35s ease, background-color .25s ease, color .25s ease, border-color .25s ease;}
+      a.contact-pill{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;height:36px;padding:0 1.25rem;border-radius:9999px;transition:padding .35s ease, background-color .25s ease, color .25s ease, border-color .25s ease;}
+      a.contact-pill i{line-height:1;display:block;}
       a.contact-pill .contact-label{display:inline-block;max-width:120px;overflow:hidden;white-space:nowrap;transition:max-width .35s ease, opacity .2s ease;}
-      nav#mainNav.past-hero a.contact-pill{width:46px;padding:0;}
+      nav#mainNav.past-hero a.contact-pill{width:36px;padding:0;gap:0;}
       nav#mainNav.past-hero a.contact-pill .contact-label{max-width:0;opacity:0;}
       @media (prefers-reduced-motion: reduce){ a.contact-pill, a.contact-pill .contact-label{transition:none;} }
 
@@ -498,19 +499,19 @@
                         <p class="text-lg leading-relaxed text-muted mb-8 max-w-3xl">Ready-to-use AI agents for contracts, tenders, and invoices.</p>
                         <div class="ai-grid ai-prod mb-16">
                             <div class="ai-card">
-                                <div class="ai-card__h"><i class="ph ph-file-magnifying-glass"></i><h4 class="font-serif text-lg leading-tight">AI Contract Analyzer</h4></div>
+                                <div class="ai-card__h"><i class="ph-fill ph-file-magnifying-glass"></i><h4 class="font-serif text-lg leading-tight">AI Contract Analyzer</h4></div>
                                 <p class="ai-card__b text-sm">AI-based agent for mass contract analysis that identifies improvement potential in existing contracts. Relevant for M&amp;A, audits, vendor consolidations, and cost-saving initiatives.</p>
                             </div>
                             <div class="ai-card">
-                                <div class="ai-card__h"><i class="ph ph-clipboard-text"></i><h4 class="font-serif text-lg leading-tight">AI Tender Manager</h4></div>
+                                <div class="ai-card__h"><i class="ph-fill ph-scales"></i><h4 class="font-serif text-lg leading-tight">AI Tender Manager</h4></div>
                                 <p class="ai-card__b text-sm">AI-based review, evaluation, and rating of incoming supplier offers, with identification of the required improvements and next steps with suppliers.</p>
                             </div>
                             <div class="ai-card">
-                                <div class="ai-card__h"><i class="ph ph-receipt"></i><h4 class="font-serif text-lg leading-tight">AI Contract2Invoice Inspector</h4></div>
+                                <div class="ai-card__h"><i class="ph-fill ph-receipt"></i><h4 class="font-serif text-lg leading-tight">AI Contract2Invoice Inspector</h4></div>
                                 <p class="ai-card__b text-sm">AI-based agent that checks incoming invoices against the price units and contract terms held in the underlying contracts.</p>
                             </div>
                             <div class="ai-card">
-                                <div class="ai-card__h"><i class="ph ph-handshake"></i><h4 class="font-serif text-lg leading-tight">Vendor and Contract Managed Services</h4></div>
+                                <div class="ai-card__h"><i class="ph-fill ph-handshake"></i><h4 class="font-serif text-lg leading-tight">Vendor and Contract Managed Services</h4></div>
                                 <p class="ai-card__b text-sm">Manage, improve, and renegotiate selected contract bundles, combining subject-matter experts with Aventario's AI products to run contracts efficiently.</p>
                             </div>
                         </div>
