@@ -470,24 +470,32 @@
 
                 <!-- ===== Aventario AI portfolio view (toggled from the Consulting matrix) ===== -->
                 <div id="view-ai" hidden>
-
-                    <!-- Aventario AI view — three sections: Products / Consulting Services / How we deliver -->
                     <style>
-                      .ai-grid{display:grid;grid-template-columns:1fr;gap:0.75rem;}
-                      @media(min-width:640px){.ai-grid{grid-template-columns:repeat(2,1fr);}}
-                      @media(min-width:1024px){.ai-prod{grid-template-columns:repeat(4,1fr);}.ai-svc{grid-template-columns:repeat(5,1fr);}}
-                      .ai-card{display:flex;flex-direction:column;border:1px solid rgba(51,75,96,0.12);border-radius:8px;overflow:hidden;background:#fff;}
-                      .ai-card__h{padding:0.9rem 0.7rem;text-align:center;display:flex;align-items:center;justify-content:center;min-height:72px;}
-                      .ai-card__b{padding:0.9rem 1rem;flex:1;color:#3c4a59;line-height:1.6;font-size:0.92rem;font-weight:400;}
-                      .ai-svc .ai-card__b{font-size:0.84rem;line-height:1.55;}
-                      /* Product cards: orange accent bar + icon instead of a solid orange block */
-                      .ai-prod .ai-card{border-top:4px solid #f19a51;}
-                      .ai-prod .ai-card__h{flex-direction:column;gap:0.45rem;padding:1.1rem 0.9rem 0.4rem;min-height:0;}
-                      .ai-prod .ai-card__h i{color:#f19a51;font-size:1.9rem;line-height:1;}
-                      .ai-prod .ai-card__h h4{color:#334b60;}
-                      body.ai-mode .ai-prod .ai-card__h h4{color:#f2f6fa;}
-                      /* Full-bleed delivery band */
-                      .ai-band{position:relative;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;}
+                      .aim{background:#17222f;border-radius:16px;padding:20px 20px 26px;}
+                      .aim-rule{height:1px;background:rgba(255,255,255,.12);margin-bottom:20px;}
+                      .aim-row{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:18px;}
+                      .aim-lbl{display:flex;align-items:center;justify-content:center;text-align:center;background:#26323f;color:#e9a765;border-radius:10px;padding:12px;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;}
+                      .aim-cards{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr));}
+                      .aim-card{display:flex;flex-direction:column;gap:10px;}
+                      .aim-h{background:#e08a3c;color:#2a1a08;border-radius:10px;padding:14px 10px;min-height:60px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:700;font-size:15px;line-height:1.25;}
+                      .aim-b{background:#FAF4EC;color:#44566a;border-radius:10px;padding:14px 12px;flex:1;display:flex;align-items:center;justify-content:center;text-align:center;font-size:13px;line-height:1.5;}
+                      .aim-rail{display:none;border-radius:10px;text-decoration:none;}
+                      .aim-rail span{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:700;font-size:15px;letter-spacing:.05em;padding:14px 0;display:inline-flex;align-items:center;gap:6px;}
+                      .aim-r1{background:#e08a3c;color:#2a1a08;}
+                      .aim-r2{background:#8dccc0;color:#123a31;}
+                      .aim-xfn{background:#FAF4EC;border-radius:12px;padding:22px 24px;}
+                      .aim-xfn h4{color:#334b60;font-weight:700;font-size:1.35rem;margin:0 0 12px;}
+                      .aim-xfn p{color:#44566a;line-height:1.6;font-size:0.95rem;margin:0 0 10px;}
+                      .aim-xfn p:last-child{margin:0;font-weight:700;color:#334b60;}
+                      @media(min-width:1024px){
+                        .aim-row{grid-template-columns:120px 1fr 56px;gap:14px;align-items:stretch;}
+                        .aim-row.wide{grid-template-columns:120px 1fr;}
+                        .aim-cards.c5{grid-template-columns:repeat(5,minmax(0,1fr));}
+                        .aim-cards.c4{grid-template-columns:repeat(4,minmax(0,1fr));}
+                        .aim-rail{display:flex;align-items:center;justify-content:center;}
+                      }
+                      @media(max-width:520px){.aim-cards{grid-template-columns:1fr;}}
+                      .ai-band{position:relative;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;margin-top:2.5rem;}
                       .ai-hl__pad{position:relative;max-width:1400px;margin:0 auto;padding:3rem 1.5rem;}
                       @media(min-width:768px){.ai-hl__pad{padding:4.5rem 3rem;}}
                       .ai-hl__grid{display:grid;grid-template-columns:1fr;gap:1.6rem;}
@@ -498,60 +506,45 @@
                       .ai-hl__item strong{color:#fff;}
                     </style>
 
-                    <!-- 1. AI Products -->
-                    <div class="ai-sec d1">
-                        <h3 class="font-serif text-3xl md:text-4xl text-text mb-3">Aventario AI Products</h3>
-                        <p class="text-lg leading-relaxed text-muted mb-8 max-w-3xl">Ready-to-use AI agents for contracts, tenders, and invoices.</p>
-                        <div class="ai-grid ai-prod mb-16">
-                            <div class="ai-card">
-                                <div class="ai-card__h"><i class="ph-fill ph-file-magnifying-glass"></i><h4 class="font-serif text-lg leading-tight">AI Contract Analyzer</h4></div>
-                                <p class="ai-card__b text-sm">AI-based agent for mass contract analysis that identifies improvement potential in existing contracts. Relevant for M&amp;A, audits, vendor consolidations, and cost-saving initiatives.</p>
+                    <div class="aim">
+                        <div class="aim-rule"></div>
+
+                        <div class="aim-row">
+                            <div class="aim-lbl">AI Consulting Services</div>
+                            <div class="aim-cards c5">
+                                <div class="aim-card"><div class="aim-h">AI Awareness and Enablement</div><div class="aim-b">Creative workshops for AI use-case identification and qualification with IT and business.</div></div>
+                                <div class="aim-card"><div class="aim-h">AI Empowerment</div><div class="aim-b">Workshops and trainings for AI usage in specific work situations, for example prompting techniques for internal auditors.</div></div>
+                                <div class="aim-card"><div class="aim-h">AI Process Efficiency Elevation</div><div class="aim-b">Evaluation of complex processes to find efficiency gains through AI agents and automation, plus the definition of the related concepts.</div></div>
+                                <div class="aim-card"><div class="aim-h">AI Team Efficiency Elevation</div><div class="aim-b">Structured evaluation of all core tasks across an organization to identify every AI potential.</div></div>
+                                <div class="aim-card"><div class="aim-h">AI Proof of Concepts</div><div class="aim-b">Implementation of PoCs to evaluate impact and to enable qualified decision-making.</div></div>
                             </div>
-                            <div class="ai-card">
-                                <div class="ai-card__h"><i class="ph-fill ph-scales"></i><h4 class="font-serif text-lg leading-tight">AI Tender Manager</h4></div>
-                                <p class="ai-card__b text-sm">AI-based review, evaluation, and rating of incoming supplier offers, with identification of the required improvements and next steps with suppliers.</p>
+                            <div class="aim-rail aim-r1"><span>Consulting</span></div>
+                        </div>
+
+                        <div class="aim-row">
+                            <div class="aim-lbl">AI Products</div>
+                            <div class="aim-cards c4">
+                                <div class="aim-card"><div class="aim-h">AI Contract Analyzer</div><div class="aim-b">AI-based agent for mass contract analysis that identifies improvement potential in existing contracts. Relevant for M&amp;A, audits, vendor consolidations, and cost-saving initiatives.</div></div>
+                                <div class="aim-card"><div class="aim-h">AI Tender Manager</div><div class="aim-b">AI-based review, evaluation, and rating of incoming supplier offers, with identification of the required improvements and next steps with suppliers.</div></div>
+                                <div class="aim-card"><div class="aim-h">AI Contract2Invoice Inspector</div><div class="aim-b">AI-based agent that checks incoming invoices against the price units and contract terms held in the underlying contracts.</div></div>
+                                <div class="aim-card"><div class="aim-h">Vendor and Contract Managed Services</div><div class="aim-b">Manage, improve, and renegotiate selected contract bundles, combining subject-matter experts with Aventario's AI products to run contracts efficiently.</div></div>
                             </div>
-                            <div class="ai-card">
-                                <div class="ai-card__h"><i class="ph-fill ph-receipt"></i><h4 class="font-serif text-lg leading-tight">AI Contract2Invoice Inspector</h4></div>
-                                <p class="ai-card__b text-sm">AI-based agent that checks incoming invoices against the price units and contract terms held in the underlying contracts.</p>
-                            </div>
-                            <div class="ai-card">
-                                <div class="ai-card__h"><i class="ph-fill ph-handshake"></i><h4 class="font-serif text-lg leading-tight">Vendor and Contract Managed Services</h4></div>
-                                <p class="ai-card__b text-sm">Manage, improve, and renegotiate selected contract bundles, combining subject-matter experts with Aventario's AI products to run contracts efficiently.</p>
+                            <a class="aim-rail aim-r2" href="https://managedsuppliers.com" target="_blank" rel="noopener"><span>managedsuppliers <i class="ph ph-arrow-up-right" style="font-size:13px;"></i></span></a>
+                        </div>
+
+                        <div class="aim-row wide">
+                            <div class="aim-lbl">Cross-Functional Services</div>
+                            <div class="aim-xfn">
+                                <h4>A single, integrated service</h4>
+                                <p>We perceive ourselves as a full-service provider and support your initiatives from the initial spark through to a finished, ready-to-operate result.</p>
+                                <p>We drive sustainable results and successful initiative delivery, by engaging and equipping the whole affected organization and its stakeholders throughout all phases.</p>
+                                <p>All our projects are staffed in line with our core principles to apply relevant methodologies and expertise in transformation implementation, program / project management and change and communication.</p>
+                                <p>We provide our clients with a single, integrated service.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 2. AI Consulting Services -->
-                    <div class="ai-sec d2 border-t border-bordercolor pt-12">
-                        <h3 class="font-serif text-3xl md:text-4xl text-text mb-3">AI Consulting Services</h3>
-                        <p class="text-lg leading-relaxed text-muted mb-8 max-w-3xl">Workshops, assessments, and proof of concepts to put AI to work in your organization.</p>
-                        <div class="ai-grid ai-svc mb-16">
-                        <div class="ai-card">
-                            <div class="ai-card__h" style="background:#334b60;color:#FAFAF7;"><h4 class="font-serif text-base leading-tight">AI Awareness and Enablement</h4></div>
-                            <p class="ai-card__b text-xs">Creative workshops for AI use-case identification and qualification with IT and business.</p>
-                        </div>
-                        <div class="ai-card">
-                            <div class="ai-card__h" style="background:#334b60;color:#FAFAF7;"><h4 class="font-serif text-base leading-tight">AI Empowerment</h4></div>
-                            <p class="ai-card__b text-xs">Workshops and trainings for AI usage in specific work situations, for example prompting techniques for internal auditors.</p>
-                        </div>
-                        <div class="ai-card">
-                            <div class="ai-card__h" style="background:#334b60;color:#FAFAF7;"><h4 class="font-serif text-base leading-tight">AI Process Efficiency Elevation</h4></div>
-                            <p class="ai-card__b text-xs">Evaluation of complex processes to find efficiency gains through AI agents and automation, plus the definition of the related concepts.</p>
-                        </div>
-                        <div class="ai-card">
-                            <div class="ai-card__h" style="background:#334b60;color:#FAFAF7;"><h4 class="font-serif text-base leading-tight">AI Team Efficiency Elevation</h4></div>
-                            <p class="ai-card__b text-xs">Structured evaluation of all core tasks across an organization to identify every AI potential.</p>
-                        </div>
-                        <div class="ai-card">
-                            <div class="ai-card__h" style="background:#334b60;color:#FAFAF7;"><h4 class="font-serif text-base leading-tight">AI Proof of Concepts</h4></div>
-                            <p class="ai-card__b text-xs">Implementation of PoCs to evaluate impact and to enable qualified decision-making.</p>
-                        </div>
-                    </div>
-                    </div>
-
-                    <!-- 3. How we deliver: full-bleed band with the team picture -->
-                    <div class="ai-sec d3 ai-band">
+                    <div class="ai-band">
                         <img src="images/photography/team-ridge-sunrise.jpg" alt="" role="presentation" class="absolute inset-0 w-full h-full object-cover" style="object-position:center 40%;" loading="lazy" decoding="async">
                         <div class="absolute inset-0" style="background:linear-gradient(90deg, rgba(13,19,30,0.94) 0%, rgba(13,19,30,0.78) 55%, rgba(13,19,30,0.50) 100%);"></div>
                         <div class="ai-hl__pad">
