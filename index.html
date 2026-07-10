@@ -298,11 +298,16 @@
         <!-- ====== 1. HERO — cinematic ridge image (video to replace later) ====== -->
         <section class="hero-ridge relative w-full overflow-hidden" style="min-height: 100vh; background-color: #0f1623;">
 
-            <!-- Hero image (full-bleed) -->
-            <img src="images/hero-ridge-team.jpg" fetchpriority="high" decoding="async"
-                 alt="A roped team of mountaineers traversing an alpine ridge at dawn. Aventario brand image"
-                 class="absolute inset-0 w-full h-full z-0"
-                 style="object-fit: cover; object-position: center right;">
+            <!-- Hero image (full-bleed) — WebP for modern browsers, JPEG fallback -->
+            <picture>
+                <source type="image/webp"
+                        srcset="images/hero-ridge-team-1200.webp 1200w, images/hero-ridge-team.webp 2200w"
+                        sizes="100vw">
+                <img src="images/hero-ridge-team.jpg" fetchpriority="high" decoding="async"
+                     alt="A roped team of mountaineers traversing an alpine ridge at dawn. Aventario brand image"
+                     class="absolute inset-0 w-full h-full z-0"
+                     style="object-fit: cover; object-position: center right;">
+            </picture>
 
             <!-- Legibility scrim: dark on the bottom-left so copy reads cleanly, glow preserved on the right ridge -->
             <div class="absolute inset-0 z-[1] pointer-events-none"
