@@ -54,14 +54,14 @@ new = f'''<div id="view-ai" hidden>
                       .aix-matrix{{display:grid;grid-template-columns:128px minmax(0,1fr) 96px;gap:12px;}}
                       .aix-lbl{{display:flex;align-items:center;justify-content:center;text-align:center;background:rgba(255,255,255,0.05);border-radius:8px;padding:10px 8px;}}
                       .aix-lbl span{{font-family:'Lato',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#e9a765;line-height:1.5;}}
-                      .aix-cards{{display:grid;gap:12px;}}
+                      .aix-cards{{display:grid;gap:12px;grid-auto-rows:1fr;}}
                       .aix-c5{{grid-template-columns:repeat(5,minmax(0,1fr));}}
                       .aix-c4{{grid-template-columns:repeat(4,minmax(0,1fr));}}
                       .aix-c3{{grid-template-columns:repeat(3,minmax(0,1fr));}}
                       .aix-card{{display:flex;flex-direction:column;gap:10px;}}
                       .aix-h{{background:#e08a3c;color:#2a1a08;border-radius:8px;padding:10px;height:80px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Lato',sans-serif;font-weight:700;font-size:18px;line-height:1.2;}}
                       .aix-b{{background:#FAF4EC;color:#44566a;border-radius:8px;padding:14px 12px;flex:1;min-height:158px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.5;}}
-                      .aix-xfn{{display:flex;align-items:center;justify-content:center;text-align:center;background:#FAF4EC;border:2px solid #B45309;border-radius:8px;padding:12px 16px;height:72px;color:#334b60;font-family:'Lato',sans-serif;font-weight:700;font-size:16px;line-height:1.25;text-decoration:none;transition:transform .15s ease;}}
+                      .aix-xfn{{display:flex;align-items:center;justify-content:center;text-align:center;background:#FAF4EC;border:2px solid #B45309;border-radius:8px;padding:12px 16px;min-height:72px;color:#334b60;font-family:'Lato',sans-serif;font-weight:700;font-size:16px;line-height:1.25;text-decoration:none;transition:transform .15s ease;}}
                       .aix-xfn:hover{{transform:translateY(-2px);}}
                       .aix-railcol{{grid-column:3;grid-row:1 / span 3;display:flex;flex-direction:column;gap:12px;}}
                       .aix-rail{{flex:1;min-height:150px;border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;}}
