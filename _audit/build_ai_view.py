@@ -57,16 +57,14 @@ new = f'''<div id="view-ai" hidden>
                       .aix-c4{{grid-template-columns:repeat(4,minmax(0,1fr));}}
                       .aix-c3{{grid-template-columns:repeat(3,minmax(0,1fr));}}
                       .aix-card{{display:flex;flex-direction:column;gap:10px;}}
-                      .aix-h{{background:#e08a3c;color:#2a1a08;border-radius:8px;padding:14px 10px;min-height:64px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Lato',sans-serif;font-weight:700;font-size:18px;line-height:1.25;}}
-                      .aix-b{{background:#FAF4EC;color:#44566a;border-radius:8px;padding:14px 12px;flex:1;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.5;}}
+                      .aix-h{{background:#e08a3c;color:#2a1a08;border-radius:8px;padding:10px;height:80px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Lato',sans-serif;font-weight:700;font-size:18px;line-height:1.2;}}
+                      .aix-b{{background:#FAF4EC;color:#44566a;border-radius:8px;padding:14px 12px;flex:1;min-height:158px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.5;}}
                       .aix-rail{{border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;}}
                       .aix-rail span{{writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Lato',sans-serif;font-weight:700;font-size:18px;letter-spacing:.04em;padding:14px 0;display:inline-flex;align-items:center;gap:6px;}}
                       .aix-r1{{background:#e08a3c;color:#2a1a08;}}
                       .aix-r2{{background:#88C9BE;color:#1C2A36;}}
-                      .aix-deliver{{background:#FAF4EC;border-radius:8px;padding:16px 18px;display:flex;gap:14px;align-items:center;}}
-                      .aix-deliver i{{color:#e08a3c;font-size:1.9rem;line-height:1;flex:0 0 auto;}}
-                      .aix-deliver p{{margin:0;font-size:14px;line-height:1.4;color:#44566a;}}
-                      .aix-deliver strong{{font-weight:700;color:#334b60;}}
+                      .aix-xfn{{display:flex;align-items:center;justify-content:center;text-align:center;background:#FAF4EC;border:2px solid #B45309;border-radius:8px;padding:12px 16px;height:72px;color:#334b60;font-family:'Lato',sans-serif;font-weight:700;font-size:16px;line-height:1.25;text-decoration:none;transition:transform .15s ease;}}
+                      .aix-xfn:hover{{transform:translateY(-2px);}}
                       @media(max-width:1023px){{
                         .aix-row{{grid-template-columns:1fr;gap:10px;margin-bottom:20px;}}
                         .aix-cards{{grid-template-columns:1fr !important;}}
@@ -92,11 +90,11 @@ new = f'''<div id="view-ai" hidden>
                     </div>
 
                     <div class="aix-row">
-                        <div class="aix-lbl"><span>How We Deliver</span></div>
+                        <div class="aix-lbl"><span>Cross-Functional<br>Services</span></div>
                         <div class="aix-cards aix-c3">
-                            <div class="aix-deliver"><i class="ph ph-users-three"></i><p><strong>Experienced consultants</strong> manage the engagement.</p></div>
-                            <div class="aix-deliver"><i class="ph ph-magnifying-glass"></i><p><strong>Subject matter experts</strong> perform the analysis and evaluation.</p></div>
-                            <div class="aix-deliver"><i class="ph ph-cpu"></i><p><strong>Advanced AI technology</strong> enables the delivery.</p></div>
+                            <a class="aix-xfn" href="support-services.html#transformation-implementation">Transformation Implementation</a>
+                            <a class="aix-xfn" href="support-services.html#program-project">Program and Project Management</a>
+                            <a class="aix-xfn" href="support-services.html#change-communication">Change and Communication</a>
                         </div>
                         <div class="aix-rail" style="visibility:hidden;"></div>
                     </div>
