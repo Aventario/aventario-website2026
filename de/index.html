@@ -215,6 +215,24 @@
   }
 ]
     </script>
+    <style>
+      /* ===== Aventario AI dark treatment (ported from EN index) ===== */
+      body{transition:background-color .8s ease;}
+      #services{transition:background-color .5s ease, box-shadow .5s ease;}
+      body.ai-mode #services .border-bordercolor{border-color:rgba(255,255,255,0.28) !important;}
+      body.ai-mode #services h2, body.ai-mode #services h3, body.ai-mode #services h4{color:#f2f6fa;}
+      body.ai-mode #services .text-muted{color:#9fb1c2 !important;}
+      body.ai-mode #services .text-text{color:#e7edf3 !important;}
+      body.ai-mode #services a:hover{color:#f19a51;}
+      body.ai-mode #svcToggle{box-shadow:0 4px 18px -4px rgba(241,154,81,0.65) !important;}
+
+      /* AI view: staggered section reveal on switch */
+      .ai-sec{opacity:0;transform:translateY(16px);transition:opacity .5s ease, transform .5s ease;}
+      #view-ai.show .ai-sec{opacity:1;transform:none;}
+      #view-ai.show .ai-sec.d2{transition-delay:.12s;}
+      #view-ai.show .ai-sec.d3{transition-delay:.24s;}
+      @media (prefers-reduced-motion: reduce){ .ai-sec{opacity:1 !important;transform:none !important;transition:none !important;} }
+    </style>
 </head>
 <body class="selection:bg-accent selection:text-white">
 
@@ -229,12 +247,22 @@
             <a href="/de/about.html" class="hover:text-accentdark">Team</a>
             <a href="/" class="hover:text-accentdark opacity-70" title="English version">EN</a>
         </div>
-        <div class="hidden lg:flex items-center">
-        <a href="/de/contact.html" class="contact-pill nav-cta text-sm font-bold uppercase tracking-widest bg-text text-surface hover:bg-accentdark transition-colors" aria-label="Kontakt" title="Kontakt"><i class="ph ph-calendar-check text-lg"></i><span class="contact-label">Kontakt</span></a>
+        <div class="hidden lg:flex items-center gap-3">
+            <div id="svcToggle" role="tablist" aria-label="Portfolio-Modus" class="inline-flex rounded-full" style="background-color:#FFFFFF; border:1px solid rgba(51,75,96,0.15); padding:3px; box-shadow:0 4px 14px -6px rgba(0,0,0,0.35);">
+                <button type="button" role="tab" aria-selected="true" data-view="consulting" class="svc-tab font-bold uppercase tracking-widest rounded-full transition-colors" style="font-size:11px; padding:6px 13px; background-color:#334b60; color:#FAFAF7;">Consulting</button>
+                <button type="button" role="tab" aria-selected="false" data-view="ai" class="svc-tab font-bold uppercase tracking-widest rounded-full transition-colors" style="font-size:11px; padding:6px 13px; background-color:transparent; color:#334b60;"><i class="ph ph-sparkle"></i> AI</button>
+            </div>
+            <a href="/de/contact.html" class="contact-pill nav-cta text-sm font-bold uppercase tracking-widest bg-text text-surface hover:bg-accentdark transition-colors" aria-label="Kontakt" title="Kontakt"><i class="ph ph-calendar-check text-lg"></i><span class="contact-label">Kontakt</span></a>
         </div>
         <button id="mobileMenuBtn" class="lg:hidden w-9 h-9 flex items-center justify-center" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu"><i class="ph ph-list text-2xl"></i></button>
     </div></nav>
     <div id="mobileMenu" class="hidden lg:hidden border-b border-bordercolor bg-pagebg px-6 py-4 space-y-2">
+        <div class="flex justify-center pb-2">
+            <div role="tablist" aria-label="Portfolio-Modus" class="inline-flex rounded-full" style="background-color:#FFFFFF; border:1px solid rgba(51,75,96,0.15); padding:3px; box-shadow:0 4px 14px -6px rgba(0,0,0,0.35);">
+                <button type="button" role="tab" aria-selected="true" data-view="consulting" class="svc-tab font-bold uppercase tracking-widest rounded-full transition-colors" style="font-size:11px; padding:6px 13px; background-color:#334b60; color:#FAFAF7;">Consulting</button>
+                <button type="button" role="tab" aria-selected="false" data-view="ai" class="svc-tab font-bold uppercase tracking-widest rounded-full transition-colors" style="font-size:11px; padding:6px 13px; background-color:transparent; color:#334b60;"><i class="ph ph-sparkle"></i> AI</button>
+            </div>
+        </div>
         <a href="/de/impact.html" class="block py-2 text-base font-bold uppercase tracking-widest hover:text-accentdark">Referenzen</a>
         <a href="/de/resources.html" class="block py-2 text-base font-bold uppercase tracking-widest hover:text-accentdark">Ressourcen</a>
         <a href="/de/about.html" class="block py-2 text-base font-bold uppercase tracking-widest hover:text-accentdark">Team</a>
@@ -299,8 +327,12 @@
         <section id="services" class="py-24 md:py-28 px-6 md:px-12 max-w-[1400px] mx-auto">
             <div class="border-t border-bordercolor pt-16">
 
-                <h2 class="font-serif text-5xl md:text-6xl mb-5">Aventario Services</h2>
-                <p class="text-lg md:text-xl leading-relaxed text-muted max-w-3xl mb-12">Unsere Kompetenzbereiche, um Ihre IT und Supply Chain nachhaltig zu optimieren.</p>
+                <div class="mb-12">
+                    <h2 id="svcHeading" class="font-serif text-5xl md:text-6xl mb-5">Aventario Services</h2>
+                    <p id="svcIntro" class="text-lg md:text-xl leading-relaxed text-muted max-w-3xl">Unsere Kompetenzbereiche, um Ihre IT und Supply Chain nachhaltig zu optimieren.</p>
+                </div>
+
+                <div id="view-consulting">
 
                 <!-- ============================================================ -->
                 <!-- AS A SERVICE MATRIX — column-orientation per mgmt slide      -->
@@ -375,28 +407,28 @@
                             </div>
                         </div>
 
-                        <!-- managedsuppliers vertical right column (spans header + 3 solution rows) -->
-                        <a href="https://managedsuppliers.com" target="_blank" rel="noopener" class="w-24 shrink-0 flex flex-col rounded-md p-4 hover:opacity-95 transition-opacity" style="background-color: #88C9BE; color: #1C2A36;">
-                            <div class="flex-1 flex items-center justify-center">
-                                <h3 class="font-serif text-2xl leading-tight" style="writing-mode: vertical-rl; transform: rotate(180deg);">managedsuppliers <i class="ph ph-arrow-up-right text-base"></i></h3>
-                            </div>
-                            <p class="text-[10px] uppercase tracking-widest font-bold text-center mt-2">SaaS-<br>Plattform</p>
-                            <!-- spacer mirroring the cross-functional row so the side column ends above it -->
+                        <!-- Right column: top half Aventario AI (switch), bottom half managedsuppliers -->
+                        <div class="w-24 shrink-0 flex flex-col gap-3">
+                            <button type="button" onclick="setSvcView('ai')" aria-label="Zum Aventario AI Portfolio wechseln" class="flex-1 flex items-center justify-center rounded-md p-3 cursor-pointer hover:opacity-95 transition-opacity" style="background-color: #f19a51; color: #3a2410;">
+                                <h3 class="font-serif text-xl leading-tight" style="writing-mode: vertical-rl; transform: rotate(180deg);">Aventario AI <i class="ph ph-sparkle text-sm"></i></h3>
+                            </button>
+                            <a href="https://managedsuppliers.com" target="_blank" rel="noopener" class="flex-1 flex items-center justify-center rounded-md p-3 hover:opacity-95 transition-opacity" style="background-color: #88C9BE; color: #1C2A36;">
+                                <h3 class="font-serif text-xl leading-tight" style="writing-mode: vertical-rl; transform: rotate(180deg);">managedsuppliers <i class="ph ph-arrow-up-right text-sm"></i></h3>
+                            </a>
                             <div class="h-20"></div>
-                        </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Mobile: stacked accordion-style list -->
                 <div class="lg:hidden space-y-4">
-                    <p class="text-xs uppercase tracking-widest font-bold text-text mb-2">Kompetenzbereiche</p>
                     <div class="space-y-3">
                         <div class="rounded-md p-4 text-center" style="background-color: #334b60; color: #FAFAF7;"><h3 class="font-serif text-lg">Operational Excellence</h3><p class="text-xs text-text mt-3" style="color: #c8d4dd;">Organizational Effort Optimization &middot; Process Harmonization &amp; Automation &middot; IT Landscape Harmonization</p></div>
                         <div class="rounded-md p-4 text-center" style="background-color: #334b60; color: #FAFAF7;"><h3 class="font-serif text-lg">Savings Realization</h3><p class="text-xs mt-3" style="color: #c8d4dd;">(AI) Contract Analysis &middot; Service (Cost) Assessment &middot; Shoring &amp; Sourcing Evaluation</p></div>
                         <div class="rounded-md p-4 text-center" style="background-color: #334b60; color: #FAFAF7;"><h3 class="font-serif text-lg">Service &amp; Vendor Consolidation</h3><p class="text-xs mt-3" style="color: #c8d4dd;">Service Portfolio Streamlining &middot; Shoring / Sourcing Concept Implementation &middot; Service Management Optimization</p></div>
                         <div class="rounded-md p-4 text-center" style="background-color: #334b60; color: #FAFAF7;"><h3 class="font-serif text-lg">Complex RFX</h3><p class="text-xs mt-3" style="color: #c8d4dd;">Requirements Engineering &middot; Managed RFX &middot; Frame Contract Implementation</p></div>
                         <div class="rounded-md p-4 text-center" style="background-color: #334b60; color: #FAFAF7;"><h3 class="font-serif text-lg">Vendor Management</h3><p class="text-xs mt-3" style="color: #c8d4dd;">Vendor Management Assessment &middot; Implementation &middot; Operation</p></div>
-                        <a href="https://managedsuppliers.com" target="_blank" rel="noopener" class="block rounded-md p-4 text-center" style="background-color: #88C9BE; color: #1C2A36;"><h3 class="font-serif text-lg flex items-center justify-center gap-2">managedsuppliers <i class="ph ph-arrow-up-right"></i></h3><p class="text-xs uppercase tracking-widest font-bold mt-2">SaaS-Plattform</p></a>
+                        <button type="button" onclick="setSvcView('ai')" class="w-full block rounded-md p-4 text-center" style="background-color: #f19a51; color: #3a2410;"><h3 class="font-serif text-lg flex items-center justify-center gap-2">Aventario AI <i class="ph ph-sparkle"></i></h3><p class="text-xs uppercase tracking-widest font-bold mt-2">AI-Portfolio</p></button>
                     </div>
                     <p class="text-xs uppercase tracking-widest font-bold text-text mt-6 mb-2" style="color: #8a5214;">Übergreifende Services</p>
                     <div class="grid grid-cols-1 gap-2">
@@ -406,8 +438,166 @@
                     </div>
                 </div>
 
+                </div><!-- /view-consulting -->
+
+                <!-- ===== Aventario AI portfolio view (toggled from the Consulting matrix) ===== -->
+                <div id="view-ai" hidden>
+                    <style>
+                      #services{position:relative;}
+                      body.ai-mode #services::before{content:"";position:absolute;left:calc(50% - 50vw);width:100vw;top:0;bottom:0;background:#17222f;z-index:0;}
+                      body.ai-mode #services > div{position:relative;z-index:1;}
+                      body.ai-mode #services{padding-bottom:0;}
+                      body.ai-mode #svcHeading{color:#f2f6fa;}
+                      body.ai-mode #svcIntro{color:#9fb1c2;}
+                      .aix-matrix{display:grid;grid-template-columns:128px minmax(0,1fr) 96px;gap:12px;}
+                      .aix-lbl{display:flex;align-items:center;justify-content:center;text-align:center;background:rgba(255,255,255,0.05);border-radius:8px;padding:10px 8px;}
+                      .aix-lbl span{font-family:'Lato',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#e9a765;line-height:1.5;}
+                      .aix-cards{display:grid;gap:12px;grid-auto-rows:1fr;}
+                      .aix-c5{grid-template-columns:repeat(5,minmax(0,1fr));}
+                      .aix-c4{grid-template-columns:repeat(4,minmax(0,1fr));}
+                      .aix-c3{grid-template-columns:repeat(3,minmax(0,1fr));}
+                      .aix-card{display:flex;flex-direction:column;gap:10px;}
+                      .aix-h{background:#e08a3c;color:#2a1a08;border-radius:8px;padding:10px;height:80px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Lato',sans-serif;font-weight:700;font-size:18px;line-height:1.2;}
+                      .aix-b{background:#FAF4EC;color:#44566a;border-radius:8px;padding:14px 12px;flex:1;min-height:158px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.5;}
+                      .aix-xfn{display:flex;align-items:center;justify-content:center;text-align:center;background:#FAF4EC;border:2px solid #B45309;border-radius:8px;padding:12px 16px;min-height:72px;color:#334b60;font-family:'Lato',sans-serif;font-weight:700;font-size:16px;line-height:1.25;text-decoration:none;transition:transform .15s ease;}
+                      .aix-xfn:hover{transform:translateY(-2px);}
+                      .aix-railcol{grid-column:3;grid-row:1 / span 3;display:flex;flex-direction:column;gap:12px;}
+                      .aix-rail{flex:1;min-height:150px;border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;}
+                      .aix-rail span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Lato',sans-serif;font-weight:700;font-size:18px;letter-spacing:.04em;padding:14px 0;display:inline-flex;align-items:center;gap:6px;}
+                      .aix-r1{background:#334b60;color:#FAFAF7;border:0;cursor:pointer;transition:opacity .15s ease;}
+                      .aix-r1:hover{opacity:.92;}
+                      .aix-r2{background:#88C9BE;color:#1C2A36;}
+                      .aiv-band{position:relative;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;margin-top:2.5rem;margin-bottom:0;}
+                      .aiv-band__pad{position:relative;max-width:1400px;margin:0 auto;padding:3rem 1.5rem;}
+                      @media(min-width:768px){.aiv-band__pad{padding:4.5rem 3rem;}}
+                      .aiv-hl{display:grid;grid-template-columns:1fr;gap:1.6rem;}
+                      @media(min-width:640px){.aiv-hl{grid-template-columns:repeat(3,1fr);}}
+                      .aiv-hl__i{display:flex;gap:1rem;align-items:center;}
+                      .aiv-hl__i i{color:#f19a51;font-size:3rem;line-height:1;flex:0 0 auto;}
+                      .aiv-hl__i p{color:#FAFAF7;line-height:1.5;font-size:1.05rem;margin:0;}
+                      .aiv-hl__i strong{color:#fff;}
+                      @media(max-width:1023px){
+                        .aix-matrix{display:block;}
+                        .aix-lbl{justify-content:flex-start;padding:8px 4px;margin-bottom:8px;}
+                        .aix-cards{grid-template-columns:1fr !important;margin-bottom:20px;}
+                        .aix-railcol{display:none;}
+                      }
+                    </style>
+
+                    <div class="aix-matrix">
+                        <div class="aix-lbl" style="grid-column:1;grid-row:1;"><span>AI Consulting<br>Services</span></div>
+                        <div class="aix-cards aix-c5" style="grid-column:2;grid-row:1;">
+                            <div class="aix-card">
+                                <div class="aix-h">AI Awareness and Enablement</div>
+                                <div class="aix-b">Kreativ-Workshops zur Identifikation und Qualifizierung von AI-Use-Cases, gemeinsam mit IT und Fachbereichen.</div>
+                            </div>
+                            <div class="aix-card">
+                                <div class="aix-h">AI Empowerment</div>
+                                <div class="aix-b">Workshops und Trainings für den AI-Einsatz in konkreten Arbeitssituationen, zum Beispiel Prompting-Techniken für interne Auditoren.</div>
+                            </div>
+                            <div class="aix-card">
+                                <div class="aix-h">AI Process Efficiency Elevation</div>
+                                <div class="aix-b">Analyse komplexer Prozesse, um Effizienzpotenziale durch AI-Agenten und Automatisierung zu identifizieren, inklusive Definition der zugehörigen Konzepte.</div>
+                            </div>
+                            <div class="aix-card">
+                                <div class="aix-h">AI Team Efficiency Elevation</div>
+                                <div class="aix-b">Strukturierte Analyse aller Kernaufgaben einer Organisation, um jedes AI-Potenzial zu identifizieren.</div>
+                            </div>
+                            <div class="aix-card">
+                                <div class="aix-h">AI Proof of Concepts</div>
+                                <div class="aix-b">Umsetzung von PoCs, um die Wirkung zu bewerten und fundierte Entscheidungen zu ermöglichen.</div>
+                            </div>
+                        </div>
+
+                        <div class="aix-lbl" style="grid-column:1;grid-row:2;"><span>AI Products</span></div>
+                        <div class="aix-cards aix-c4" style="grid-column:2;grid-row:2;">
+                            <div class="aix-card">
+                                <div class="aix-h">AI Contract Analyzer</div>
+                                <div class="aix-b">AI-basierter Agent für die Analyse großer Vertragsbestände, der Verbesserungspotenziale in bestehenden Verträgen identifiziert. Relevant für M&amp;A, Audits, Lieferantenkonsolidierungen und Kostensenkungsinitiativen.</div>
+                            </div>
+                            <div class="aix-card">
+                                <div class="aix-h">AI Tender Manager</div>
+                                <div class="aix-b">AI-basierte Prüfung, Bewertung und Einstufung eingehender Lieferantenangebote, inklusive Identifikation der erforderlichen Nachbesserungen und der nächsten Schritte mit den Lieferanten.</div>
+                            </div>
+                            <div class="aix-card">
+                                <div class="aix-h">AI Contract2Invoice Inspector</div>
+                                <div class="aix-b">AI-basierter Agent, der eingehende Rechnungen gegen die Preiseinheiten und Vertragsbedingungen der zugrunde liegenden Verträge prüft.</div>
+                            </div>
+                            <div class="aix-card">
+                                <div class="aix-h">Vendor and Contract Managed Services</div>
+                                <div class="aix-b">Ausgewählte Vertragsbündel managen, verbessern und nachverhandeln: Fachexperten kombiniert mit den AI-Produkten von Aventario für einen effizienten Vertragsbetrieb.</div>
+                            </div>
+                        </div>
+
+                        <div class="aix-lbl" style="grid-column:1;grid-row:3;"><span>Übergreifende<br>Services</span></div>
+                        <div class="aix-cards aix-c3" style="grid-column:2;grid-row:3;">
+                            <a class="aix-xfn" href="/de/support-services.html#transformation-implementation">Transformation Implementation</a>
+                            <a class="aix-xfn" href="/de/support-services.html#program-project">Program and Project Management</a>
+                            <a class="aix-xfn" href="/de/support-services.html#change-communication">Change and Communication</a>
+                        </div>
+
+                        <div class="aix-railcol">
+                            <button type="button" class="aix-rail aix-r1" onclick="setSvcView('consulting')" aria-label="Zum Consulting-Portfolio wechseln"><span>Consulting</span></button>
+                            <a class="aix-rail aix-r2" href="https://managedsuppliers.com" target="_blank" rel="noopener"><span>managedsuppliers <i class="ph ph-arrow-up-right" style="font-size:13px;"></i></span></a>
+                        </div>
+                    </div>
+
+                    <div class="aiv-band">
+                        <img src="/images/photography/team-ridge-sunrise.jpg" alt="" role="presentation" class="absolute inset-0 w-full h-full object-cover" style="object-position:center 40%;" loading="lazy" decoding="async">
+                        <div class="absolute inset-0" style="background:linear-gradient(90deg, rgba(13,19,30,0.94) 0%, rgba(13,19,30,0.78) 55%, rgba(13,19,30,0.50) 100%);"></div>
+                        <div class="aiv-band__pad">
+                            <h3 class="font-serif text-3xl md:text-4xl mb-10" style="color:#FAFAF7;">So liefern wir</h3>
+                            <div class="aiv-hl">
+                                <div class="aiv-hl__i"><i class="ph ph-users-three"></i><p><strong>Erfahrene Consultants</strong> steuern das Projekt.</p></div>
+                                <div class="aiv-hl__i"><i class="ph ph-magnifying-glass"></i><p><strong>Fachexperten</strong> führen Analyse und Bewertung durch.</p></div>
+                                <div class="aiv-hl__i"><i class="ph ph-cpu"></i><p>Die Umsetzung wird durch <strong>fortschrittliche AI-Technologie</strong> ermöglicht.</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </section>
+
+        <!-- Portfolio toggle: Consulting <-> Aventario AI -->
+        <script>
+          (function(){
+            var HEAD = {
+              consulting: { h: 'Aventario Services', p: 'Unsere Kompetenzbereiche, um Ihre IT und Supply Chain nachhaltig zu optimieren.' },
+              ai:         { h: 'Aventario AI', p: 'Kosten- und Wertoptimierung in IT und Supply Chain durch technologischen Vorsprung.' }
+            };
+            var views = { consulting: document.getElementById('view-consulting'), ai: document.getElementById('view-ai') };
+            var tabs = Array.prototype.slice.call(document.querySelectorAll('.svc-tab'));
+            var heading = document.getElementById('svcHeading');
+            var intro = document.getElementById('svcIntro');
+            window.setSvcView = function(view){
+              if(!views[view]) return;
+              Object.keys(views).forEach(function(k){ if(views[k]) views[k].hidden = (k !== view); });
+              tabs.forEach(function(t){
+                var on = t.getAttribute('data-view') === view;
+                t.setAttribute('aria-selected', on ? 'true' : 'false');
+                if(t.getAttribute('data-view') === 'consulting'){
+                  t.style.backgroundColor = on ? '#334b60' : 'transparent';
+                  t.style.color = on ? '#FAFAF7' : '#334b60';
+                } else {
+                  t.style.backgroundColor = on ? '#f19a51' : 'transparent';
+                  t.style.color = on ? '#3a2410' : '#334b60';
+                }
+              });
+              if(heading) heading.textContent = HEAD[view].h;
+              if(intro) intro.textContent = HEAD[view].p;
+              document.body.classList.toggle('ai-mode', view === 'ai');
+              var aiView = views.ai;
+              if(aiView){
+                aiView.classList.remove('show');
+                if(view === 'ai'){ requestAnimationFrame(function(){ requestAnimationFrame(function(){ aiView.classList.add('show'); }); }); }
+              }
+              if(window.__navUpd) window.__navUpd();
+            };
+            tabs.forEach(function(t){ t.addEventListener('click', function(){ window.setSvcView(t.getAttribute('data-view')); }); });
+          })();
+        </script>
 
         <!-- ====== 3. AS A SERVICE — narrative explainer below the matrix ====== -->
         <section id="as-a-service" class="py-20 md:py-24 px-6 md:px-12 max-w-[1400px] mx-auto">

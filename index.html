@@ -214,7 +214,7 @@
       body{transition:background-color .8s ease;}
       #services{transition:background-color .5s ease, box-shadow .5s ease;}
       body.ai-mode:not(.ai-full) #services{background-color:#0c1420; box-shadow:0 0 0 100vmax #0c1420; clip-path:inset(0 -100vmax);}
-      body.ai-mode #services .border-bordercolor{border-color:rgba(255,255,255,0.14) !important;}
+      body.ai-mode #services .border-bordercolor{border-color:rgba(255,255,255,0.28) !important;}
       body.ai-mode #services h2, body.ai-mode #services h3, body.ai-mode #services h4{color:#f2f6fa;}
       body.ai-mode #services .text-muted{color:#9fb1c2 !important;}
       body.ai-mode #services .text-text{color:#e7edf3 !important;}
@@ -492,7 +492,8 @@
                       .aix-railcol{grid-column:3;grid-row:1 / span 3;display:flex;flex-direction:column;gap:12px;}
                       .aix-rail{flex:1;min-height:150px;border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;}
                       .aix-rail span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Lato',sans-serif;font-weight:700;font-size:18px;letter-spacing:.04em;padding:14px 0;display:inline-flex;align-items:center;gap:6px;}
-                      .aix-r1{background:#e08a3c;color:#2a1a08;}
+                      .aix-r1{background:#334b60;color:#FAFAF7;border:0;cursor:pointer;transition:opacity .15s ease;}
+                      .aix-r1:hover{opacity:.92;}
                       .aix-r2{background:#88C9BE;color:#1C2A36;}
                       .aiv-band{position:relative;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;margin-top:2.5rem;margin-bottom:0;}
                       .aiv-band__pad{position:relative;max-width:1400px;margin:0 auto;padding:3rem 1.5rem;}
@@ -564,7 +565,7 @@
                         </div>
 
                         <div class="aix-railcol">
-                            <div class="aix-rail aix-r1"><span>Consulting</span></div>
+                            <button type="button" class="aix-rail aix-r1" onclick="setSvcView('consulting')" aria-label="View the Consulting portfolio"><span>Consulting</span></button>
                             <a class="aix-rail aix-r2" href="https://managedsuppliers.com" target="_blank" rel="noopener"><span>managedsuppliers <i class="ph ph-arrow-up-right" style="font-size:13px;"></i></span></a>
                         </div>
                     </div>
