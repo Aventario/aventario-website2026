@@ -49,10 +49,10 @@
         nav#mainNav[data-over-hero] #mobileMenuBtn { color: #FAFAF7; text-shadow: 0 1px 8px rgba(0,0,0,0.5); transition: color 0.25s ease, text-shadow 0.25s ease; }
         nav#mainNav[data-over-hero].past-hero #mobileMenuBtn { color: #334b60; text-shadow: none; }
         /* Pull the first hero section up behind the transparent nav so the image is truly full-bleed top */
-        body:has(nav#mainNav[data-over-hero]) main > section:first-child,
+        body:has(nav#mainNav[data-over-hero]) main > section:first-of-type,
         body:has(nav#mainNav[data-over-hero]) > section:first-of-type { margin-top: -88px; }
         @media (max-width: 1023px) {
-          body:has(nav#mainNav[data-over-hero]) main > section:first-child,
+          body:has(nav#mainNav[data-over-hero]) main > section:first-of-type,
           body:has(nav#mainNav[data-over-hero]) > section:first-of-type { margin-top: -76px; }
         }
 
@@ -254,7 +254,7 @@
         <div class="relative max-w-6xl mx-auto px-6 md:px-12 flex flex-col justify-center" style="min-height: 78vh;">
             <div class="w-full md:w-[70%] py-24 md:py-32">
                 <h1 class="font-serif" style="color: #FAFAF7; font-size: clamp(2.4rem, 5vw, 4.5rem); line-height: 1.05; text-shadow: 0 2px 28px rgba(0,0,0,0.7);">
-                    Unsere Kunden haben keine Lieferanten. Sie haben Partner für gemeinsamen Erfolg.
+                    Unsere Kunden haben keine Lieferanten.<br>Sie haben Partner für gemeinsamen Erfolg.
                 </h1>
             </div>
         </div>
@@ -292,32 +292,32 @@
                 <div class="bg-surface border border-bordercolor rounded-md p-7 hover:border-accent transition-colors">
                     <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5" style="background-color: rgba(136, 201, 190, 0.18); color:#2C7A6B;"><i class="ph-bold ph-handshake text-2xl"></i></div>
                     <h3 class="font-serif text-xl text-text mb-2">Authentische Beziehungen auf Basis von Vertrauen</h3>
-                    <p class="text-sm text-muted leading-relaxed">Echte, langfristige Partnerschaften, die auf Transparenz und gegenseitigem Respekt beruhen.</p>
+                    <p class="text-base text-muted leading-relaxed">Echte, langfristige Partnerschaften, die auf Transparenz und gegenseitigem Respekt beruhen.</p>
                 </div>
                 <div class="bg-surface border border-bordercolor rounded-md p-7 hover:border-accent transition-colors">
                     <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5" style="background-color: rgba(136, 201, 190, 0.18); color:#2C7A6B;"><i class="ph-bold ph-target text-2xl"></i></div>
                     <h3 class="font-serif text-xl text-text mb-2">Pragmatismus, zuhören, vereinfachen, liefern</h3>
-                    <p class="text-sm text-muted leading-relaxed">Wir hören zu, reduzieren Komplexität und liefern praktische Lösungen, die funktionieren.</p>
+                    <p class="text-base text-muted leading-relaxed">Wir hören zu, reduzieren Komplexität und liefern praktische Lösungen, die funktionieren.</p>
                 </div>
                 <div class="bg-surface border border-bordercolor rounded-md p-7 hover:border-accent transition-colors">
                     <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5" style="background-color: rgba(136, 201, 190, 0.18); color:#2C7A6B;"><i class="ph-bold ph-medal text-2xl"></i></div>
                     <h3 class="font-serif text-xl text-text mb-2">Service-Exzellenz, auf Sie zugeschnitten</h3>
-                    <p class="text-sm text-muted leading-relaxed">Jede Lösung ist auf Ihre konkreten Anforderungen zugeschnitten, Ihr Erfolg ist der Maßstab.</p>
+                    <p class="text-base text-muted leading-relaxed">Jede Lösung ist auf Ihre konkreten Anforderungen zugeschnitten, Ihr Erfolg ist der Maßstab.</p>
                 </div>
                 <div class="bg-surface border border-bordercolor rounded-md p-7 hover:border-accent transition-colors">
                     <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5" style="background-color: rgba(136, 201, 190, 0.18); color:#2C7A6B;"><i class="ph-bold ph-shield-check text-2xl"></i></div>
                     <h3 class="font-serif text-xl text-text mb-2">Verbindlichkeit, wir halten unser Wort</h3>
-                    <p class="text-sm text-muted leading-relaxed">Wenn wir uns festlegen, liefern wir. Unser Ruf beruht auf Verlässlichkeit.</p>
+                    <p class="text-base text-muted leading-relaxed">Wenn wir uns festlegen, liefern wir. Unser Ruf beruht auf Verlässlichkeit.</p>
                 </div>
                 <div class="bg-surface border border-bordercolor rounded-md p-7 hover:border-accent transition-colors">
                     <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5" style="background-color: rgba(136, 201, 190, 0.18); color:#2C7A6B;"><i class="ph-bold ph-users-three text-2xl"></i></div>
                     <h3 class="font-serif text-xl text-text mb-2">Zusammenarbeit, die befähigt</h3>
-                    <p class="text-sm text-muted leading-relaxed">Wir arbeiten Seite an Seite mit Ihrem Team und hinterlassen die Werkzeuge und das Wissen, die es braucht.</p>
+                    <p class="text-base text-muted leading-relaxed">Wir arbeiten Seite an Seite mit Ihrem Team und hinterlassen die Werkzeuge und das Wissen, die es braucht.</p>
                 </div>
                 <div class="bg-surface border border-bordercolor rounded-md p-7 hover:border-accent transition-colors">
                     <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5" style="background-color: rgba(136, 201, 190, 0.18); color:#2C7A6B;"><i class="ph-bold ph-lightbulb text-2xl"></i></div>
                     <h3 class="font-serif text-xl text-text mb-2">Neugier. Wachstum. Innovation.</h3>
-                    <p class="text-sm text-muted leading-relaxed">Eine Leidenschaft für Lernen und kontinuierliche Verbesserung, so finden wir immer wieder bessere Antworten.</p>
+                    <p class="text-base text-muted leading-relaxed">Eine Leidenschaft für Lernen und kontinuierliche Verbesserung, so finden wir immer wieder bessere Antworten.</p>
                 </div>
             </div>
         </div>
@@ -363,7 +363,7 @@
         <img src="/images/cta-ridge.jpg" alt="" role="presentation" class="absolute inset-0 w-full h-full object-cover" style="object-position:center 52%;" loading="lazy" decoding="async">
         <div class="absolute inset-0" style="background:linear-gradient(90deg, rgba(15,22,35,0.76) 0%, rgba(15,22,35,0.42) 50%, rgba(15,22,35,0.20) 100%);"></div>
         <div class="relative max-w-[1400px] mx-auto px-6 md:px-12 py-24 md:py-36 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-            <h2 class="font-serif text-4xl md:text-6xl leading-tight" style="color:#FAFAF7; text-shadow: 0 2px 18px rgba(0,0,0,0.55);">Sprechen wir.</h2>
+            <h2 class="font-serif text-4xl md:text-6xl leading-tight" style="color:#FAFAF7; text-shadow: 0 2px 18px rgba(0,0,0,0.55);">Lassen Sie uns sprechen.</h2>
             <div class="flex flex-col sm:flex-row gap-4 shrink-0">
                 <a href="/de/contact.html" class="inline-flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-widest px-8 py-4 rounded-full transition-colors" style="background-color:#FAFAF7; color:#334b60;">Kontakt aufnehmen <i class="ph ph-arrow-right"></i></a>
             </div>

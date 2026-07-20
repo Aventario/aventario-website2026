@@ -49,10 +49,10 @@
         nav#mainNav[data-over-hero] #mobileMenuBtn { color: #FAFAF7; text-shadow: 0 1px 8px rgba(0,0,0,0.5); transition: color 0.25s ease, text-shadow 0.25s ease; }
         nav#mainNav[data-over-hero].past-hero #mobileMenuBtn { color: #334b60; text-shadow: none; }
         /* Pull the first hero section up behind the transparent nav so the image is truly full-bleed top */
-        body:has(nav#mainNav[data-over-hero]) main > section:first-child,
+        body:has(nav#mainNav[data-over-hero]) main > section:first-of-type,
         body:has(nav#mainNav[data-over-hero]) > section:first-of-type { margin-top: -88px; }
         @media (max-width: 1023px) {
-          body:has(nav#mainNav[data-over-hero]) main > section:first-child,
+          body:has(nav#mainNav[data-over-hero]) main > section:first-of-type,
           body:has(nav#mainNav[data-over-hero]) > section:first-of-type { margin-top: -76px; }
         }
 
@@ -296,7 +296,7 @@
                    data-solutions="it-landscape portfolio-streamlining service-mgmt-opt"
                    class="impact-card group block bg-surface border border-bordercolor rounded-md p-6 hover:border-accent transition-colors flex flex-col">
                     <div class="flex flex-wrap items-center gap-1.5 mb-4">
-                        <img src="/images/logos/clients/sodexo.svg" alt="Sodexo" class="h-4 w-auto mr-1 opacity-80">
+                        <img src="/images/logos/clients/sodexo.svg" alt="Sodexo" class="h-6 w-auto mr-1 opacity-80">
                         <span class="text-[10px] font-bold uppercase tracking-widest text-accentdark bg-accent/15 border border-accent/40 px-2 py-1 rounded">Operational Excellence</span>
                         <span class="text-[10px] font-bold uppercase tracking-widest text-accentdark bg-accent/15 border border-accent/40 px-2 py-1 rounded">Vendor Consolidation</span>
                     </div>
@@ -369,7 +369,7 @@
                    data-solutions="managed-rfx requirements frame-contract vm-operation"
                    class="impact-card group block bg-surface border border-bordercolor rounded-md p-6 hover:border-accent transition-colors flex flex-col">
                     <div class="flex flex-wrap items-center gap-1.5 mb-4">
-                        <img src="/images/logos/clients/fraport.svg" alt="Fraport" class="h-4 w-auto mr-1 opacity-80">
+                        <img src="/images/logos/clients/fraport.svg" alt="Fraport" class="h-6 w-auto mr-1 opacity-80">
                         <span class="text-[10px] font-bold uppercase tracking-widest text-accentdark bg-accent/15 border border-accent/40 px-2 py-1 rounded">Complex RFX</span>
                         <span class="text-[10px] font-bold uppercase tracking-widest text-accentdark bg-accent/15 border border-accent/40 px-2 py-1 rounded">Savings Realization</span>
                         <span class="text-[10px] font-bold uppercase tracking-widest text-accentdark bg-accent/15 border border-accent/40 px-2 py-1 rounded">Vendor Management</span>
@@ -530,7 +530,7 @@
         <img src="/images/cta-ridge.jpg" alt="" role="presentation" class="absolute inset-0 w-full h-full object-cover" style="object-position:center 52%;" loading="lazy" decoding="async">
         <div class="absolute inset-0" style="background:linear-gradient(90deg, rgba(15,22,35,0.76) 0%, rgba(15,22,35,0.42) 50%, rgba(15,22,35,0.20) 100%);"></div>
         <div class="relative max-w-[1400px] mx-auto px-6 md:px-12 py-24 md:py-36 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-            <h2 class="font-serif text-4xl md:text-6xl leading-tight" style="color:#FAFAF7; text-shadow: 0 2px 18px rgba(0,0,0,0.55);">Sprechen wir.</h2>
+            <h2 class="font-serif text-4xl md:text-6xl leading-tight" style="color:#FAFAF7; text-shadow: 0 2px 18px rgba(0,0,0,0.55);">Lassen Sie uns sprechen.</h2>
             <div class="flex flex-col sm:flex-row gap-4 shrink-0">
                 <a href="/de/contact.html" class="inline-flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-widest px-8 py-4 rounded-full transition-colors" style="background-color:#FAFAF7; color:#334b60;">Kontakt aufnehmen <i class="ph ph-arrow-right"></i></a>
             </div>
