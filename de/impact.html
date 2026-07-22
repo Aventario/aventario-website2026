@@ -70,6 +70,9 @@
         .fchip { color:#334b60; background:#ffffff; border:1px solid rgba(51,75,96,0.18); transition: all 0.15s; cursor:pointer; }
         .fchip:hover { border-color:#2C7A6B; color:#2C7A6B; }
         .fchip.active { background-color:#334b60; color:#FAFAF7; border-color:#334b60; }
+        .fchip-ai { background:#f19a51; color:#3a2410; border:1px solid #f19a51; }
+        .fchip-ai:hover { background:#e2883f; border-color:#e2883f; color:#3a2410; }
+        .fchip-ai.active { background:#B45309; color:#FAFAF7; border-color:#B45309; }
     
         /* Hand-drawn illustration entrance — fades up + scales in on scroll */
         .illu { opacity: 0; transform: translateY(24px) scale(0.96); transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); will-change: opacity, transform; }
@@ -240,6 +243,7 @@
             <button type="button" data-area="vendor-consolidation" class="fchip text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full">Service &amp; Vendor Consolidation</button>
             <button type="button" data-area="complex-rfx" class="fchip text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full">Complex RFX</button>
             <button type="button" data-area="vendor-management" class="fchip text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full">Vendor Management</button>
+            <button type="button" data-area="aventario-ai" class="fchip fchip-ai text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full inline-flex items-center gap-1.5"><i class="ph ph-sparkle"></i> Aventario AI</button>
           </div>
           <div id="solWrap" class="hidden">
             <p class="text-[10px] uppercase tracking-widest font-bold text-muted mt-4 mb-2">Konkrete Lösungen</p>
