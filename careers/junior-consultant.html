@@ -76,6 +76,12 @@
       nav#mainNav.past-hero a.contact-pill{width:36px;padding:0;gap:0;}
       nav#mainNav.past-hero a.contact-pill .contact-label{max-width:0;opacity:0;}
       @media (prefers-reduced-motion: reduce){ a.contact-pill, a.contact-pill .contact-label{transition:none;} }
+
+      /* Careers pages: utilities the prebuilt tailwind.css does not ship */
+      .job-sections > div + div { margin-top: 3.5rem; }
+      @media (min-width: 768px) { .job-sections > div + div { margin-top: 5rem; } }
+      .job-card { transition: border-color 0.2s ease; }
+      .job-card:hover .job-cta { background-color: #5FA99D; }
 </style>
 
     <script type="application/ld+json">
@@ -91,7 +97,7 @@
   "description": "<p>Junior Consultant supporting international consulting projects in project coordination, planning, analysis and documentation, working alongside experienced consultants at Aventario, a Vienna-based consultancy for IT and supply chain cost and value optimization.</p><ul><li>Support project coordination, planning and task management</li><li>Assist with project management, change management and organizational development</li><li>Support process, stakeholder, risk and time management</li><li>Prepare and document meetings and workshops</li><li>Assist with project analysis, effort estimation and OKR tracking</li><li>Prepare presentations, reports and project documentation</li><li>Collaborate with international project teams and stakeholders</li></ul>",
   "datePosted": "2026-07-27",
   "validThrough": "2026-09-15T23:59:59+02:00",
-  "employmentType": "FULL_TIME",
+  "employmentType": ["FULL_TIME", "PART_TIME"],
   "hiringOrganization": {
     "@type": "Organization",
     "name": "Aventario",
@@ -159,14 +165,14 @@
     <main>
 
     <!-- JOB HEADER -->
-    <section class="px-6 md:px-12 pt-12 pb-16 md:pt-16 md:pb-20 border-b border-bordercolor" style="background-color:#334b60; color:#FAFAF7;">
+    <section class="px-6 md:px-12 pt-12 pb-16 md:py-20 border-b border-bordercolor" style="background-color:#334b60; color:#FAFAF7;">
         <div class="max-w-4xl mx-auto">
             <a href="/careers.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-8 hover:text-accent" style="color: rgba(250,250,247,0.8);"><i class="ph ph-arrow-left"></i> Back to open positions</a>
             <h1 class="font-serif text-4xl md:text-6xl leading-[1.05] mb-8">Junior Consultant (m/f/d)</h1>
-            <ul class="flex flex-wrap gap-x-8 gap-y-3 text-sm mb-10" style="color: rgba(250,250,247,0.9);">
+            <ul class="flex flex-wrap gap-x-8 text-sm mb-10" style="row-gap:0.75rem;" style="color: rgba(250,250,247,0.9);">
                 <li class="inline-flex items-center gap-2"><i class="ph ph-map-pin text-base" style="color:#8dccc0;"></i> Austria (remote), other countries possible</li>
                 <li class="inline-flex items-center gap-2"><i class="ph ph-calendar-blank text-base" style="color:#8dccc0;"></i> From September 2026</li>
-                <li class="inline-flex items-center gap-2"><i class="ph ph-briefcase text-base" style="color:#8dccc0;"></i> Full time</li>
+                <li class="inline-flex items-center gap-2"><i class="ph ph-calendar-check text-base" style="color:#8dccc0;"></i> Full time / Part time</li>
                 <li class="inline-flex items-center gap-2"><i class="ph ph-currency-eur text-base" style="color:#8dccc0;"></i> EUR 50,000 gross per year</li>
             </ul>
             <a href="mailto:awesome@aventario.com?subject=Application%20%E2%80%94%20Junior%20Consultant" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest px-8 py-4 rounded-full transition-colors" style="background-color:#FAFAF7; color:#334b60;">Apply now <i class="ph ph-arrow-right"></i></a>
@@ -175,7 +181,7 @@
 
     <!-- JOB BODY -->
     <section class="px-6 md:px-12 py-16 md:py-20">
-        <div class="max-w-4xl mx-auto space-y-14 md:space-y-16">
+        <div class="max-w-4xl mx-auto job-sections">
             <div>
                 <h2 class="font-serif text-2xl md:text-3xl mb-5">About the role</h2>
                 <p class="text-base md:text-lg text-muted leading-relaxed">As a Junior Consultant you support international consulting projects in project coordination, planning, analysis, documentation and day-to-day project activities. You work closely with experienced consultants and project teams and gain practical exposure to project management, transformation and client-facing consulting in an international environment. We are looking for someone structured, curious and detail-oriented who wants to build a career in consulting.</p>
@@ -226,7 +232,7 @@
                 </ul>
             </div>
 
-            <div class="bg-surface border border-bordercolor rounded-md p-7 md:p-9">
+            <div class="bg-surface border border-bordercolor rounded-md p-7 md:p-8">
                 <h2 class="font-serif text-2xl md:text-3xl mb-5">How to apply</h2>
                 <p class="text-base text-muted leading-relaxed mb-7">Send your CV to <a href="mailto:awesome@aventario.com" class="font-bold text-text hover:text-accentdark underline">awesome@aventario.com</a>. A short note on why consulting interests you helps, a cover letter is not required. We read every application and reply.</p>
                 <a href="mailto:awesome@aventario.com?subject=Application%20%E2%80%94%20Junior%20Consultant" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest px-8 py-4 rounded-full bg-text text-surface hover:bg-accentdark transition-colors">Apply now <i class="ph ph-arrow-right"></i></a>

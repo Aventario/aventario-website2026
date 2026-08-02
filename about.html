@@ -76,6 +76,12 @@
       nav#mainNav.past-hero a.contact-pill{width:36px;padding:0;gap:0;}
       nav#mainNav.past-hero a.contact-pill .contact-label{max-width:0;opacity:0;}
       @media (prefers-reduced-motion: reduce){ a.contact-pill, a.contact-pill .contact-label{transition:none;} }
+
+      /* Careers pages: utilities the prebuilt tailwind.css does not ship */
+      .job-sections > div + div { margin-top: 3.5rem; }
+      @media (min-width: 768px) { .job-sections > div + div { margin-top: 5rem; } }
+      .job-card { transition: border-color 0.2s ease; }
+      .job-card:hover .job-cta { background-color: #5FA99D; }
 </style>
     <script type="application/ld+json">
 [
@@ -360,7 +366,7 @@
     <!-- ============ §6 — Open positions ============ -->
     <section id="careers" class="px-6 md:px-12 py-20 md:py-24 border-b border-bordercolor" style="background-color: #FBFAF6;">
         <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 md:mb-12">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 md:mb-14">
                 <div>
                     <h2 class="font-serif text-3xl md:text-5xl mb-4">Open positions</h2>
                     <p class="text-base text-muted leading-relaxed max-w-2xl">We are hiring. Flat hierarchies, international projects, and the option to work remotely from anywhere.</p>
@@ -368,17 +374,17 @@
                 <a href="careers.html" class="shrink-0 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:text-accentdark">All openings <i class="ph ph-arrow-right"></i></a>
             </div>
 
-            <a href="careers/junior-consultant.html" class="group block bg-surface border border-bordercolor rounded-md p-7 md:p-8 hover:border-accent transition-colors">
+            <a href="careers/junior-consultant.html" class="job-card block bg-surface border border-bordercolor rounded-md p-7 md:p-8 hover:border-accent transition-colors">
                 <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
                     <div>
                         <h3 class="font-serif text-2xl text-text mb-3">Junior Consultant (m/f/d)</h3>
-                        <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+                        <ul class="flex flex-wrap gap-x-6 text-sm text-muted" style="row-gap:0.5rem;">
                             <li class="inline-flex items-center gap-2"><i class="ph ph-map-pin text-base" style="color:#2C7A6B;"></i> Austria (remote), other countries possible</li>
                             <li class="inline-flex items-center gap-2"><i class="ph ph-calendar-blank text-base" style="color:#2C7A6B;"></i> From September 2026</li>
                             <li class="inline-flex items-center gap-2"><i class="ph ph-currency-eur text-base" style="color:#2C7A6B;"></i> EUR 50,000 gross per year</li>
                         </ul>
                     </div>
-                    <span class="inline-flex items-center gap-2 shrink-0 text-sm font-bold uppercase tracking-widest px-7 py-3.5 rounded-full transition-colors bg-text text-surface group-hover:bg-accentdark">View position <i class="ph ph-arrow-right"></i></span>
+                    <span class="inline-flex items-center gap-2 shrink-0 text-sm font-bold uppercase tracking-widest px-7 py-3.5 rounded-full transition-colors bg-text text-surface job-cta">View position <i class="ph ph-arrow-right"></i></span>
                 </div>
             </a>
         </div>
