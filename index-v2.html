@@ -673,6 +673,20 @@
               if(window.__navUpd) window.__navUpd();
             };
             tabs.forEach(function(t){ t.addEventListener('click', function(){ window.setSvcView(t.getAttribute('data-view')); }); });
+            // Screenshot helper: #ai-a / #ai-b / #ai-c jumps straight to a layout, pill hidden
+            var m = (location.hash||'').match(/^#ai-([abc])$/);
+            if(m){
+              window.setSvcView('ai');
+              ['a','b','c'].forEach(function(k){var el=document.getElementById('ai-layout-'+k); if(el) el.style.display=(k===m[1])?'':'none';});
+              document.body.classList.add('shot-mode');
+              setTimeout(function(){
+                var pill=document.getElementById('aiLayoutDemo'); if(pill){pill.hidden=true; pill.style.display='none';}
+                var cb=document.getElementById('av-consent'); if(cb) cb.remove();
+                var hero=document.querySelector('main > section:first-of-type'); if(hero) hero.style.display='none';
+                var nav=document.getElementById('mainNav'); if(nav) nav.style.display='none';
+                window.scrollTo(0,0);
+              }, 400);
+            }
             // Dark-mode demo switch (internal, for the mgmt review): Panel vs Full page
             var demoBtns = document.querySelectorAll('#darkDemo button');
             demoBtns.forEach(function(b){
@@ -896,6 +910,7 @@
                     <ul class="space-y-2.5 text-sm" style="color: rgba(250,250,247,0.9);">
                         <li><a href="about.html" class="hover:text-accent">Team</a></li>
                         <li><a href="contact.html" class="hover:text-accent">Contact</a></li>
+                        <li><a href="careers.html" class="hover:text-accent">Careers</a></li>
                     </ul>
                     <p class="text-sm uppercase tracking-widest font-bold mt-8 mb-4" style="color: rgba(250,250,247,0.74);">Legal</p>
                     <ul class="space-y-2.5 text-sm" style="color: rgba(250,250,247,0.9);">

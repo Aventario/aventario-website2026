@@ -14,3 +14,7 @@ _config/
 .claude/
 .vercel/
 CLAUDE.md
+
+# secrets
+.env
+.env.*
