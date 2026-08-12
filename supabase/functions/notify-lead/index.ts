@@ -17,6 +17,10 @@ const HOOK_SECRET = Deno.env.get("HOOK_SECRET") ?? "";
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const TO = (Deno.env.get("LEADS_TO") || "marketing@aventario.com").split(",").map((s) => s.trim());
 const FROM = Deno.env.get("LEADS_FROM") || "Aventario Website <onboarding@resend.dev>";
+// Teams channel post. Set TEAMS_WEBHOOK_URL to the URL of the Teams workflow
+// "Post to a channel when a webhook request is received" on Marketing Kampagnen.
+// Unset means no channel post, everything else carries on as before.
+const TEAMS_WEBHOOK_URL = Deno.env.get("TEAMS_WEBHOOK_URL");
 
 Deno.serve(async (req) => {
   if (req.headers.get("x-hook-secret") !== HOOK_SECRET) {
@@ -36,6 +40,45 @@ Deno.serve(async (req) => {
     .map(([k, v]) => `<tr><td style="padding:4px 14px 4px 0;color:#5f768b;font:13px Arial;vertical-align:top">${k}</td><td style="padding:4px 0;color:#334b60;font:13px Arial"><b>${String(v).replace(/</g, "&lt;")}</b></td></tr>`)
     .join("");
   const html = `<div style="max-width:560px"><h2 style="font:700 18px Arial;color:#334b60;margin:0 0 2px">${kind}</h2><p style="font:13px Arial;color:#5f768b;margin:0 0 16px">via aventario.com &middot; ${new Date().toISOString().slice(0, 16).replace("T", " ")} UTC</p><table style="border-collapse:collapse">${rows}</table><p style="font:12px Arial;color:#8aa0b2;margin-top:20px">Stored in Supabase &rarr; ${table}. Reply to reach the lead at ${rec.email || "n/a"}.</p></div>`;
+
+  // Channel post first: it is the alert people actually see, and it must not
+  // depend on the email working. A failure here is logged, never thrown.
+  if (TEAMS_WEBHOOK_URL) {
+    const facts = Object.entries(rec)
+      .filter(([k, v]) => v !== null && v !== "" && !["id", "user_agent", "confirmation_sent"].includes(k))
+      .slice(0, 12)
+      .map(([k, v]) => ({ title: k, value: String(v).slice(0, 300) }));
+    const card = {
+      type: "message",
+      attachments: [{
+        contentType: "application/vnd.microsoft.card.adaptive",
+        content: {
+          $schema: "http://adaptivecards.io/schemas/adaptive-card.json",
+          type: "AdaptiveCard",
+          version: "1.4",
+          body: [
+            { type: "TextBlock", text: kind, weight: "Bolder", size: "Medium", color: "Accent" },
+            { type: "TextBlock", text: subjectName, weight: "Bolder", wrap: true },
+            { type: "FactSet", facts },
+            { type: "TextBlock", text: `Stored in Supabase, table ${table}. A task is already in the Asana Lead Pipeline.`, isSubtle: true, size: "Small", wrap: true },
+          ],
+          actions: rec.email
+            ? [{ type: "Action.OpenUrl", title: "Reply to this lead", url: `mailto:${rec.email}` }]
+            : [],
+        },
+      }],
+    };
+    try {
+      const t = await fetch(TEAMS_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(card),
+      });
+      console.log("[notify-lead:teams]", t.status, await t.text());
+    } catch (e) {
+      console.error("[notify-lead:teams] failed", String(e));
+    }
+  }
 
   if (!RESEND_API_KEY) {
     console.error("[notify-lead] RESEND_API_KEY not set — email skipped. Row stored:", JSON.stringify(rec));
