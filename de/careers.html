@@ -185,10 +185,11 @@
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 md:mb-14">
                 <h2 class="font-serif text-3xl md:text-5xl">Offene Stellen</h2>
-                <p class="text-sm text-muted">1 offene Position</p>
+                <p class="text-sm text-muted" data-job-count>1 offene Position</p>
+                <p class="text-sm text-muted" data-job-none hidden>Derzeit keine offenen Stellen</p>
             </div>
 
-            <a href="/de/careers/junior-consultant.html" class="job-card block bg-surface border border-bordercolor rounded-md p-7 md:p-8 hover:border-accent transition-colors">
+            <a href="/de/careers/junior-consultant.html" data-job-expires="2026-09-15" class="job-card block bg-surface border border-bordercolor rounded-md p-7 md:p-8 hover:border-accent transition-colors">
                 <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
                     <div>
                         <h3 class="font-serif text-2xl md:text-3xl text-text mb-3">Junior Consultant (m/w/d)</h3>
@@ -204,6 +205,23 @@
             </a>
 
             <p class="text-sm text-muted mt-8">Nichts Passendes dabei? Senden Sie Ihren Lebenslauf an <a href="mailto:awesome@aventario.com" class="font-bold text-text hover:text-accentdark underline">awesome@aventario.com</a> und schreiben Sie uns, woran Sie arbeiten möchten.</p>
+
+            <!-- Stellen laufen von selbst aus. Eine Karte mit data-job-expires verschwindet
+                 nach diesem Datum. Bleibt keine übrig, übernimmt data-job-none.
+                 Neue Stelle: Karte oben kopieren und eigenes Datum eintragen. -->
+            <script>
+              (function () {
+                var now = new Date();
+                Array.prototype.forEach.call(document.querySelectorAll('[data-job-expires]'), function (el) {
+                  if (now > new Date(el.getAttribute('data-job-expires') + 'T23:59:59+02:00')) el.remove();
+                });
+                var open = document.querySelectorAll('[data-job-expires]').length;
+                Array.prototype.forEach.call(document.querySelectorAll('[data-job-none]'), function (el) {
+                  if (open) el.remove(); else el.hidden = false;
+                });
+                if (!open) Array.prototype.forEach.call(document.querySelectorAll('[data-job-count]'), function (el) { el.remove(); });
+              })();
+            </script>
         </div>
     </section>
 
