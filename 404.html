@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page not found — Aventario</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 55.42 55.2'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='11.43' y1='48.04' x2='37.22' y2='48.04' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23324a60'/%3E%3Cstop offset='.45' stop-color='%236a9a9b'/%3E%3Cstop offset='1' stop-color='%238dccc0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M37.22,40.94l-5.14-8.91c-.11-.19-.38-.19-.49,0l-5.14,8.91h10.78Z' fill='%238dccc0'/%3E%3Cpolygon points='11.43 55.15 37.22 40.94 26.44 40.94 16.64 46.19 15.81 47.62 11.51 55.06 11.43 55.15' fill='url(%23g)'/%3E%3Cpath d='M55.38,40.51l-7.53-13.05L32.08,.14c-.11-.19-.38-.19-.49,0L15.81,27.46.04,54.78c-.06,.1-.05,.21,0,.29,.05,.08,.13,.14,.24,.14H11.26c.1,0,.2-.05,.25-.14l4.3-7.45,.83-1.43,14.95-25.89c.11-.19,.38-.19,.49,0l11.83,20.49c.05,.09,.15,.14,.25,.14h10.98c.22,0,.36-.24,.25-.43Z' fill='%23324a60'/%3E%3C/svg%3E">
+    <link href="/assets/fonts/lato.css" rel="stylesheet">
+    <style>
+        /* Self-contained on purpose. A 404 page that depends on the rest of the
+           site is a 404 page that breaks when the site does. */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #FAFAF7; color: #334b60;
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh; display: flex; flex-direction: column;
+        }
+        a { color: inherit; }
+        .wrap { flex: 1; display: flex; align-items: center; justify-content: center; padding: 6vh 24px; }
+        .inner { max-width: 620px; width: 100%; }
+        .logo { display: block; height: 44px; margin-bottom: 48px; }
+        .code { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #5f768b; }
+        h1 { font-weight: 900; letter-spacing: -0.02em; line-height: 1.05; font-size: clamp(2rem, 6vw, 3.2rem); margin: 14px 0 20px; }
+        p { color: #5f768b; line-height: 1.6; font-size: 1.05rem; max-width: 46ch; }
+        .links { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; }
+        .btn {
+            display: inline-flex; align-items: center; text-decoration: none;
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+            padding: 14px 28px; border-radius: 999px; transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .btn-primary { background-color: #334b60; color: #FAFAF7; }
+        .btn-primary:hover { background-color: #5FA99D; }
+        .btn-ghost { border: 1px solid rgba(51, 75, 96, 0.25); color: #334b60; }
+        .btn-ghost:hover { border-color: #5FA99D; color: #5FA99D; }
+        .more { margin-top: 44px; padding-top: 28px; border-top: 1px solid rgba(51, 75, 96, 0.12); }
+        .more p { font-size: 0.9rem; margin-bottom: 12px; }
+        .more ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 24px; }
+        .more a { font-size: 0.95rem; font-weight: 700; text-decoration: none; }
+        .more a:hover { color: #5FA99D; }
+        footer { padding: 24px; text-align: center; font-size: 0.85rem; color: #5f768b; }
+        :focus-visible { outline: 2px solid #5FA99D; outline-offset: 3px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <main class="wrap">
+        <div class="inner">
+            <a href="/" aria-label="Aventario home">
+                <img src="/logos/aventario-logo-CMYK.svg" alt="Aventario" class="logo"
+                     onerror="this.style.display='none'">
+            </a>
+            <p class="code">Error 404</p>
+            <h1 id="h">This page does not exist.</h1>
+            <p id="sub">The link may be old, or the address may have a typo. Everything below still works.</p>
+
+            <div class="links">
+                <a class="btn btn-primary" href="/" id="home">Go to the homepage</a>
+                <a class="btn btn-ghost" href="/contact" id="contact">Contact us</a>
+            </div>
+
+            <div class="more">
+                <p id="morelabel">Or go straight to:</p>
+                <ul>
+                    <li><a href="/portfolio" id="l1">What we do</a></li>
+                    <li><a href="/impact" id="l2">Client results</a></li>
+                    <li><a href="/blog" id="l3">Articles</a></li>
+                    <li><a href="/about" id="l4">The team</a></li>
+                    <li><a href="/careers" id="l5">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <footer>Aventario Solutions GmbH, Tuchlauben 7a, 1010 Vienna &middot; <a href="mailto:office@aventario.com">office@aventario.com</a></footer>
+
+    <script>
+      /* One 404 file serves both languages. If the address that failed was under
+         /de/, answer in German and point at the German pages. */
+      (function () {
+        if (!location.pathname.startsWith('/de')) return;
+        document.documentElement.lang = 'de';
+        document.title = 'Seite nicht gefunden — Aventario';
+        var set = function (id, text) { var e = document.getElementById(id); if (e) e.textContent = text; };
+        set('h', 'Diese Seite gibt es nicht.');
+        set('sub', 'Der Link ist vermutlich alt, oder in der Adresse steckt ein Tippfehler. Alles Weitere funktioniert.');
+        set('home', 'Zur Startseite');
+        set('contact', 'Kontakt');
+        set('morelabel', 'Oder direkt zu:');
+        var de = [['l1', 'Leistungen', '/de'], ['l2', 'Referenzen', '/de/impact'],
+                  ['l3', 'Artikel', '/de/blog'], ['l4', 'Team', '/de/about'], ['l5', 'Karriere', '/careers']];
+        de.forEach(function (r) {
+          var e = document.getElementById(r[0]);
+          if (e) { e.textContent = r[1]; e.href = r[2]; }
+        });
+        var h = document.getElementById('home'); if (h) h.href = '/de';
+        var c = document.getElementById('contact'); if (c) c.href = '/de/contact';
+      })();
+    </script>
+</body>
+</html>
