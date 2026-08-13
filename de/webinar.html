@@ -121,6 +121,7 @@
                 };
                 var orig = btn.textContent; btn.disabled = true; btn.textContent = 'Wird angemeldet…';
                 try {
+                    if (window.avAttribution) Object.assign(data, window.avAttribution());
                     var r = await fetch(SB_URL + '/rest/v1/webinar_registrations', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json', apikey: SB_KEY, Prefer: 'return=minimal' },
