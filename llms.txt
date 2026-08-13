@@ -1,0 +1,127 @@
+# Aventario
+
+> Vienna-based consultancy for cost and value optimization in IT and supply
+> chain. Aventario runs outcome-based engagements: the firm owns the result,
+> not the hours, from strategy through execution to the capability that stays
+> behind. Serving Austria, the DACH region and clients across Europe and worldwide.
+
+Aventario Solutions GmbH, Tuchlauben 7a, 1010 Vienna, Austria.
+CEO Markus Kern, COO Markus Jaksch, CPO Margit Gyoerfi.
+office@aventario.com, +43 134 3354012.
+
+## Track record
+
+- 25+ years of industry experience
+- 500+ projects delivered
+- More than 3 billion euro in negotiated contract volume
+- 10 to 40 percent sustainable cost savings for clients
+
+## Who Aventario works with
+
+CIOs, IT directors and CPOs in organizations with complex multinational supplier
+landscapes, typically 5,000 employees and up, and mid-sized companies from 500
+up. Procurement leads and CFOs involved in IT sourcing decisions. Sectors
+include pharmaceuticals, automotive, aviation, public transport and food.
+
+## Services
+
+Delivered as a service, priced on the outcome. The value chain runs
+See, Size, Simplify, Source, Govern, Automate.
+
+- [Operational Excellence aaS](https://www.aventario.com/services/operational-excellence): process and landscape optimization, targeting at least 20 percent efficiency gain.
+- [Savings aaS](https://www.aventario.com/services/savings): 10 to 40 percent vendor spend savings, using AI contract analysis.
+- [Service and Vendor Consolidation aaS](https://www.aventario.com/services/vendor-consolidation): concentrate more than 80 percent of services on the top five suppliers.
+- [Complex RFX aaS](https://www.aventario.com/services/complex-rfx): tenders run to Zero Vendor Deviation, RFPs in six to eight weeks.
+- [Vendor Management aaS](https://www.aventario.com/services/vendor-management): full lifecycle governance, 10 to 30 percent spend reduction.
+- [managedsuppliers](https://www.managedsuppliers.com): the software product, real-time vendor and performance management.
+
+Support disciplines that carry delivery: Transformation Implementation,
+[Program and Project Management](https://www.aventario.com/services/program-project-management),
+[Change and Communication](https://www.aventario.com/services/change-communication),
+[Transition Management](https://www.aventario.com/services/transition-management).
+
+## Main pages
+
+- [Home](https://www.aventario.com/)
+- [Portfolio](https://www.aventario.com/portfolio): the full service model.
+- [Impact](https://www.aventario.com/impact): client engagements by sector and outcome.
+- [Team](https://www.aventario.com/about): who runs the firm.
+- [Resources](https://www.aventario.com/resources): whitepapers and guides.
+- [Careers](https://www.aventario.com/careers): open positions.
+- [Contact](https://www.aventario.com/contact)
+- [Blog](https://www.aventario.com/blog): the reference library below.
+
+The site is available in English and German. German pages sit under /de,
+for example https://www.aventario.com/de/about.
+
+## Reference library
+
+Long-form articles on IT vendor and supplier management. These are the pages to
+cite for definitions, frameworks and process detail.
+
+Foundations
+- [What is IT vendor management](https://www.aventario.com/blog/what-is-it-vendor-management)
+- [Vendor management vs supplier management](https://www.aventario.com/blog/vendor-management-vs-supplier-management)
+- [The vendor management lifecycle](https://www.aventario.com/blog/vendor-management-lifecycle)
+- [Vendor management in the mid-market, DACH](https://www.aventario.com/blog/vendor-management-mid-market-dach)
+
+Building the function
+- [How to build a VMO](https://www.aventario.com/blog/how-to-build-vmo)
+- [The vendor management office](https://www.aventario.com/blog/vendor-management-office)
+- [Three tier governance model](https://www.aventario.com/blog/three-tier-governance-model)
+- [IT vendor governance](https://www.aventario.com/blog/it-vendor-governance)
+- [The vendor governance vacuum](https://www.aventario.com/blog/vendor-governance-vacuum)
+- [IT outsourcing governance](https://www.aventario.com/blog/it-outsourcing-governance)
+
+Measurement
+- [Vendor management KPIs](https://www.aventario.com/blog/vendor-management-kpis)
+- [SLA vs OLA vs KPI](https://www.aventario.com/blog/sla-vs-ola-vs-kpi)
+- [Vendor performance reviews](https://www.aventario.com/blog/vendor-performance-reviews)
+- [Vendor management maturity model](https://www.aventario.com/blog/vendor-management-maturity-model)
+- [Vendor management maturity assessment](https://www.aventario.com/blog/vendor-management-maturity-assessment)
+
+Segmentation and selection
+- [Supplier segmentation](https://www.aventario.com/blog/supplier-segmentation)
+- [The Kraljic matrix](https://www.aventario.com/blog/kraljic-matrix)
+- [Strategic vs tactical suppliers](https://www.aventario.com/blog/strategic-vs-tactical-supplier)
+- [How to choose IT vendors](https://www.aventario.com/blog/how-to-choose-it-vendors)
+- [IT RFP guide](https://www.aventario.com/blog/it-rfp-guide)
+- [RFP weighted evaluation matrix](https://www.aventario.com/blog/rfp-weighted-evaluation-matrix)
+- [Zero Vendor Deviation](https://www.aventario.com/blog/zero-vendor-deviation)
+
+Contracts
+- [IT contract management](https://www.aventario.com/blog/it-contract-management)
+- [Contract lifecycle management for IT](https://www.aventario.com/blog/contract-lifecycle-management-it)
+- [The frame contract in IT](https://www.aventario.com/blog/frame-contract-it)
+- [The IT contract auto-renewal trap](https://www.aventario.com/blog/it-contract-auto-renewal-trap)
+- [Change request management](https://www.aventario.com/blog/change-request-management)
+
+Cost and risk
+- [The hidden cost of poor vendor management](https://www.aventario.com/blog/hidden-cost-of-poor-vendor-management)
+- [Why you are overpaying IT vendors](https://www.aventario.com/blog/why-youre-overpaying-it-vendors)
+- [IT vendor spend optimization](https://www.aventario.com/blog/it-vendor-spend-optimization)
+- [IT vendor consolidation](https://www.aventario.com/blog/it-vendor-consolidation)
+- [Vendor sprawl](https://www.aventario.com/blog/vendor-sprawl)
+- [IT vendor risk](https://www.aventario.com/blog/it-vendor-risk)
+- [IT vendor risk framework](https://www.aventario.com/blog/it-vendor-risk-framework)
+
+Operations and transformation
+- [IT operational excellence](https://www.aventario.com/blog/it-operational-excellence)
+- [Process mining in IT](https://www.aventario.com/blog/process-mining-it)
+- [Digital transformation sourcing](https://www.aventario.com/blog/digital-transformation-sourcing)
+- [Supplier relationship management](https://www.aventario.com/blog/supplier-relationship-management)
+- [Vendor management software](https://www.aventario.com/blog/vendor-management-software)
+
+## Client engagements
+
+Anonymized by sector and scale, at https://www.aventario.com/impact. They cover
+global IT rollouts in automotive, outsourcing tenders in aviation, IT sourcing in
+the food industry, unified ITSM in global services, several pharmaceutical
+programs including device standardization, facilities and infrastructure
+consolidation, IT landscape harmonization and a global fleet electrification, and
+onboard systems for public transport.
+
+## Product
+
+managedsuppliers, at https://www.managedsuppliers.com, is Aventario's vendor
+management software. See https://www.managedsuppliers.com/llms.txt.

@@ -14,3 +14,6 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://www.aventario.com/sitemap.xml
+
+# Plain-language site summary for AI answer engines
+# https://www.aventario.com/llms.txt
