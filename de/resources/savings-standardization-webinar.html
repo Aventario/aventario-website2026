@@ -140,7 +140,7 @@
                     <p class="text-lg md:text-xl text-text font-bold leading-snug mb-2">Freitag, 17. Juli 2026, 14:00 Uhr MEZ. Kostenlos.</p>
                     <p class="text-base md:text-lg text-muted leading-snug mb-7">Live auf Englisch. Aufzeichnung an jeden angemeldeten Teilnehmer.</p>
 
-                    <div id="register" class="bg-surface border border-bordercolor rounded-md p-6 md:p-8 relative overflow-hidden">
+                    <div id="register" data-event-date="2026-07-17" class="bg-surface border border-bordercolor rounded-md p-6 md:p-8 relative overflow-hidden">
                         <div class="dot-grid"></div>
                         <p class="font-serif text-xl md:text-2xl mb-3">Sichern Sie sich Ihren Platz.</p>
                         <p class="text-base text-muted mb-6 leading-snug">Keine Zahlung, keine Verpflichtung. Ein Klick zur Anmeldung über unsere Webinar-Plattform.</p>
@@ -391,7 +391,9 @@
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
         if (btn && menu) { btn.addEventListener('click', () => menu.classList.toggle('hidden')); }
-        // Placeholder note for Julian: replace href="#" on #registerButton with the EverWebinar registration URL when ready.
+        // #registerButton still has no destination. Put the EverWebinar URL on it when
+        // the next session is scheduled. Until then the expired state below replaces the
+        // whole box, so nobody clicks a button that goes nowhere.
     </script>
 
     <!-- Aventario cookie consent banner -->
@@ -426,5 +428,40 @@
     })();
     </script>
       <script defer src="/assets/js/forms.js"></script>
+    <script>
+      /* A live event page whose date has passed is worse than no page: it takes
+         registrations for something that already happened. Both webinar pages sat
+         live for weeks past their date, one of them behind a Register button that
+         pointed at href="#" and went nowhere.
+
+         Mark the register box with data-event-date. After that date the box is
+         replaced with the truth and a way to reach a human, and the page asks
+         search engines not to index it. */
+      (function () {
+        var box = document.querySelector('[data-event-date]');
+        if (!box) return;
+        var when = new Date(box.getAttribute('data-event-date') + 'T23:59:59+02:00');
+        if (new Date() <= when) return;
+
+        var de = (document.documentElement.lang || 'en').slice(0, 2) === 'de';
+        var copy = de
+          ? { h: 'Dieses Webinar hat bereits stattgefunden.',
+              p: 'Der Termin liegt in der Vergangenheit. Schreiben Sie uns, wenn Sie die Aufzeichnung möchten oder beim nächsten Termin dabei sein wollen.',
+              cta: 'Kontakt aufnehmen', href: '/de/contact' }
+          : { h: 'This session has already taken place.',
+              p: 'The date has passed. Get in touch if you would like the recording, or if you want to join the next one.',
+              cta: 'Get in touch', href: '/contact' };
+
+        box.innerHTML =
+          '<p class="font-serif text-xl md:text-2xl mb-3">' + copy.h + '</p>' +
+          '<p class="text-base text-muted mb-6 leading-snug">' + copy.p + '</p>' +
+          '<a href="' + copy.href + '" class="cta-primary w-full justify-center" ' +
+          'style="font-size:1rem; padding:1.15rem 2.25rem;">' + copy.cta + '</a>';
+
+        var m = document.querySelector('meta[name="robots"]');
+        if (!m) { m = document.createElement('meta'); m.name = 'robots'; document.head.appendChild(m); }
+        m.content = 'noindex, follow';
+      })();
+    </script>
 </body>
 </html>

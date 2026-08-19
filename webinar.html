@@ -68,7 +68,7 @@
             <div class="bg-surface border border-bordercolor rounded-xl p-6 md:p-8 shadow-sm">
                 <h2 class="font-serif text-2xl mb-1">Save your seat.</h2>
                 <p class="text-sm text-muted mb-6">Limited to 100 attendees. We'll email you the join link.</p>
-                <form id="regForm" class="space-y-4" novalidate>
+                <form id="regForm" data-event-date="2026-06-26" class="space-y-4" novalidate>
                     <div>
                         <label for="r-name" class="block text-sm font-bold mb-1.5">Name</label>
                         <input id="r-name" name="name" type="text" autocomplete="name" required class="field">
@@ -174,5 +174,40 @@
     })();
     </script>
       <script defer src="/assets/js/forms.js"></script>
+    <script>
+      /* A live event page whose date has passed is worse than no page: it takes
+         registrations for something that already happened. Both webinar pages sat
+         live for weeks past their date, one of them behind a Register button that
+         pointed at href="#" and went nowhere.
+
+         Mark the register box with data-event-date. After that date the box is
+         replaced with the truth and a way to reach a human, and the page asks
+         search engines not to index it. */
+      (function () {
+        var box = document.querySelector('[data-event-date]');
+        if (!box) return;
+        var when = new Date(box.getAttribute('data-event-date') + 'T23:59:59+02:00');
+        if (new Date() <= when) return;
+
+        var de = (document.documentElement.lang || 'en').slice(0, 2) === 'de';
+        var copy = de
+          ? { h: 'Dieses Webinar hat bereits stattgefunden.',
+              p: 'Der Termin liegt in der Vergangenheit. Schreiben Sie uns, wenn Sie die Aufzeichnung möchten oder beim nächsten Termin dabei sein wollen.',
+              cta: 'Kontakt aufnehmen', href: '/de/contact' }
+          : { h: 'This session has already taken place.',
+              p: 'The date has passed. Get in touch if you would like the recording, or if you want to join the next one.',
+              cta: 'Get in touch', href: '/contact' };
+
+        box.innerHTML =
+          '<p class="font-serif text-xl md:text-2xl mb-3">' + copy.h + '</p>' +
+          '<p class="text-base text-muted mb-6 leading-snug">' + copy.p + '</p>' +
+          '<a href="' + copy.href + '" class="cta-primary w-full justify-center" ' +
+          'style="font-size:1rem; padding:1.15rem 2.25rem;">' + copy.cta + '</a>';
+
+        var m = document.querySelector('meta[name="robots"]');
+        if (!m) { m = document.createElement('meta'); m.name = 'robots'; document.head.appendChild(m); }
+        m.content = 'noindex, follow';
+      })();
+    </script>
 </body>
 </html>
