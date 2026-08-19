@@ -16,16 +16,29 @@ import { createClient } from "jsr:@supabase/supabase-js@2";
 //   GOOGLE_SA_JSON      a Google service account key, the whole JSON as one string.
 //                       Grant that service account Viewer on the GA4 property and
 //                       read access on the Search Console property.
-//   GA4_PROPERTY_ID     numeric GA4 property id, no "properties/" prefix.
-//   GSC_SITE_URL        exactly as it appears in Search Console, e.g. https://www.aventario.com/
+//   GA4_PROPERTY_ID / GA4_PROPERTY_ID_MS   numeric GA4 property ids, no "properties/" prefix.
+//   GSC_SITE_URL / GSC_SITE_URL_MS         exactly as they appear in Search Console.
 //
 // Deployed as: supabase function weekly-report (verify_jwt = false; guarded by x-hook-secret).
 
 const HOOK_SECRET = Deno.env.get("HOOK_SECRET") ?? "";
 const TEAMS_WEBHOOK_URL = Deno.env.get("TEAMS_WEBHOOK_URL");
 const GOOGLE_SA_JSON = Deno.env.get("GOOGLE_SA_JSON");
-const GA4_PROPERTY_ID = Deno.env.get("GA4_PROPERTY_ID");
-const GSC_SITE_URL = Deno.env.get("GSC_SITE_URL");
+
+// One service account, two websites. Each site has its own GA4 property and its
+// own Search Console property, so each needs its own pair of ids.
+const SITES = [
+  {
+    name: "aventario.com",
+    ga4: Deno.env.get("GA4_PROPERTY_ID"),
+    gsc: Deno.env.get("GSC_SITE_URL"),
+  },
+  {
+    name: "managedsuppliers.com",
+    ga4: Deno.env.get("GA4_PROPERTY_ID_MS"),
+    gsc: Deno.env.get("GSC_SITE_URL_MS"),
+  },
+];
 
 const DAY = 864e5;
 const ymd = (d: Date) => d.toISOString().slice(0, 10);
@@ -94,13 +107,13 @@ async function googleToken(scopes: string[]): Promise<string | null> {
 
 type Ga4 = { sessions: number; users: number; conversions: number; topPages: string[] } | null;
 
-async function ga4(from: Date, to: Date): Promise<Ga4> {
-  if (!GA4_PROPERTY_ID) return null;
+async function ga4(propertyId: string | undefined, from: Date, to: Date): Promise<Ga4> {
+  if (!propertyId) return null;
   const token = await googleToken(["https://www.googleapis.com/auth/analytics.readonly"]);
   if (!token) return null;
 
   const call = (body: unknown) =>
-    fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${GA4_PROPERTY_ID}:runReport`, {
+    fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runReport`, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -134,12 +147,12 @@ async function ga4(from: Date, to: Date): Promise<Ga4> {
 
 type Gsc = { clicks: number; impressions: number; position: number; topQueries: string[] } | null;
 
-async function gsc(from: Date, to: Date): Promise<Gsc> {
-  if (!GSC_SITE_URL) return null;
+async function gsc(siteUrl: string | undefined, from: Date, to: Date): Promise<Gsc> {
+  if (!siteUrl) return null;
   const token = await googleToken(["https://www.googleapis.com/auth/webmasters.readonly"]);
   if (!token) return null;
 
-  const url = `https://searchconsole.googleapis.com/webmasters/v3/sites/${encodeURIComponent(GSC_SITE_URL)}/searchAnalytics/query`;
+  const url = `https://searchconsole.googleapis.com/webmasters/v3/sites/${encodeURIComponent(siteUrl)}/searchAnalytics/query`;
   const call = (body: unknown) =>
     fetch(url, {
       method: "POST",
@@ -179,14 +192,13 @@ Deno.serve(async (req) => {
   const from = new Date(to.getTime() - 7 * DAY);
   const sb = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
 
-  const [leads, subs, webi, analytics, search] = await Promise.all([
+  const [leads, subs, webi] = await Promise.all([
     sb.from("leads").select("source,utm_source,utm_campaign").gte("created_at", from.toISOString()),
     sb.from("subscribers").select("id").gte("created_at", from.toISOString()),
     sb.from("webinar_registrations").select("id").gte("created_at", from.toISOString()),
-    ga4(from, to),
-    gsc(from, to),
   ]);
 
+  // Both websites write into the same tables, so lead numbers already cover both.
   const leadRows = leads.data ?? [];
   const bySource = leadRows.reduce((acc: Record<string, number>, r: any) => {
     const k = r.utm_campaign || r.utm_source || r.source || "direct";
@@ -198,7 +210,7 @@ Deno.serve(async (req) => {
   const body: unknown[] = [
     { type: "TextBlock", text: "Website report", weight: "Bolder", size: "Medium", color: "Accent" },
     { type: "TextBlock", text: `${ymd(from)} to ${ymd(to)}`, isSubtle: true, size: "Small" },
-    { type: "TextBlock", text: "Leads and signups", weight: "Bolder", spacing: "Medium" },
+    { type: "TextBlock", text: "Leads and signups, both websites", weight: "Bolder", spacing: "Medium" },
     factSet([
       { title: "Contact leads", value: String(leadRows.length) },
       { title: "Newsletter signups", value: String(subs.data?.length ?? 0) },
@@ -207,28 +219,38 @@ Deno.serve(async (req) => {
     ]),
   ];
 
-  if (analytics) {
-    body.push({ type: "TextBlock", text: "Traffic", weight: "Bolder", spacing: "Medium" });
-    body.push(factSet([
-      { title: "Sessions", value: String(analytics.sessions) },
-      { title: "Users", value: String(analytics.users) },
-      { title: "Key events", value: String(analytics.conversions) },
-      { title: "Top pages", value: analytics.topPages.join("\n") || "no data" },
-    ]));
-  } else {
-    body.push({ type: "TextBlock", text: "Traffic: GA4 not connected. Set GOOGLE_SA_JSON and GA4_PROPERTY_ID.", isSubtle: true, size: "Small", wrap: true, spacing: "Medium" });
+  // Traffic and search are per website, so each gets its own block.
+  const missing: string[] = [];
+  for (const site of SITES) {
+    const [analytics, search] = await Promise.all([ga4(site.ga4, from, to), gsc(site.gsc, from, to)]);
+    if (!analytics && !search) {
+      missing.push(site.name);
+      continue;
+    }
+    body.push({ type: "TextBlock", text: site.name, weight: "Bolder", spacing: "Medium", color: "Accent" });
+    if (analytics) {
+      body.push(factSet([
+        { title: "Sessions", value: String(analytics.sessions) },
+        { title: "Users", value: String(analytics.users) },
+        { title: "Key events", value: String(analytics.conversions) },
+        { title: "Top pages", value: analytics.topPages.join("\n") || "no data" },
+      ]));
+    }
+    if (search) {
+      body.push(factSet([
+        { title: "Search clicks", value: String(search.clicks) },
+        { title: "Impressions", value: String(search.impressions) },
+        { title: "Average position", value: String(search.position) },
+        { title: "Top queries", value: search.topQueries.join("\n") || "no data" },
+      ]));
+    }
   }
-
-  if (search) {
-    body.push({ type: "TextBlock", text: "Google search", weight: "Bolder", spacing: "Medium" });
-    body.push(factSet([
-      { title: "Clicks", value: String(search.clicks) },
-      { title: "Impressions", value: String(search.impressions) },
-      { title: "Average position", value: String(search.position) },
-      { title: "Top queries", value: search.topQueries.join("\n") || "no data" },
-    ]));
-  } else {
-    body.push({ type: "TextBlock", text: "Google search: Search Console not connected. Set GOOGLE_SA_JSON and GSC_SITE_URL.", isSubtle: true, size: "Small", wrap: true, spacing: "Medium" });
+  if (missing.length) {
+    body.push({
+      type: "TextBlock",
+      text: `No traffic or search data for ${missing.join(" and ")}. Set GOOGLE_SA_JSON, then the GA4 property id and Search Console URL for each site.`,
+      isSubtle: true, size: "Small", wrap: true, spacing: "Medium",
+    });
   }
 
   const payload = {
@@ -257,7 +279,7 @@ Deno.serve(async (req) => {
     body: JSON.stringify(payload),
   });
   console.log("[weekly-report]", r.status, await r.text());
-  return new Response(JSON.stringify({ ok: r.ok, leads: leadRows.length, ga4: !!analytics, gsc: !!search }), {
+  return new Response(JSON.stringify({ ok: r.ok, leads: leadRows.length, sitesWithData: SITES.length - missing.length }), {
     status: 200, headers: { "Content-Type": "application/json" },
   });
 });
