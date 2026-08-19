@@ -748,7 +748,7 @@
                     <ul class="space-y-2 text-sm text-surface/80">
                         <li><a href="mailto:office@aventario.com" class="hover:text-accent">office@aventario.com</a></li>
                         <li>Tuchlauben 7a, 1010 Vienna</li>
-                        <li>+43 134 3354012</li>
+                        <li><a href="tel:+431343354012" class="hover:text-accentdark">+43 134 3354012</a></li>
                     </ul>
                 </div>
                 <div class="md:col-span-2">
@@ -930,5 +930,6 @@
      document.getElementById('av-decline').addEventListener('click',function(){try{localStorage.setItem('av-consent','denied');}catch(e){}el.hidden=true;});
     })();
     </script>
-  </body>
+      <script defer src="/assets/js/forms.js"></script>
+</body>
 </html>

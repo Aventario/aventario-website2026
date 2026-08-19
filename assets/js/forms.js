@@ -97,8 +97,61 @@
     });
   }
 
+
+  /* ---- click tracking ------------------------------------------------ */
+
+  /** Sends to GA4 if the visitor has accepted analytics. gtag exists on every
+   *  page, but only actually reports once consent loaded the tag, so a denied
+   *  visitor costs nothing and nothing is queued behind their back. */
+  function track(name, params) {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+  }
+
+  /** Everything a marketer would call a conversion, or a step toward one, was
+   *  untracked before 13.08.2026: every CTA, both PDFs, the assessment link,
+   *  mailto and tel. Sessions were measured, intent was not. */
+  function wireClicks() {
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a') : null;
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      var label = (a.textContent || '').trim().slice(0, 80);
+      var page = location.pathname;
+
+      if (href.indexOf('mailto:') === 0) {
+        return track('contact_click', { method: 'email', link_url: href.slice(7), page_path: page });
+      }
+      if (href.indexOf('tel:') === 0) {
+        return track('contact_click', { method: 'phone', link_url: href.slice(4), page_path: page });
+      }
+      if (/\.(pdf|docx?|pptx?|xlsx?)($|\?)/i.test(href)) {
+        return track('file_download', { file_name: href.split('/').pop().split('?')[0], link_text: label, page_path: page });
+      }
+      if (/typeform\.com/i.test(href)) {
+        return track('assessment_start', { link_text: label, page_path: page });
+      }
+      if (/managedsuppliers\.com/i.test(href)) {
+        // The two sites have separate GA4 properties, so a referred visitor cannot
+        // be stitched into one session. This at least records that we sent them.
+        return track('outbound_to_product', { link_text: label, page_path: page });
+      }
+      if (/^(https?:)?\/\//.test(href) && href.indexOf(location.hostname) === -1) {
+        return track('outbound_click', { link_url: href, link_text: label, page_path: page });
+      }
+      if (/\/contact|\/de\/contact/.test(href) || /book|termin|gespr|call/i.test(label)) {
+        return track('cta_click', { link_text: label, destination: href, page_path: page });
+      }
+    }, true);
+
+    // A 404 is a broken link somewhere. Without this nobody ever learns which.
+    if (document.title.indexOf('Page not found') === 0 || document.title.indexOf('Seite nicht gefunden') === 0) {
+      track('page_not_found', { page_path: location.pathname, referrer: document.referrer || '(none)' });
+    }
+  }
+
   function init() {
     attribution();
+    wireClicks();
     var forms = document.querySelectorAll('form[data-newsletter]');
     for (var i = 0; i < forms.length; i++) wireNewsletter(forms[i]);
   }
